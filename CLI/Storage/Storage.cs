@@ -1,7 +1,7 @@
-using CRUDExample.Model;
-using CRUDExample.Serialization;
+using StudentskaSluzba.Model;
+using StudentskaSluzba.Serialization;
 
-namespace CRUDExample.Storage;
+namespace StudentskaSluzba.Storage;
 
 /*
  * Klasa koja je zadužena za čuvanje podataka u fajl sistemu.
