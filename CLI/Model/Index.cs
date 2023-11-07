@@ -36,14 +36,23 @@ class Index : ISerializable
         YOE = int.Parse(values[2]);
     }
 
-    public string Parse()
+    public string ToString2()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append(college_major+number_mark+YOE);
+        sb.Append(college_major+"-"+number_mark + "-" + YOE);
 
         return sb.ToString();
     }
 
+    public void FromString(string index)
+    {
+        string[] index_parts = index.Split('-');
+        college_major = index_parts[0];
+        number_mark = int.Parse(index_parts[1]);
+        YOE = int.Parse(index_parts[2]);
+
+
+    }
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
