@@ -32,6 +32,7 @@ class Department : ISerializable
         Id = id;
         Name = name;
         Hod = hod;
+        Department_Professors = new List<Professor>();
     }
 
     public string[] ToCSV()
