@@ -17,6 +17,18 @@ public class EntityDAO<T> where T : ISerializable, new()
         entities = storage.Load();
     }
 
+   
+    /*private int GenerateId()
+    {
+        if (entities.Count == 0)
+            return 0;
+        return entities[^1].Id + 1;
 
-
+    }*/
+    public T AddEntity(T t)
+    {
+        entities.Add(t);
+        storage.Save(entities);
+        return t;
+    }
 }
