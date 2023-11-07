@@ -51,7 +51,7 @@ class Student : ISerializable
     {
         string[] csvValues =
         {
-            Last_Name, First_Name, Date_Of_Birth.ToString(),
+            Last_Name, First_Name, Date_Of_Birth.ToString(), Address.ToString2(),
             Phone_Number.ToString(), Email, index_number.ToString2(),
             Current_Year.ToString(), Status.ToString(), Average_Grade.ToString()
             
@@ -65,11 +65,12 @@ class Student : ISerializable
         First_Name = values[1];
         Date_Of_Birth = DateOnly.Parse(values[2]);
         Phone_Number = int.Parse(values[3]);
-        Email = values[4];
-        index_number.FromString(values[5]);
-        Current_Year = int.Parse(values[6]); // da li treba racunati automatski tren_godina - godina_iz_indeksa
-        Enum.Parse(typeof(Status), values[7], true);
-        Average_Grade = int.Parse(values[8]);
+        Address.FromString(values[4]);
+        Email = values[5];
+        index_number.FromString(values[6]);
+        Current_Year = int.Parse(values[7]); // da li treba racunati automatski tren_godina - godina_iz_indeksa
+        Enum.Parse(typeof(Status), values[8], true);
+        Average_Grade = int.Parse(values[9]);
 
 
     }
@@ -77,10 +78,17 @@ class Student : ISerializable
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append($"B: {Id}, ");
-        sb.Append($"IME: {Name}, ");
-        sb.Append("SUBJECTS:");
-        sb.AppendJoin(", ", Subjects.Select(subject => subject.Name));
+        sb.Append($"BROJ INDEKSA: {index_number.ToString2()}, ");
+        sb.Append($"IME: {First_Name + Last_Name}, ");
+        sb.Append($"DATUM RODJENJA: {Date_Of_Birth}, ");
+        sb.Append($"ADRESA: {Address.ToString2()}, ");
+        sb.Append($"KONTAKT TELEFON: {Phone_Number.ToString()}, ");
+        sb.Append($"E-MAIL: {Email.ToString()}, ");
+        sb.Append($"GODINA STUDIJA: {Current_Year.ToString()}, ");
+        sb.Append($"STATUS: {Status.ToString()},");
+        sb.Append($"PROSECNA OCENA: {Average_Grade.ToString()}, ");
+        sb.AppendJoin(", ", Passed_Exams.Select(passed_grade => passed_grade.grade));
+
         // ili
         // foreach (Subject sub in Subjects)
         // {
