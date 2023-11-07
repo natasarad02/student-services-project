@@ -6,6 +6,5 @@ public interface ISerializable
 
     void FromCSV(string[] values);
 
-    void GetEntityById(string id);
-    void UpdateEntity();
+  
 }
