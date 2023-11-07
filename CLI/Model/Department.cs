@@ -32,6 +32,7 @@ class Department : ISerializable
         Id = id;
         Name = name;
         Hod = hod;
+        Department_Professors = new List<Professor>();
     }
 
     public string[] ToCSV()
@@ -57,7 +58,7 @@ class Department : ISerializable
         sb.Append($"IME KATEDRE: {Name}, ");
         sb.Append($"SEF KATEDRE: {Hod}, ");
         sb.Append($"PROFESORI:");
-        sb.AppendJoin(", ", Department_Professors.Select(prof => prof.Name());
+        sb.AppendJoin(", ", Department_Professors.Select(prof => prof.Name));
         return sb.ToString();
     }
 
