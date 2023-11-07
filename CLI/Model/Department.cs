@@ -43,5 +43,12 @@ class Department : ISerializable
         return csvValues;
     }
 
+    public void FromCSV(string[] values)
+    {
+        Id = int.Parse(values[0]);
+        Name = values[1];
+        Hod = values[2];
+    }
+
 
 }
