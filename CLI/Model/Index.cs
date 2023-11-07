@@ -44,6 +44,14 @@ class Index : ISerializable
         return sb.ToString();
     }
 
+    public string getID()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append(college_major + "-" + number_mark + "-" + YOE);
+
+        return sb.ToString();
+    }
+
     public void FromString(string index)
     {
         string[] index_parts = index.Split('-');

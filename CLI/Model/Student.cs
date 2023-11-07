@@ -75,6 +75,13 @@ class Student : ISerializable
 
     }
 
+    public string getID()
+    {
+        string ID = index_number.ToString2();
+        return ID;
+    
+    }
+
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
@@ -88,15 +95,7 @@ class Student : ISerializable
         sb.Append($"STATUS: {Status.ToString()},");
         sb.Append($"PROSECNA OCENA: {Average_Grade.ToString()}, ");
         sb.AppendJoin(", ", Passed_Exams.Select(passed_grade => passed_grade.grade));
-        //treba videti sta sa nepolozenim
-
-        // ili
-        // foreach (Subject sub in Subjects)
-        // {
-        //     text += sub.Name + ", ";
-        // }
         return sb.ToString();
     }
-
     
 }

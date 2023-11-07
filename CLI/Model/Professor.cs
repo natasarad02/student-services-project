@@ -104,6 +104,12 @@ class Professor : ISerializable
         return csvValues;
     }
 
+    public string getID()
+    {
+        string ID = Id.ToString();  
+        return ID;
+    }
+
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();

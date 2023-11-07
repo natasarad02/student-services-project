@@ -90,6 +90,12 @@ class Subject : ISerializable
 
     }
 
+    public string getID()
+    {
+        string ID = Id.ToString();
+        return ID;
+    }
+
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
