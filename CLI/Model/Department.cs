@@ -59,6 +59,7 @@ class Department : ISerializable
         sb.Append($"SEF KATEDRE: {Hod}, ");
         sb.Append($"PROFESORI:");
         sb.AppendJoin(", ", Department_Professors.Select(prof => prof.Name));
+        sb.AppendJoin(", ", Department_Professors.Select(prof => prof.Surname));
         return sb.ToString();
     }
 
