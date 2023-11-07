@@ -84,7 +84,7 @@ class Subject : ISerializable
         Name = values[1];
         Espb = int.Parse(values[2]);
         //ProfessorId = int.Parse(values[3]);
-        ///Professor = FromCSV(values[3]),
+        //Professor = FromCSV(values[3]);
         Enum.Parse(typeof(semester), values[4], true);
         year = int.Parse(values[5]);
 

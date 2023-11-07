@@ -1,11 +1,15 @@
 ﻿using System.Text;
 using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
+using System.Diagnostics.Metrics;
+using System.IO;
+
 namespace StudentskaSluzba.Model;
 
 enum Status{B, S}
 class Student : ISerializable
 {
+
     public string Last_Name { get; set; }
     public string First_Name { get; set; }
 
@@ -20,9 +24,23 @@ class Student : ISerializable
     public int Average_Grade { get; set; }
     public List<ExamGrade> Passed_Exams { get; set; }
     public List<ExamGrade> Failed_Exams { get; set; }
+    public string ID
+    {
+        get
+        {
+            return ID;
+        }
+        set
+        {
+            //StringBuilder sb = new StringBuilder();
+            //sb.Append(Street + Number + City + Country);
+
+            ID = index_number.ToString2();
+        }
+    }
 
 
-  //  public List<Subject> Subjects { get; set; }
+    //  public List<Subject> Subjects { get; set; }
 
 
     public Student()
@@ -33,6 +51,7 @@ class Student : ISerializable
 
     public Student(string lname, string fname, DateOnly brdate, Address adr, int num, string email, Index idnum, int cyear, Status s, int avg)
     {
+        
         Last_Name = lname;
         First_Name = fname;
         Date_Of_Birth = brdate;
@@ -51,7 +70,7 @@ class Student : ISerializable
     {
         string[] csvValues =
         {
-            Last_Name, First_Name, Date_Of_Birth.ToString(), Address.ToString2(),
+            ID, Last_Name, First_Name, Date_Of_Birth.ToString(), Address.ToString2(),
             Phone_Number.ToString(), Email, index_number.ToString2(),
             Current_Year.ToString(), Status.ToString(), Average_Grade.ToString()
             
@@ -61,16 +80,17 @@ class Student : ISerializable
 
     public void FromCSV(string[] values)
     {
-        Last_Name = values[0];
-        First_Name = values[1];
-        Date_Of_Birth = DateOnly.Parse(values[2]);
-        Phone_Number = int.Parse(values[3]);
-        Address.FromString(values[4]);
-        Email = values[5];
-        index_number.FromString(values[6]);
-        Current_Year = int.Parse(values[7]); // da li treba racunati automatski tren_godina - godina_iz_indeksa
-        Enum.Parse(typeof(Status), values[8], true);
-        Average_Grade = int.Parse(values[9]);
+        ID = values[0];
+        Last_Name = values[1];
+        First_Name = values[2];
+        Date_Of_Birth = DateOnly.Parse(values[3]);
+        Phone_Number = int.Parse(values[4]);
+        Address.FromString(values[5]);
+        Email = values[6];
+        index_number.FromString(values[7]);
+        Current_Year = int.Parse(values[8]); // da li treba racunati automatski tren_godina - godina_iz_indeksa
+        Enum.Parse(typeof(Status), values[9], true);
+        Average_Grade = int.Parse(values[10]);
 
 
     }
