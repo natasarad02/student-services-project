@@ -55,7 +55,7 @@ class Professor : ISerializable
         Subjects = new List<Subject>();
     }
 
-    public Professor(int id, string name, string surname, )
+    public Professor(int id, string name, string surname,)
     {
         Id = id;
         Name = name;
