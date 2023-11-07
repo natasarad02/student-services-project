@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;ial
+using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using StudentskaSluzba.Model;
 using StudentskaSluzba.Serialization;
 
-namespace CLI.Model;
+namespace StudentskaSluzba.Model;
 
-internal class Index : ISerializable
+class Index : ISerializable
 {
 
     public string college_major { get; set; }

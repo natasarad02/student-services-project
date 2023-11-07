@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using StudentskaSluzba.Serialization;
 
-namespace CLI.Model;
+namespace StudentskaSluzba.Model;
 
-internal class ExamGrade : ISerializable
+class ExamGrade : ISerializable
 {
 
     public DateOnly grading_day { get; set; }

@@ -1,11 +1,13 @@
 ﻿using System.Text;
 using StudentskaSluzba.Serialization;
-
+using StudentskaSluzba.Model;
 namespace StudentskaSluzba.Model;
 
 class Student : ISerializable
 {
-    public int Id { get; set; }
+    public string Last_Name { get; set; }
+
+    public Index index_number { get; set; } // using it as Id
     public string Name { get; set; }
 
     public List<Subject> Subjects { get; set; }
