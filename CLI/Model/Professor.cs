@@ -15,6 +15,16 @@ class Professor : ISerializable
     public Address Address { get; set; }
 
     public DateOnly birth_date { get; set; }
+    public int employment_year { get; set; }
+
+    public int work_year {
+        get {  return employment_year; }
+
+        set {
+            int currentYear = DateTime.Now.Year;
+            work_year = currentYear - employment_year; 
+            }
+    }
 
     public string phone_number
     {
@@ -32,6 +42,7 @@ class Professor : ISerializable
                 Console.WriteLine("Phone number isn't in the right format (06x/xxxxxxx)");
             }
         }
+
     
     }
 
@@ -46,7 +57,7 @@ class Professor : ISerializable
         Subjects = new List<Subject>();
     }
 
-    public Professor(int id, string name)
+    public Professor(int id, string name, string surname, )
     {
         Id = id;
         Name = name;
