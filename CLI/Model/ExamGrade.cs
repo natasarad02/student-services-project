@@ -36,8 +36,21 @@ class ExamGrade : ISerializable
     
     }
 
-    //student?
-    // predmet
+    public Student student { get; set; }
+
+    public Subject subject { get; set; }
+
+    public string ID 
+    {
+
+        get { return ID; }
+
+        set
+        {
+            ID = student.getID() + subject.getID();
+        }
+
+    }
 
     public string[] ToCSV()
     {
@@ -53,6 +66,11 @@ class ExamGrade : ISerializable
     {
         grading_day = DateOnly.Parse(values[0]);
         grade = int.Parse(values[1]);
+    }
+
+    public string getID()
+    {
+        return ID;
     }
 
     public override string ToString()

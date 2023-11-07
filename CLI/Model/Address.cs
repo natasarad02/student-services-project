@@ -64,6 +64,14 @@ class Address : ISerializable
         Country = vals[3];
     }
 
+    public string getID()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append(Street + Number + City+ Country);
+
+        return sb.ToString();
+    }
+
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
