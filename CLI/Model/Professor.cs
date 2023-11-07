@@ -46,10 +46,6 @@ class Professor : ISerializable
     
     }
 
-
-
-    }
-
     public List<Subject> Subjects { get; set; }
 
     public Professor()
@@ -95,3 +91,7 @@ class Professor : ISerializable
         return sb.ToString();
     }
 }
+
+    
+
+   
