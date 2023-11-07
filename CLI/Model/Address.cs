@@ -38,4 +38,12 @@ class Address : ISerializable
         };
         return csvValues;
     }
+
+    public void FromCSV(string[] vals)
+    {
+        Street = vals[0];
+        Number = int.Parse(vals[1]);
+        City = vals[2];
+        Country = vals[3];
+    }
 }
