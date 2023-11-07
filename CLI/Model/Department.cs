@@ -21,11 +21,11 @@ class Department : ISerializable
     public string Name { get; set; }
     public string Hod { get; set; } // Head Of Department
 
-    public List<Professor> department_professors { get; set; }
+    public List<Professor> Department_Professors { get; set; }
 
     public Department()
     {
-        department_professors = new List<Professor>();
+        Department_Professors = new List<Professor>();
     }
     public Department(int id, string name, string hod)
     {
@@ -50,5 +50,15 @@ class Department : ISerializable
         Hod = values[2];
     }
 
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append($"ID: {Id}, ");
+        sb.Append($"IME KATEDRE: {Name}, ");
+        sb.Append($"SEF KATEDRE: {Hod}, ");
+        sb.Append($"PROFESORI:");
+        sb.AppendJoin(", ", Department_Professors.Select(prof => prof.Name());
+        return sb.ToString();
+    }
 
 }
