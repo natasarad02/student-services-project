@@ -1,6 +1,6 @@
-﻿using SerializationExample.Serialization;
+﻿using StudentskaSluzba.Serialization;
 
-namespace SerializationExample.Model;
+namespace StudentskaSluzba.Model;
 
 class StudentSubject : ISerializable
 {

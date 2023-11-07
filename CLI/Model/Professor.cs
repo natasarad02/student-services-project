@@ -1,7 +1,7 @@
 ﻿using System.Text;
-using SerializationExample.Serialization;
+using StudentskaSluzba.Serialization;
 
-namespace SerializationExample.Model;
+namespace StudentskaSluzba.Model;
 
 class Professor : ISerializable
 {
