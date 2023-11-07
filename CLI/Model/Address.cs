@@ -72,6 +72,8 @@ class Address : ISerializable
         return sb.ToString();
     }
 
+    //novo je gore
+
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
