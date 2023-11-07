@@ -31,7 +31,7 @@ class Professor : ISerializable
         get { return phone_number; }
 
         set
-        {
+        {   /*
             string reg_pattern = @"06[0-9]\/[0-9]{6,6}[0-9]?";
             Regex rg = new Regex(reg_pattern);
             if (Regex.Match(value, reg_pattern).Success) { 
@@ -40,7 +40,8 @@ class Professor : ISerializable
             else 
             {   
                 Console.WriteLine("Phone number isn't in the right format (06x/xxxxxxx)");
-            }
+            }*/
+            phone_number = value;
         }
 
     
@@ -48,7 +49,6 @@ class Professor : ISerializable
 
 
 
-    }
 
     public List<Subject> Subjects { get; set; }
 
