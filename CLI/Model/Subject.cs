@@ -85,7 +85,7 @@ class Subject : ISerializable
         Espb = int.Parse(values[2]);
         //ProfessorId = int.Parse(values[3]);
         ///Professor = FromCSV(values[3]),
-        Enum.Parse(typeof(semester), values[4], true),
+        Enum.Parse(typeof(semester), values[4], true);
         year = int.Parse(values[5]);
 
     }
@@ -97,8 +97,11 @@ class Subject : ISerializable
         sb.Append($"NAME: {Name}, ");
         sb.Append($"ESPB: {Espb}, ");
         sb.Append("STUDENTS: ");
-        sb.AppendJoin(", ", Students_passed.Select(student => student.Name));
-        sb.AppendJoin(", ", Students_attending.Select(student => student.Name));
+        sb.AppendJoin(", ", Students_passed.Select(student => student.Last_Name));
+        sb.AppendJoin(", ", Students_passed.Select(student => student.First_Name));
+        sb.AppendJoin(", ", Students_attending.Select(student => student.Last_Name));
+        sb.AppendJoin(", ", Students_attending.Select(student => student.First_Name));
+
         return sb.ToString();
     }
 }
