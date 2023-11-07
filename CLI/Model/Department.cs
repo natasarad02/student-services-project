@@ -34,7 +34,14 @@ class Department : ISerializable
         Hod = hod;
     }
 
-
+    public string[] ToCSV()
+    {
+        string[] csvValues =
+        {
+            Id.ToString(), Name, Hod
+        };
+        return csvValues;
+    }
 
 
 }
