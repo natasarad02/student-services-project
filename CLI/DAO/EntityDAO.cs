@@ -32,3 +32,4 @@ public class EntityDAO<T> where T : ISerializable, new()
         return t;
     }
 }
+//
