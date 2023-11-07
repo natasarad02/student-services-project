@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace CRUDExample.Serialization;
+namespace StudentskaSluzba.Serialization;
 
 /*
  * Generička klasa za serijalizaciju objekta u CSV format.

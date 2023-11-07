@@ -1,4 +1,4 @@
-﻿namespace CRUDExample.Serialization;
+﻿namespace StudentskaSluzba.Serialization;
 
 public interface ISerializable
 {
