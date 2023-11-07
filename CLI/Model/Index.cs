@@ -36,6 +36,14 @@ class Index : ISerializable
         YOE = int.Parse(values[2]);
     }
 
+    public string Parse()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append(college_major+number_mark+YOE);
+
+        return sb.ToString();
+    }
+
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
