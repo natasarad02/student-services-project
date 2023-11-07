@@ -29,7 +29,24 @@ class Address : ISerializable
 
 
     }
+    public string ToString2()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append(Street + "," + Number + "," + City + "," + Country);
 
+        return sb.ToString();
+    }
+
+    public void FromString(string adr)
+    {
+        string[] address_parts = adr.Split(',');
+        Street = address_parts[0];
+        Number = int.Parse(address_parts[1]);
+        City = address_parts[2];
+        Country = address_parts[3];
+        
+
+    }
     public string[] ToCSV()
     {
         string[] csvValues =
