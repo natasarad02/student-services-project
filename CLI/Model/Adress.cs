@@ -19,4 +19,14 @@ class Adress : ISerializable
     public int Number { get; set; }
     public string City { get; set; }
     public string Country { get; set; }
+
+    public Adress(string street, int number, string city, string country)
+    {
+        Street = street;
+        Number = number;
+        City = city;
+        Country = country;
+
+
+    }
 }
