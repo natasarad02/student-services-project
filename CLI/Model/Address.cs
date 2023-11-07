@@ -46,4 +46,14 @@ class Address : ISerializable
         City = vals[2];
         Country = vals[3];
     }
+
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append($"ULICA: {Street},");
+        sb.Append($"BROJ: {Number},");
+        sb.Append($"GRAD: {City},");
+        sb.Append($"DRZAVA: {Country}");
+        return sb.ToString();
+    }
 }
