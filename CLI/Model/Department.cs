@@ -23,5 +23,18 @@ class Department : ISerializable
 
     public List<Professor> department_professors { get; set; }
 
+    public Department()
+    {
+        department_professors = new List<Professor>();
+    }
+    public Department(int id, string name, string hod)
+    {
+        Id = id;
+        Name = name;
+        Hod = hod;
+    }
+
+
+
 
 }
