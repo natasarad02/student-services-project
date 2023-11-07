@@ -61,8 +61,14 @@ class Student : ISerializable
 
     public void FromCSV(string[] values)
     {
-        Id = int.Parse(values[0]);
-        Name = values[1];
+        Last_Name = values[0];
+        First_Name = values[1];
+        Date_Of_Birth = DateOnly.Parse(values[2]);
+        Phone_Number = int.Parse(values[3]);
+        Email = values[4];
+        index_number = Index.Parse(values[4]);
+        Current_Year = int.Parse(values[5]);
+
     }
 
     public override string ToString()
