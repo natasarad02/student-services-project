@@ -52,7 +52,7 @@ class Student : ISerializable
         string[] csvValues =
         {
             Last_Name, First_Name, Date_Of_Birth.ToString(),
-            Phone_Number.ToString(), Email, index_number.ToString(),
+            Phone_Number.ToString(), Email, index_number.ToString2(),
             Current_Year.ToString(), Status.ToString(), Average_Grade.ToString()
             
         };
@@ -66,15 +66,18 @@ class Student : ISerializable
         Date_Of_Birth = DateOnly.Parse(values[2]);
         Phone_Number = int.Parse(values[3]);
         Email = values[4];
-        index_number = Index.Parse(values[4]);
-        Current_Year = int.Parse(values[5]);
+        index_number.FromString(values[5]);
+        Current_Year = int.Parse(values[6]); // da li treba racunati automatski tren_godina - godina_iz_indeksa
+        Enum.Parse(typeof(Status), values[7], true);
+        Average_Grade = int.Parse(values[8]);
+
 
     }
 
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append($"ID: {Id}, ");
+        sb.Append($"B: {Id}, ");
         sb.Append($"IME: {Name}, ");
         sb.Append("SUBJECTS:");
         sb.AppendJoin(", ", Subjects.Select(subject => subject.Name));
@@ -85,4 +88,6 @@ class Student : ISerializable
         // }
         return sb.ToString();
     }
+
+    
 }
