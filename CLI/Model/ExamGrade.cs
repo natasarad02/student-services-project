@@ -56,16 +56,23 @@ class ExamGrade : ISerializable
     {
         string[] csvValues =
         {
+            ID,
             grading_day.ToString(),
-            grade.ToString()
+            grade.ToString(),
+            student.ToString(),
+            subject.ToString()
         };
         return csvValues;
     }
 
     public void FromCSV(string[] values)
     {
-        grading_day = DateOnly.Parse(values[0]);
-        grade = int.Parse(values[1]);
+        ID = values[0];
+        grading_day = DateOnly.Parse(values[1]);
+        grade = int.Parse(values[2]);
+        // student = 
+        //subject = 
+
     }
 
     public string getID()

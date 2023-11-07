@@ -20,6 +20,21 @@ class Address : ISerializable
     public string City { get; set; }
     public string Country { get; set; }
 
+    public string ID
+    {
+        get
+        {
+            return ID;
+        }
+        set
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Street + Number + City + Country);
+
+            ID = sb.ToString();
+        }
+    }
+
     public Address(string street, int number, string city, string country)
     {
         Street = street;
@@ -51,17 +66,18 @@ class Address : ISerializable
     {
         string[] csvValues =
         {
-            Street, Number.ToString(), City, Country
+            ID, Street, Number.ToString(), City, Country
         };
         return csvValues;
     }
 
     public void FromCSV(string[] vals)
     {
-        Street = vals[0];
-        Number = int.Parse(vals[1]);
-        City = vals[2];
-        Country = vals[3];
+        ID = vals[0];
+        Street = vals[1];
+        Number = int.Parse(vals[2]);
+        City = vals[3];
+        Country = vals[4];
     }
 
     public string getID()
@@ -72,7 +88,6 @@ class Address : ISerializable
         return sb.ToString();
     }
 
-    //novo je gore
 
     public override string ToString()
     {

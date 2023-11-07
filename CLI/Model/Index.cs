@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,20 @@ namespace StudentskaSluzba.Model;
 class Index : ISerializable
 {
 
+    public string ID
+    {
+        get
+        {
+            return ID;
+        }
+        set
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(college_major+number_mark+YOE);
+
+            ID = sb.ToString();
+        }
+    }
     public string college_major { get; set; }
 
     public int number_mark { get; set; }
@@ -23,6 +39,7 @@ class Index : ISerializable
     public string[] ToCSV() {
         string[] csvValues =
         {
+            ID,
             college_major.ToString(),
             number_mark.ToString(),
             YOE.ToString()
@@ -31,9 +48,10 @@ class Index : ISerializable
     }
 
     public void FromCSV(string[] values) {
-        college_major = values[0]; 
-        number_mark = int.Parse(values[1]);
-        YOE = int.Parse(values[2]);
+        ID = values[0];
+        college_major = values[1]; 
+        number_mark = int.Parse(values[2]);
+        YOE = int.Parse(values[3]);
     }
 
     public string ToString2()
