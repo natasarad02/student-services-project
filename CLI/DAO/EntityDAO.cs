@@ -56,7 +56,7 @@ public class EntityDAO<T> where T : ISerializable, new()
 
     /*public T? GetEntityById(int id)
     {
-
+        DA LI INTERFEJS MOZE IMATI POLJA PA DA SE IMPLEMENTIRA
         return entities.Find(t => t.Id == id);
     }*/
 
