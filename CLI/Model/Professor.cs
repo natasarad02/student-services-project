@@ -8,6 +8,9 @@ namespace StudentskaSluzba.Model;
 class Professor : ISerializable
 {
     public int Id { get; set; } //number of personal ID card
+
+    public int num { get; set; } //number of personal ID card
+
     public string Name { get; set; }
 
     public string Surname { get; set; }
@@ -57,7 +60,7 @@ class Professor : ISerializable
     }
 
 
-    public Professor(int id, string name, string surname, Address address1, string phone, int year, DateOnly date, string email)
+    public Professor(int id,int card, string name, string surname, Address address1, string phone, int year, DateOnly date, string email)
 
     {
         Id = id;
@@ -68,6 +71,7 @@ class Professor : ISerializable
         email_address = email;
         employment_year = year;
         work_year = DateTime.Now.Year - employment_year;
+        num = card;
         Subjects = new List<Subject>();
         //Zvanje???
 
@@ -84,6 +88,7 @@ class Professor : ISerializable
         email_address = values[5];
         employment_year = int.Parse(values[6]); 
         birth_date = DateOnly.Parse(values[7]);
+        num = int.Parse(values[8]); 
 
     }
 
@@ -98,7 +103,8 @@ class Professor : ISerializable
             phone_number,
             email_address,
             employment_year.ToString(),
-            birth_date.ToString()
+            birth_date.ToString(),
+            num.ToString()
 
         };
         return csvValues;
@@ -113,7 +119,7 @@ class Professor : ISerializable
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append("ID: " + Id + ", ");
+        sb.Append("ID card: " + num + ", ");
         sb.Append("NAME: " + Name + ", ");
         sb.Append("SURNAME: " + Surname + ", ");
         sb.Append("Address: " + Address.ToString2() + ", ");

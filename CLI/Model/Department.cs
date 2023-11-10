@@ -11,12 +11,6 @@ namespace StudentskaSluzba.Model;
 
 class Department : ISerializable
 {
-    /*
-     * sifra katedre
-     * naziv
-     * sef
-     * spisak
-     */
     public int Id { get; set; }
     public string Name { get; set; }
     public string Hod { get; set; } // Head Of Department
@@ -50,6 +44,7 @@ class Department : ISerializable
         Name = values[1];
         Hod = values[2];
     }
+
 
     public override string ToString()
     {

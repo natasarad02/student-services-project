@@ -8,33 +8,13 @@ using StudentskaSluzba.Serialization;
 
 class Address : ISerializable
 {
-    /*
-     *  ulica
-     *  broj
-     *  grad
-     *  drzava
-     */ 
 
     public string Street { get; set; }
     public int Number { get; set; }
     public string City { get; set; }
     public string Country { get; set; }
 
-    public string ID
-    {
-        get
-        {
-            return ID;
-        }
-        set
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(Street + Number + City + Country);
-
-            ID = sb.ToString();
-        }
-    }
-
+    public int ID { get; set; }
     public Address(string street, int number, string city, string country)
     {
         Street = street;
@@ -66,26 +46,18 @@ class Address : ISerializable
     {
         string[] csvValues =
         {
-            ID, Street, Number.ToString(), City, Country
+            ID.ToString(), Street, Number.ToString(), City, Country
         };
         return csvValues;
     }
 
     public void FromCSV(string[] vals)
     {
-        ID = vals[0];
+        ID = int.Parse(vals[0]);
         Street = vals[1];
         Number = int.Parse(vals[2]);
         City = vals[3];
         Country = vals[4];
-    }
-
-    public string getID()
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.Append(Street + Number + City+ Country);
-
-        return sb.ToString();
     }
 
 

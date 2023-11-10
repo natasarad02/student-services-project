@@ -24,7 +24,7 @@ class ExamGrade : ISerializable
 
         set {
 
-            if (grade < 11 && grade > 7)
+            if (grade < 11 && grade > 5)
             {
                 grade = value;
             }
@@ -40,23 +40,12 @@ class ExamGrade : ISerializable
 
     public Subject subject { get; set; }
 
-    public string ID 
-    {
-
-        get { return ID; }
-
-        set
-        {
-            ID = student.getID() + subject.getID();
-        }
-
-    }
-
+    public int ID { get; set; }
     public string[] ToCSV()
     {
         string[] csvValues =
         {
-            ID,
+            ID.ToString(),
             grading_day.ToString(),
             grade.ToString(),
             student.ToString(),
@@ -67,17 +56,12 @@ class ExamGrade : ISerializable
 
     public void FromCSV(string[] values)
     {
-        ID = values[0];
+        ID = int.Parse(values[0]);
         grading_day = DateOnly.Parse(values[1]);
         grade = int.Parse(values[2]);
         // student = 
         //subject = 
 
-    }
-
-    public string getID()
-    {
-        return ID;
     }
 
     public override string ToString()

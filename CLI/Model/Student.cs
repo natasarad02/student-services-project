@@ -24,23 +24,7 @@ class Student : ISerializable
     public int Average_Grade { get; set; }
     public List<ExamGrade> Passed_Exams { get; set; }
     public List<ExamGrade> Failed_Exams { get; set; }
-    public string ID
-    {
-        get
-        {
-            return ID;
-        }
-        set
-        {
-            //StringBuilder sb = new StringBuilder();
-            //sb.Append(Street + Number + City + Country);
-
-            ID = index_number.ToString2();
-        }
-    }
-
-
-    //  public List<Subject> Subjects { get; set; }
+    public int ID { get; set; }
 
 
     public Student()
@@ -70,7 +54,7 @@ class Student : ISerializable
     {
         string[] csvValues =
         {
-            ID, Last_Name, First_Name, Date_Of_Birth.ToString(), Address.ToString2(),
+            ID.ToString(), Last_Name, First_Name, Date_Of_Birth.ToString(), Address.ToString2(),
             Phone_Number.ToString(), Email, index_number.ToString2(),
             Current_Year.ToString(), Status.ToString(), Average_Grade.ToString()
             
@@ -80,7 +64,7 @@ class Student : ISerializable
 
     public void FromCSV(string[] values)
     {
-        ID = values[0];
+        ID = int.Parse(values[0]);
         Last_Name = values[1];
         First_Name = values[2];
         Date_Of_Birth = DateOnly.Parse(values[3]);
@@ -93,13 +77,6 @@ class Student : ISerializable
         Average_Grade = int.Parse(values[10]);
 
 
-    }
-
-    public string getID()
-    {
-        string ID = index_number.ToString2();
-        return ID;
-    
     }
 
     public override string ToString()
