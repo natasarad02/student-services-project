@@ -7,7 +7,7 @@ namespace StudentskaSluzba.Model;
 
 class Professor : ISerializable
 {
-    public int Id { get; set; } //number of personal ID card
+    public int Id { get; set; }
 
     public int num { get; set; } //number of personal ID card
 
@@ -31,7 +31,7 @@ class Professor : ISerializable
 
     public string email_address { get; set; } //ubaciti regex
 
-    public string phone_number
+    public string phone_number //promeniti regex
     {
         get { return phone_number; }
 
@@ -51,6 +51,8 @@ class Professor : ISerializable
     
     }
 
+    public string calling { get; set; }
+
 
     public List<Subject> Subjects { get; set; }
 
@@ -60,7 +62,7 @@ class Professor : ISerializable
     }
 
 
-    public Professor(int id,int card, string name, string surname, Address address1, string phone, int year, DateOnly date, string email)
+    public Professor(int id,int card, string name, string surname, Address address1, string phone, int year, DateOnly date, string email, string calling)
 
     {
         Id = id;
@@ -73,7 +75,7 @@ class Professor : ISerializable
         work_year = DateTime.Now.Year - employment_year;
         num = card;
         Subjects = new List<Subject>();
-        //Zvanje???
+        this.calling = calling;
 
 
     }
@@ -89,6 +91,7 @@ class Professor : ISerializable
         employment_year = int.Parse(values[6]); 
         birth_date = DateOnly.Parse(values[7]);
         num = int.Parse(values[8]); 
+        calling = values[9];
 
     }
 
@@ -104,16 +107,11 @@ class Professor : ISerializable
             email_address,
             employment_year.ToString(),
             birth_date.ToString(),
-            num.ToString()
+            num.ToString(),
+            calling.ToString()
 
         };
         return csvValues;
-    }
-
-    public string getID()
-    {
-        string ID = Id.ToString();  
-        return ID;
     }
 
     public override string ToString()
@@ -128,6 +126,7 @@ class Professor : ISerializable
         sb.Append("Employment year: "+ employment_year +", ");
         sb.Append("Work years: "+ work_year +", ");
         sb.Append("Birthday: "+birth_date +", ");
+        sb.Append("Calling: " +calling +", ");
         sb.Append("SUBJECTS: ");
         sb.AppendJoin(", ", Subjects.Select(subject => subject.Name));
         return sb.ToString();

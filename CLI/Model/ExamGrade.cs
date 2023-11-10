@@ -36,9 +36,9 @@ class ExamGrade : ISerializable
     
     }
 
-    public Student student { get; set; }
+    public int studentID { get; set; }
 
-    public Subject subject { get; set; }
+    public int subjectID { get; set; }
 
     public int ID { get; set; }
     public string[] ToCSV()
@@ -48,8 +48,8 @@ class ExamGrade : ISerializable
             ID.ToString(),
             grading_day.ToString(),
             grade.ToString(),
-            student.ToString(),
-            subject.ToString()
+            studentID.ToString(),
+            subjectID.ToString()
         };
         return csvValues;
     }
@@ -59,16 +59,15 @@ class ExamGrade : ISerializable
         ID = int.Parse(values[0]);
         grading_day = DateOnly.Parse(values[1]);
         grade = int.Parse(values[2]);
-        // student = 
-        //subject = 
-
+        studentID = int.Parse(values[3]);
+        subjectID = int.Parse(values[4]);
     }
 
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
         sb.Append("Date of grading: " + grading_day + ", ");
-        sb.Append("Grade: " + grade);
+        sb.Append("Grade: " + grade + ", ");
 
         return sb.ToString();
     }
