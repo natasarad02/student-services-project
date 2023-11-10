@@ -26,6 +26,13 @@ class StudentDAO
         return students[^1].ID + 1;
     }
 
+    public Student addStudent(Student sstudent) { 
+        sstudent.ID = GenerateId();
+        students.Add(sstudent);
+        storage.Save(students);
+        return sstudent;    
+    }
+
     public Student? UpdateStudent(Student student)
     {
         Student? oldStudent = getStudentbyId(student.ID);
@@ -37,9 +44,24 @@ class StudentDAO
         return oldStudent;
     }
 
+    public Student? removeStudent(int id)
+    {
+        Student? oldStudent = getStudentbyId(id);
+        if (oldStudent is null) return null;
+
+        students.Remove(oldStudent);
+        storage.Save(students);
+        return oldStudent;
+    }
+
     public Student? getStudentbyId (int id)
     {
         return students.Find(t => t.ID == id);
+    }
+
+    public List<Student> GetAllStudents()
+    {
+        return students;
     }
 
 
