@@ -17,7 +17,7 @@ class Subject : ISerializable
     //public int ProfessorId { get; set; }
 
     // Professor se ne serijalizuje
-    public Professor Professor { get; set; }
+    public Professor Professor { get; set; } //samo ID ne ceo???
 
     public List<Student> Students_passed { get; set; }
 

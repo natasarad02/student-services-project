@@ -26,7 +26,7 @@ class Index : ISerializable
     public string[] ToCSV() {
         string[] csvValues =
         {
-            ID,
+            ID.ToString(),
             college_major.ToString(),
             number_mark.ToString(),
             YOE.ToString()
