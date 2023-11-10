@@ -34,7 +34,7 @@ class Department : ISerializable
     {
         string[] csvValues =
         {
-            Idd.ToString(),, Idd.ToString(), Name, Hod
+            Idd.ToString(),Idd.ToString(), Name, Hod
         };
         return csvValues;
     }
