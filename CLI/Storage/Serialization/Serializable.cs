@@ -6,7 +6,4 @@ public interface ISerializable
 
     void FromCSV(string[] values);
 
-
-    string getID();
-
 }

@@ -14,20 +14,7 @@ namespace StudentskaSluzba.Model;
 class Index : ISerializable
 {
 
-    public string ID
-    {
-        get
-        {
-            return ID;
-        }
-        set
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(college_major+number_mark+YOE);
-
-            ID = sb.ToString();
-        }
-    }
+    public int ID { get; set; }
     public string college_major { get; set; }
 
     public int number_mark { get; set; }
@@ -39,7 +26,7 @@ class Index : ISerializable
     public string[] ToCSV() {
         string[] csvValues =
         {
-            ID,
+            ID.ToString(),
             college_major.ToString(),
             number_mark.ToString(),
             YOE.ToString()
@@ -48,7 +35,7 @@ class Index : ISerializable
     }
 
     public void FromCSV(string[] values) {
-        ID = values[0];
+        ID = int.Parse(values[0]);
         college_major = values[1]; 
         number_mark = int.Parse(values[2]);
         YOE = int.Parse(values[3]);
@@ -58,14 +45,6 @@ class Index : ISerializable
     {
         StringBuilder sb = new StringBuilder();
         sb.Append(college_major+"-"+number_mark + "-" + YOE);
-
-        return sb.ToString();
-    }
-
-    public string getID()
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.Append(college_major + "-" + number_mark + "-" + YOE);
 
         return sb.ToString();
     }

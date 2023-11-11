@@ -31,4 +31,35 @@ public class EntityDAO<T> where T : ISerializable, new()
         storage.Save(entities);
         return t;
     }
+
+    /*public Vehicle? UpdateVehicle(Vehicle vehicle)
+    {
+        Vehicle? oldVehicle = GetVehicleById(vehicle.Id);
+        if (oldVehicle is null) return null;
+
+        oldVehicle.NumberOfWheels = vehicle.NumberOfWheels;
+        oldVehicle.Name = vehicle.Name;
+
+        _storage.Save(_vehicles);
+        return oldVehicle;
+    }*/
+
+    public T UpdateEntity (T t)
+    {
+        return t;
+    }
+
+    public T ? DeleteEntity(T t)
+    {
+        return t;
+    }
+
+    /*public T? GetEntityById(int id)
+    {
+        DA LI INTERFEJS MOZE IMATI POLJA PA DA SE IM
+        return entities.Find(t => t.Id == id);
+    }*/
+
+
 }
+//

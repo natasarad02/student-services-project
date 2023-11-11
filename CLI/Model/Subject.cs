@@ -7,15 +7,15 @@ namespace StudentskaSluzba.Model;
 enum semester {winter, summer}
 class Subject : ISerializable
 {
+    public int Ids { get; set; }
+
     public int Id { get; set; }
     public string Name { get; set; }
     public int Espb { get; set; }
 
     // Id professora se serijalizuje
-    //public int ProfessorId { get; set; }
-
     // Professor se ne serijalizuje
-    public Professor Professor { get; set; }
+    public int ProfessorID { get; set; }
 
     public List<Student> Students_passed { get; set; }
 
@@ -34,11 +34,11 @@ class Subject : ISerializable
 
             if (year < 1 && year > 4) //could be 6 for students in the medical field
             {
-                year = value;
+                Console.WriteLine("Year must be between 1 and 4!");
             }
             else
             {
-                Console.WriteLine("Year must be between 1 and 4!");
+                year = value;
             }
 
         }
@@ -50,14 +50,13 @@ class Subject : ISerializable
         Students_attending = new List<Student>();
     }
 
-    public Subject(int id, string name, int espb, semester SEM, int school_year, Professor P)
+    public Subject(int id, string name, int espb, semester SEM, int school_year, int professorId)
     {
-        Id = id;
+        Ids = id;
         Name = name;
         Espb = espb;
         semester = SEM;
-        Professor = P;
-        //ProfessorId = professorId;
+        ProfessorID = professorId;
         year = school_year;
         Students_passed = new List<Student>();
         Students_attending = new List<Student>();
@@ -68,11 +67,12 @@ class Subject : ISerializable
         string[] csvValues =
         {
             Id.ToString(),
+            Ids.ToString(),
             Name,
             Espb.ToString(),
-            //ProfessorId.ToString()
+            //enum semestar
+            ProfessorID.ToString(),
             semester.ToString(),
-            Professor.ToString(),
             year.ToString()
         };
         return csvValues;
@@ -81,12 +81,12 @@ class Subject : ISerializable
     public void FromCSV(string[] values)
     {
         Id = int.Parse(values[0]);
-        Name = values[1];
-        Espb = int.Parse(values[2]);
-        //ProfessorId = int.Parse(values[3]);
-        //Professor = FromCSV(values[3]);
-        Enum.Parse(typeof(semester), values[4], true);
-        year = int.Parse(values[5]);
+        Ids = int.Parse(values[1]);
+        Name = values[2];
+        Espb = int.Parse(values[3]);
+        ProfessorID = int.Parse(values[4]);
+        Enum.Parse(typeof(semester), values[5], true);
+        year = int.Parse(values[6]);
 
     }
 
@@ -99,9 +99,10 @@ class Subject : ISerializable
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append($"ID: {Id.ToString()}, ");
+        sb.Append($"ID: {Ids.ToString()}, ");
         sb.Append($"NAME: {Name}, ");
         sb.Append($"ESPB: {Espb}, ");
+        sb.Append("Semester: " + semester + ", ");
         sb.Append("STUDENTS: ");
         sb.AppendJoin(", ", Students_passed.Select(student => student.Last_Name));
         sb.AppendJoin(", ", Students_passed.Select(student => student.First_Name));
