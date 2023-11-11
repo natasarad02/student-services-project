@@ -63,9 +63,9 @@ class ExamGradeConsoleView
         System.Console.WriteLine("\nChoose an option: ");
         System.Console.WriteLine("1: Show All exam grades");
         System.Console.WriteLine("2: Add exam grade");
-        System.Console.WriteLine("3: Update student");
-        System.Console.WriteLine("4: Remove student");
-        System.Console.WriteLine("5: Show and sort students");
+        System.Console.WriteLine("3: Update exam grade");
+        System.Console.WriteLine("4: Remove exam grade");
+        System.Console.WriteLine("5: Show and sort exam grades");
         System.Console.WriteLine("0: Close");
     }
 
@@ -74,16 +74,16 @@ class ExamGradeConsoleView
         switch (input)
         {
             case "1":
-                ShowAllStudents();
+                ShowAllExamGrades();
                 break;
             case "2":
-                AddStudent();
+                AddExamGrade();
                 break;
             case "3":
-                UpdateStudent();
+                UpdateExamGrade();
                 break;
             case "4":
-                RemoveStudent();
+                RemoveExamGrade();
                 break;
                 /*  case "5":
                       ShowAndSortStudents();
@@ -102,48 +102,48 @@ class ExamGradeConsoleView
         }
     }
 
-    private void ShowAllStudents()
+    private void ShowAllExamGrades()
     {
-        PrintStudents(studentDAO.GetAllStudents());
+        PrintExamGrades(examGradeDAO.GetAllExamGrades());
 
     }
 
-    private void RemoveStudent()
+    private void RemoveExamGrade()
     {
         int id = InputId();
 
-        Student? removedStudent = studentDAO.removeStudent(id);
-        if (removedStudent == null)
+        ExamGrade? removedExamGrade = examGradeDAO.RemoveExamGrade(id);
+        if (removedExamGrade == null)
         {
-            System.Console.WriteLine("Student not found");
+            System.Console.WriteLine("Exam grade not found");
             return;
 
 
         }
-        System.Console.WriteLine("Student is removed");
+        System.Console.WriteLine("Exam grade is removed");
     }
 
-    private void UpdateStudent()
+    private void UpdateExamGrade()
     {
         int id = InputId();
-        Student student = InputStudent();
-        student.ID = id;
-        Student? updatedStudent = studentDAO.UpdateStudent(student);
-        if (updatedStudent == null)
+        ExamGrade exam_grade = InputExamGrade();
+        exam_grade.ID = id;
+        ExamGrade? updatedExamGrade = examGradeDAO.UpdateExamGrade(exam_grade);
+        if (updatedExamGrade == null)
         {
-            System.Console.WriteLine("Student not found");
+            System.Console.WriteLine("Exam grade not found");
             return;
 
 
         }
-        System.Console.WriteLine("Student is updated");
+        System.Console.WriteLine("Exam grade is updated");
     }
 
-    private void AddStudent()
+    private void AddExamGrade()
     {
-        Student student = InputStudent();
-        studentDAO.addStudent(student);
-        System.Console.WriteLine("Student is added");
+        ExamGrade exam_grade = InputExamGrade();
+        examGradeDAO.AddExamGrade(exam_grade);
+        System.Console.WriteLine("Exam grade is added");
     }
 
     /* private void ShowAndSortStudents()
