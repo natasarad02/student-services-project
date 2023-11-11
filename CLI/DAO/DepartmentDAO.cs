@@ -40,7 +40,10 @@ namespace StudentskaSluzba.DAO
             Department? oldDepartment = GetDepartmentById(department.Id);
             if (oldDepartment is null) return null;
 
-            // add updates
+            oldDepartment.Idd = department.Idd;
+            oldDepartment.Name = department.Name;
+            oldDepartment.Hod = department.Hod;
+            oldDepartment.Department_Professors = department.Department_Professors;
 
             storage.Save(departments);
             return oldDepartment;
