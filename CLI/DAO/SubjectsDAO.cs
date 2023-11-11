@@ -40,7 +40,14 @@ namespace StudentskaSluzba.DAO
             Subject? oldSubject = GetSubjectById(subject.Id);
             if (oldSubject is null) return null;
 
-            // add updates
+            oldSubject.Ids = subject.Ids;
+            oldSubject.Name = subject.Name;
+            oldSubject.semester = subject.semester;
+            oldSubject.year = subject.year;
+            oldSubject.ProfessorID = subject.ProfessorID;
+            oldSubject.Espb = subject.Espb;
+            oldSubject.Students_passed = subject.Students_passed;
+            oldSubject.Students_attending = subject.Students_attending;
 
             storage.Save(subjects);
             return oldSubject;
