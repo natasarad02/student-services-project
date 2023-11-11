@@ -87,11 +87,11 @@ class ProfessorConsoleView
     private void ShowMenu()
     {
         System.Console.WriteLine("\nChoose an option: ");
-        System.Console.WriteLine("1: Show All students");
-        System.Console.WriteLine("2: Add student");
-        System.Console.WriteLine("3: Update student");
-        System.Console.WriteLine("4: Remove student");
-        System.Console.WriteLine("5: Show and sort students");
+        System.Console.WriteLine("1: Show All professors");
+        System.Console.WriteLine("2: Add professor");
+        System.Console.WriteLine("3: Update professor");
+        System.Console.WriteLine("4: Remove professor");
+        System.Console.WriteLine("5: Show and sort professors");
         System.Console.WriteLine("0: Close");
     }
 
@@ -100,19 +100,19 @@ class ProfessorConsoleView
         switch (input)
         {
             case "1":
-                ShowAllStudents();
+                ShowAllProfessors();
                 break;
             case "2":
-                AddStudent();
+                AddProfessor();
                 break;
             case "3":
-                UpdateStudent();
+                UpdateProfessor();
                 break;
             case "4":
-                RemoveStudent();
+                RemoveProfessor();
                 break;
                 /*  case "5":
-                      ShowAndSortStudents();
+                      ShowAndSortProfessors();
                       break;*/
         }
     }
@@ -128,51 +128,51 @@ class ProfessorConsoleView
         }
     }
 
-    private void ShowAllStudents()
+    private void ShowAllProfessors()
     {
-        PrintStudents(studentDAO.GetAllStudents());
+        PrintProfessors(professorDAO.GetAllProfessors());
 
     }
 
-    private void RemoveStudent()
+    private void RemoveProfessor()
     {
         int id = InputId();
 
-        Student? removedStudent = studentDAO.removeStudent(id);
-        if (removedStudent == null)
+        Professor? removedProfessor = professorDAO.RemoveProfessor(id);
+        if (removedProfessor == null)
         {
-            System.Console.WriteLine("Student not found");
+            System.Console.WriteLine("Professor not found");
             return;
 
 
         }
-        System.Console.WriteLine("Student is removed");
+        System.Console.WriteLine("Professor is removed");
     }
 
-    private void UpdateStudent()
+    private void UpdateProfessor()
     {
         int id = InputId();
-        Student student = InputStudent();
-        student.ID = id;
-        Student? updatedStudent = studentDAO.UpdateStudent(student);
-        if (updatedStudent == null)
+        Professor professor = InputProfessor();
+        professor.Id = id;
+        Professor? updatedProfessor = professorDAO.UpdateProfessor(professor);
+        if (updatedProfessor == null)
         {
-            System.Console.WriteLine("Student not found");
+            System.Console.WriteLine("Professor not found");
             return;
 
 
         }
-        System.Console.WriteLine("Student is updated");
+        System.Console.WriteLine("Professor is updated");
     }
 
-    private void AddStudent()
+    private void AddProfessor()
     {
-        Student student = InputStudent();
-        studentDAO.addStudent(student);
-        System.Console.WriteLine("Student is added");
+        Professor professor = InputProfessor();
+        professorDAO.AddProfessor(professor);
+        System.Console.WriteLine("Professor is added");
     }
 
-    /* private void ShowAndSortStudents()
+    /* private void ShowAndSortProfessors()
      {
          System.Console.WriteLine("\nEnter page: ");
          int page = ConsoleViewUtils.SafeInputInt();
