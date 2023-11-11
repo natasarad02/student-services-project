@@ -40,7 +40,10 @@ namespace StudentskaSluzba.DAO
             ExamGrade? oldExamGrade = GetExamGradeById(examGrade.ID);
             if (oldExamGrade is null) return null;
 
-            // add updates
+            oldExamGrade.studentID = examGrade.studentID;
+            oldExamGrade.subjectID = examGrade.subjectID;
+            oldExamGrade.grade = examGrade.grade;
+            oldExamGrade.grading_day = examGrade.grading_day;
 
             storage.Save(examGrades);
             return oldExamGrade;
