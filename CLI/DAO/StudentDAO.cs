@@ -38,7 +38,19 @@ class StudentDAO
         Student? oldStudent = getStudentbyId(student.ID);
         if (oldStudent is null) return null;
 
-        //add updates
+        oldStudent.Last_Name = student.Last_Name;
+        oldStudent.First_Name = student.First_Name;
+        oldStudent.Date_Of_Birth = student.Date_Of_Birth;
+        oldStudent.Address = student.Address;
+        oldStudent.Phone_Number = student.Phone_Number;
+        oldStudent.Email = student.Email;
+        oldStudent.index_number = student.index_number;
+        oldStudent.Current_Year = student.Current_Year;
+        oldStudent.Status = student.Status;
+        oldStudent.Average_Grade = student.Average_Grade;
+        oldStudent.Passed_Exams = student.Passed_Exams;
+        oldStudent.Failed_Exams = student.Failed_Exams;
+
 
         storage.Save(students);
         return oldStudent;
