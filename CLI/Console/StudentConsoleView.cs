@@ -77,14 +77,14 @@ class StudentConsoleView
         return new Student(lName, fName, br_date, adr, phone_num, email, indNum, college_year, status);
     }
 
-    /*
+    
     private int InputId()
     {
         System.Console.WriteLine("Enter student's id: ");
-        return ConsoleViewUtils.SafeInputInt();
+        // return ConsoleViewUtils.SafeInputInt();  Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
+        return int.Parse(System.Console.ReadLine());
     }
-    Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
-    */
+   
 
     private void ShowMenu()
     {
@@ -113,9 +113,9 @@ class StudentConsoleView
             case "4":
                 RemoveStudent();
                 break;
-            case "5":
+          /*  case "5":
                 ShowAndSortStudents();
-                break;
+                break;*/
         }
     }
     public void RunMenu()
@@ -129,4 +129,65 @@ class StudentConsoleView
             HandleMenuInput(userInput);
         }
     }
+
+    private void ShowAllStudents()
+    {
+        PrintStudents(studentDAO.GetAllStudents());
+
+    }
+
+    private void RemoveStudent()
+    {
+        int id = InputId();
+       
+        Student? removedStudent = studentDAO.removeStudent(id);
+        if (removedStudent == null)
+        {
+            System.Console.WriteLine("Student not found");
+            return;
+
+
+        }
+        System.Console.WriteLine("Student is removed");
+    }
+
+    private void UpdateStudent()
+    {
+       int id = InputId();
+       Student student = InputStudent();
+       student.ID = id;
+       Student? updatedStudent = studentDAO.UpdateStudent(student);
+       if (updatedStudent == null) 
+       {
+            System.Console.WriteLine("Student not found");
+            return;
+        
+        
+       }
+       System.Console.WriteLine("Student is updated");
+    }
+
+    private void AddStudent()
+    {
+        Student student = InputStudent();
+        studentDAO.addStudent(student);
+        System.Console.WriteLine("Student is added");
+    }
+
+   /* private void ShowAndSortStudents()
+    {
+        System.Console.WriteLine("\nEnter page: ");
+        int page = ConsoleViewUtils.SafeInputInt();
+        System.Console.WriteLine("\nEnter page size: ");
+        int pageSize = ConsoleViewUtils.SafeInputInt();
+        System.Console.WriteLine("\nEnter sort criteria: ");
+        string sortCriteria = System.Console.ReadLine() ?? string.Empty;
+        System.Console.WriteLine("\nEnter 0 for ascending, any key for descending: ");
+        int sortDirectionInput = ConsoleViewUtils.SafeInputInt();
+        SortDirection sortDirection = sortDirectionInput == 0 ? SortDirection.Ascending : SortDirection.Descending;
+
+        PrintVehicles(_vehiclesDao.GetAllVehicles(page, pageSize, sortCriteria, sortDirection));
+    }
+    Ovo cemo kad dodamo ConsoleViewUtils
+    */
 }
