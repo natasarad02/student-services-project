@@ -76,4 +76,57 @@ class StudentConsoleView
 
         return new Student(lName, fName, br_date, adr, phone_num, email, indNum, college_year, status);
     }
+
+    /*
+    private int InputId()
+    {
+        System.Console.WriteLine("Enter student's id: ");
+        return ConsoleViewUtils.SafeInputInt();
+    }
+    Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
+    */
+
+    private void ShowMenu()
+    {
+        System.Console.WriteLine("\nChoose an option: ");
+        System.Console.WriteLine("1: Show All students");
+        System.Console.WriteLine("2: Add student");
+        System.Console.WriteLine("3: Update student");
+        System.Console.WriteLine("4: Remove student");
+        System.Console.WriteLine("5: Show and sort students");
+        System.Console.WriteLine("0: Close");
+    }
+
+    private void HandleMenuInput(string input)
+    {
+        switch (input)
+        {
+            case "1":
+                ShowAllStudents();
+                break;
+            case "2":
+                AddStudent();
+                break;
+            case "3":
+                UpdateStudent();
+                break;
+            case "4":
+                RemoveStudent();
+                break;
+            case "5":
+                ShowAndSortStudents();
+                break;
+        }
+    }
+    public void RunMenu()
+    {
+        while(true)
+        {
+            ShowMenu();
+            string userInput = System.Console.ReadLine() ?? "0";
+            if (userInput == "0")
+                break;
+            HandleMenuInput(userInput);
+        }
+    }
 }
