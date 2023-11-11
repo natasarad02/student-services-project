@@ -40,7 +40,17 @@ namespace StudentskaSluzba.DAO
             Professor? oldProfessor = GetProfessorById(professor.Id);
             if (oldProfessor is null) return null;
 
-            // add updates
+            oldProfessor.Surname = professor.Surname;
+            oldProfessor.Name = professor.Name;
+            oldProfessor.birth_date = professor.birth_date;
+            oldProfessor.Address = professor.Address;
+            oldProfessor.phone_number = professor.phone_number;
+            oldProfessor.email_address = professor.email_address;
+            oldProfessor.num = professor.num;
+            oldProfessor.calling = professor.calling;
+            oldProfessor.work_year = professor.work_year;
+            oldProfessor.Subjects = professor.Subjects;
+            oldProfessor.employment_year = professor.employment_year;
 
             storage.Save(professors);
             return oldProfessor;
