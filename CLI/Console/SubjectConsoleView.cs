@@ -31,7 +31,29 @@ class SubjectConsoleView
 
     private Subject InputSubject()
     {
-        
+        System.Console.WriteLine("Enter subject details:");
+
+        System.Console.WriteLine("Enter subject id: ");
+        int id = int.Parse(System.Console.ReadLine());
+
+        System.Console.WriteLine("Enter subject name: ");
+        string name = System.Console.ReadLine() ?? string.Empty;
+
+        System.Console.WriteLine("Enter subject ESPB: ");
+        int espb = int.Parse(System.Console.ReadLine());
+
+        System.Console.WriteLine("Enter subject semester: ");
+        string semesterStr = System.Console.ReadLine() ?? string.Empty;
+        Semester semester;
+        Enum.TryParse<Semester>(semesterStr, out semester); //popraviti
+
+        System.Console.WriteLine("Enter subject school year: ");
+        int schoolYear = int.Parse(System.Console.ReadLine());
+
+        System.Console.WriteLine("Enter subject professor id: ");
+        int professorId = int.Parse(System.Console.ReadLine());
+
+        return new Subject(id, name, espb, semester, schoolYear, professorId);
     }
 
 
