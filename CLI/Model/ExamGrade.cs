@@ -41,6 +41,14 @@ class ExamGrade : ISerializable
     public int subjectID { get; set; }
 
     public int ID { get; set; }
+
+    public ExamGrade(int s_id, int sub_id, int grade1, DateOnly date1) { 
+        studentID = s_id;
+        subjectID = sub_id;
+        grade = grade1;
+        grading_day = date1;
+    }
+
     public string[] ToCSV()
     {
         string[] csvValues =
