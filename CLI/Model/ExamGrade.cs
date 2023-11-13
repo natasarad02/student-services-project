@@ -14,8 +14,8 @@ class ExamGrade : ISerializable
 
     public int grade 
     {
-
-        get 
+        get; set;
+       /* get 
         {
             return grade;
         
@@ -32,7 +32,8 @@ class ExamGrade : ISerializable
                 System.Console.WriteLine("Grade must be between 6 and 10!");
             }
 
-        }
+        resiti beskonacnu petlju
+        }*/
     
     }
 

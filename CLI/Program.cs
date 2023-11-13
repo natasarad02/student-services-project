@@ -20,6 +20,9 @@ class Program
         SubjectConsoleView subjectView = new SubjectConsoleView(subjects);
         subjectView.RunMenu();
 
+        DepartmentDAO departments = new DepartmentDAO();
+        DepartmentConsoleView departmentView = new DepartmentConsoleView(departments);
+        departmentView.RunMenu();
 
     }
 }

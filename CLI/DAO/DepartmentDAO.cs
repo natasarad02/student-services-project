@@ -14,9 +14,9 @@ namespace StudentskaSluzba.DAO
         private readonly List<Department> departments;
         private readonly Storage<Department> storage;
 
-        public DepartmentDAO(string filename)
+        public DepartmentDAO()
         {
-            storage = new Storage<Department>(filename + ".txt");
+            storage = new Storage<Department>("departments.txt");
             departments = storage.Load();
         }
 
