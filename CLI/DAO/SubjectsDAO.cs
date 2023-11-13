@@ -14,9 +14,9 @@ namespace StudentskaSluzba.DAO
         private readonly List<Subject> subjects;
         private readonly Storage<Subject> storage;
 
-        public SubjectDAO(string filename)
+        public SubjectDAO()
         {
-            storage = new Storage<Subject>(filename + ".txt");
+            storage = new Storage<Subject>("subjects.txt");
             subjects = storage.Load();
         }
 
