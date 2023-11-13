@@ -21,23 +21,27 @@ class Professor : ISerializable
     public int employment_year { get; set; }
 
     public int work_year {
-        get {  return employment_year; }
+        get; set;
+        /* get {  return employment_year; }
 
-        set {
-            int currentYear = DateTime.Now.Year;
-            work_year = currentYear - employment_year; 
-            }
+        set
+        {
+           /* int currentYear = DateTime.Now.Year;
+            work_year = currentYear - employment_year; ulazi u beskonacnu petlju
+           
+        }*/
     }
 
     public string email_address { get; set; } //ubaciti regex
 
     public string phone_number //promeniti regex
-    {
-        get { return phone_number; }
+    
+        { get; set; }
+        /*get { return phone_number; }
 
         set
         {  
-            string reg_pattern = @"06[0-9]\/[0-9]{6,6}[0-9]?";
+           /* string reg_pattern = @"06[0-9]\/[0-9]{6,6}[0-9]?";
             Regex rg = new Regex(reg_pattern);
             if (Regex.Match(value, reg_pattern).Success) { 
                 phone_number= value;
@@ -45,11 +49,12 @@ class Professor : ISerializable
             else 
             {   
                 System.Console.WriteLine("Phone number isn't in the right format (06x/xxxxxxx)");
-            }
-        }
+            } opet beskonacna petlja, verovatno cemo morati da popravimo setere u svim klasama (npr i za average grade)
+           
+        }*/
 
     
-    }
+    
 
     public string calling { get; set; }
 

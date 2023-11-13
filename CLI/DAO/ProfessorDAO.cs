@@ -14,9 +14,9 @@ namespace StudentskaSluzba.DAO
         private readonly List<Professor> professors;
         private readonly Storage<Professor> storage;
 
-        public ProfessorDAO(string filename)
+        public ProfessorDAO()
         {
-            storage = new Storage<Professor>(filename + ".txt");
+            storage = new Storage<Professor>("professors.txt");
             professors = storage.Load();
         }
 
