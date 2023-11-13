@@ -56,7 +56,7 @@ class Subject : ISerializable
         Name = name;
         Espb = espb;
         semester = SEM;
-        ProfessorID = professorId;
+        ProfessorID = professorId; // izbaciti, za pocetak treba bez profesora???
         year = school_year;
         Students_passed = new List<Student>();
         Students_attending = new List<Student>();

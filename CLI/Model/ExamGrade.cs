@@ -42,6 +42,7 @@ class ExamGrade : ISerializable
 
     public int ID { get; set; }
 
+
     public ExamGrade()
     {
 
@@ -54,6 +55,8 @@ class ExamGrade : ISerializable
         grading_day = date;
 
     }
+
+
     public string[] ToCSV()
     {
         string[] csvValues =
