@@ -86,7 +86,7 @@ class Professor : ISerializable
         Id = int.Parse(values[0]);
         Name = values[1];
         Surname = values[2];
-        Address.FromString(values[3]);
+        Address = Address.FromString(values[3]);
         phone_number = values[4];
         email_address = values[5];
         employment_year = int.Parse(values[6]); 
