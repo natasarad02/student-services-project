@@ -23,6 +23,21 @@ static class ConsoleViewUtils
         return input;
     }
 
+    public static float SafeInputFloat()
+    {
+        float input;
+        string raw = System.Console.ReadLine() ?? string.Empty;
+
+        while (!float.TryParse(raw, out input))
+        {
+            System.Console.WriteLine("Not a valid decimal number, try again: ");
+            raw = System.Console.ReadLine();
+        }
+
+        return input;
+    }
+
+
     public static string SafeInputString()
     {
         string input;
