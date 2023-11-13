@@ -34,7 +34,7 @@ class Subject : ISerializable
 
             if (year < 1 && year > 4) //could be 6 for students in the medical field
             {
-                Console.WriteLine("Year must be between 1 and 4!");
+                System.Console.WriteLine("Year must be between 1 and 4!");
             }
             else
             {

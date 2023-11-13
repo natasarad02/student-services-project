@@ -29,7 +29,7 @@ class ExamGrade : ISerializable
                 grade = value;
             }
             else {
-                Console.WriteLine("Grade must be between 6 and 10!");
+                System.Console.WriteLine("Grade must be between 6 and 10!");
             }
 
         }
@@ -41,6 +41,19 @@ class ExamGrade : ISerializable
     public int subjectID { get; set; }
 
     public int ID { get; set; }
+
+    public ExamGrade()
+    {
+
+    }
+    public ExamGrade(int studId, int subId, int gr, DateOnly date)
+    {
+        studentID = studId;
+        subjectID = subId;
+        grade = gr; 
+        grading_day = date;
+
+    }
     public string[] ToCSV()
     {
         string[] csvValues =

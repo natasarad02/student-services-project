@@ -15,6 +15,7 @@ class Address : ISerializable
     public string Country { get; set; }
 
     public int ID { get; set; }
+    
     public Address(string street, int number, string city, string country)
     {
         Street = street;
