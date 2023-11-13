@@ -14,9 +14,9 @@ namespace StudentskaSluzba.DAO
         private readonly List<ExamGrade> examGrades;
         private readonly Storage<ExamGrade> storage;
 
-        public ExamGradeDAO(string filename)
+        public ExamGradeDAO()
         {
-            storage = new Storage<ExamGrade>(filename + ".txt");
+            storage = new Storage<ExamGrade>("exam_grades.txt");
             examGrades = storage.Load();
         }
 

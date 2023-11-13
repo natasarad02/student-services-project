@@ -20,9 +20,13 @@ class Program
         SubjectConsoleView subjectView = new SubjectConsoleView(subjects);
         subjectView.RunMenu();
 
+     
+        ExamGradeDAO grades = new ExamGradeDAO();
+        ExamGradeConsoleView gradesView = new ExamGradeConsoleView(grades);
+        gradesView.RunMenu();
+
         DepartmentDAO departments = new DepartmentDAO();
         DepartmentConsoleView departmentView = new DepartmentConsoleView(departments);
         departmentView.RunMenu();
-
     }
 }
