@@ -32,19 +32,19 @@ class ExamGradeConsoleView
     private ExamGrade InputExamGrade()
     {
         System.Console.WriteLine("Enter student's id: ");
-        int stud_id = int.Parse(System.Console.ReadLine());
+        int stud_id = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
 
         System.Console.WriteLine("Enter subject id: ");
-        int sub_id = int.Parse(System.Console.ReadLine());
+        int sub_id = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
 
         System.Console.WriteLine("Enter grade: ");
-        int grade = int.Parse(System.Console.ReadLine());
+        int grade = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
 
 
         System.Console.WriteLine("Enter exam date: ");
-        DateOnly exam_date = DateOnly.Parse(System.Console.ReadLine());
+        DateOnly exam_date = ConsoleViewUtils.SafeInputDate(); //DateOnly.Parse(System.Console.ReadLine());
 
-      
+
 
         return new ExamGrade(stud_id, sub_id, grade, exam_date);
     }
@@ -53,8 +53,8 @@ class ExamGradeConsoleView
     private int InputId()
     {
         System.Console.WriteLine("Enter exam grade id: ");
-        // return ConsoleViewUtils.SafeInputInt();  Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
-        return int.Parse(System.Console.ReadLine());
+        return ConsoleViewUtils.SafeInputInt();  //Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
+        //return int.Parse(System.Console.ReadLine());
     }
 
 
