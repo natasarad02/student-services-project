@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,5 +34,20 @@ static class ConsoleViewUtils
 
         }
         return input;
+    }
+
+    public static DateOnly SafeInputDate()
+    {
+        DateOnly input;
+        string raw = System.Console.ReadLine() ?? string.Empty;
+
+        while (!DateOnly.TryParse(raw, out input))
+        {
+            System.Console.WriteLine("Not a valid date, try again: ");
+            raw = System.Console.ReadLine();
+        }
+
+        return input;
+
     }
 }
