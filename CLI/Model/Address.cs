@@ -33,14 +33,19 @@ class Address : ISerializable
         return sb.ToString();
     }
 
-    public void FromString(string adr)
+    public static Address FromString(string adr)
     {
-        string[] address_parts = adr.Split(',');
-        Street = address_parts[0];
-        Number = int.Parse(address_parts[1]);
-        City = address_parts[2];
-        Country = address_parts[3];
         
+            string[] address_parts = adr.Split(',');
+          
+                string Str = address_parts[0];
+                int Num = int.Parse(address_parts[1]);
+                string Cit = address_parts[2];
+                string Countr = address_parts[3];
+                return new Address(Str, Num, Cit, Countr);
+           
+        
+
 
     }
     public string[] ToCSV()

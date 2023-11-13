@@ -22,7 +22,7 @@ class StudentConsoleView
         System.Console.WriteLine("Students: ");
         string header = $"INDEX NUMBER {"",10} | LAST NAME {"",10} | FIRST NAME {"", 11} | BIRTH DATE {"", 12} | ADDRESS{"",25} | PHONE NUMBER {"",12} | E-MAIL {"",30} | COLLEGE YEAR {"",4} | STATUS {"",10} | AVERAGE GRADE {"",4} |";
         
-        System.Console.WriteLine(header);
+        //System.Console.WriteLine(header);
         foreach(Student s in students)
         {
             System.Console.WriteLine(s);
@@ -33,8 +33,8 @@ class StudentConsoleView
     {
         Model.Index indNum = new Model.Index();
         System.Console.WriteLine("Enter student's index number: ");
-        string ind_num = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
-        indNum.FromString(ind_num);
+        string indn = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        Model.Index ind_num = Model.Index.FromString(indn);
 
 
         System.Console.WriteLine("Enter student name: ");
@@ -71,8 +71,8 @@ class StudentConsoleView
         Status status;
         Enum.TryParse<Status>(stat, out status);
 
-        System.Console.WriteLine("Enter student's average grade: ");
-        float avg_grade = ConsoleViewUtils.SafeInputFloat(); //float.Parse(System.Console.ReadLine() ?? string.Empty);
+       // System.Console.WriteLine("Enter student's average grade: ");
+        //float avg_grade = ConsoleViewUtils.SafeInputFloat(); //float.Parse(System.Console.ReadLine() ?? string.Empty);
 
         return new Student(lName, fName, br_date, adr, phone_num, email, indNum, college_year, status);
     }
@@ -81,8 +81,8 @@ class StudentConsoleView
     private int InputId()
     {
         System.Console.WriteLine("Enter student's id: ");
-        // return ConsoleViewUtils.SafeInputInt();  Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
-        return int.Parse(System.Console.ReadLine());
+        return ConsoleViewUtils.SafeInputInt(); // Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
+        //return int.Parse(System.Console.ReadLine());
     }
    
 

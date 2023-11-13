@@ -4,6 +4,7 @@ using StudentskaSluzba.Model;
 using System.Diagnostics.Metrics;
 using System.IO;
 using Microsoft.VisualBasic.FileIO;
+using System.Windows.Markup;
 
 namespace StudentskaSluzba.Model;
 
@@ -22,9 +23,9 @@ class Student : ISerializable
     public Index index_number { get; set; }
     public int Current_Year { get; set; }
     public Status Status { get; set; }
-    public float Average_Grade {
-        get {  return Average_Grade; }
-        set { Average_Grade = calculate_average_grade(); } //implementirati posle racunanje ovde!!!, napravljena je metoda calculate_average_grade
+   public float Average_Grade {
+        get { return 9; }// return Average_Grade; }
+        set { }//Average_Grade = calculate_average_grade(); } //implementirati posle racunanje ovde!!!, napravljena je metoda calculate_average_grade
     }
     public List<ExamGrade> Passed_Exams { get; set; }
     public List<ExamGrade> Failed_Exams { get; set; }
@@ -75,10 +76,12 @@ class Student : ISerializable
         Last_Name = values[1];
         First_Name = values[2];
         Date_Of_Birth = DateOnly.Parse(values[3]);
-        Phone_Number = int.Parse(values[4]);
-        Address.FromString(values[5]);
+       // System.Console.WriteLine(values[4] + " " + values[4].GetType());
+        Address = Address.FromString(values[4]);
+        Phone_Number = int.Parse(values[5]);
+       
         Email = values[6];
-        index_number.FromString(values[7]);
+        index_number = Index.FromString(values[7]);
         Current_Year = int.Parse(values[8]); // da li treba racunati automatski tren_godina - godina_iz_indeksa? IZMENITI
         Enum.Parse(typeof(Status), values[9], true);
         Average_Grade = float.Parse(values[10]);
@@ -108,7 +111,7 @@ class Student : ISerializable
         return sb.ToString();
     }
 
-    public float calculate_average_grade()
+   /* public float calculate_average_grade()
     { 
         float sum = 0;
         int i = 0;
@@ -119,5 +122,6 @@ class Student : ISerializable
 
         return sum/i;
     }
-    
+    Ovo treba proveriti
+    */
 }

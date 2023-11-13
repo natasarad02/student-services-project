@@ -22,6 +22,16 @@ class Index : ISerializable
     public int YOE { get; set; } //year of enrollment
 
     //dodati ogranicenja za ova 3
+    public Index()
+    {
+
+    }
+    public Index(string cm, int nm, int y)
+    {
+        college_major = cm;
+        number_mark = nm;
+        YOE = y;
+    }
 
     public string[] ToCSV() {
         string[] csvValues =
@@ -49,13 +59,13 @@ class Index : ISerializable
         return sb.ToString();
     }
 
-    public void FromString(string index)
+    public static Index FromString(string index)
     {
         string[] index_parts = index.Split('-');
-        college_major = index_parts[0];
-        number_mark = int.Parse(index_parts[1]);
-        YOE = int.Parse(index_parts[2]);
-
+        string college_major = index_parts[0];
+        int number_mark = int.Parse(index_parts[1]);
+        int YOE = int.Parse(index_parts[2]);
+        return new Index(college_major, number_mark, YOE);
 
     }
     public override string ToString()

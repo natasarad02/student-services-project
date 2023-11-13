@@ -1,14 +1,16 @@
 
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-//test
-//test2
-//test3
+using StudentskaSluzba.Console;
+using StudentskaSluzba.DAO;
 
-//Test kod Teodore
+namespace StudentskaSluzba;
 
-//Test Teodora 2
+class Program
+{
+    static void Main()
+    {
+        StudentDAO students = new StudentDAO();
+        StudentConsoleView studentView = new StudentConsoleView(students);
+        studentView.RunMenu();
 
-//Test kod Teodore 3 
-
-// Test kod Natase 4
+    }
+}

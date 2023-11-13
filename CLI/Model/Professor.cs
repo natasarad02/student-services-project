@@ -44,7 +44,7 @@ class Professor : ISerializable
             }
             else 
             {   
-                Console.WriteLine("Phone number isn't in the right format (06x/xxxxxxx)");
+                System.Console.WriteLine("Phone number isn't in the right format (06x/xxxxxxx)");
             }
         }
 

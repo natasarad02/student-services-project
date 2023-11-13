@@ -13,9 +13,9 @@ class StudentDAO
     private readonly List<Student> students;
     private readonly Storage<Student> storage;
 
-    public StudentDAO(string filename)
+    public StudentDAO()
     {
-        storage = new Storage<Student>(filename + ".txt");
+        storage = new Storage<Student>("students.txt");
         students = storage.Load();
     }
 
