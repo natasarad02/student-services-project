@@ -34,24 +34,24 @@ class SubjectConsoleView
         System.Console.WriteLine("Enter subject details:");
 
         System.Console.WriteLine("Enter subject id: ");
-        int id = int.Parse(System.Console.ReadLine());
+        int id = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
 
         System.Console.WriteLine("Enter subject name: ");
-        string name = System.Console.ReadLine() ?? string.Empty;
+        string name = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
 
         System.Console.WriteLine("Enter subject ESPB: ");
-        int espb = int.Parse(System.Console.ReadLine());
+        int espb = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
 
         System.Console.WriteLine("Enter subject semester: ");
-        string semesterStr = System.Console.ReadLine() ?? string.Empty;
-        Semester semester;
-        Enum.TryParse<Semester>(semesterStr, out semester); //popraviti
+        string semesterStr = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        semester semester;
+        Enum.TryParse<semester>(semesterStr, out semester); //popraviti -> popravljeno
 
         System.Console.WriteLine("Enter subject school year: ");
-        int schoolYear = int.Parse(System.Console.ReadLine());
+        int schoolYear = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
 
         System.Console.WriteLine("Enter subject professor id: ");
-        int professorId = int.Parse(System.Console.ReadLine());
+        int professorId = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
 
         return new Subject(id, name, espb, semester, schoolYear, professorId);
     }
@@ -60,8 +60,8 @@ class SubjectConsoleView
     private int InputId()
     {
         System.Console.WriteLine("Enter subjects's id: ");
-        // return ConsoleViewUtils.SafeInputInt();  Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
-        return int.Parse(System.Console.ReadLine());
+        return ConsoleViewUtils.SafeInputInt(); // Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent --> dodato
+       // return int.Parse(System.Console.ReadLine());
     }
 
 
