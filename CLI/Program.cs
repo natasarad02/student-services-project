@@ -16,6 +16,10 @@ class Program
         ProfessorConsoleView professorView = new ProfessorConsoleView(professors);
         professorView.RunMenu();
 
+        SubjectDAO subjects = new SubjectDAO();
+        SubjectConsoleView subjectView = new SubjectConsoleView(subjects);
+        subjectView.RunMenu();
+
 
     }
 }

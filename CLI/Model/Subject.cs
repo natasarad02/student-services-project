@@ -24,7 +24,8 @@ class Subject : ISerializable
     public semester semester { get; set; }
 
     public int year {
-        get
+        get; set;
+       /* get
         {
             return year;
 
@@ -41,7 +42,8 @@ class Subject : ISerializable
                 year = value;
             }
 
-        }
+        uporno ulazi u beskonacnu petlju, gde god smo napisale nesto u geterima i seterima
+        }*/
     }
 
     public Subject()
