@@ -33,46 +33,46 @@ class StudentConsoleView
     {
         Model.Index indNum = new Model.Index();
         System.Console.WriteLine("Enter student's index number: ");
-        string ind_num = System.Console.ReadLine() ?? string.Empty;
+        string ind_num = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         indNum.FromString(ind_num);
 
 
         System.Console.WriteLine("Enter student name: ");
-        string name  = System.Console.ReadLine() ?? string.Empty;
+        string name = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         string[] parts_of_name = name.Split(" ");
         string fName = parts_of_name[0];
         string lName = parts_of_name[1];
 
         System.Console.WriteLine("Enter student's date of birth: ");
-        DateOnly br_date = DateOnly.Parse(System.Console.ReadLine());
+        DateOnly br_date = ConsoleViewUtils.SafeInputDate(); //DateOnly.Parse(System.Console.ReadLine());
 
         System.Console.WriteLine("Enter student's street: ");
-        string street = System.Console.ReadLine() ?? string.Empty;
+        string street = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         System.Console.WriteLine("Enter student's street number: ");
-        int streetNum = int.Parse( System.Console.ReadLine() ?? string.Empty);
+        int streetNum = ConsoleViewUtils.SafeInputInt(); //int.Parse( System.Console.ReadLine() ?? string.Empty);
         System.Console.WriteLine("Enter student's city: ");
-        string city = System.Console.ReadLine() ?? string.Empty;
+        string city = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         System.Console.WriteLine("Enter student's country: ");
-        string country = System.Console.ReadLine() ?? string.Empty;
+        string country = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         Address adr = new Address(street, streetNum, city, country);
 
 
         System.Console.WriteLine("Enter student's phone number: ");
-        int phone_num = int.Parse(System.Console.ReadLine() ?? string.Empty);
+        int phone_num = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
 
         System.Console.WriteLine("Enter student's e-mail: ");
-        string email = System.Console.ReadLine() ?? string.Empty;
+        string email = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
 
         System.Console.WriteLine("Enter student's year of college: ");
-        int college_year = int.Parse(System.Console.ReadLine() ?? string.Empty);
+        int college_year = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
 
         System.Console.WriteLine("Enter student's status: ");
-        string stat = System.Console.ReadLine() ?? string.Empty;
+        string stat = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         Status status;
         Enum.TryParse<Status>(stat, out status);
 
         System.Console.WriteLine("Enter student's average grade: ");
-        float avg_grade = float.Parse(System.Console.ReadLine() ?? string.Empty);
+        float avg_grade = ConsoleViewUtils.SafeInputFloat(); //float.Parse(System.Console.ReadLine() ?? string.Empty);
 
         return new Student(lName, fName, br_date, adr, phone_num, email, indNum, college_year, status);
     }
