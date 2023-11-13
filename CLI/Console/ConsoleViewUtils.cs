@@ -21,4 +21,17 @@ static class ConsoleViewUtils
 
         return input;
     }
+
+    public static string SafeInputString()
+    {
+        string input;
+        input = System.Console.ReadLine();
+        while(string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
+        {
+            System.Console.WriteLine("Entry is empty, try again: ");
+            input = System.Console.ReadLine();
+
+        }
+        return input;
+    }
 }
