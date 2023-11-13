@@ -20,7 +20,7 @@ class StudentConsoleView
     private void PrintStudents(List<Student> students)
     {
         System.Console.WriteLine("Students: ");
-        string header = $"INDEX NUMBER {"",10} | NAME {"",21} | BIRTH DATE {"", 12} | ADDRESS{"",25} | PHONE NUMBER {"",12} | E-MAIL {"",30} | COLLEGE YEAR {"",4} | STATUS {"",10} | AVERAGE GRADE {"",4} |";
+        string header = $"INDEX NUMBER {"",10} | LAST NAME {"",10} | FIRST NAME {"", 11} | BIRTH DATE {"", 12} | ADDRESS{"",25} | PHONE NUMBER {"",12} | E-MAIL {"",30} | COLLEGE YEAR {"",4} | STATUS {"",10} | AVERAGE GRADE {"",4} |";
         
         System.Console.WriteLine(header);
         foreach(Student s in students)
