@@ -35,12 +35,12 @@ class ProfessorConsoleView
         int id = InputId();
 
         System.Console.WriteLine("Enter professor's ID card number: ");
-        int idNum = int.Parse(System.Console.ReadLine() ?? string.Empty);
-   
+        int idNum = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
+
 
 
         System.Console.WriteLine("Enter professor's name: ");
-        string name = System.Console.ReadLine() ?? string.Empty;
+        string name = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         string[] parts_of_name = name.Split(" ");
         string fName = parts_of_name[0];
         string lName = parts_of_name[1];
@@ -48,29 +48,29 @@ class ProfessorConsoleView
       
 
         System.Console.WriteLine("Enter professor's street: ");
-        string street = System.Console.ReadLine() ?? string.Empty;
+        string street = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         System.Console.WriteLine("Enter professor's street number: ");
-        int streetNum = int.Parse(System.Console.ReadLine() ?? string.Empty);
+        int streetNum = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
         System.Console.WriteLine("Enter professor's city: ");
-        string city = System.Console.ReadLine() ?? string.Empty;
+        string city = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         System.Console.WriteLine("Enter professor's country: ");
-        string country = System.Console.ReadLine() ?? string.Empty;
+        string country = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         Address adr = new Address(street, streetNum, city, country);
 
         System.Console.WriteLine("Enter professor's date of birth: ");
-        DateOnly br_date = DateOnly.Parse(System.Console.ReadLine());
+        DateOnly br_date = ConsoleViewUtils.SafeInputDate();//DateOnly.Parse(System.Console.ReadLine());
 
         System.Console.WriteLine("Enter professor's phone number: ");
-        string phone_num = System.Console.ReadLine() ?? string.Empty;
+        string phone_num = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
 
         System.Console.WriteLine("Enter professor's e-mail: ");
-        string email = System.Console.ReadLine() ?? string.Empty;
+        string email = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
 
         System.Console.WriteLine("Enter professor's year of employment: ");
-        int employment_year = int.Parse(System.Console.ReadLine() ?? string.Empty);
+        int employment_year = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
 
         System.Console.WriteLine("Enter professor's calling: ");
-        string call = System.Console.ReadLine() ?? string.Empty;
+        string call = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
 
         return new Professor(id, idNum, fName, lName, adr, phone_num, br_date, employment_year, email, call);
     }
@@ -79,8 +79,8 @@ class ProfessorConsoleView
     private int InputId()
     {
         System.Console.WriteLine("Enter professor's id: ");
-        // return ConsoleViewUtils.SafeInputInt();  Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
-        return int.Parse(System.Console.ReadLine());
+        return ConsoleViewUtils.SafeInputInt();  //Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
+        //return int.Parse(System.Console.ReadLine());
     }
 
 
