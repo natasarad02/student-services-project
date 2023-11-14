@@ -72,5 +72,12 @@ namespace StudentskaSluzba.DAO
         {
             return subjects;
         }
+
+        public List<Subject> getSubjectsByProfID(int profID)
+        {
+            List<Subject> temp = subjects.FindAll(e => e.ProfessorID == profID);
+            return temp;
+            //dodati pri ispisu da ispisuje samo osnovne info tj BEZ LISTA
+        }
     }
 }
