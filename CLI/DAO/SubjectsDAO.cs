@@ -13,6 +13,7 @@ namespace StudentskaSluzba.DAO
     {
         private readonly List<Subject> subjects;
         private readonly Storage<Subject> storage;
+        private StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
 
         public SubjectDAO()
         {
@@ -78,6 +79,11 @@ namespace StudentskaSluzba.DAO
             List<Subject> temp = subjects.FindAll(e => e.ProfessorID == profID);
             return temp;
             //dodati pri ispisu da ispisuje samo osnovne info tj BEZ LISTA
+        }
+
+        public List<Student> GetStudents(int subjectId)
+        {
+            return studentsSubjectsDAO.GetStudents(subjectId);
         }
 
         

@@ -12,6 +12,7 @@ class StudentDAO
 {
     private readonly List<Student> students;
     private readonly Storage<Student> storage;
+    private StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
 
     public StudentDAO()
     {
@@ -76,6 +77,10 @@ class StudentDAO
         return students;
     }
 
+    public List<Subject> GetSubjects(int subjectID)
+    {
+        return studentsSubjectsDAO.GetSubjects(subjectID);
+    }
 
 
 }

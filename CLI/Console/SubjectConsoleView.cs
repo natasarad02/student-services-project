@@ -72,7 +72,7 @@ class SubjectConsoleView
         System.Console.WriteLine("2: Add subject");
         System.Console.WriteLine("3: Update subject");
         System.Console.WriteLine("4: Remove subjects");
-        System.Console.WriteLine("5: Show and sort subjects");
+        System.Console.WriteLine("5: Show students for specific subject");
         System.Console.WriteLine("0: Close");
     }
 
@@ -92,9 +92,12 @@ class SubjectConsoleView
             case "4":
                 RemoveSubject();
                 break;
-                /*  case "5":
-                      ShowAndSortSubjects();
-                      break;*/
+             case "5":
+                System.Console.WriteLine("Enter subject ID: ");
+                int sub_id= int.Parse(System.Console.ReadLine());
+                List<Student> temp = subjectDAO.GetStudents(sub_id);
+                System.Console.WriteLine(temp);
+                break;
         }
     }
     public void RunMenu()

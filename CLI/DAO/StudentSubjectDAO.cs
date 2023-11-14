@@ -62,7 +62,7 @@ namespace StudentskaSluzba.DAO
 
         }
 
-        public List<Subject> GetSubjects(int studentId)
+        public List<Subject> GetSubjects(int studentId) //find all subjects that one student takes
         {
             List<int> subjectIds = new List<int>();
 
