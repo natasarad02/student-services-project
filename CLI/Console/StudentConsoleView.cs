@@ -213,7 +213,7 @@ class StudentConsoleView
     {
         Student student = InputStudent();
         studentDAO.addStudent(student);
-        System.Console.WriteLine("Student is added");
+        //System.Console.WriteLine("Student is added");
     }
 
 }

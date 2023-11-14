@@ -1,3 +1,8 @@
 0|222|analiza|8|1|winter|2023
 1|333|oet|8|0|winter|2022
-2|444|fizika|8|0|summer|2023
+2|444|fizika|8|0|winter|2023
+3|222|analiza|8|1|winter|2023
+4|222|analiza|8|1|winter|2023
+5|222|analiza|8|1|winter|2023
+6|111|aaa|2|0|winter|2022
+7|233|bbb|4|0|winter|2022

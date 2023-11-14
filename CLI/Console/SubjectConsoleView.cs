@@ -190,7 +190,7 @@ class SubjectConsoleView
     {
         Subject subject = InputSubject();
         subjectDAO.AddSubject(subject);
-        System.Console.WriteLine("Subject is added");
+       
     }
 
     

@@ -54,7 +54,7 @@ class Index : ISerializable
     public string ToString2()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append(college_major+"-"+number_mark + "-" + YOE);
+        sb.Append(college_major+"-"+number_mark+ "-" + YOE);
 
         return sb.ToString();
     }
