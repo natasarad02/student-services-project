@@ -99,6 +99,19 @@ namespace StudentskaSluzba.DAO
 
         }
 
+        public bool grade_exists(int stud_id, int subj_id) 
+        {
+            ExamGrade test = examGrades.Find(e => e.studentID == stud_id && e.subjectID == subj_id);
+            if(test == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
 
     }
 }
