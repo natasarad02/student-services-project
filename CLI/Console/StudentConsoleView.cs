@@ -95,6 +95,7 @@ class StudentConsoleView
         System.Console.WriteLine("4: Remove student");
         System.Console.WriteLine("5: Show subjects for specific student");
         System.Console.WriteLine("6: Add subjects that student attends");
+        System.Console.WriteLine("7: Show grades from specific student");
         System.Console.WriteLine("0: Close");
     }
 
@@ -133,6 +134,16 @@ class StudentConsoleView
                 //dodati proveru da li postoji ta veza u ExamGrade BITNO
                 studentDAO.addStudentSubject(id, sub_id);
                 break;
+            case "7":
+                System.Console.WriteLine("Enter students ID: ");
+                int ids = int.Parse(System.Console.ReadLine());
+                List<ExamGrade> temp1 = studentDAO.GetExamGrades(ids);
+                foreach (ExamGrade exam in temp1)
+                {
+                    System.Console.WriteLine(exam);
+                }
+                break;
+
         }
     }
     public void RunMenu()

@@ -13,6 +13,7 @@ class StudentDAO
     private readonly List<Student> students;
     private readonly Storage<Student> storage;
     private StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
+    private static ExamGradeDAO examGradeDAO1 = new ExamGradeDAO();
 
     public StudentDAO()
     {
@@ -86,6 +87,18 @@ class StudentDAO
     {
         StudentsSubjects connection = new StudentsSubjects(id_student, id_subject);
         studentsSubjectsDAO.AddStudentsSubjects(connection);
+    }
+
+    public List<ExamGrade> GetExamGrades(int studID)
+    {
+        return examGradeDAO1.GetExamGradesByStudent(studID);
+    }
+
+    public void grade(int student, int subject, int grade, DateOnly date)
+    {
+        ExamGrade exam = new ExamGrade(student, subject, grade, date);
+        examGradeDAO1.AddExamGrade(exam);
+
     }
 
 
