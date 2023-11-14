@@ -2,6 +2,7 @@
 using StudentskaSluzba.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Loader;
 using System.Text;
@@ -114,7 +115,10 @@ class ProfessorConsoleView
                 int id = int.Parse(System.Console.ReadLine());
                 // BITNO proveri da li profesor postoji?
                 List<Subject> temp = professorDAO.listSubjects(id);
-                
+                foreach(Subject subject in temp)
+                {
+                    System.Console.WriteLine(subject);
+                }
                 break;
         }
     }
