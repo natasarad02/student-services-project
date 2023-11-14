@@ -32,8 +32,6 @@ class ProfessorConsoleView
     private Professor InputProfessor()
     {
 
-        int id = InputId();
-
         System.Console.WriteLine("Enter professor's ID card number: ");
         int idNum = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
 
@@ -72,7 +70,7 @@ class ProfessorConsoleView
         System.Console.WriteLine("Enter professor's calling: ");
         string call = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
 
-        return new Professor(id, idNum, fName, lName, adr, phone_num, br_date, employment_year, email, call);
+        return new Professor( idNum, fName, lName, adr, phone_num, br_date, employment_year, email, call);
     }
 
 

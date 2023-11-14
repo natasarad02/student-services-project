@@ -67,10 +67,10 @@ class Professor : ISerializable
     }
 
 
-    public Professor(int id,int card, string name, string surname, Address address1, string phone, DateOnly br_date, int year, string email, string calling)
+    public Professor(int card, string name, string surname, Address address1, string phone, DateOnly br_date, int year, string email, string calling)
 
     {
-        Id = id;
+        //Id = id;
         Name = name;
         Surname = surname;
         Address = address1;

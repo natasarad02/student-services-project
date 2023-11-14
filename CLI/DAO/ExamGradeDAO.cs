@@ -13,6 +13,7 @@ namespace StudentskaSluzba.DAO
     {
         private readonly List<ExamGrade> examGrades;
         private readonly Storage<ExamGrade> storage;
+        private StudentDAO studentDAO;
 
         public ExamGradeDAO()
         {
@@ -68,5 +69,35 @@ namespace StudentskaSluzba.DAO
         {
             return examGrades;
         }
+
+        public List<ExamGrade> GetExamGradesByStudent(int s_id)
+        {
+
+            return examGrades.FindAll(e => e.studentID == s_id);
+            
+
+        }
+
+        public List<Student> GetStudentBySubject(int sub_id)
+        {
+            List<ExamGrade> temp = examGrades.FindAll(e => e.subjectID == sub_id);
+            List<int> studentIDs = new List<int>();
+            foreach (ExamGrade examGrade in temp)
+            {
+                studentIDs.Add(examGrade.studentID);
+            }
+            
+            List<Student> students = new List<Student>();
+
+            foreach(int studentID in studentIDs)
+            {
+                students.Add(studentDAO.getStudentbyId(studentID));
+            }
+
+            return students;
+
+        }
+
+
     }
 }
