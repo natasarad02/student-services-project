@@ -35,7 +35,7 @@ class StudentConsoleView
         System.Console.WriteLine("Enter student's index number: ");
         string indn = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         Model.Index ind_num = Model.Index.FromString(indn);
-
+       // System.Console.WriteLine(ind_num.ToString2());
 
         System.Console.WriteLine("Enter student name: "); //podeliti na ime i prezime BITNO
         string name = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
@@ -74,7 +74,7 @@ class StudentConsoleView
        // System.Console.WriteLine("Enter student's average grade: ");
         //float avg_grade = ConsoleViewUtils.SafeInputFloat(); //float.Parse(System.Console.ReadLine() ?? string.Empty);
 
-        return new Student(lName, fName, br_date, adr, phone_num, email, indNum, college_year, status);
+        return new Student(lName, fName, br_date, adr, phone_num, email, ind_num, college_year, status);
     }
 
     
