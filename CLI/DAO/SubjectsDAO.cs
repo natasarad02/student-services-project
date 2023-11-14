@@ -79,5 +79,7 @@ namespace StudentskaSluzba.DAO
             return temp;
             //dodati pri ispisu da ispisuje samo osnovne info tj BEZ LISTA
         }
+
+        
     }
 }
