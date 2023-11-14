@@ -75,7 +75,6 @@ namespace StudentskaSluzba.DAO
 
             return examGrades.FindAll(e => e.studentID == s_id);
             
-
         }
 
         public List<int> GetStudentBySubject(int sub_id)
