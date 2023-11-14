@@ -31,7 +31,15 @@ class StudentDAO
     public Student addStudent(Student sstudent) { 
         
        // bool studentExists;
-      
+        foreach(Student stu in students)
+        {
+            if (stu.index_number.ToString2().Equals(sstudent.index_number.ToString2()) && stu.First_Name.Equals(sstudent.First_Name) && stu.Last_Name.Equals(sstudent.Last_Name))
+            {
+                System.Console.WriteLine("Student can't be added because it already exists.");
+                return sstudent;
+                
+            }
+        }
         sstudent.ID = GenerateId();
         students.Add(sstudent);
         storage.Save(students);

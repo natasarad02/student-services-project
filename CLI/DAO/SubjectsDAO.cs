@@ -30,8 +30,21 @@ namespace StudentskaSluzba.DAO
         }
 
         public Subject AddSubject(Subject subject)
-        { 
-          
+        {
+
+            bool subjectExists;
+            foreach(Subject sub in subjects)
+            {
+                if(sub.Ids == subject.Ids)
+                {
+                    subjectExists = true;
+                    System.Console.WriteLine("Subject can't be added, because it already exists.");
+                    return subject;
+
+                }
+            }
+         
+           
             subject.Id = GenerateId();
             subjects.Add(subject);
             storage.Save(subjects);
@@ -99,33 +112,12 @@ namespace StudentskaSluzba.DAO
         {
             ExamGrade exam = new ExamGrade(student, subject, grade, date);
             examGradeDAO1.AddExamGrade(exam);
-
-            //ako postoji ova veza u onom fajlu obrisi je!
             if (examGradeDAO1.grade_exists(student, subject))
             {
                 studentsSubjectsDAO.RemoveStudentsSubjects(student, subject);
             }
         }
 
-        public bool doesSubjectExist(int id)
-        {
-            Subject subject = GetSubjectById(id);
-            return subject != null;
-
-        }
-
-        public bool isSubjectEmpty(int id) //uslov za brisanje BITNO
-        {
-            List<Student> temp = studentsSubjectsDAO.GetStudents(id);
-            if(temp.Count > 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
 
     }
 }
