@@ -41,6 +41,7 @@ class Department : ISerializable
 
     public void FromCSV(string[] values)
     {
+       // System.Console.WriteLine(values[0]);
         Id = int.Parse(values[0]);
         Idd = int.Parse(values[1]);
         Name = values[2];
