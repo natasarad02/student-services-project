@@ -8,43 +8,63 @@ class Program
 {
     static void Main()
     {
-        StudentDAO students = new StudentDAO();
-        StudentConsoleView studentView = new StudentConsoleView(students);
-        studentView.RunMenu();
-
-        ProfessorDAO professors = new ProfessorDAO();
-        ProfessorConsoleView professorView = new ProfessorConsoleView(professors);
-        professorView.RunMenu();
-
-        SubjectDAO subjects = new SubjectDAO();
-        SubjectConsoleView subjectView = new SubjectConsoleView(subjects);
-        subjectView.RunMenu();
-
-     
-        ExamGradeDAO grades = new ExamGradeDAO();
-        ExamGradeConsoleView gradesView = new ExamGradeConsoleView(grades);
-        gradesView.RunMenu();
-
-        System.Console.WriteLine("-------------------------------");
-        /*List<int> students_1 = grades.GetStudentBySubject(1);
-        foreach(int s in students_1)
+        while (true)
         {
-            System.Console.WriteLine(s);
-        }*/
+            // Start Menu
+            System.Console.WriteLine("\nSTART MENU: ");
+            System.Console.WriteLine("1: Use Student entity");
+            System.Console.WriteLine("2: Use Professor entity");
+            System.Console.WriteLine("3: Use Subject entity");
+            System.Console.WriteLine("4: Use Exam Grade entity");
+            System.Console.WriteLine("5: Use Department entity");
+            System.Console.WriteLine("0: Close");
 
-        List<Subject> students_2 = subjects.getSubjectsByProfID(0);
-        foreach( Subject subject in students_2)
-        {
-            System.Console.WriteLine(subject);
+            string startInput = System.Console.ReadLine() ?? "0";
+
+            if (startInput == "0")
+            {
+                break;
+            }
+            switch (startInput)
+            {
+                case "1":
+                    StudentDAO students = new StudentDAO();
+                    StudentConsoleView studentView = new StudentConsoleView(students);
+                    studentView.RunMenu();
+                    break;
+                case "2":
+                    ProfessorDAO professors = new ProfessorDAO();
+                    ProfessorConsoleView professorView = new ProfessorConsoleView(professors);
+                    professorView.RunMenu();
+                    break;
+                case "3":
+                    SubjectDAO subjects = new SubjectDAO();
+                    SubjectConsoleView subjectView = new SubjectConsoleView(subjects);
+                    subjectView.RunMenu();
+                    break;
+                case "4":
+                    ExamGradeDAO grades = new ExamGradeDAO();
+                    ExamGradeConsoleView gradesView = new ExamGradeConsoleView(grades);
+                    gradesView.RunMenu();
+                    break;
+                case "5":
+                    DepartmentDAO departments = new DepartmentDAO();
+                    DepartmentConsoleView departmentView = new DepartmentConsoleView(departments);
+                    departmentView.RunMenu();
+                    break;
+
+
+
+
+            }
+
         }
 
-        DepartmentDAO departments = new DepartmentDAO();
-        DepartmentConsoleView departmentView = new DepartmentConsoleView(departments);
-        departmentView.RunMenu();
-      
-    
+        System.Console.WriteLine("------------------------------- END OF PROGRAM -------------------------------");
 
-        StudentsSubjectsDAO stud_sub = new StudentsSubjectsDAO();
-        
+
+
+
+
     }
 }
