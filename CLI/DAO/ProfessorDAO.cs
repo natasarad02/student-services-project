@@ -82,6 +82,11 @@ namespace StudentskaSluzba.DAO
             return subjectDAO.getSubjectsByProfID(id_prof);
         }
 
+        public bool doesProfessorExist(int id)
+        {
+            Professor professor = GetProfessorById(id);
+            return professor != null;
+        }
         
     }
 }

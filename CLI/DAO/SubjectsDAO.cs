@@ -112,12 +112,33 @@ namespace StudentskaSluzba.DAO
         {
             ExamGrade exam = new ExamGrade(student, subject, grade, date);
             examGradeDAO1.AddExamGrade(exam);
+
+            //ako postoji ova veza u onom fajlu obrisi je!
             if (examGradeDAO1.grade_exists(student, subject))
             {
                 studentsSubjectsDAO.RemoveStudentsSubjects(student, subject);
             }
         }
 
+        public bool doesSubjectExist(int id)
+        {
+            Subject subject = GetSubjectById(id);
+            return subject != null;
+
+        }
+
+        public bool isSubjectEmpty(int id) //uslov za brisanje BITNO
+        {
+            List<Student> temp = studentsSubjectsDAO.GetStudents(id);
+            if(temp.Count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
     }
 }
