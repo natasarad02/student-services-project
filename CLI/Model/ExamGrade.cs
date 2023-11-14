@@ -85,6 +85,8 @@ class ExamGrade : ISerializable
         StringBuilder sb = new StringBuilder();
         sb.Append("Date of grading: " + grading_day + ", ");
         sb.Append("Grade: " + grade + ", ");
+        sb.Append("Subject: " + subjectID + ", ");
+        sb.Append("Student: " + studentID);
 
         return sb.ToString();
     }

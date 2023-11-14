@@ -32,10 +32,10 @@ class Program
             System.Console.WriteLine(s);
         }*/
 
-        List<int> students_2 = grades.GetStudentBySubject(2);
-        foreach (int s in students_2)
+        List<Subject> students_2 = subjects.getSubjectsByProfID(0);
+        foreach( Subject subject in students_2)
         {
-            System.Console.WriteLine(s);
+            System.Console.WriteLine(subject);
         }
 
        /* DepartmentDAO departments = new DepartmentDAO();

@@ -73,7 +73,7 @@ namespace StudentskaSluzba.DAO
             return subjects;
         }
 
-        public List<Subject> getSubjectsByProfID(int profID)
+        public List<Subject> getSubjectsByProfID(int profID) //what does prof teach?
         {
             List<Subject> temp = subjects.FindAll(e => e.ProfessorID == profID);
             return temp;
