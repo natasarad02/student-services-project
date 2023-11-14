@@ -13,6 +13,7 @@ namespace StudentskaSluzba.DAO
     {
         private readonly List<Professor> professors;
         private readonly Storage<Professor> storage;
+        private SubjectDAO subjectDAO = new SubjectDAO();
 
         public ProfessorDAO()
         {
@@ -74,6 +75,11 @@ namespace StudentskaSluzba.DAO
         public List<Professor> GetAllProfessors()
         {
             return professors;
+        }
+
+        public List<Subject> listSubjects(int id_prof)
+        {
+            return subjectDAO.getSubjectsByProfID(id_prof);
         }
 
         

@@ -89,7 +89,7 @@ class ProfessorConsoleView
         System.Console.WriteLine("2: Add professor");
         System.Console.WriteLine("3: Update professor");
         System.Console.WriteLine("4: Remove professor");
-        System.Console.WriteLine("5: Show and sort professors");
+        System.Console.WriteLine("5: List subjects that specific professor teaches");
         System.Console.WriteLine("0: Close");
     }
 
@@ -109,9 +109,13 @@ class ProfessorConsoleView
             case "4":
                 RemoveProfessor();
                 break;
-                /*  case "5":
-                      ShowAndSortProfessors();
-                      break;*/
+            case "5":
+                System.Console.WriteLine("Enter professors ID: ");
+                int id = int.Parse(System.Console.ReadLine());
+                // BITNO proveri da li profesor postoji?
+                List<Subject> temp = professorDAO.listSubjects(id);
+                
+                break;
         }
     }
     public void RunMenu()
