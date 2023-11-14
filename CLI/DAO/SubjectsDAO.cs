@@ -14,6 +14,7 @@ namespace StudentskaSluzba.DAO
         private readonly List<Subject> subjects;
         private readonly Storage<Subject> storage;
         private StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
+        private static ExamGradeDAO examGradeDAO1 = new ExamGradeDAO();
 
         public SubjectDAO()
         {
@@ -92,7 +93,16 @@ namespace StudentskaSluzba.DAO
             studentsSubjectsDAO.AddStudentsSubjects(connection);
         }
 
-        
+        public void grade(int student, int subject, int grade, DateOnly date)
+        {
+            ExamGrade exam = new ExamGrade(student, subject, grade, date);
+            examGradeDAO1.AddExamGrade(exam);
+            if (examGradeDAO1.grade_exists(student, subject))
+            {
+                studentsSubjectsDAO.RemoveStudentsSubjects(student, subject);
+            }
+        }
+
 
     }
 }
