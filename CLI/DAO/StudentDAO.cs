@@ -117,6 +117,31 @@ class StudentDAO
     }
 
   
+    public float average_grade(int id)
+    {
+        float sum = 0;
+        List<ExamGrade> Passed_Exams = GetExamGrades(id);
+        // BITNO ako ne nadje nista napisati grasku!!!
+        int i = 0;
+        for (; i != Passed_Exams.Count; i++)
+        {
+            sum += Passed_Exams.ElementAt(i).grade;
+        }
+        //treba li popuniti polje average grade?
+        return sum / i;
+    }
 
+    public bool doesStudentExist(int id)
+    {
+        Student student = students.Find(s=> s.ID == id);
+        if(student == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
 }

@@ -96,7 +96,8 @@ class StudentConsoleView
         System.Console.WriteLine("5: Show subjects for specific student");
         System.Console.WriteLine("6: Add subjects that student attends");
         System.Console.WriteLine("7: Show grades from specific student");
-        System.Console.WriteLine("8: Student passed the exam - add grade");
+        System.Console.WriteLine("8: Student passed an exam - add grade");
+        System.Console.WriteLine("9: Show average grade for specific student");
         System.Console.WriteLine("0: Close");
     }
 
@@ -156,6 +157,12 @@ class StudentConsoleView
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
                 //BITNO obrisati vezu iz StudSubj ako je ima!!!
                 studentDAO.grade(idss, subid, grade, studentDate);
+                break;
+            case "9":
+                System.Console.WriteLine("Enter students ID: ");
+                int idstud = int.Parse(System.Console.ReadLine());
+                float avg= studentDAO.average_grade(idstud);
+                System.Console.WriteLine("Average grade of this student is: " + avg);
                 break;
 
         }
