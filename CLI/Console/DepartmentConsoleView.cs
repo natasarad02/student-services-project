@@ -57,7 +57,8 @@ namespace StudentskaSluzba.Console
             System.Console.WriteLine("2: Add department");
             System.Console.WriteLine("3: Update department");
             System.Console.WriteLine("4: Remove department");
-            // Add more options as needed
+            System.Console.WriteLine("5: Add professors");
+            System.Console.WriteLine("6: List professors");
             System.Console.WriteLine("0: Close");
         }
 
@@ -76,6 +77,22 @@ namespace StudentskaSluzba.Console
                     break;
                 case "4":
                     RemoveDepartment();
+                    break;
+                case "5":
+                    System.Console.WriteLine("Enter department ID: ");
+                    int id = int.Parse(System.Console.ReadLine());
+                    System.Console.WriteLine("Enter professors ID: ");
+                    int id_p = int.Parse(System.Console.ReadLine());
+                    departmentDAO.addProfessor(id, id_p);
+                    break;
+                case "6":
+                    System.Console.WriteLine("Enter department ID: ");
+                    int id_d = int.Parse(System.Console.ReadLine());
+                    List<Professor> profs= departmentDAO.GetDepartmentById(id_d).Department_Professors;
+                    foreach (Professor prof in profs)
+                    {
+                        System.Console.WriteLine(prof.calling+" "+ prof.Name+" "+prof.Surname);
+                    }
                     break;
             }
         }
