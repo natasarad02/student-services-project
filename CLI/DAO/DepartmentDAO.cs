@@ -13,6 +13,7 @@ namespace StudentskaSluzba.DAO
     {
         private readonly List<Department> departments;
         private readonly Storage<Department> storage;
+        private static ProfessorDAO professorDAO= new ProfessorDAO();  
 
         public DepartmentDAO()
         {
@@ -67,6 +68,18 @@ namespace StudentskaSluzba.DAO
         public List<Department> GetAllDepartments()
         {
             return departments;
+        }
+
+        public void addProfessor(int id, int departmentID)
+        {
+            Professor pro = professorDAO.GetProfessorById(id);
+            if (pro != null) { } //provera
+
+            Department dep = GetDepartmentById(departmentID);
+            if (dep != null) { }
+
+            dep.Department_Professors.Add(pro);
+
         }
     }
 }
