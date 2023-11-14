@@ -92,6 +92,11 @@ namespace StudentskaSluzba.DAO
             studentsSubjectsDAO.AddStudentsSubjects(connection);
         }
 
+        public List<Student> GetStudentsThatPassed(int subid)
+        {
+
+        }
+
 
     }
 }

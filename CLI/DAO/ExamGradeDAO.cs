@@ -77,7 +77,7 @@ namespace StudentskaSluzba.DAO
             
         }
 
-        public List<Student> GetStudentBySubject(int sub_id)
+        public List<Student> GetStudentBySubject(int sub_id)  // vraca sve studente koji su polozili
         {
             List<ExamGrade> temp = examGrades.FindAll(e => e.subjectID == sub_id);
             List<int> studentIDs = new List<int>();

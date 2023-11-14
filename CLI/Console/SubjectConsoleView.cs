@@ -11,7 +11,7 @@ namespace StudentskaSluzba.Console;
 class SubjectConsoleView
 {
     private readonly SubjectDAO subjectDAO;
-
+    private static ExamGradeDAO examGradeDAO = new ExamGradeDAO();
     public SubjectConsoleView(SubjectDAO subDAO)
     {
         subjectDAO = subDAO;
@@ -74,6 +74,7 @@ class SubjectConsoleView
         System.Console.WriteLine("4: Remove subjects");
         System.Console.WriteLine("5: Show students for specific subject");
         System.Console.WriteLine("6: Add students that take this subject");
+        System.Console.WriteLine("7: Show students that passed the exam");
         System.Console.WriteLine("0: Close");
     }
 
@@ -110,6 +111,15 @@ class SubjectConsoleView
                 int studentsid = int.Parse(System.Console.ReadLine());
                 //dodati proveru da li postoji ta veza u ExamGrade BITNO
                 subjectDAO.addStudentSubject(studentsid, subjectid);
+                break;
+            case "7":
+                System.Console.WriteLine("Enter subjects ID: ");
+                int sub_id2 = int.Parse(System.Console.ReadLine());
+                List<Student> students_that_passed = examGradeDAO.GetStudentBySubject(sub_id2);
+                foreach(Student student in students_that_passed)
+                {
+                    System.Console.WriteLine(student);
+                }
                 break;
         }
     }
