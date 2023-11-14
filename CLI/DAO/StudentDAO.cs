@@ -98,7 +98,10 @@ class StudentDAO
     {
         ExamGrade exam = new ExamGrade(student, subject, grade, date);
         examGradeDAO1.AddExamGrade(exam);
-
+        if(examGradeDAO1.grade_exists(student, subject))
+        {
+            studentsSubjectsDAO.RemoveStudentsSubjects(student, subject);
+        }
     }
 
 

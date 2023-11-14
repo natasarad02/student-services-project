@@ -96,6 +96,7 @@ class StudentConsoleView
         System.Console.WriteLine("5: Show subjects for specific student");
         System.Console.WriteLine("6: Add subjects that student attends");
         System.Console.WriteLine("7: Show grades from specific student");
+        System.Console.WriteLine("8: Student passed the exam - add grade");
         System.Console.WriteLine("0: Close");
     }
 
@@ -142,6 +143,19 @@ class StudentConsoleView
                 {
                     System.Console.WriteLine(exam);
                 }
+                break;
+            case "8":
+                System.Console.WriteLine("Enter students ID: ");
+                int idss = int.Parse(System.Console.ReadLine());
+                System.Console.WriteLine("Enter subjects ID: ");
+                int subid = int.Parse(System.Console.ReadLine());
+                //proveriti da li oba postoje BITNO
+                System.Console.WriteLine("Enter grade: ");
+                int grade = int.Parse(System.Console.ReadLine());
+                System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
+                DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
+                //BITNO obrisati vezu iz StudSubj ako je ima!!!
+                studentDAO.grade(idss, subid, grade, studentDate);
                 break;
 
         }
