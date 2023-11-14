@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StudentskaSluzba.Storage;
 using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
+using System.Xml.Linq;
 
 namespace StudentskaSluzba.DAO
 {
@@ -30,6 +31,17 @@ namespace StudentskaSluzba.DAO
 
         public Department AddDepartment(Department department)
         {
+            foreach (Department dep in departments)
+            {
+                if (dep.Idd == department.Idd)
+                {
+
+                    System.Console.WriteLine("Department can't be added, because it already exists.");
+                    return department;
+
+                }
+            }
+
             department.Id = GenerateId();
             departments.Add(department);
             storage.Save(departments);

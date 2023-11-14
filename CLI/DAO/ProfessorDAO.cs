@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StudentskaSluzba.Storage;
 using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
+using System.Xml.Linq;
 
 namespace StudentskaSluzba.DAO
 {
@@ -30,6 +31,17 @@ namespace StudentskaSluzba.DAO
 
         public Professor AddProfessor(Professor professor)
         {
+            foreach (Professor prof in professors)
+            {
+                if (prof.num == professor.num)
+                {
+
+                    System.Console.WriteLine("Professor can't be added, because it already exists.");
+                    return professor;
+
+                }
+            }
+
             professor.Id = GenerateId();
             professors.Add(professor);
             storage.Save(professors);

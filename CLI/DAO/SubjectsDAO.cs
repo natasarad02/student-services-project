@@ -32,12 +32,11 @@ namespace StudentskaSluzba.DAO
         public Subject AddSubject(Subject subject)
         {
 
-            bool subjectExists;
             foreach(Subject sub in subjects)
             {
                 if(sub.Ids == subject.Ids)
                 {
-                    subjectExists = true;
+                    
                     System.Console.WriteLine("Subject can't be added, because it already exists.");
                     return subject;
 
