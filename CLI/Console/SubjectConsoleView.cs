@@ -73,6 +73,7 @@ class SubjectConsoleView
         System.Console.WriteLine("3: Update subject");
         System.Console.WriteLine("4: Remove subjects");
         System.Console.WriteLine("5: Show students for specific subject");
+        System.Console.WriteLine("6: Add students that take this subject");
         System.Console.WriteLine("0: Close");
     }
 
@@ -97,6 +98,15 @@ class SubjectConsoleView
                 int sub_id= int.Parse(System.Console.ReadLine());
                 List<Student> temp = subjectDAO.GetStudents(sub_id);
                 System.Console.WriteLine(temp);
+                break;
+            case "6":
+                System.Console.WriteLine("Enter subjects ID: ");
+                int subjectid = int.Parse(System.Console.ReadLine());
+                //provera da li postoji BITNO
+                System.Console.WriteLine("Enter student ID: ");
+                int studentsid = int.Parse(System.Console.ReadLine());
+                //dodati proveru da li postoji ta veza u ExamGrade BITNO
+                subjectDAO.addStudentSubject(studentsid, subjectid);
                 break;
         }
     }

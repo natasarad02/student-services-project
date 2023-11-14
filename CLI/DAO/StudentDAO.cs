@@ -82,5 +82,11 @@ class StudentDAO
         return studentsSubjectsDAO.GetSubjects(subjectID);
     }
 
+    public void addStudentSubject(int id_student, int id_subject)
+    {
+        StudentsSubjects connection = new StudentsSubjects(id_student, id_subject);
+        studentsSubjectsDAO.AddStudentsSubjects(connection);
+    }
+
 
 }

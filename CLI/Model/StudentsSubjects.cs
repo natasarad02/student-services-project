@@ -11,6 +11,14 @@ public class StudentsSubjects : ISerializable
 
     public int subjectID { get; set; }
 
+    public StudentsSubjects() { }
+
+    public StudentsSubjects(int id1, int id2) 
+    {
+        studentID = id1;
+        subjectID = id2;
+    }
+
     public string[] ToCSV() {
 
         string[] csvValues = {

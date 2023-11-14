@@ -37,7 +37,7 @@ class StudentConsoleView
         Model.Index ind_num = Model.Index.FromString(indn);
 
 
-        System.Console.WriteLine("Enter student name: ");
+        System.Console.WriteLine("Enter student name: "); //podeliti na ime i prezime BITNO
         string name = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
         string[] parts_of_name = name.Split(" ");
         string fName = parts_of_name[0];
@@ -94,6 +94,7 @@ class StudentConsoleView
         System.Console.WriteLine("3: Update student");
         System.Console.WriteLine("4: Remove student");
         System.Console.WriteLine("5: Show subjects for specific student");
+        System.Console.WriteLine("6: Add subjects that student attends");
         System.Console.WriteLine("0: Close");
     }
 
@@ -118,6 +119,15 @@ class StudentConsoleView
                 int stud_ID = int.Parse(System.Console.ReadLine());
                 List<Subject> temp = studentDAO.GetSubjects(stud_ID);
                 System.Console.WriteLine(temp);
+                break;
+            case "6":
+                System.Console.WriteLine("Enter students ID: ");
+                int id = int.Parse(System.Console.ReadLine());
+                //provera da li postoji BITNO
+                System.Console.WriteLine("Enter subjects ID: ");
+                int sub_id = int.Parse(System.Console.ReadLine());
+                //dodati proveru da li postoji ta veza u ExamGrade BITNO
+                studentDAO.addStudentSubject(id, sub_id);
                 break;
         }
     }
