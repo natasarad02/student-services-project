@@ -1,7 +1,7 @@
 
 using StudentskaSluzba.Console;
 using StudentskaSluzba.DAO;
-
+using StudentskaSluzba.Model;
 namespace StudentskaSluzba;
 
 class Program
@@ -25,8 +25,22 @@ class Program
         ExamGradeConsoleView gradesView = new ExamGradeConsoleView(grades);
         gradesView.RunMenu();
 
-        DepartmentDAO departments = new DepartmentDAO();
+        System.Console.WriteLine("-------------------------------");
+        /*List<int> students_1 = grades.GetStudentBySubject(1);
+        foreach(int s in students_1)
+        {
+            System.Console.WriteLine(s);
+        }*/
+
+        List<int> students_2 = grades.GetStudentBySubject(2);
+        foreach (int s in students_2)
+        {
+            System.Console.WriteLine(s);
+        }
+
+       /* DepartmentDAO departments = new DepartmentDAO();
         DepartmentConsoleView departmentView = new DepartmentConsoleView(departments);
         departmentView.RunMenu();
-    }
+    */
+     }
 }

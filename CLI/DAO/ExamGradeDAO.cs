@@ -78,7 +78,7 @@ namespace StudentskaSluzba.DAO
 
         }
 
-        public List<Student> GetStudentBySubject(int sub_id)
+        public List<int> GetStudentBySubject(int sub_id)
         {
             List<ExamGrade> temp = examGrades.FindAll(e => e.subjectID == sub_id);
             List<int> studentIDs = new List<int>();
@@ -87,14 +87,15 @@ namespace StudentskaSluzba.DAO
                 studentIDs.Add(examGrade.studentID);
             }
             
+            /*
             List<Student> students = new List<Student>();
 
             foreach(int studentID in studentIDs)
             {
                 students.Add(studentDAO.getStudentbyId(studentID));
-            }
+            }*/
 
-            return students;
+            return studentIDs;
 
         }
 

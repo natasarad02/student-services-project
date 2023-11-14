@@ -1,0 +1,2 @@
+0|Sima|Simic|ulica macaka,22,Novi Sad,Srbija|0685523456|prof@gmail.com|2000|6/8/1965|19199191|dr
+1|Marko|Petric|ulicaaa,1,Novi Sad,srbija|0646667777|prof@gmail.com|1999|9/7/1952|8888|dr
