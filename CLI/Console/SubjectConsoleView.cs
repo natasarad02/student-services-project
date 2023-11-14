@@ -99,10 +99,10 @@ class SubjectConsoleView
                 List<Student> temp = subjectDAO.GetStudents(sub_id);
                 foreach (Student student in temp)
                 {
-                    System.Console.WriteLine(student.Last_Name + " " + student.Last_Name);
+                    System.Console.WriteLine(student.First_Name + " " + student.Last_Name);
                 }
                 break;
-            /*case "6":
+            case "6":
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subjectid = int.Parse(System.Console.ReadLine());
                 //provera da li postoji BITNO
@@ -110,7 +110,7 @@ class SubjectConsoleView
                 int studentsid = int.Parse(System.Console.ReadLine());
                 //dodati proveru da li postoji ta veza u ExamGrade BITNO
                 subjectDAO.addStudentSubject(studentsid, subjectid);
-                break;*/
+                break;
         }
     }
     public void RunMenu()
