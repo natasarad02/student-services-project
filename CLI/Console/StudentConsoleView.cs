@@ -118,9 +118,12 @@ class StudentConsoleView
                 System.Console.WriteLine("Enter student ID: ");
                 int stud_ID = int.Parse(System.Console.ReadLine());
                 List<Subject> temp = studentDAO.GetSubjects(stud_ID);
-                System.Console.WriteLine(temp);
+                foreach (Subject subject in temp)
+                {
+                    System.Console.WriteLine(subject.Name + " "+ subject.Ids);
+                }
                 break;
-            case "6":
+            /*case "6":
                 System.Console.WriteLine("Enter students ID: ");
                 int id = int.Parse(System.Console.ReadLine());
                 //provera da li postoji BITNO
@@ -128,7 +131,7 @@ class StudentConsoleView
                 int sub_id = int.Parse(System.Console.ReadLine());
                 //dodati proveru da li postoji ta veza u ExamGrade BITNO
                 studentDAO.addStudentSubject(id, sub_id);
-                break;
+                break;*/
         }
     }
     public void RunMenu()
@@ -187,20 +190,4 @@ class StudentConsoleView
         System.Console.WriteLine("Student is added");
     }
 
-   /* private void ShowAndSortStudents()
-    {
-        System.Console.WriteLine("\nEnter page: ");
-        int page = ConsoleViewUtils.SafeInputInt();
-        System.Console.WriteLine("\nEnter page size: ");
-        int pageSize = ConsoleViewUtils.SafeInputInt();
-        System.Console.WriteLine("\nEnter sort criteria: ");
-        string sortCriteria = System.Console.ReadLine() ?? string.Empty;
-        System.Console.WriteLine("\nEnter 0 for ascending, any key for descending: ");
-        int sortDirectionInput = ConsoleViewUtils.SafeInputInt();
-        SortDirection sortDirection = sortDirectionInput == 0 ? SortDirection.Ascending : SortDirection.Descending;
-
-        PrintVehicles(_vehiclesDao.GetAllVehicles(page, pageSize, sortCriteria, sortDirection));
-    }
-    Ovo cemo kad dodamo ConsoleViewUtils
-    */
 }
