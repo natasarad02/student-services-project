@@ -38,10 +38,10 @@ class Program
             System.Console.WriteLine(subject);
         }
 
-        /* DepartmentDAO departments = new DepartmentDAO();
+      /*  DepartmentDAO departments = new DepartmentDAO();
          DepartmentConsoleView departmentView = new DepartmentConsoleView(departments);
-         departmentView.RunMenu();
-     */
+         departmentView.RunMenu();*/
+    
 
         StudentsSubjectsDAO stud_sub = new StudentsSubjectsDAO();
         
