@@ -112,17 +112,19 @@ class Student : ISerializable
         return sb.ToString();
     }
 
-   /* public float calculate_average_grade()
-    { 
-        float sum = 0;
-        int i = 0;
-        for (; i!=Passed_Exams.Count; i++)
-        {
-            sum += Passed_Exams.ElementAt(i).grade;
-        }
+  
 
-        return sum/i;
-    }
-    Ovo treba proveriti
-    */
+    /* public float calculate_average_grade()
+     { 
+         float sum = 0;
+         int i = 0;
+         for (; i!=Passed_Exams.Count; i++)
+         {
+             sum += Passed_Exams.ElementAt(i).grade;
+         }
+
+         return sum/i;
+     }
+     Ovo treba proveriti
+     */
 }
