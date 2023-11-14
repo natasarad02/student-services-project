@@ -13,8 +13,8 @@ namespace StudentskaSluzba.DAO
     {
         private readonly List<StudentsSubjects> StudentsSubjectss;
         private readonly Storage<StudentsSubjects> storage;
-        private StudentDAO studentDAO = new StudentDAO();
-        private SubjectDAO subjectDAO = new SubjectDAO();
+        private static StudentDAO studentDAO = new StudentDAO();
+        private static SubjectDAO subjectDAO = new SubjectDAO();
 
         public StudentsSubjectsDAO()
         {
