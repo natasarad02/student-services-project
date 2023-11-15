@@ -60,13 +60,13 @@ class StudentConsoleView
 
 
         System.Console.WriteLine("Enter student's phone number: ");
-        string phone_num = ConsoleViewUtils.SafeInputPhoneNumber(); // ConsoleViewUtils.SafeInputString(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
+        string phone_num = ConsoleViewUtils.SafeInputPhoneNumber(); 
 
         System.Console.WriteLine("Enter student's e-mail: ");
-        string email = ConsoleViewUtils.SafeInputEmail(); //System.Console.ReadLine() ?? string.Empty;
+        string email = ConsoleViewUtils.SafeInputEmail();
 
         System.Console.WriteLine("Enter student's year of college: ");
-        int college_year = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
+        int college_year = ConsoleViewUtils.SafeInputInt(); 
 
         System.Console.WriteLine("Enter student's status: ");
         Status status = ConsoleViewUtils.SafeInputStatus();
@@ -80,7 +80,7 @@ class StudentConsoleView
     {
         System.Console.WriteLine("Enter student's id: ");
         return ConsoleViewUtils.SafeInputInt(); // Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
-        //return int.Parse(System.Console.ReadLine());
+       
     }
    
 
@@ -230,7 +230,7 @@ class StudentConsoleView
             id = int.Parse(System.Console.ReadLine());
         }
 
-       List<ExamGrade> grades = studentDAO.GetExamGrades(id);
+        List<ExamGrade> grades = studentDAO.GetExamGrades(id);
         List<Subject> student_subjects = studentDAO.GetSubjects(id);
         Student? removedStudent = studentDAO.removeStudent(id);
 
@@ -238,7 +238,6 @@ class StudentConsoleView
         {
             examGradeDAO.RemoveExamGrade(grade.ID);
         }
-        //grades.Clear();
        
 
         if (removedStudent == null)

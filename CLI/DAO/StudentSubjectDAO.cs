@@ -26,6 +26,11 @@ namespace StudentskaSluzba.DAO
         {
             StudentsSubjectss.Add(StudentsSubjects);
             storage.Save(StudentsSubjectss);
+
+            //test da li (re)load radi
+            //storage.Load();
+            //NIJE RADILO
+
             return StudentsSubjects;
         }
 
@@ -116,16 +121,3 @@ namespace StudentskaSluzba.DAO
         }
     }
 }
-
-/*
-
-            
-            
-            List<Student> students = new List<Student>();
-
-            foreach(int studentID in studentIDs)
-            {
-                students.Add(studentDAO.getStudentbyId(studentID));
-            }
-
-            return students;*/
