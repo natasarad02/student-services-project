@@ -170,8 +170,10 @@ class StudentConsoleView
                 int grade = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
-                //BITNO obrisati vezu iz StudSubj ako je ima!!! --> zbog cega ono bese
+                //BITNO obrisati vezu iz StudSubj ako je ima!!! --> zbog cega ono bese --> kad doda ocenu, onda se samo skloni konekcija
+                 
                 studentDAO.grade(idss, subid, grade, studentDate);
+                studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid);
                 break;
             case "9":
                 System.Console.WriteLine("Enter students ID: ");
