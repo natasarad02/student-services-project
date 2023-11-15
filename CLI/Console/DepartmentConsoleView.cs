@@ -131,6 +131,12 @@ namespace StudentskaSluzba.Console
         private void UpdateDepartment()
         {
             int id = InputId();
+            if (!departmentDAO.doesDepartmentExist(id))
+            {
+                System.Console.WriteLine("Department doesn't exist");
+                return;
+
+            }
             Department department = InputDepartment();
             department.Id = id;
             Department? updatedDepartment = departmentDAO.UpdateDepartment(department);
@@ -140,7 +146,7 @@ namespace StudentskaSluzba.Console
                 return;
             }
 
-            System.Console.WriteLine("Department is updated");
+         
         }
 
         private void AddDepartment()

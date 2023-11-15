@@ -203,7 +203,14 @@ class StudentConsoleView
     private void UpdateStudent()
     {
        int id = InputId();
-       Student student = InputStudent();
+
+        if (!studentDAO.doesStudentExist(id))
+        {
+            System.Console.WriteLine("Student doesn't exist");
+            return;
+          
+        }
+        Student student = InputStudent();
        student.ID = id;
        Student? updatedStudent = studentDAO.UpdateStudent(student);
        if (updatedStudent == null) 
@@ -213,7 +220,7 @@ class StudentConsoleView
         
         
        }
-       System.Console.WriteLine("Student is updated");
+      
     }
 
     private void AddStudent()

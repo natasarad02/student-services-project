@@ -66,6 +66,7 @@ namespace StudentskaSluzba.DAO
             oldSubject.Students_attending = subject.Students_attending;
 
             storage.Save(subjects);
+            System.Console.WriteLine("Subject updated");
             return oldSubject;
         }
 
@@ -116,6 +117,20 @@ namespace StudentskaSluzba.DAO
                 studentsSubjectsDAO.RemoveStudentsSubjects(student, subject);
             }
         }
+
+        public bool doesSubjectExist(int id)
+        {
+            Subject subject = subjects.Find(s => s.Id == id);
+            if (subject == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
 
 
     }

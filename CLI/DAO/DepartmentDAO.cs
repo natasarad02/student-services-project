@@ -59,6 +59,7 @@ namespace StudentskaSluzba.DAO
             oldDepartment.Department_Professors = department.Department_Professors;
 
             storage.Save(departments);
+            System.Console.WriteLine("Department is updated");
             return oldDepartment;
         }
 
@@ -93,5 +94,18 @@ namespace StudentskaSluzba.DAO
             dep.Department_Professors.Add(pro);
 
         }
+        public bool doesDepartmentExist(int id)
+        {
+            Department department = departments.Find(s => s.Id == id);
+            if (department == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
     }
 }

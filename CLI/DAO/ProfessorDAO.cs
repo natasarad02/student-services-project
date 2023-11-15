@@ -66,6 +66,7 @@ namespace StudentskaSluzba.DAO
             oldProfessor.employment_year = professor.employment_year;
 
             storage.Save(professors);
+            System.Console.WriteLine("Professor is updated");
             return oldProfessor;
         }
 

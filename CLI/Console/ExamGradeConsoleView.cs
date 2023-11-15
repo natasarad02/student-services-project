@@ -126,6 +126,12 @@ class ExamGradeConsoleView
     private void UpdateExamGrade()
     {
         int id = InputId();
+        if (!examGradeDAO.doesGradeExist(id))
+        {
+            System.Console.WriteLine("Grade doesn't exist");
+            return;
+
+        }
         ExamGrade exam_grade = InputExamGrade();
         exam_grade.ID = id;
         ExamGrade? updatedExamGrade = examGradeDAO.UpdateExamGrade(exam_grade);

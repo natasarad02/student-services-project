@@ -117,6 +117,17 @@ namespace StudentskaSluzba.DAO
             }
         }
 
-
+        public bool doesGradeExist(int id)
+        {
+            ExamGrade grade = examGrades.Find(s => s.ID == id);
+            if (grade == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

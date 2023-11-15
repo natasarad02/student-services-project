@@ -67,6 +67,7 @@ class StudentDAO
 
 
         storage.Save(students);
+        System.Console.WriteLine("Student is updated");
         return oldStudent;
     }
 

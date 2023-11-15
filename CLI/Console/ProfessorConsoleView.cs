@@ -158,6 +158,12 @@ class ProfessorConsoleView
     private void UpdateProfessor()
     {
         int id = InputId();
+        if (!professorDAO.doesProfessorExist(id))
+        {
+            System.Console.WriteLine("Professor doesn't exist");
+            return;
+
+        }
         Professor professor = InputProfessor();
         professor.Id = id;
         Professor? updatedProfessor = professorDAO.UpdateProfessor(professor);
