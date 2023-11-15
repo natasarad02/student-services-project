@@ -12,7 +12,7 @@ class StudentDAO
 {
     private readonly List<Student> students;
     private readonly Storage<Student> storage;
-    private StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
+    private static StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
     private static ExamGradeDAO examGradeDAO1 = new ExamGradeDAO();
 
     public StudentDAO()
@@ -30,7 +30,6 @@ class StudentDAO
 
     public Student addStudent(Student sstudent) { 
         
-       // bool studentExists;
         foreach(Student stu in students)
         {
             if (stu.index_number.ToString2().Equals(sstudent.index_number.ToString2()) && stu.First_Name.Equals(sstudent.First_Name) && stu.Last_Name.Equals(sstudent.Last_Name))
