@@ -227,9 +227,14 @@ class StudentConsoleView
             id = int.Parse(System.Console.ReadLine());
         }
 
-       // List<ExamGrade> grades = studentDAO.GetExamGrades(id);
-        //List<Subject> student_subjects = studentDAO.GetSubjects(id);
+       List<ExamGrade> grades = studentDAO.GetExamGrades(id);
+        List<Subject> student_subjects = studentDAO.GetSubjects(id);
         Student? removedStudent = studentDAO.removeStudent(id);
+
+        foreach(ExamGrade grade in grades)
+        {
+            examGradeDAO.RemoveExamGrade(grade.ID);
+        }
         //grades.Clear();
        
 
