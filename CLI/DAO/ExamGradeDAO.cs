@@ -30,6 +30,11 @@ namespace StudentskaSluzba.DAO
 
         public ExamGrade AddExamGrade(ExamGrade examGrade)
         {
+            if(examGrade.grade < 6 || examGrade.grade > 10)
+            {
+                System.Console.WriteLine("Grade can't be added because it needs to be between 6 and 10.");
+                return examGrade;
+            }
             examGrade.ID = GenerateId();
             examGrades.Add(examGrade);
             storage.Save(examGrades);
