@@ -119,8 +119,10 @@ class SubjectConsoleView
                 //dodati proveru da li postoji ta veza u ExamGrade BITNO --> odradjeno na isti nacin kao u StudentConsoleView
                 if (studentsSubjectsDAO.doesConnectionExist(studentsid, subjectid))
                 {
-                    System.Console.WriteLine("Student is already taking this class");
-                    break;
+                    System.Console.WriteLine("Student is already taking this class, try again:");
+                    System.Console.WriteLine("Enter student ID: ");
+                    studentsid = int.Parse(System.Console.ReadLine());
+                    //break;
                 }
                 subjectDAO.addStudentSubject(studentsid, subjectid);
                 break;
@@ -141,13 +143,21 @@ class SubjectConsoleView
                 //proveriti da li oba postoje BITNO --> odradjeno
                 if(examGradeDAO.grade_exists(idss, subid))
                 {
-                    System.Console.WriteLine("Student already passed this exam");
-                    break;
+                    System.Console.WriteLine("Student already passed this exam, try again: ");
+                    System.Console.WriteLine("Enter students ID: ");
+                    idss = int.Parse(System.Console.ReadLine());
+                    System.Console.WriteLine("Enter subjects ID: ");
+                    subid = int.Parse(System.Console.ReadLine());
+                    //break;
                 }
                 if (!studentsSubjectsDAO.doesConnectionExist(idss, subid))
                 {
-                    System.Console.WriteLine("Student is not taking this class");
-                    break;
+                    System.Console.WriteLine("Student is not taking this class, try again:");
+                    System.Console.WriteLine("Enter students ID: ");
+                    idss = int.Parse(System.Console.ReadLine());
+                    System.Console.WriteLine("Enter subjects ID: ");
+                    subid = int.Parse(System.Console.ReadLine());
+                    //break;
                 }
                 System.Console.WriteLine("Enter grade: ");
                 int grade = int.Parse(System.Console.ReadLine());
