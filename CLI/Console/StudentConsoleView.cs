@@ -38,12 +38,12 @@ class StudentConsoleView
         Model.Index ind_num = Model.Index.FromString(indn);
        // System.Console.WriteLine(ind_num.ToString2());
 
-        System.Console.WriteLine("Enter student name: "); //podeliti na ime i prezime BITNO
-        string name = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
-        string[] parts_of_name = name.Split(" ");
-        string fName = parts_of_name[0];
-        string lName = parts_of_name[1];
-
+        System.Console.WriteLine("Enter student's last name: "); //podeliti na ime i prezime BITNO --> odradjeno
+        string lName = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        
+        System.Console.WriteLine("Enter student's first name: "); //podeliti na ime i prezime BITNO --> odradjeno
+        string fName = ConsoleViewUtils.SafeInputString();
+       
         System.Console.WriteLine("Enter student's date of birth: ");
         DateOnly br_date = ConsoleViewUtils.SafeInputDate(); //DateOnly.Parse(System.Console.ReadLine());
 
@@ -131,7 +131,7 @@ class StudentConsoleView
             case "6":
                 System.Console.WriteLine("Enter students ID: ");
                 int id = int.Parse(System.Console.ReadLine());
-                //provera da li postoji BITNO
+                //provera da li postoji BITNO --> odradjeno
                 if(!studentDAO.doesStudentExist(id))
                 {
                     System.Console.WriteLine("Student doesn't exist");
@@ -139,7 +139,12 @@ class StudentConsoleView
                 }
                 System.Console.WriteLine("Enter subjects ID: ");
                 int sub_id = int.Parse(System.Console.ReadLine());
-                //dodati proveru da li postoji ta veza u ExamGrade BITNO
+                //dodati proveru da li postoji ta veza u ExamGrade BITNO --> da li ovo treba posto student ne mora imati ocenu iz tog predmeta da bi ga slusao? Odradila sam proveru konekcje u student-subject
+                if (studentsSubjectsDAO.doesConnectionExist(id,sub_id))
+                {
+                    System.Console.WriteLine("Student is already taking this class");
+                    break;
+                }
                 studentDAO.addStudentSubject(id, sub_id);
                 break;
             case "7":
@@ -166,7 +171,7 @@ class StudentConsoleView
                 int grade = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
-                //BITNO obrisati vezu iz StudSubj ako je ima!!!
+                //BITNO obrisati vezu iz StudSubj ako je ima!!! --> zbog cega ono bese
                 studentDAO.grade(idss, subid, grade, studentDate);
                 break;
             case "9":

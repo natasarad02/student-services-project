@@ -12,6 +12,7 @@ class SubjectConsoleView
 {
     private readonly SubjectDAO subjectDAO;
     private static ExamGradeDAO examGradeDAO = new ExamGradeDAO();
+    private static StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
     public SubjectConsoleView(SubjectDAO subDAO)
     {
         subjectDAO = subDAO;
@@ -107,10 +108,21 @@ class SubjectConsoleView
             case "6":
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subjectid = int.Parse(System.Console.ReadLine());
-                //provera da li postoji BITNO
+                //provera da li postoji BITNO --> odradjeno
+                if (!subjectDAO.doesSubjectExist(subjectid))
+                {
+                    System.Console.WriteLine("Subject doesn't exist");
+                    break;
+                }
+
                 System.Console.WriteLine("Enter student ID: ");
                 int studentsid = int.Parse(System.Console.ReadLine());
-                //dodati proveru da li postoji ta veza u ExamGrade BITNO
+                //dodati proveru da li postoji ta veza u ExamGrade BITNO --> odradjeno na isti nacin kao u StudentConsoleView
+                if (studentsSubjectsDAO.doesConnectionExist(studentsid, subjectid))
+                {
+                    System.Console.WriteLine("Student is already taking this class");
+                    break;
+                }
                 subjectDAO.addStudentSubject(studentsid, subjectid);
                 break;
             case "7":
@@ -127,12 +139,17 @@ class SubjectConsoleView
                 int idss = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subid = int.Parse(System.Console.ReadLine());
-                //proveriti da li oba postoje BITNO
+                //proveriti da li oba postoje BITNO --> odradjeno
+                if (!studentsSubjectsDAO.doesConnectionExist(idss, subid))
+                {
+                    System.Console.WriteLine("Student is not taking this class");
+                    break;
+                }
                 System.Console.WriteLine("Enter grade: ");
                 int grade = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:");
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
-                //BITNO obrisati vezu iz StudSubj ako je ima!!!
+                //BITNO obrisati vezu iz StudSubj ako je ima!!! --> zasto ono bese
                 subjectDAO.grade(idss, subid, grade, studentDate);
                 break;
         }
