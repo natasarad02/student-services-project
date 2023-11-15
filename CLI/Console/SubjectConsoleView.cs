@@ -108,7 +108,7 @@ class SubjectConsoleView
                 List<Student> temp = subjectDAO.GetStudents(sub_id);
                 foreach (Student student in temp)
                 {
-                    System.Console.WriteLine(student.First_Name + " " + student.Last_Name);
+                    System.Console.WriteLine(student.First_Name + " " + student.Last_Name); //izbacuje gresku
                 }
                 break;
             case "6":

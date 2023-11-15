@@ -64,7 +64,7 @@ class Student : ISerializable
         {
             ID.ToString(), Last_Name, First_Name, Date_Of_Birth.ToString(), Address.ToString2(),
             Phone_Number, Email, index_number.ToString2(),
-            Current_Year.ToString(), Status.ToString(), Average_Grade.ToString(), Is_Deleted.ToString()
+            Current_Year.ToString(), Status.ToString()
             
         };
         return csvValues;
@@ -84,8 +84,7 @@ class Student : ISerializable
         index_number = Index.FromString(values[7]);
         Current_Year = int.Parse(values[8]); // da li treba racunati automatski tren_godina - godina_iz_indeksa? IZMENITI
         Enum.Parse(typeof(Status), values[9], true);
-        Average_Grade = float.Parse(values[10]);
-        Is_Deleted= bool.Parse(values[11]);
+        
 
 
     }
@@ -108,7 +107,6 @@ class Student : ISerializable
         sb.Append($"E-MAIL: {Email.ToString()}, ");
         sb.Append($"COLLEGE YEAR: {Current_Year.ToString()}, ");
         sb.Append($"STATUS: {Status.ToString()},");
-        sb.Append($"AVERAGE GRADE: {Average_Grade.ToString()}, ");
         sb.AppendJoin(", ", Passed_Exams.Select(passed_grade => passed_grade.grade));
         return sb.ToString();
     }
