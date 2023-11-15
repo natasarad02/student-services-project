@@ -88,6 +88,19 @@ namespace StudentskaSluzba.DAO
         {
             return StudentsSubjectss;
         }
+
+        public bool doesConnectionExist(int stud_id, int sub_id)
+        {
+            StudentsSubjects connection = StudentsSubjectss.Find(s => s.subjectID == sub_id && s.studentID == stud_id);
+            if (connection == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
 

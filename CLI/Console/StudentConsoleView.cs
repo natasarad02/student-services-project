@@ -11,6 +11,7 @@ namespace StudentskaSluzba.Console;
 class StudentConsoleView
 {
     private readonly StudentDAO studentDAO;
+    private static StudentsSubjectsDAO studentsSubjectsDAO =  new StudentsSubjectsDAO();
 
     public StudentConsoleView(StudentDAO studDAO)
     {
@@ -131,6 +132,11 @@ class StudentConsoleView
                 System.Console.WriteLine("Enter students ID: ");
                 int id = int.Parse(System.Console.ReadLine());
                 //provera da li postoji BITNO
+                if(!studentDAO.doesStudentExist(id))
+                {
+                    System.Console.WriteLine("Student doesn't exist");
+                    break;
+                }
                 System.Console.WriteLine("Enter subjects ID: ");
                 int sub_id = int.Parse(System.Console.ReadLine());
                 //dodati proveru da li postoji ta veza u ExamGrade BITNO
@@ -151,6 +157,11 @@ class StudentConsoleView
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subid = int.Parse(System.Console.ReadLine());
                 //proveriti da li oba postoje BITNO
+                if(!studentsSubjectsDAO.doesConnectionExist(idss, subid))
+                {
+                    System.Console.WriteLine("Student isn't taking this class");
+                    break;
+                }
                 System.Console.WriteLine("Enter grade: ");
                 int grade = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
