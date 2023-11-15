@@ -61,10 +61,10 @@ class ProfessorConsoleView
         DateOnly br_date = ConsoleViewUtils.SafeInputDate();//DateOnly.Parse(System.Console.ReadLine());
 
         System.Console.WriteLine("Enter professor's phone number: ");
-        string phone_num = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string phone_num = ConsoleViewUtils.SafeInputPhoneNumber(); //System.Console.ReadLine() ?? string.Empty;
 
         System.Console.WriteLine("Enter professor's e-mail: ");
-        string email = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string email = ConsoleViewUtils.SafeInputEmail(); //System.Console.ReadLine() ?? string.Empty;
 
         System.Console.WriteLine("Enter professor's year of employment: ");
         int employment_year = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);

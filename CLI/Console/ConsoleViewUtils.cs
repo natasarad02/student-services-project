@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace StudentskaSluzba.Console;
@@ -98,4 +99,45 @@ static class ConsoleViewUtils
         return input;
 
     }
+
+    public static string SafeInputPhoneNumber()
+    {
+        string input = System.Console.ReadLine();
+        string reg_pattern = @"06[0-9]\/[0-9]{6,6}[0-9]?";
+        Regex rg = new Regex(reg_pattern);
+        if (!Regex.Match(input, reg_pattern).Success)
+        {
+            System.Console.WriteLine("Phone number isn't in the right format (06x/xxxxxxx)");
+            input = System.Console.ReadLine();
+        }
+        return input;
+    }
+
+    public static string SafeInputIndex()
+    {
+        string input = System.Console.ReadLine();
+        string reg_pattern = @"[a-zA-Z]{2,3}-\d{2,3}-\d{4}";
+        Regex rg = new Regex(reg_pattern);
+        if (!Regex.Match(input, reg_pattern).Success)
+        {
+            System.Console.WriteLine("Index isn't in the right format (CM - NUM - YEAR)");
+            input = System.Console.ReadLine();
+        }
+        return input;
+    }
+
+    public static string SafeInputEmail()
+    {
+        string input = System.Console.ReadLine();
+        string reg_pattern = @"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}";
+        Regex rg = new Regex(reg_pattern);
+        if (!Regex.Match(input, reg_pattern).Success)
+        {
+            System.Console.WriteLine("E-Mail isn't in the right format.");
+            input = System.Console.ReadLine();
+        }
+        return input;
+    }
+
+
 }

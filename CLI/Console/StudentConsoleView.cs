@@ -22,7 +22,7 @@ class StudentConsoleView
     private void PrintStudents(List<Student> students)
     {
         System.Console.WriteLine("Students: ");
-        string header = $"INDEX NUMBER {"",10} | LAST NAME {"",10} | FIRST NAME {"", 11} | BIRTH DATE {"", 12} | ADDRESS{"",25} | PHONE NUMBER {"",12} | E-MAIL {"",30} | COLLEGE YEAR {"",4} | STATUS {"",10} | AVERAGE GRADE {"",4} |";
+        string header = $"INDEX NUMBER {"",10} | FIRST NAME {"",10} | LAST NAME {"", 11} | BIRTH DATE {"", 12} | ADDRESS{"",25} | PHONE NUMBER {"",12} | E-MAIL {"",30} | COLLEGE YEAR {"",4} | STATUS {"",10} | AVERAGE GRADE {"",4} |";
         
         //System.Console.WriteLine(header);
         foreach(Student s in students)
@@ -35,7 +35,7 @@ class StudentConsoleView
     {
         Model.Index indNum = new Model.Index();
         System.Console.WriteLine("Enter student's index number: ");
-        string indn = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string indn = ConsoleViewUtils.SafeInputIndex(); //System.Console.ReadLine() ?? string.Empty;
         Model.Index ind_num = Model.Index.FromString(indn);
        // System.Console.WriteLine(ind_num.ToString2());
 
@@ -60,10 +60,10 @@ class StudentConsoleView
 
 
         System.Console.WriteLine("Enter student's phone number: ");
-        int phone_num = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
+        string phone_num = ConsoleViewUtils.SafeInputPhoneNumber(); // ConsoleViewUtils.SafeInputString(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
 
         System.Console.WriteLine("Enter student's e-mail: ");
-        string email = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string email = ConsoleViewUtils.SafeInputEmail(); //System.Console.ReadLine() ?? string.Empty;
 
         System.Console.WriteLine("Enter student's year of college: ");
         int college_year = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);

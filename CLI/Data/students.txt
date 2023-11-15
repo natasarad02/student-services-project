@@ -11,4 +11,4 @@
 10|aa|aa|6/7/2002|a,2,a,a|90|aa|ra-20-2021|1|B|9|False
 11|a|a|2/2/2002|a,2,a,srb|900|aa|ra-30-2002|2|B|9|False
 12|a|a|9/9/2002|aa,2,as,ss|8999|nata.radmilovic@gmail.com|ra-20-2002|2|B|9|False
-13|aa|ss|3/3/2002|aa,2,a,a|0|a|ra-34-2009|2|B|9|False
+13|bbb|pooo|9/8/2002|aaa,2,a,q|09029029|aa|ra-20-2021|1|S|9|False
