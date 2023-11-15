@@ -115,7 +115,7 @@ class ProfessorConsoleView
                 System.Console.WriteLine("Enter professors ID: ");
                 int id = int.Parse(System.Console.ReadLine());
                 // BITNO proveri da li profesor postoji? --> odradjeno
-                if (!professorDAO.doesProfessorExist(id))
+                while (!professorDAO.doesProfessorExist(id))
                 {
                     System.Console.WriteLine("Professor doesn't exist, try again: ");
                     System.Console.WriteLine("Enter professors ID: ");
@@ -150,7 +150,7 @@ class ProfessorConsoleView
     private void RemoveProfessor()
     {
         int id = InputId();
-        if (!professorDAO.doesProfessorExist(id))
+        while (!professorDAO.doesProfessorExist(id))
         {
             System.Console.WriteLine("Professor doesn't exist, try again: ");
             System.Console.WriteLine("Enter professor's ID: ");
@@ -171,7 +171,7 @@ class ProfessorConsoleView
     private void UpdateProfessor()
     {
         int id = InputId();
-        if (!professorDAO.doesProfessorExist(id))
+        while (!professorDAO.doesProfessorExist(id))
         {
             System.Console.WriteLine("Professor doesn't exist");
             return;

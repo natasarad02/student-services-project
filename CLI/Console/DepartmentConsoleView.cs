@@ -81,6 +81,12 @@ namespace StudentskaSluzba.Console
                 case "5":
                     System.Console.WriteLine("Enter department ID: ");
                     int id = int.Parse(System.Console.ReadLine());
+                    while (!departmentDAO.doesDepartmentExist(id))
+                    {
+                        System.Console.WriteLine("Department doesn't exist, try again: ");
+                        System.Console.WriteLine("Enter department's ID: ");
+                        id = int.Parse(System.Console.ReadLine());
+                    }
                     System.Console.WriteLine("Enter professors ID: ");
                     int id_p = int.Parse(System.Console.ReadLine());
                     departmentDAO.addProfessor(id, id_p);
@@ -117,7 +123,7 @@ namespace StudentskaSluzba.Console
         private void RemoveDepartment()
         {
             int id = InputId();
-            if (!departmentDAO.doesDepartmentExist(id))
+            while (!departmentDAO.doesDepartmentExist(id))
             {
                 System.Console.WriteLine("Department doesn't exist, try again: ");
                 System.Console.WriteLine("Enter department's ID: ");
@@ -136,7 +142,7 @@ namespace StudentskaSluzba.Console
         private void UpdateDepartment()
         {
             int id = InputId();
-            if (!departmentDAO.doesDepartmentExist(id))
+            while (!departmentDAO.doesDepartmentExist(id))
             {
                 System.Console.WriteLine("Department doesn't exist");
                 return;

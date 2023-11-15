@@ -74,7 +74,7 @@ static class ConsoleViewUtils
         string stat = System.Console.ReadLine() ?? string.Empty;
         
 
-        if(!Enum.TryParse<Status>(stat, out input))
+        while(!Enum.TryParse<Status>(stat, out input))
         {
             System.Console.WriteLine("Not a valid status, enter 'S' or 'B'");
             stat = System.Console.ReadLine();
@@ -90,7 +90,7 @@ static class ConsoleViewUtils
         string sem = System.Console.ReadLine() ?? string.Empty;
 
 
-        if (!Enum.TryParse<semester>(sem, out input))
+        while(!Enum.TryParse<semester>(sem, out input))
         {
             System.Console.WriteLine("Not a valid semester, enter 'winter' or 'summer'");
             sem = System.Console.ReadLine();
@@ -105,9 +105,9 @@ static class ConsoleViewUtils
         string input = System.Console.ReadLine();
         string reg_pattern = @"06[0-9]\/[0-9]{6,6}[0-9]?";
         Regex rg = new Regex(reg_pattern);
-        if (!Regex.Match(input, reg_pattern).Success)
+        while(!Regex.Match(input, reg_pattern).Success)
         {
-            System.Console.WriteLine("Phone number isn't in the right format (06x/xxxxxxx)");
+            System.Console.WriteLine("Phone number isn't in the right format (06x/xxxxxxx), try again: ");
             input = System.Console.ReadLine();
         }
         return input;
@@ -118,9 +118,9 @@ static class ConsoleViewUtils
         string input = System.Console.ReadLine();
         string reg_pattern = @"[a-zA-Z]{2,3}-\d{2,3}-\d{4}";
         Regex rg = new Regex(reg_pattern);
-        if (!Regex.Match(input, reg_pattern).Success)
+        while(!Regex.Match(input, reg_pattern).Success)
         {
-            System.Console.WriteLine("Index isn't in the right format (CM - NUM - YEAR)");
+            System.Console.WriteLine("Index isn't in the right format (CM - NUM - YEAR), try again:");
             input = System.Console.ReadLine();
         }
         return input;
@@ -131,9 +131,9 @@ static class ConsoleViewUtils
         string input = System.Console.ReadLine();
         string reg_pattern = @"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}";
         Regex rg = new Regex(reg_pattern);
-        if (!Regex.Match(input, reg_pattern).Success)
+        while(!Regex.Match(input, reg_pattern).Success)
         {
-            System.Console.WriteLine("E-Mail isn't in the right format.");
+            System.Console.WriteLine("E-Mail isn't in the right format, try again:");
             input = System.Console.ReadLine();
         }
         return input;

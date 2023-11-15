@@ -151,6 +151,12 @@ class StudentConsoleView
             case "7":
                 System.Console.WriteLine("Enter students ID: ");
                 int ids = int.Parse(System.Console.ReadLine());
+                while (!studentDAO.doesStudentExist(ids))
+                {
+                    System.Console.WriteLine("Student doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter students ID: ");
+                    ids = int.Parse(System.Console.ReadLine());
+                }
                 List<ExamGrade> temp1 = studentDAO.GetExamGrades(ids);
                 foreach (ExamGrade exam in temp1)
                 {
@@ -163,7 +169,7 @@ class StudentConsoleView
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subid = int.Parse(System.Console.ReadLine());
                 //proveriti da li oba postoje BITNO
-                if (examGradeDAO.grade_exists(idss, subid))
+                while (examGradeDAO.grade_exists(idss, subid))
                 {
                     System.Console.WriteLine("Student already passed this exam, try again:");
                     System.Console.WriteLine("Enter students ID: ");
@@ -172,7 +178,7 @@ class StudentConsoleView
                     subid = int.Parse(System.Console.ReadLine());
                     //break;
                 }
-                if (!studentsSubjectsDAO.doesConnectionExist(idss, subid))
+                while (!studentsSubjectsDAO.doesConnectionExist(idss, subid))
                 {
                     System.Console.WriteLine("Student isn't taking this class, try again: ");
                     System.Console.WriteLine("Enter students ID: ");
@@ -220,7 +226,7 @@ class StudentConsoleView
     private void RemoveStudent()
     {
         int id = InputId();
-        if (!studentDAO.doesStudentExist(id))
+        while (!studentDAO.doesStudentExist(id))
         {
             System.Console.WriteLine("Student doesn't exist, try again: ");
             System.Console.WriteLine("Enter students ID: ");
@@ -252,11 +258,12 @@ class StudentConsoleView
     {
        int id = InputId();
 
-        if (!studentDAO.doesStudentExist(id))
+        while (!studentDAO.doesStudentExist(id))
         {
-            System.Console.WriteLine("Student doesn't exist");
-            return;
-          
+            System.Console.WriteLine("Student doesn't exist, try again: ");
+            System.Console.WriteLine("Enter students ID: ");
+            id = int.Parse(System.Console.ReadLine());
+
         }
         Student student = InputStudent();
        student.ID = id;

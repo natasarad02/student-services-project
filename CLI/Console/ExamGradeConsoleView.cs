@@ -111,7 +111,7 @@ class ExamGradeConsoleView
     private void RemoveExamGrade()
     {
         int id = InputId();
-        if (!examGradeDAO.doesGradeExist(id))
+        while (!examGradeDAO.doesGradeExist(id))
         {
             System.Console.WriteLine("Grade doesn't exist, try again: ");
             System.Console.WriteLine("Enter exam grade ID: ");
@@ -131,7 +131,7 @@ class ExamGradeConsoleView
     private void UpdateExamGrade()
     {
         int id = InputId();
-        if (!examGradeDAO.doesGradeExist(id))
+        while (!examGradeDAO.doesGradeExist(id))
         {
             System.Console.WriteLine("Grade doesn't exist");
             return;

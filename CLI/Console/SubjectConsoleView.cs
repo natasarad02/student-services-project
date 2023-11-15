@@ -97,7 +97,14 @@ class SubjectConsoleView
                 break;
              case "5":
                 System.Console.WriteLine("Enter subject ID: ");
+                
                 int sub_id= int.Parse(System.Console.ReadLine());
+                while (!subjectDAO.doesSubjectExist(sub_id))
+                {
+                    System.Console.WriteLine("Student doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter subject ID: ");
+                    sub_id = int.Parse(System.Console.ReadLine());
+                }
                 List<Student> temp = subjectDAO.GetStudents(sub_id);
                 foreach (Student student in temp)
                 {
@@ -108,7 +115,7 @@ class SubjectConsoleView
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subjectid = int.Parse(System.Console.ReadLine());
                 //provera da li postoji BITNO --> odradjeno
-                if (!subjectDAO.doesSubjectExist(subjectid))
+                while (!subjectDAO.doesSubjectExist(subjectid))
                 {
                     System.Console.WriteLine("Subject doesn't exist, try again: ");
                     System.Console.WriteLine("Enter subjects ID: ");
@@ -119,7 +126,7 @@ class SubjectConsoleView
                 System.Console.WriteLine("Enter student ID: ");
                 int studentsid = int.Parse(System.Console.ReadLine());
                 //dodati proveru da li postoji ta veza u ExamGrade BITNO --> odradjeno na isti nacin kao u StudentConsoleView
-                if (studentsSubjectsDAO.doesConnectionExist(studentsid, subjectid))
+                while (studentsSubjectsDAO.doesConnectionExist(studentsid, subjectid))
                 {
                     System.Console.WriteLine("Student is already taking this class, try again:");
                     System.Console.WriteLine("Enter student ID: ");
@@ -143,7 +150,7 @@ class SubjectConsoleView
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subid = int.Parse(System.Console.ReadLine());
                 //proveriti da li oba postoje BITNO --> odradjeno
-                if(examGradeDAO.grade_exists(idss, subid))
+                while(examGradeDAO.grade_exists(idss, subid))
                 {
                     System.Console.WriteLine("Student already passed this exam, try again: ");
                     System.Console.WriteLine("Enter students ID: ");
@@ -152,7 +159,7 @@ class SubjectConsoleView
                     subid = int.Parse(System.Console.ReadLine());
                     //break;
                 }
-                if (!studentsSubjectsDAO.doesConnectionExist(idss, subid))
+                while (!studentsSubjectsDAO.doesConnectionExist(idss, subid))
                 {
                     System.Console.WriteLine("Student is not taking this class, try again:");
                     System.Console.WriteLine("Enter students ID: ");
@@ -193,14 +200,14 @@ class SubjectConsoleView
     {
         int id = InputId();
 
-        if (!subjectDAO.doesSubjectExist(id))
+        while (!subjectDAO.doesSubjectExist(id))
         {
             System.Console.WriteLine("Student doesn't exist, try again: ");
             System.Console.WriteLine("Enter subject ID: ");
             id = int.Parse(System.Console.ReadLine());
         }
 
-        if(studentsSubjectsDAO.doesConnectionBySubjectExist(id))
+        while(studentsSubjectsDAO.doesConnectionBySubjectExist(id))
         {
             System.Console.WriteLine("You can't delete subject if students are taking it, try again: ");
             System.Console.WriteLine("Enter subject ID: ");
@@ -221,6 +228,12 @@ class SubjectConsoleView
     private void UpdateSubject()
     {
         int id = InputId();
+        while (!subjectDAO.doesSubjectExist(id))
+        {
+            System.Console.WriteLine("Student doesn't exist, try again: ");
+            System.Console.WriteLine("Enter subject ID: ");
+            id = int.Parse(System.Console.ReadLine());
+        }
         Subject subject = InputSubject();
         subject.Id = id;
         Subject? updatedSubject = subjectDAO.UpdateSubject(subject);
