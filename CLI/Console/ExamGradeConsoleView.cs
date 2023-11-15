@@ -32,17 +32,17 @@ class ExamGradeConsoleView
     private ExamGrade InputExamGrade()
     {
         System.Console.WriteLine("Enter student's id: ");
-        int stud_id = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
+        int stud_id = ConsoleViewUtils.SafeInputInt(); 
 
         System.Console.WriteLine("Enter subject id: ");
-        int sub_id = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
+        int sub_id = ConsoleViewUtils.SafeInputInt(); 
 
         System.Console.WriteLine("Enter grade: ");
-        int grade = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
+        int grade = ConsoleViewUtils.SafeInputGrade();
 
 
         System.Console.WriteLine("Enter exam date: ");
-        DateOnly exam_date = ConsoleViewUtils.SafeInputDate(); //DateOnly.Parse(System.Console.ReadLine());
+        DateOnly exam_date = ConsoleViewUtils.SafeInputDate(); 
 
 
 

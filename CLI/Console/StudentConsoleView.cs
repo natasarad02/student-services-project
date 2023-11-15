@@ -184,8 +184,8 @@ class StudentConsoleView
                     subid = int.Parse(System.Console.ReadLine());
                     //break;
                 }
-                System.Console.WriteLine("Enter grade: ");
-                int grade = int.Parse(System.Console.ReadLine());
+
+                int grade = ConsoleViewUtils.SafeInputGrade();
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
                 //BITNO obrisati vezu iz StudSubj ako je ima!!! --> zbog cega ono bese --> kad doda ocenu, onda se samo skloni konekcija

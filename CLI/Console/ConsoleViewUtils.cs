@@ -180,5 +180,35 @@ static class ConsoleViewUtils
         return input;
     }
 
+    public static int SafeInputGrade()
+    {
+        int grade;
+        bool isValidGrade = false;
+
+        do
+        {
+            System.Console.WriteLine("Enter the grade (between 6 and 10): ");
+            string input = System.Console.ReadLine();
+
+            if (int.TryParse(input, out grade))
+            {
+                if (grade >= 6 && grade <= 10)
+                {
+                    isValidGrade = true;
+                }
+                else
+                {
+                    System.Console.WriteLine("Grade should be between 6 and 10. Try again.");
+                }
+            }
+            else
+            {
+                System.Console.WriteLine("Invalid input. Please enter a valid grade (between 6 and 10).");
+            }
+
+        } while (!isValidGrade);
+
+        return grade;
+    }
 
 }
