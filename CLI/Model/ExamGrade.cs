@@ -83,6 +83,7 @@ class ExamGrade : ISerializable
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
+        sb.Append($"ID: {ID.ToString()}, ");
         sb.Append("Date of grading: " + grading_day + ", ");
         sb.Append("Grade: " + grade + ", ");
         sb.Append("Subject: " + subjectID + ", ");

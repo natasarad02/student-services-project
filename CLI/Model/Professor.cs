@@ -123,6 +123,7 @@ class Professor : ISerializable
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
+        sb.Append($"ID: {Id.ToString()}, ");
         sb.Append("ID card: " + num + ", ");
         sb.Append("NAME: " + Name + ", ");
         sb.Append("SURNAME: " + Surname + ", ");

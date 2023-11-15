@@ -101,7 +101,8 @@ class Subject : ISerializable
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append($"ID: {Ids.ToString()}, ");
+        sb.Append($"ID: {Id.ToString()}, ");
+        sb.Append($"SUB_ID: {Ids.ToString()}, ");
         sb.Append($"NAME: {Name}, ");
         sb.Append($"ESPB: {Espb}, ");
         sb.Append("Semester: " + semester + ", ");

@@ -52,7 +52,8 @@ class Department : ISerializable
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append($"ID: {Idd}, ");
+        sb.Append($"ID: {Id.ToString()}, ");
+        sb.Append($"DEP_ID: {Idd}, ");
         sb.Append($"IME KATEDRE: {Name}, ");
         sb.Append($"SEF KATEDRE: {Hod}, ");
         sb.Append($"PROFESORI:");
