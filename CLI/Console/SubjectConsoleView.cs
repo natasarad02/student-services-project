@@ -139,6 +139,11 @@ class SubjectConsoleView
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subid = int.Parse(System.Console.ReadLine());
                 //proveriti da li oba postoje BITNO --> odradjeno
+                if(examGradeDAO.grade_exists(idss, subid))
+                {
+                    System.Console.WriteLine("Student already passed this exam");
+                    break;
+                }
                 if (!studentsSubjectsDAO.doesConnectionExist(idss, subid))
                 {
                     System.Console.WriteLine("Student is not taking this class");

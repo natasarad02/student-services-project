@@ -12,6 +12,7 @@ class StudentConsoleView
 {
     private readonly StudentDAO studentDAO;
     private static StudentsSubjectsDAO studentsSubjectsDAO =  new StudentsSubjectsDAO();
+    private static ExamGradeDAO examGradeDAO = new ExamGradeDAO();
 
     public StudentConsoleView(StudentDAO studDAO)
     {
@@ -161,7 +162,12 @@ class StudentConsoleView
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subid = int.Parse(System.Console.ReadLine());
                 //proveriti da li oba postoje BITNO
-                if(!studentsSubjectsDAO.doesConnectionExist(idss, subid))
+                if (examGradeDAO.grade_exists(idss, subid))
+                {
+                    System.Console.WriteLine("Student already passed this exam");
+                    break;
+                }
+                if (!studentsSubjectsDAO.doesConnectionExist(idss, subid))
                 {
                     System.Console.WriteLine("Student isn't taking this class");
                     break;
