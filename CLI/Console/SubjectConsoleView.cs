@@ -110,8 +110,10 @@ class SubjectConsoleView
                 //provera da li postoji BITNO --> odradjeno
                 if (!subjectDAO.doesSubjectExist(subjectid))
                 {
-                    System.Console.WriteLine("Subject doesn't exist");
-                    break;
+                    System.Console.WriteLine("Subject doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter subjects ID: ");
+                    subjectid = int.Parse(System.Console.ReadLine());
+                    //break;
                 }
 
                 System.Console.WriteLine("Enter student ID: ");

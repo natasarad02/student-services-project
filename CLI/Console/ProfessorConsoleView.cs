@@ -114,7 +114,13 @@ class ProfessorConsoleView
             case "5":
                 System.Console.WriteLine("Enter professors ID: ");
                 int id = int.Parse(System.Console.ReadLine());
-                // BITNO proveri da li profesor postoji?
+                // BITNO proveri da li profesor postoji? --> odradjeno
+                if (!professorDAO.doesProfessorExist(id))
+                {
+                    System.Console.WriteLine("Professor doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter professors ID: ");
+                    id = int.Parse(System.Console.ReadLine());
+                }
                 List<Subject> temp = professorDAO.listSubjects(id);
                 foreach(Subject subject in temp)
                 {
