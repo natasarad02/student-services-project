@@ -43,10 +43,9 @@ class SubjectConsoleView
         System.Console.WriteLine("Enter subject ESPB: ");
         int espb = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
 
+
         System.Console.WriteLine("Enter subject semester: ");
-        string semesterStr = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
-        semester semester;
-        Enum.TryParse<semester>(semesterStr, out semester); //popraviti -> popravljeno
+        semester semester = ConsoleViewUtils.SafeInputSemester();
 
         System.Console.WriteLine("Enter subject school year: ");
         int schoolYear = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());

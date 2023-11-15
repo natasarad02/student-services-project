@@ -68,9 +68,8 @@ class StudentConsoleView
         int college_year = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
 
         System.Console.WriteLine("Enter student's status: ");
-        string stat = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
-        Status status;
-        Enum.TryParse<Status>(stat, out status);
+        Status status = ConsoleViewUtils.SafeInputStatus();
+        
 
        // System.Console.WriteLine("Enter student's average grade: ");
         //float avg_grade = ConsoleViewUtils.SafeInputFloat(); //float.Parse(System.Console.ReadLine() ?? string.Empty);
