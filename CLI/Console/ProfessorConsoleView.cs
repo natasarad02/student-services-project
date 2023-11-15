@@ -38,23 +38,23 @@ class ProfessorConsoleView
 
 
 
-        System.Console.WriteLine("Enter professor's last name: "); //podeliti na ime i prezime BITNO
-        string lName = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        System.Console.WriteLine("Enter professor's last name: "); 
+        string lName = ConsoleViewUtils.SafeInputName(); //System.Console.ReadLine() ?? string.Empty;
 
-        System.Console.WriteLine("Enter professor's first name: "); //podeliti na ime i prezime BITNO
-        string fName = ConsoleViewUtils.SafeInputString();
+        System.Console.WriteLine("Enter professor's first name: "); 
+        string fName = ConsoleViewUtils.SafeInputName();
 
 
 
 
         System.Console.WriteLine("Enter professor's street: ");
-        string street = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string street = ConsoleViewUtils.SafeInputName(); //System.Console.ReadLine() ?? string.Empty;
         System.Console.WriteLine("Enter professor's street number: ");
         int streetNum = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
         System.Console.WriteLine("Enter professor's city: ");
-        string city = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string city = ConsoleViewUtils.SafeInputName(); //System.Console.ReadLine() ?? string.Empty;
         System.Console.WriteLine("Enter professor's country: ");
-        string country = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string country = ConsoleViewUtils.SafeInputName(); //System.Console.ReadLine() ?? string.Empty;
         Address adr = new Address(street, streetNum, city, country);
 
         System.Console.WriteLine("Enter professor's date of birth: ");
@@ -70,7 +70,7 @@ class ProfessorConsoleView
         int employment_year = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
 
         System.Console.WriteLine("Enter professor's calling: ");
-        string call = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string call = ConsoleViewUtils.SafeInputName(); //System.Console.ReadLine() ?? string.Empty;
 
         return new Professor( idNum, fName, lName, adr, phone_num, br_date, employment_year, email, call);
     }

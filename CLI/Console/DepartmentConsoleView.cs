@@ -32,13 +32,13 @@ namespace StudentskaSluzba.Console
             System.Console.WriteLine("Enter department details:");
 
             System.Console.WriteLine("Enter department id: ");
-            int departmentId = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
+            int departmentId = ConsoleViewUtils.SafeInputInt(); 
 
             System.Console.WriteLine("Enter department name: ");
-            string departmentName = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+            string departmentName = ConsoleViewUtils.SafeInputName();
 
             System.Console.WriteLine("Enter head of department: ");
-            string headOfDepartment = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+            string headOfDepartment = ConsoleViewUtils.SafeInputName();
 
             return new Department(departmentId, departmentName, headOfDepartment);
         }
