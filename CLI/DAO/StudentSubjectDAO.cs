@@ -24,12 +24,9 @@ namespace StudentskaSluzba.DAO
 
         public StudentsSubjects AddStudentsSubjects(StudentsSubjects StudentsSubjects)
         {
+            //fali provera da li vec pohadja??? BITNO
             StudentsSubjectss.Add(StudentsSubjects);
             storage.Save(StudentsSubjectss);
-
-            //test da li (re)load radi
-            //storage.Load();
-            //NIJE RADILO
 
             return StudentsSubjects;
         }

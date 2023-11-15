@@ -97,12 +97,12 @@ namespace StudentskaSluzba.DAO
             //dodati pri ispisu da ispisuje samo osnovne info tj BEZ LISTA
         }
 
-        public List<Student> GetStudents(int subjectId)
+        public List<Student> GetStudents(int subjectId) //izbacuje vise
         {
             return studentsSubjectsDAO.GetStudents(subjectId);
         }
         
-        public void addStudentSubject(int id_student, int id_subject)
+        public void addStudentSubject(int id_student, int id_subject) //izbacuje vise
         {
             StudentsSubjects connection = new StudentsSubjects(id_student, id_subject);
             studentsSubjectsDAO.AddStudentsSubjects(connection);
