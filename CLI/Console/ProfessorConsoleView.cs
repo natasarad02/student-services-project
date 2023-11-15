@@ -150,6 +150,12 @@ class ProfessorConsoleView
     private void RemoveProfessor()
     {
         int id = InputId();
+        if (!professorDAO.doesProfessorExist(id))
+        {
+            System.Console.WriteLine("Professor doesn't exist, try again: ");
+            System.Console.WriteLine("Enter professor's ID: ");
+            id = int.Parse(System.Console.ReadLine());
+        }
 
         Professor? removedProfessor = professorDAO.RemoveProfessor(id);
         if (removedProfessor == null)

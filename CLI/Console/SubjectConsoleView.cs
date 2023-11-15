@@ -193,6 +193,20 @@ class SubjectConsoleView
     {
         int id = InputId();
 
+        if (!subjectDAO.doesSubjectExist(id))
+        {
+            System.Console.WriteLine("Student doesn't exist, try again: ");
+            System.Console.WriteLine("Enter subject ID: ");
+            id = int.Parse(System.Console.ReadLine());
+        }
+
+        if(studentsSubjectsDAO.doesConnectionBySubjectExist(id))
+        {
+            System.Console.WriteLine("You can't delete subject if students are taking it, try again: ");
+            System.Console.WriteLine("Enter subject ID: ");
+            id = int.Parse(System.Console.ReadLine());
+
+        }
         Subject? removedSubject = subjectDAO.RemoveSubject(id);
         if (removedSubject == null)
         {

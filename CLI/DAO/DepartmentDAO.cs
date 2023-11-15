@@ -65,6 +65,7 @@ namespace StudentskaSluzba.DAO
 
         public Department? RemoveDepartment(int id)
         {
+            
             Department? oldDepartment = GetDepartmentById(id);
             if (oldDepartment is null) return null;
 

@@ -101,6 +101,19 @@ namespace StudentskaSluzba.DAO
                 return true;
             }
         }
+
+        public bool doesConnectionBySubjectExist(int sub_id)
+        {
+            StudentsSubjects connection = StudentsSubjectss.Find(s => s.subjectID == sub_id);
+            if (connection == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
 

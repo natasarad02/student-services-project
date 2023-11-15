@@ -15,6 +15,7 @@ namespace StudentskaSluzba.DAO
         private readonly List<Professor> professors;
         private readonly Storage<Professor> storage;
         private SubjectDAO subjectDAO = new SubjectDAO();
+      
 
         public ProfessorDAO()
         {
@@ -72,6 +73,7 @@ namespace StudentskaSluzba.DAO
 
         public Professor? RemoveProfessor(int id)
         {
+       
             Professor? oldProfessor = GetProfessorById(id);
             if (oldProfessor is null) return null;
 

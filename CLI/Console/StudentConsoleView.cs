@@ -220,8 +220,19 @@ class StudentConsoleView
     private void RemoveStudent()
     {
         int id = InputId();
-       
+        if (!studentDAO.doesStudentExist(id))
+        {
+            System.Console.WriteLine("Student doesn't exist, try again: ");
+            System.Console.WriteLine("Enter students ID: ");
+            id = int.Parse(System.Console.ReadLine());
+        }
+
+       // List<ExamGrade> grades = studentDAO.GetExamGrades(id);
+        //List<Subject> student_subjects = studentDAO.GetSubjects(id);
         Student? removedStudent = studentDAO.removeStudent(id);
+        //grades.Clear();
+       
+
         if (removedStudent == null)
         {
             System.Console.WriteLine("Student not found");

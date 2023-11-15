@@ -111,7 +111,12 @@ class ExamGradeConsoleView
     private void RemoveExamGrade()
     {
         int id = InputId();
-
+        if (!examGradeDAO.doesGradeExist(id))
+        {
+            System.Console.WriteLine("Grade doesn't exist, try again: ");
+            System.Console.WriteLine("Enter exam grade ID: ");
+            id = int.Parse(System.Console.ReadLine());
+        }
         ExamGrade? removedExamGrade = examGradeDAO.RemoveExamGrade(id);
         if (removedExamGrade == null)
         {

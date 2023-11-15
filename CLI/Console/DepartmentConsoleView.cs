@@ -117,7 +117,12 @@ namespace StudentskaSluzba.Console
         private void RemoveDepartment()
         {
             int id = InputId();
-
+            if (!departmentDAO.doesDepartmentExist(id))
+            {
+                System.Console.WriteLine("Department doesn't exist, try again: ");
+                System.Console.WriteLine("Enter department's ID: ");
+                id = int.Parse(System.Console.ReadLine());
+            }
             Department? removedDepartment = departmentDAO.RemoveDepartment(id);
             if (removedDepartment == null)
             {
