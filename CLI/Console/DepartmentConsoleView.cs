@@ -91,11 +91,11 @@ namespace StudentskaSluzba.Console
                     System.Console.WriteLine("Enter professors ID: ");
                     int id_p = int.Parse(System.Console.ReadLine());
 
-                    while (!professorDAO.doesProfessorExist(id)) //upravo uradjeno TEST 
+                    while (!professorDAO.doesProfessorExist(id_p)) //upravo uradjeno TEST 
                     {
                         System.Console.WriteLine("Professor doesn't exist, try again: ");
                         System.Console.WriteLine("Enter professor's ID: ");
-                        id = int.Parse(System.Console.ReadLine());
+                        id_p = int.Parse(System.Console.ReadLine());
                     }
 
                     departmentDAO.addProfessor(id, id_p);
@@ -103,6 +103,12 @@ namespace StudentskaSluzba.Console
                 case "6":
                     System.Console.WriteLine("Enter department ID: ");
                     int id_d = int.Parse(System.Console.ReadLine());
+                    while (!departmentDAO.doesDepartmentExist(id_d))
+                    {
+                        System.Console.WriteLine("Department doesn't exist, try again: ");
+                        System.Console.WriteLine("Enter department's ID: ");
+                        id_d = int.Parse(System.Console.ReadLine());
+                    }
                     List<Professor> profs= departmentDAO.GetDepartmentById(id_d).Department_Professors;
                     foreach (Professor prof in profs)
                     {
