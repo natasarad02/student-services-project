@@ -149,6 +149,14 @@ class SubjectConsoleView
             case "7":
                 System.Console.WriteLine("Enter subjects ID: ");
                 int sub_id2 = int.Parse(System.Console.ReadLine());
+                while (!subjectDAO.doesSubjectExist(sub_id2))
+                {
+                    System.Console.WriteLine("Subject doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter subjects ID: ");
+                    sub_id2 = int.Parse(System.Console.ReadLine());
+                    //break;
+                }
+
                 List<Student> students_that_passed = examGradeDAO.GetStudentBySubject(sub_id2);
                 foreach(Student student in students_that_passed)
                 {
@@ -167,7 +175,15 @@ class SubjectConsoleView
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subid = int.Parse(System.Console.ReadLine());
                 //proveriti da li oba postoje BITNO --> odradjeno
-                while(examGradeDAO.grade_exists(idss, subid))
+                while (!subjectDAO.doesSubjectExist(subid))
+                {
+                    System.Console.WriteLine("Subject doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter subjects ID: ");
+                    subid = int.Parse(System.Console.ReadLine());
+                    //break;
+                }
+
+                while (examGradeDAO.grade_exists(idss, subid))
                 {
                     System.Console.WriteLine("Student already passed this exam, try again: ");
                     System.Console.WriteLine("Enter students ID: ");
@@ -186,7 +202,7 @@ class SubjectConsoleView
                     //break;
                 }
                 System.Console.WriteLine("Enter grade: ");
-                int grade = int.Parse(System.Console.ReadLine());
+                int grade = ConsoleViewUtils.SafeInputGrade();//int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:");
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
                 //BITNO obrisati vezu iz StudSubj ako je ima!!! --> zasto ono bese --> odradjeno
