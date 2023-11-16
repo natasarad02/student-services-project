@@ -13,8 +13,6 @@ class Subject : ISerializable
     public string Name { get; set; }
     public int Espb { get; set; }
 
-    // Id professora se serijalizuje
-    // Professor se ne serijalizuje
     public int ProfessorID { get; set; }
 
     public List<Student> Students_passed { get; set; }
@@ -25,25 +23,7 @@ class Subject : ISerializable
 
     public int year {
         get; set;
-       /* get
-        {
-            return year;
-
-        }
-        set
-        {
-
-            if (year < 1 && year > 4) //could be 6 for students in the medical field
-            {
-                System.Console.WriteLine("Year must be between 1 and 4!");
-            }
-            else
-            {
-                year = value;
-            }
-
-        uporno ulazi u beskonacnu petlju, gde god smo napisale nesto u geterima i seterima
-        }*/
+       
     }
 
     public Subject()
@@ -58,7 +38,7 @@ class Subject : ISerializable
         Name = name;
         Espb = espb;
         semester = SEM;
-        ProfessorID = professorId; // izbaciti, za pocetak treba bez profesora???
+        ProfessorID = professorId; 
         year = school_year;
         Students_passed = new List<Student>();
         Students_attending = new List<Student>();
@@ -106,12 +86,8 @@ class Subject : ISerializable
         sb.Append($"NAME: {Name}, ");
         sb.Append($"ESPB: {Espb}, ");
         sb.Append("Semester: " + semester + ", ");
-        sb.Append("STUDENTS: ");
-        sb.AppendJoin(", ", Students_passed.Select(student => student.Last_Name));
-        sb.AppendJoin(", ", Students_passed.Select(student => student.First_Name));
-        sb.AppendJoin(", ", Students_attending.Select(student => student.Last_Name));
-        sb.AppendJoin(", ", Students_attending.Select(student => student.First_Name));
-
+        sb.Append("Professors ID:" +ProfessorID);
+        
         return sb.ToString();
     }
 }

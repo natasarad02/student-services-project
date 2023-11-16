@@ -1,3 +1,2 @@
-1|Marko|Petric|ulicaaa,1,Novi Sad,srbija|0646667777|prof@gmail.com|1999|9/7/1952|8888|dr
 2|a|a|a,3,a,a|064/555555|a@c.com|1995|1/1/2000|545|mr
 3|;|C|;,5,',\|068/5255555|o@a.uns|1999|1/1/2000|456|dr

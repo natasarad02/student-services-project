@@ -22,9 +22,8 @@ class SubjectConsoleView
     private void PrintSubjects(List<Subject> subjects)
     {
         System.Console.WriteLine("Subjects: ");
-        string header = $"?????????"; //dodati
-
-        System.Console.WriteLine(header);
+        
+        
         foreach (Subject s in subjects)
         {
             System.Console.WriteLine(s);
@@ -61,8 +60,8 @@ class SubjectConsoleView
     private int InputId()
     {
         System.Console.WriteLine("Enter subjects's id: ");
-        return ConsoleViewUtils.SafeInputInt(); // Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent --> dodato
-       // return int.Parse(System.Console.ReadLine());
+        return ConsoleViewUtils.SafeInputInt(); 
+       
     }
 
 

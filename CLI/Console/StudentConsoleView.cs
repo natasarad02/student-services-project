@@ -215,9 +215,15 @@ class StudentConsoleView
                     System.Console.WriteLine("Enter students ID: ");
                     ids = int.Parse(System.Console.ReadLine());
                 }
-                int idstud = int.Parse(System.Console.ReadLine());
-                float avg= studentDAO.average_grade(idstud);
-                System.Console.WriteLine("Average grade of this student is: " + avg);
+                
+                float avg= studentDAO.average_grade(ids);
+                if (avg == float.NaN) //ne radi BITNO
+                {
+                    System.Console.WriteLine("This student has no grades yet.");
+                }
+                else {
+                    System.Console.WriteLine("Average grade of this student is: " + avg);
+                }
                 break;
 
         }

@@ -65,7 +65,6 @@ class ExamGradeConsoleView
         System.Console.WriteLine("2: Add exam grade");
         System.Console.WriteLine("3: Update exam grade");
         System.Console.WriteLine("4: Remove exam grade");
-        System.Console.WriteLine("5: Show and sort exam grades");
         System.Console.WriteLine("0: Close");
     }
 
@@ -85,9 +84,7 @@ class ExamGradeConsoleView
             case "4":
                 RemoveExamGrade();
                 break;
-                /*  case "5":
-                      ShowAndSortStudents();
-                      break;*/
+                
         }
     }
     public void RunMenu()
@@ -157,20 +154,5 @@ class ExamGradeConsoleView
         System.Console.WriteLine("Exam grade is added");
     }
 
-    /* private void ShowAndSortStudents()
-     {
-         System.Console.WriteLine("\nEnter page: ");
-         int page = ConsoleViewUtils.SafeInputInt();
-         System.Console.WriteLine("\nEnter page size: ");
-         int pageSize = ConsoleViewUtils.SafeInputInt();
-         System.Console.WriteLine("\nEnter sort criteria: ");
-         string sortCriteria = System.Console.ReadLine() ?? string.Empty;
-         System.Console.WriteLine("\nEnter 0 for ascending, any key for descending: ");
-         int sortDirectionInput = ConsoleViewUtils.SafeInputInt();
-         SortDirection sortDirection = sortDirectionInput == 0 ? SortDirection.Ascending : SortDirection.Descending;
-
-         PrintVehicles(_vehiclesDao.GetAllVehicles(page, pageSize, sortCriteria, sortDirection));
-     }
-     Ovo cemo kad dodamo ConsoleViewUtils
-     */
+    
 }
