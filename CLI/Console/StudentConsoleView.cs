@@ -13,7 +13,7 @@ class StudentConsoleView
     private readonly StudentDAO studentDAO;
     private static StudentsSubjectsDAO studentsSubjectsDAO =  new StudentsSubjectsDAO();
     private static ExamGradeDAO examGradeDAO = new ExamGradeDAO();
-
+    private static SubjectDAO subjectDAO = new SubjectDAO();
     public StudentConsoleView(StudentDAO studDAO)
     {
         studentDAO = studDAO;
@@ -141,6 +141,13 @@ class StudentConsoleView
                 System.Console.WriteLine("Enter subjects ID: ");
                 int sub_id = int.Parse(System.Console.ReadLine());
                 //dodati proveru da li postoji ta veza u ExamGrade BITNO --> da li ovo treba posto student ne mora imati ocenu iz tog predmeta da bi ga slusao? Odradila sam proveru konekcje u student-subject
+                while (!subjectDAO.doesSubjectExist(sub_id))
+                {
+                    System.Console.WriteLine("Subject doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter subjects ID: ");
+                    sub_id = int.Parse(System.Console.ReadLine());
+                    //break;
+                }
                 if (studentsSubjectsDAO.doesConnectionExist(id,sub_id))
                 {
                     System.Console.WriteLine("Student is already taking this class");
@@ -166,6 +173,12 @@ class StudentConsoleView
             case "8":
                 System.Console.WriteLine("Enter students ID: ");
                 int idss = int.Parse(System.Console.ReadLine());
+                while (!studentDAO.doesStudentExist(idss))
+                {
+                    System.Console.WriteLine("Student doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter students ID: ");
+                    idss = int.Parse(System.Console.ReadLine());
+                }
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subid = int.Parse(System.Console.ReadLine());
                 //proveriti da li oba postoje BITNO
@@ -198,6 +211,12 @@ class StudentConsoleView
                 break;
             case "9":
                 System.Console.WriteLine("Enter students ID: ");
+                while (!studentDAO.doesStudentExist(ids))
+                {
+                    System.Console.WriteLine("Student doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter students ID: ");
+                    ids = int.Parse(System.Console.ReadLine());
+                }
                 int idstud = int.Parse(System.Console.ReadLine());
                 float avg= studentDAO.average_grade(idstud);
                 System.Console.WriteLine("Average grade of this student is: " + avg);

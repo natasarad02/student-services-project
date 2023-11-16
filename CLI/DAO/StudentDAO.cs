@@ -12,7 +12,7 @@ class StudentDAO
 {
     private readonly List<Student> students;
     private readonly Storage<Student> storage;
-    private StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
+    private static StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
     private static ExamGradeDAO examGradeDAO1 = new ExamGradeDAO();
 
     public StudentDAO()

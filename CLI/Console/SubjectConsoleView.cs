@@ -13,6 +13,7 @@ class SubjectConsoleView
     private readonly SubjectDAO subjectDAO;
     private static ExamGradeDAO examGradeDAO = new ExamGradeDAO();
     private static StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
+    private static StudentDAO studentDAO = new StudentDAO();
     public SubjectConsoleView(SubjectDAO subDAO)
     {
         subjectDAO = subDAO;
@@ -99,13 +100,15 @@ class SubjectConsoleView
                 System.Console.WriteLine("Enter subject ID: ");
                 
                 int sub_id= int.Parse(System.Console.ReadLine());
-                while (!subjectDAO.doesSubjectExist(sub_id))
+                 while (!subjectDAO.doesSubjectExist(sub_id))
                 {
                     System.Console.WriteLine("Student doesn't exist, try again: ");
                     System.Console.WriteLine("Enter subject ID: ");
                     sub_id = int.Parse(System.Console.ReadLine());
                 }
                 List<Student> temp = subjectDAO.GetStudents(sub_id);
+          
+
                 foreach (Student student in temp)
                 {
                     System.Console.WriteLine(student.First_Name + " " + student.Last_Name);
@@ -126,6 +129,14 @@ class SubjectConsoleView
                 System.Console.WriteLine("Enter student ID: ");
                 int studentsid = int.Parse(System.Console.ReadLine());
                 //dodati proveru da li postoji ta veza u ExamGrade BITNO --> odradjeno na isti nacin kao u StudentConsoleView
+                //prvo proveravamo da li student postoji
+                while (!studentDAO.doesStudentExist(studentsid))
+                {
+                    System.Console.WriteLine("Student doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter student's ID: ");
+                    subjectid = int.Parse(System.Console.ReadLine());
+                    //break;
+                }
                 while (studentsSubjectsDAO.doesConnectionExist(studentsid, subjectid))
                 {
                     System.Console.WriteLine("Student is already taking this class, try again:");
@@ -147,6 +158,12 @@ class SubjectConsoleView
             case "8":
                 System.Console.WriteLine("Enter students ID: ");
                 int idss = int.Parse(System.Console.ReadLine());
+                while (!studentDAO.doesStudentExist(idss))
+                {
+                    System.Console.WriteLine("Student doesn't exist, try again: ");
+                    System.Console.WriteLine("Enter students ID: ");
+                    idss = int.Parse(System.Console.ReadLine());
+                }
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subid = int.Parse(System.Console.ReadLine());
                 //proveriti da li oba postoje BITNO --> odradjeno
