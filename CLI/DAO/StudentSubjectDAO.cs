@@ -24,7 +24,7 @@ namespace StudentskaSluzba.DAO
 
         public StudentsSubjects AddStudentsSubjects(StudentsSubjects StudentsSubjects)
         {
-            //fali provera da li vec pohadja??? BITNO
+            //fali provera da li vec pohadja??? BITNO --> Da li je ova metoda potrebna, posto je nigde ne pozivamo? (ako mi nije promaklo)
             StudentsSubjectss.Add(StudentsSubjects);
             storage.Save(StudentsSubjectss);
 

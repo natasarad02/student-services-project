@@ -208,6 +208,7 @@ class StudentConsoleView
                 break;
             case "9":
                 System.Console.WriteLine("Enter students ID: ");
+                ids = int.Parse(System.Console.ReadLine());
                 while (!studentDAO.doesStudentExist(ids))
                 {
                     System.Console.WriteLine("Student doesn't exist, try again: ");
