@@ -214,7 +214,7 @@ class StudentConsoleView
                 }
                 
                 float avg= studentDAO.average_grade(ids);
-                if (avg >= 6) //ne radi BITNO
+                if (avg >= 6) 
                 {
                     System.Console.WriteLine("Average grade of this student is: " + avg);
                 }
