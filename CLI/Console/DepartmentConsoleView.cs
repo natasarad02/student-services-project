@@ -8,6 +8,7 @@ namespace StudentskaSluzba.Console
     class DepartmentConsoleView
     {
         private readonly DepartmentDAO departmentDAO;
+        private static ProfessorDAO professorDAO = new ProfessorDAO();
 
         public DepartmentConsoleView(DepartmentDAO depDAO)
         {
@@ -89,6 +90,14 @@ namespace StudentskaSluzba.Console
                     }
                     System.Console.WriteLine("Enter professors ID: ");
                     int id_p = int.Parse(System.Console.ReadLine());
+
+                    while (!professorDAO.doesProfessorExist(id)) //upravo uradjeno TEST 
+                    {
+                        System.Console.WriteLine("Professor doesn't exist, try again: ");
+                        System.Console.WriteLine("Enter professor's ID: ");
+                        id = int.Parse(System.Console.ReadLine());
+                    }
+
                     departmentDAO.addProfessor(id, id_p);
                     break;
                 case "6":

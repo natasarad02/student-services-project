@@ -79,7 +79,7 @@ class StudentConsoleView
     private int InputId()
     {
         System.Console.WriteLine("Enter student's id: ");
-        return ConsoleViewUtils.SafeInputInt(); // Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
+        return ConsoleViewUtils.SafeInputInt(); 
        
     }
    
@@ -137,13 +137,13 @@ class StudentConsoleView
                 }
                 System.Console.WriteLine("Enter subjects ID: ");
                 int sub_id = int.Parse(System.Console.ReadLine());
-                //dodati proveru da li postoji ta veza u ExamGrade BITNO --> da li ovo treba posto student ne mora imati ocenu iz tog predmeta da bi ga slusao? Odradila sam proveru konekcje u student-subject
+                
                 while (!subjectDAO.doesSubjectExist(sub_id))
                 {
                     System.Console.WriteLine("Subject doesn't exist, try again: ");
                     System.Console.WriteLine("Enter subjects ID: ");
                     sub_id = int.Parse(System.Console.ReadLine());
-                    //break;
+                    
                 }
                 if (studentsSubjectsDAO.doesConnectionExist(id,sub_id))
                 {
@@ -167,18 +167,21 @@ class StudentConsoleView
                     System.Console.WriteLine(exam);
                 }
                 break;
-            case "8":
+            case "8": //Student passed an exam - add grade
                 System.Console.WriteLine("Enter students ID: ");
                 int idss = int.Parse(System.Console.ReadLine());
+
                 while (!studentDAO.doesStudentExist(idss))
                 {
                     System.Console.WriteLine("Student doesn't exist, try again: ");
                     System.Console.WriteLine("Enter students ID: ");
                     idss = int.Parse(System.Console.ReadLine());
                 }
+
                 System.Console.WriteLine("Enter subjects ID: ");
                 int subid = int.Parse(System.Console.ReadLine());
-                //proveriti da li oba postoje BITNO
+                
+
                 while (examGradeDAO.grade_exists(idss, subid))
                 {
                     System.Console.WriteLine("Student already passed this exam, try again:");
@@ -186,25 +189,19 @@ class StudentConsoleView
                     idss = int.Parse(System.Console.ReadLine());
                     System.Console.WriteLine("Enter subjects ID: ");
                     subid = int.Parse(System.Console.ReadLine());
-                    //break;
+                    
                 }
-                while (!studentsSubjectsDAO.doesConnectionExist(idss, subid)) //treba izbrisati!!! BITNO
-                {
-                    System.Console.WriteLine("Student isn't taking this class, try again: ");
-                    System.Console.WriteLine("Enter students ID: ");
-                    idss = int.Parse(System.Console.ReadLine());
-                    System.Console.WriteLine("Enter subjects ID: ");
-                    subid = int.Parse(System.Console.ReadLine());
-                    //break;
-                }
-
+                                
                 int grade = ConsoleViewUtils.SafeInputGrade();
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
-                //BITNO obrisati vezu iz StudSubj ako je ima!!! --> zbog cega ono bese --> kad doda ocenu, onda se samo skloni konekcija
-                 
+                
                 studentDAO.grade(idss, subid, grade, studentDate);
-                studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid);
+                if (studentsSubjectsDAO.doesConnectionExist(idss, subid)) 
+                { 
+                    studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid); //izgleda ne radi?
+                }
+
                 break;
             case "9":
                 System.Console.WriteLine("Enter students ID: ");
@@ -217,12 +214,12 @@ class StudentConsoleView
                 }
                 
                 float avg= studentDAO.average_grade(ids);
-                if (avg == float.NaN) //ne radi BITNO
+                if (avg >= 6) //ne radi BITNO
                 {
-                    System.Console.WriteLine("This student has no grades yet.");
+                    System.Console.WriteLine("Average grade of this student is: " + avg);
                 }
                 else {
-                    System.Console.WriteLine("Average grade of this student is: " + avg);
+                    System.Console.WriteLine("This student has no grades yet.");
                 }
                 break;
 
@@ -262,7 +259,8 @@ class StudentConsoleView
 
         foreach(ExamGrade grade in grades)
         {
-            examGradeDAO.RemoveExamGrade(grade.ID);
+            System.Console.WriteLine(grade); //radi ali treba obrisati
+            examGradeDAO.RemoveExamGrade(grade.ID); //NE radi BITNO
         }
        
 

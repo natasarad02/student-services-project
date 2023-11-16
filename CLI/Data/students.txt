@@ -1,2 +1,2 @@
-0|Becejac|Teodora|2/15/2002|Veselina Maslese,76,Novi Sad,Srbija|064/5703994|teodora@gmail.com|ra-37-2021|3|B
-1|m|a|1/1/2002|a,5,a,a|064/123456|vbas@njdkbds.hudci|ra-1-2021|2|S
+0|K|A|1/1/2000|a,4,s,d|063/123456|d@d.com|da-27-2021|2|B
+1|d|s|1/1/2000|s,7,d,d|068/133333|s@v.com|df-23-2125|1|B
