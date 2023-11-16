@@ -53,6 +53,47 @@ static class ConsoleViewUtils
         return input;
     }
 
+    public static string SafeInputName()
+    {
+        string input;
+        input = System.Console.ReadLine();
+
+        while (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input) || ContainsSpecialCharacters(input) || IsNumeric(input))
+        {
+            if (IsNumeric(input))
+            {
+                System.Console.WriteLine("Input is a number. Please enter a valid input: ");
+            }
+            else if (ContainsSpecialCharacters(input))
+            {
+                System.Console.WriteLine("Input contains special characters. Please enter a valid input: ");
+            }
+            else
+            {
+                System.Console.WriteLine("Entry is empty, try again: ");
+            }
+
+            input = System.Console.ReadLine();
+        }
+
+        return input;
+    }
+
+    
+    private static bool ContainsSpecialCharacters(string input)
+    {
+        return !System.Text.RegularExpressions.Regex.IsMatch(input, @"^[a-zA-Z0-9 ]+$");
+    }
+
+    
+    private static bool IsNumeric(string input)
+    {
+        return double.TryParse(input, out _);
+    }
+
+
+
+
     public static DateOnly SafeInputDate()
     {
         DateOnly input;
@@ -60,7 +101,7 @@ static class ConsoleViewUtils
 
         while (!DateOnly.TryParse(raw, out input))
         {
-            System.Console.WriteLine("Not a valid date, try again: ");
+            System.Console.WriteLine("Not a valid date, please enter date in this format MM-DD-YYYY: ");
             raw = System.Console.ReadLine();
         }
 
@@ -139,5 +180,35 @@ static class ConsoleViewUtils
         return input;
     }
 
+    public static int SafeInputGrade()
+    {
+        int grade;
+        bool isValidGrade = false;
+
+        do
+        {
+            System.Console.WriteLine("Enter the grade (between 6 and 10): ");
+            string input = System.Console.ReadLine();
+
+            if (int.TryParse(input, out grade))
+            {
+                if (grade >= 6 && grade <= 10)
+                {
+                    isValidGrade = true;
+                }
+                else
+                {
+                    System.Console.WriteLine("Grade should be between 6 and 10. Try again.");
+                }
+            }
+            else
+            {
+                System.Console.WriteLine("Invalid input. Please enter a valid grade (between 6 and 10).");
+            }
+
+        } while (!isValidGrade);
+
+        return grade;
+    }
 
 }

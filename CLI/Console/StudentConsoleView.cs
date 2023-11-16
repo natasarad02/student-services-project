@@ -35,45 +35,42 @@ class StudentConsoleView
     {
         Model.Index indNum = new Model.Index();
         System.Console.WriteLine("Enter student's index number: ");
-        string indn = ConsoleViewUtils.SafeInputIndex(); //System.Console.ReadLine() ?? string.Empty;
+        string indn = ConsoleViewUtils.SafeInputIndex(); 
         Model.Index ind_num = Model.Index.FromString(indn);
-       // System.Console.WriteLine(ind_num.ToString2());
+       
 
-        System.Console.WriteLine("Enter student's last name: "); //podeliti na ime i prezime BITNO --> odradjeno
-        string lName = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        System.Console.WriteLine("Enter student's last name: "); 
+        string lName = ConsoleViewUtils.SafeInputName(); 
         
-        System.Console.WriteLine("Enter student's first name: "); //podeliti na ime i prezime BITNO --> odradjeno
-        string fName = ConsoleViewUtils.SafeInputString();
+        System.Console.WriteLine("Enter student's first name: "); 
+        string fName = ConsoleViewUtils.SafeInputName();
        
         System.Console.WriteLine("Enter student's date of birth: ");
-        DateOnly br_date = ConsoleViewUtils.SafeInputDate(); //DateOnly.Parse(System.Console.ReadLine());
+        DateOnly br_date = ConsoleViewUtils.SafeInputDate(); 
 
         System.Console.WriteLine("Enter student's street: ");
-        string street = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string street = ConsoleViewUtils.SafeInputName(); 
         System.Console.WriteLine("Enter student's street number: ");
-        int streetNum = ConsoleViewUtils.SafeInputInt(); //int.Parse( System.Console.ReadLine() ?? string.Empty);
+        int streetNum = ConsoleViewUtils.SafeInputInt(); 
         System.Console.WriteLine("Enter student's city: ");
-        string city = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string city = ConsoleViewUtils.SafeInputName(); 
         System.Console.WriteLine("Enter student's country: ");
-        string country = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string country = ConsoleViewUtils.SafeInputName(); 
         Address adr = new Address(street, streetNum, city, country);
 
 
         System.Console.WriteLine("Enter student's phone number: ");
-        string phone_num = ConsoleViewUtils.SafeInputPhoneNumber(); // ConsoleViewUtils.SafeInputString(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
+        string phone_num = ConsoleViewUtils.SafeInputPhoneNumber(); 
 
         System.Console.WriteLine("Enter student's e-mail: ");
-        string email = ConsoleViewUtils.SafeInputEmail(); //System.Console.ReadLine() ?? string.Empty;
+        string email = ConsoleViewUtils.SafeInputEmail();
 
         System.Console.WriteLine("Enter student's year of college: ");
-        int college_year = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine() ?? string.Empty);
+        int college_year = ConsoleViewUtils.SafeInputInt(); 
 
         System.Console.WriteLine("Enter student's status: ");
         Status status = ConsoleViewUtils.SafeInputStatus();
         
-
-       // System.Console.WriteLine("Enter student's average grade: ");
-        //float avg_grade = ConsoleViewUtils.SafeInputFloat(); //float.Parse(System.Console.ReadLine() ?? string.Empty);
 
         return new Student(lName, fName, br_date, adr, phone_num, email, ind_num, college_year, status);
     }
@@ -83,7 +80,7 @@ class StudentConsoleView
     {
         System.Console.WriteLine("Enter student's id: ");
         return ConsoleViewUtils.SafeInputInt(); // Ovo cemo kasnije dodati i na slican nacin cemo primeniti SafeInput i za ostala polja u metodi InputStudent
-        //return int.Parse(System.Console.ReadLine());
+       
     }
    
 
@@ -131,7 +128,7 @@ class StudentConsoleView
             case "6":
                 System.Console.WriteLine("Enter students ID: ");
                 int id = int.Parse(System.Console.ReadLine());
-                //provera da li postoji BITNO --> odradjeno
+                
                 if(!studentDAO.doesStudentExist(id))
                 {
                     System.Console.WriteLine("Student doesn't exist, try again: ");
@@ -191,7 +188,7 @@ class StudentConsoleView
                     subid = int.Parse(System.Console.ReadLine());
                     //break;
                 }
-                while (!studentsSubjectsDAO.doesConnectionExist(idss, subid))
+                while (!studentsSubjectsDAO.doesConnectionExist(idss, subid)) //treba izbrisati!!! BITNO
                 {
                     System.Console.WriteLine("Student isn't taking this class, try again: ");
                     System.Console.WriteLine("Enter students ID: ");
@@ -200,8 +197,8 @@ class StudentConsoleView
                     subid = int.Parse(System.Console.ReadLine());
                     //break;
                 }
-                System.Console.WriteLine("Enter grade: ");
-                int grade = int.Parse(System.Console.ReadLine());
+
+                int grade = ConsoleViewUtils.SafeInputGrade();
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
                 //BITNO obrisati vezu iz StudSubj ako je ima!!! --> zbog cega ono bese --> kad doda ocenu, onda se samo skloni konekcija
@@ -252,7 +249,7 @@ class StudentConsoleView
             id = int.Parse(System.Console.ReadLine());
         }
 
-       List<ExamGrade> grades = studentDAO.GetExamGrades(id);
+        List<ExamGrade> grades = studentDAO.GetExamGrades(id);
         List<Subject> student_subjects = studentDAO.GetSubjects(id);
         Student? removedStudent = studentDAO.removeStudent(id);
 
@@ -260,7 +257,6 @@ class StudentConsoleView
         {
             examGradeDAO.RemoveExamGrade(grade.ID);
         }
-        //grades.Clear();
        
 
         if (removedStudent == null)

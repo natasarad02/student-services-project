@@ -24,8 +24,10 @@ namespace StudentskaSluzba.DAO
 
         public StudentsSubjects AddStudentsSubjects(StudentsSubjects StudentsSubjects)
         {
+            //fali provera da li vec pohadja??? BITNO
             StudentsSubjectss.Add(StudentsSubjects);
             storage.Save(StudentsSubjectss);
+
             return StudentsSubjects;
         }
 
@@ -116,16 +118,3 @@ namespace StudentskaSluzba.DAO
         }
     }
 }
-
-/*
-
-            
-            
-            List<Student> students = new List<Student>();
-
-            foreach(int studentID in studentIDs)
-            {
-                students.Add(studentDAO.getStudentbyId(studentID));
-            }
-
-            return students;*/

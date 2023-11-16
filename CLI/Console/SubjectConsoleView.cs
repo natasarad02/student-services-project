@@ -36,23 +36,23 @@ class SubjectConsoleView
         System.Console.WriteLine("Enter subject details:");
 
         System.Console.WriteLine("Enter subject id: ");
-        int id = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
+        int id = ConsoleViewUtils.SafeInputInt(); 
 
         System.Console.WriteLine("Enter subject name: ");
-        string name = ConsoleViewUtils.SafeInputString(); //System.Console.ReadLine() ?? string.Empty;
+        string name = ConsoleViewUtils.SafeInputName(); 
 
         System.Console.WriteLine("Enter subject ESPB: ");
-        int espb = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
+        int espb = ConsoleViewUtils.SafeInputInt(); 
 
 
         System.Console.WriteLine("Enter subject semester: ");
         semester semester = ConsoleViewUtils.SafeInputSemester();
 
         System.Console.WriteLine("Enter subject school year: ");
-        int schoolYear = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
+        int schoolYear = ConsoleViewUtils.SafeInputInt(); 
 
         System.Console.WriteLine("Enter subject professor id: ");
-        int professorId = ConsoleViewUtils.SafeInputInt(); //int.Parse(System.Console.ReadLine());
+        int professorId = ConsoleViewUtils.SafeInputInt(); 
 
         return new Subject(id, name, espb, semester, schoolYear, professorId);
     }
@@ -111,7 +111,7 @@ class SubjectConsoleView
 
                 foreach (Student student in temp)
                 {
-                    System.Console.WriteLine(student.First_Name + " " + student.Last_Name);
+                    System.Console.WriteLine(student.First_Name + " " + student.Last_Name); //izbacuje gresku
                 }
                 break;
             case "6":
