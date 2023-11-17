@@ -98,7 +98,7 @@ namespace StudentskaSluzba.Console
                         id_p = int.Parse(System.Console.ReadLine());
                     }
 
-                    departmentDAO.addProfessor(id, id_p);
+                    departmentDAO.addProfessor(id_p, id);
                     break;
                 case "6":
                     System.Console.WriteLine("Enter department ID: ");

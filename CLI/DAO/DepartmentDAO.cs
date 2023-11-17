@@ -77,6 +77,7 @@ namespace StudentskaSluzba.DAO
         public Department? GetDepartmentById(int id)
         {
             return departments.Find(d => d.Id == id);
+            
         }
                 
         public List<Department> GetAllDepartments()
@@ -92,21 +93,23 @@ namespace StudentskaSluzba.DAO
            
             Department dep = GetDepartmentById(departmentID);
 
-            System.Console.WriteLine(pro);
             dep.Department_Professors.Add(pro);
 
         }
         public bool doesDepartmentExist(int id)
         {
-            Department department = departments.Find(s => s.Id == id);
-            if (department == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            /*  Department department = departments.Find(s => s.Id == id);
+              if (department == null)
+              {
+                  return false;
+              }
+              else
+              {
+                  return true;
+              }*/
+
+            Department dep = GetDepartmentById(id);
+            return dep != null;
         }
 
     }

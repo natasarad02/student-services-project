@@ -116,5 +116,11 @@ namespace StudentskaSluzba.DAO
                 return true;
             }
         }
+
+        public int findConnectionByStudent(int stud_id)
+        {
+            StudentsSubjects connection = StudentsSubjectss.Find(s => s.studentID == stud_id);
+            return connection.subjectID;
+        }
     }
 }
