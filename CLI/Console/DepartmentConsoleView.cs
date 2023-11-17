@@ -18,10 +18,7 @@ namespace StudentskaSluzba.Console
         private void PrintDepartments(List<Department> departments)
         {
             System.Console.WriteLine("Departments: ");
-            string header = $"{"DepartmentId",-15}{"DepartmentName",-30}"; 
-            // Add appropriate headers
-
-            System.Console.WriteLine(header);
+            
             foreach (Department d in departments)
             {
                 System.Console.WriteLine(d);

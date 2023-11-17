@@ -55,10 +55,8 @@ class Department : ISerializable
         sb.Append($"ID: {Id.ToString()}, ");
         sb.Append($"DEP_ID: {Idd}, ");
         sb.Append($"IME KATEDRE: {Name}, ");
-        sb.Append($"SEF KATEDRE: {Hod}, ");
-        sb.Append($"PROFESORI:");
-        sb.AppendJoin(", ", Department_Professors.Select(prof => prof.Name));
-        sb.AppendJoin(", ", Department_Professors.Select(prof => prof.Surname));
+        sb.Append($"SEF KATEDRE: {Hod} ");
+        
         return sb.ToString();
     }
 

@@ -122,6 +122,7 @@ class Professor : ISerializable
 
     public override string ToString()
     {
+        int worky = DateTime.Now.Year - employment_year;
         StringBuilder sb = new StringBuilder();
         sb.Append($"ID: {Id.ToString()}, ");
         sb.Append("ID card: " + num + ", ");
@@ -131,11 +132,9 @@ class Professor : ISerializable
         sb.Append("Phone number: "+ phone_number +", ");
         sb.Append("Email address: "+email_address+", ");
         sb.Append("Employment year: "+ employment_year +", ");
-        sb.Append("Work years: "+ work_year +", ");
+        sb.Append("Work years: "+ worky + ", ");
         sb.Append("Birthday: "+birth_date +", ");
-        sb.Append("Calling: " +calling +", ");
-        sb.Append("SUBJECTS: ");
-        sb.AppendJoin(", ", Subjects.Select(subject => subject.Name));
+        sb.Append("Calling: " +calling);
         return sb.ToString();
     }
 }

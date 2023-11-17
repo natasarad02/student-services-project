@@ -20,9 +20,7 @@ class ExamGradeConsoleView
     private void PrintExamGrades(List<ExamGrade> examGrades)
     {
         System.Console.WriteLine("Grades: ");
-        string header = $"STUDENT ID {"",4} | SUBJECT ID {"",2} | GRADE {"",2} | EXAM DATE {"",12}|";
-
-        System.Console.WriteLine(header);
+        
         foreach (ExamGrade eg in examGrades)
         {
             System.Console.WriteLine(eg);

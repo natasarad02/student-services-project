@@ -100,7 +100,7 @@ class Student : ISerializable
         // System.Console.WriteLine(index_number);
         sb.Append($"ID: {ID.ToString()}, ");
         sb.Append($"INDEX NUMBER: {index_number.ToString2()}, ");
-        sb.Append($"NAME: {First_Name + Last_Name}, ");
+        sb.Append($"NAME: {First_Name +" "+ Last_Name}, ");
         sb.Append($"DATE OF BIRTH: {Date_Of_Birth}, ");
         sb.Append($"ADDRESS: {Address.ToString2()}, ");
         sb.Append($"PHONE NUMBER: {Phone_Number.ToString()}, ");
