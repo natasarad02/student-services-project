@@ -86,12 +86,13 @@ namespace StudentskaSluzba.DAO
 
         public void addProfessor(int id, int departmentID)
         {
+            
             Professor pro = professorDAO.GetProfessorById(id); //provera fali
-            
 
+           
             Department dep = GetDepartmentById(departmentID);
-            
 
+            System.Console.WriteLine(pro);
             dep.Department_Professors.Add(pro);
 
         }
