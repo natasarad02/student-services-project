@@ -262,7 +262,20 @@ class StudentConsoleView
             System.Console.WriteLine(grade); //radi ali treba obrisati
             examGradeDAO.RemoveExamGrade(grade.ID); //NE radi BITNO
         }
-       
+
+        
+        
+            List<int> sub_ids = studentsSubjectsDAO.findAllConnectionsByStudent(id);
+
+        foreach(int subid in sub_ids)
+        {            
+                studentsSubjectsDAO.RemoveStudentsSubjects(id, subid);
+ 
+
+        }
+        
+        
+
 
         if (removedStudent == null)
         {

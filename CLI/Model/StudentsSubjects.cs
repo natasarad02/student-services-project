@@ -7,9 +7,9 @@ namespace StudentskaSluzba.Model;
 
 public class StudentsSubjects : ISerializable
 {
-    public int studentID { get; set; }
+    public  int studentID { get; set; }
 
-    public int subjectID { get; set; }
+    public  int subjectID { get; set; }
 
     public StudentsSubjects() { }
 

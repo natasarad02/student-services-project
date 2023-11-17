@@ -7,8 +7,8 @@ using StudentskaSluzba.Storage;
 using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
 
-namespace StudentskaSluzba.DAO
-{
+namespace StudentskaSluzba.DAO;
+
     class StudentsSubjectsDAO
     {
         private readonly List<StudentsSubjects> StudentsSubjectss;
@@ -18,7 +18,7 @@ namespace StudentskaSluzba.DAO
 
         public StudentsSubjectsDAO()
         {
-            storage = new Storage<StudentsSubjects>("StudentsSubjects" + ".txt");
+            storage = new Storage<StudentsSubjects>("StudentsSubjects.txt");
             StudentsSubjectss = storage.Load();
         }
 
@@ -116,5 +116,15 @@ namespace StudentskaSluzba.DAO
                 return true;
             }
         }
+
+        public List <int> findAllConnectionsByStudent(int stud_id)
+        {
+            List<StudentsSubjects> connections = StudentsSubjectss.FindAll(s => s.studentID == stud_id);
+            List<int> ids = new List<int>();
+            foreach(StudentsSubjects conn in connections)
+            {
+                 ids.Add(conn.subjectID);
+            }
+            return ids;
+        }
     }
-}
