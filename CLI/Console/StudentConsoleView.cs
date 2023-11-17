@@ -259,7 +259,7 @@ class StudentConsoleView
 
         foreach(ExamGrade grade in grades)
         {
-            System.Console.WriteLine(grade); //radi ali treba obrisati
+            
             examGradeDAO.RemoveExamGrade(grade.ID); //NE radi BITNO
         }
 
