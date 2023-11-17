@@ -54,8 +54,8 @@ class Department : ISerializable
         StringBuilder sb = new StringBuilder();
         sb.Append($"ID: {Id.ToString()}, ");
         sb.Append($"DEP_ID: {Idd}, ");
-        sb.Append($"IME KATEDRE: {Name}, ");
-        sb.Append($"SEF KATEDRE: {Hod} ");
+        sb.Append($"DEPARTMENT NAME: {Name}, ");
+        sb.Append($"HEAD OF DEPARTMENT: {Hod} ");
         
         return sb.ToString();
     }

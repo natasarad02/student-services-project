@@ -10,11 +10,10 @@
 9|Ilic|Milica|4/4/1990|Ulica Brace Jerkovic,8,Beograd,Srbija|064/333222111|milica.ilic@yahoo.com|me-15-2015|4|B
 10|Pavlovic|Stefan|12/12/1995|Bulevar Revolucije,6,Novi Sad,Srbija|060/123456789|stefan.pavlovic@gmail.com|it-22-2021|2|B
 11|Nikolic|Jelena|7/7/2000|Ulica Cara Dusana,9,Beograd,Srbija|063/987654321|jelena.nikolic@hotmail.com|ps-78-2018|3|B
-12|Stojanovic|Marko|5/5/1993|Trg Republike,12,Nis,Srbija|066/999888777|marko.stojanovic@yahoo.com|ph-45-2019|5|B
 13|Kovacevic|Ana|3/3/1997|Ulica Kralja Milutina,17,Nis,Srbija|064/876543210|ana.kovacevic@gmail.com|arh-11-2020|1|B
 14|Petrovic|Nikola|8/8/1998|Bulevar Arsenija Carnojevica,3,Novi Sad,Srbija|066/654321098|nikola.petrovic@yahoo.com|etf-99-2017|4|B
 15|Jovanovic|Jovana|10/10/1992|Ulica Kneza Mihaila,15,Novi Sad,Srbija|065/987654321|jovana.jovanovic@gmail.com|ftn-77-2016|3|B
 16|Milovanovic|Andjela|6/6/1996|Ulica Nikole Tesle,60,Beograd,Srbija|065/123456|andjela.milovanovic@yahoo.com|ge-22-2022|2|B
 17|Djordjevic|Vuk|1/1/2001|Braće Jugovića,7,Beograd,Srbija|066/8888888|vuk.djordjevic@hotmail.com|fiz-33-2015|5|B
 18|Antonovic|Elena|9/9/1994|Ulica Kralja Tvrtka,5,Sarajevo,Bosna i Hercegovina|063/987654|elena.antonovic@yahoo.com|hist-45-2018|4|B
-19|Smith|John|10/10/1999|Main Street,123,New York,USA|065/111222333|john.smith@gmail.com|eng-1-2021|2|S
+20|adsf|cvx|10/10/2000|adsf,23,LKJ,ew|064/128737128|dfis@fsd.com|fa-23-2020|3|B
