@@ -1,4 +1,13 @@
-2|a|a|a,3,a,a|064/555555|a@c.com|1995|1/1/2000|545|mr
-3|;|C|;,5,',\|068/5255555|o@a.uns|1999|1/1/2000|456|dr
-4|b|a|a,2,ns,srb|061/234567|n@gmail.com|2002|8/8/1987|454543|mr
-5|a|a|a,2,a,a|061/2345678|a@gmail.com|2000|9/9/2002|93939|dr
+﻿0|Mitar|Mitrovic|Ulica Kralja Petra Prvog,7,Beograd,Srbija|064/1234567899|mitrovic.m@uns.ac.rs|2005|06/05/1980|213456789|dr
+1|Jankovic|Jovana|Ulica Kneza Mihaila,15,Novi Sad,Srbija|065/987654321|jovana.jankovic@gmail.com|2018|04/03/1995|312345678|dipl ing
+2|Kostic|Pavle|Bulevar Oslobođenja,33,Podgorica,Crna Gora|067/111222333|pavle_kostic@yahoo.com|2022|09/10/2000|456789012|dr
+3|Nikolic|Bojana|Ulica Kralja Aleksandra,25,Beograd,Srbija|063/444555666|bojana.nikolic@hotmail.com|2019|08/07/1997|567890123|mr
+4|Stojanović|Luka|Trg Republike,12,Niš,Srbija|066/999888777|luka.stojanovic@gmail.com|2020|11/12/1998|678901234|dipl
+5|Pavlović|Milica|Ulica Brace Jerkovic,8,Beograd,Srbija|064/333222111|milica.pavlovic@yahoo.com|2017|04/05/1996|789012345|mr
+6|Đorđev|Stefan|Bulevar Revolucije,6,Novi Sad,Srbija|060/123456789|stefan.djordjev@hotmail.com|2021|10/11/1999|890123456|dr
+7|Ivanović|Ana|Ulica Cara Dušana,9,Beograd,Srbija|063/987654321|ana.ivanovic@gmail.com|2016|07/08/1994|901234567|dipl
+8|Petrović|Nikola|Bulevar Arsenija Čarnojevića,3,Novi Sad,Srbija|066/654321098|nikola.petrovic@yahoo.com|2023|12/15/2001|012345678|mr
+9|Jovanov|Jelena|Trg Slobode,21,Podgorica,Crna Gora|067/123456789|jelena.jovanov@hotmail.com|2015|01/20/1993|123456789|dr
+10|Kovačev|Marko|Ulica Kralja Milutina,17,Niš,Srbija|064/876543210|marko.kovacev@gmail.com|2020|02/25/2000|234567890|dipl
+11|Stanković|Sara|Bulevar Oslobođenja,55,Beograd,Srbija|060/345678901|sara.stankovic@yahoo.com|2019|03/30/1998|345678901|mr
+12|Nedić|Vuk|Ulica Kralja Petra Prvog,4,Novi Sad,Srbija|065/567890123|vuk.nedic@gmail.com|2017|04/05/1996|456789012|dr
