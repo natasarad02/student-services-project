@@ -263,13 +263,18 @@ class StudentConsoleView
             examGradeDAO.RemoveExamGrade(grade.ID); //NE radi BITNO
         }
 
-        int sub_id = studentsSubjectsDAO.findConnectionByStudent(id);
+        
+        
+            List<int> sub_ids = studentsSubjectsDAO.findAllConnectionsByStudent(id);
 
-        if(studentsSubjectsDAO.doesConnectionBySubjectExist(sub_id))
-        {
-           studentsSubjectsDAO.RemoveStudentsSubjects(id, sub_id);
+        foreach(int subid in sub_ids)
+        {            
+                studentsSubjectsDAO.RemoveStudentsSubjects(id, subid);
+ 
 
         }
+        
+        
 
 
         if (removedStudent == null)
