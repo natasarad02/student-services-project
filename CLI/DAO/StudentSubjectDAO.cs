@@ -34,7 +34,11 @@ namespace StudentskaSluzba.DAO;
         public StudentsSubjects? RemoveStudentsSubjects(int id_s, int id_sub)
         {
             StudentsSubjects? oldStudentsSubjects = StudentsSubjectss.Find(s=>s.studentID==id_s && s.subjectID==id_sub);
-            if (oldStudentsSubjects is null) return null;
+            if (oldStudentsSubjects is null)
+                {
+                    System.Console.WriteLine("Nije pronadjeno");
+                    return null;
+                }
 
             StudentsSubjectss.Remove(oldStudentsSubjects);
             storage.Save(StudentsSubjectss);

@@ -268,10 +268,9 @@ class StudentConsoleView
             List<int> sub_ids = studentsSubjectsDAO.findAllConnectionsByStudent(id);
 
         foreach(int subid in sub_ids)
-        {            
-                studentsSubjectsDAO.RemoveStudentsSubjects(id, subid);
- 
-
+        {
+            System.Console.WriteLine("Subject to delete: "+ subid);
+            studentsSubjectsDAO.RemoveStudentsSubjects(id, subid); //NE radi BITNO
         }
         
         
