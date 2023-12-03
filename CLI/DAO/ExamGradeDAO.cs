@@ -18,7 +18,7 @@ namespace StudentskaSluzba.DAO
         public ExamGradeDAO()
         {
             storage = new Storage<ExamGrade>("exam_grades.txt");
-            examGrades = storage.Load();
+            examGrades = storage.Load(); // BITNO mozda mora jos da se loaduje posle save-a da li citalo novododate
         }
 
         private int GenerateId()
