@@ -4,9 +4,69 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
 
-    </Grid>
+    <DockPanel Margin="0">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="New" ></MenuItem>
+                <MenuItem Header="Save" ></MenuItem>
+                <MenuItem Header="Open" >
+                    <MenuItem Header="Students" ></MenuItem>
+                    <MenuItem Header="Subjects" ></MenuItem>
+                    <MenuItem Header="Professors" ></MenuItem>
+                    <MenuItem Header="Departments" ></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Close" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Update"></MenuItem>
+                <MenuItem Header="Delete"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <DockPanel DockPanel.Dock="Top">
+            <ToolBar Height="27">
+                <Button Content="Add"/>
+                <Button Content="Edit"/>
+                <Button Content="Delete"/>
+                <TextBox HorizontalAlignment="Left" Width="140"/>
+                <Button HorizontalAlignment="Right" Content="Search"/>
+            </ToolBar>
+        </DockPanel>
+
+        <DockPanel DockPanel.Dock="Bottom">
+            <MenuItem Header="Student services"></MenuItem>
+            <MenuItem Header="TRENUTNO STANJE"></MenuItem>
+            <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dddd, MMMM dd, yyyy - HH:mm:ss}'}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+        </DockPanel>
+
+
+
+        <Border Background="#FFA9D2C9">
+            <!-- Your content goes here -->
+
+            <TabControl>
+                <TabItem Header="Students">
+                    <Grid Background="#FFE5E5E5">
+                        <DataGrid d:ItemsSource="{d:SampleData ItemCount=4}"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Subjects">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+                <TabItem Header="Professors">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+                <TabItem Header="Departments">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+            </TabControl>
+        </Border>
+    </DockPanel>
 </Window>

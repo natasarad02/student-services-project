@@ -1,7 +1,10 @@
-0|222|analiza|8|1|winter|2023
-1|333|oet|8|0|winter|2022
-2|444|fizika|8|0|winter|2023
-3|222|analiza|8|1|winter|2023
-4|222|analiza|8|1|winter|2023
-5|222|analiza|8|1|winter|2023
-6|123|aa|8|4|summer|2022
+0|123|Analiza 1|9|0|winter|1
+1|456|OET|9|1|summer|1
+2|127|Softversko inzenjerstvo|8|4|winter|4
+3|503|Algoritmi i strukture podataka|6|9|summer|1
+4|645|Web razvoj|4|9|winter|2
+5|321|Elektrotehnika|3|6|summer|3
+6|158|Matematika|9|9|winter|4
+7|792|Osnove racunarstva|7|9|summer|3
+8|917|Fizika|8|5|winter|2
+9|413|Baze podataka 2|5|9|summer|4

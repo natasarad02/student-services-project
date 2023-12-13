@@ -1,0 +1,17 @@
+0|Jovanovic|Jova|1/1/2000|Dunavska ulica,1,Novi Sad,Srbija|061/1111111|jova@gmail.com|ra-37-2021|4|B
+1|Petrovic|Petar|6/6/1999|Ulica Nikole Tesle,60,Beograd,Srbija|065/123456|petrovic.psi123.2020@uns.ac.rs|psi-123-2020|5|B
+2|Milovanovic|Milovan|7/7/1999|Ulica Kralja Tvrtka,5,Sarajevo,Bosna i Hercegovina|063/987654|mjilovan@yahoo.com|si-45-2019|3|B
+3|Popovic|Ana|5/5/2001|Bulevar Despota Stefana,25,Beograd,Srbija|064/4444444|ana.popovic@yahoo.com|it-78-2022|2|B
+4|Kovacevic|Stefan|12/12/2002|Trg Republike,10,Novi Sad,Srbija|062/5555555|stefan_kovacevic@gmail.com|cs-22-2023|1|B
+5|Ivanovska|Elena|3/3/2000|Bul. Partizanski Odredi,50,Skopje,Severna Makedonija|060/7777777|elena_ivanovska@hotmail.com|mat-99-2021|4|B
+6|Đorđević|Marko|10/10/1998|Braće Jugovića,7,Beograd,Srbija|066/8888888|marko.djordjevic@gmail.com|ee-15-2019|5|B
+7|Antonović|Jelena|8/8/2001|Ulica Kralja Petra,15,Niš,Srbija|063/9999999|jelena_antonovic@gmail.com|psih-77-2022|3|B
+8|Ilić|Nikola|4/4/1997|Vuka Karadžića,3,Banja Luka,Bosna i Hercegovina|065/2222222|nikola.ilic@hotmail.com|et-12-2018|6|B
+9|Ilic|Milica|4/4/1990|Ulica Brace Jerkovic,8,Beograd,Srbija|064/333222111|milica.ilic@yahoo.com|me-15-2015|4|B
+10|Pavlovic|Stefan|12/12/1995|Bulevar Revolucije,6,Novi Sad,Srbija|060/123456789|stefan.pavlovic@gmail.com|it-22-2021|2|B
+11|Nikolic|Jelena|7/7/2000|Ulica Cara Dusana,9,Beograd,Srbija|063/987654321|jelena.nikolic@hotmail.com|ps-78-2018|3|B
+13|Kovacevic|Ana|3/3/1997|Ulica Kralja Milutina,17,Nis,Srbija|064/876543210|ana.kovacevic@gmail.com|arh-11-2020|1|B
+14|Petrovic|Nikola|8/8/1998|Bulevar Arsenija Carnojevica,3,Novi Sad,Srbija|066/654321098|nikola.petrovic@yahoo.com|etf-99-2017|4|B
+15|Jovanovic|Jovana|10/10/1992|Ulica Kneza Mihaila,15,Novi Sad,Srbija|065/987654321|jovana.jovanovic@gmail.com|ftn-77-2016|3|B
+16|Milovanovic|Andjela|6/6/1996|Ulica Nikole Tesle,60,Beograd,Srbija|065/123456|andjela.milovanovic@yahoo.com|ge-22-2022|2|B
+17|Djordjevic|Vuk|1/1/2001|Braće Jugovića,7,Beograd,Srbija|066/8888888|vuk.djordjevic@hotmail.com|fiz-33-2015|5|B

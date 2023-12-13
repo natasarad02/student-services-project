@@ -1,3 +1,10 @@
-0|0|Matematika|Rale
-1|258|PRNI|neko
-2|2222|aa|a
+﻿0|56|Matematika|Ralevic Nebojsa
+1|512|Informatika|Jankovic Jovana
+2|178|Mehatronika|Petrovic Nikola
+3|693|Automatika|Rapajic Milan
+4|421|Dizajn|Pavlovic Milica
+5|385|Arhitektura|Đorđev Stefan
+6|725|Sociologija|Ivanović Ana
+7|914|ACS|Petrović Nikola
+8|633|PRNI|Jovanov Jelena
+9|247|Masinstvo|Kovačev Marko

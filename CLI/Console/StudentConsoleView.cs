@@ -7,7 +7,7 @@ using System.Runtime.Loader;
 using System.Text;
 using System.Threading.Tasks;
 namespace StudentskaSluzba.Console;
-
+using StudentskaSluzba.Storage;
 class StudentConsoleView
 {
     private readonly StudentDAO studentDAO;
@@ -151,6 +151,7 @@ class StudentConsoleView
                     break;
                 }
                 studentDAO.addStudentSubject(id, sub_id);
+                
                 break;
             case "7":
                 System.Console.WriteLine("Enter students ID: ");
@@ -259,8 +260,13 @@ class StudentConsoleView
 
         foreach(ExamGrade grade in grades)
         {
+
             System.Console.WriteLine(grade); //radi ali treba obrisati
             examGradeDAO.RemoveExamGrade(grade.ID); 
+
+            
+            examGradeDAO.RemoveExamGrade(grade.ID); //NE radi BITNO
+
         }
         Student? removedStudent = studentDAO.removeStudent(id);
 
@@ -268,10 +274,9 @@ class StudentConsoleView
         List<int> sub_ids = studentsSubjectsDAO.findAllConnectionsByStudent(id);
 
         foreach(int subid in sub_ids)
-        {            
-                studentsSubjectsDAO.RemoveStudentsSubjects(id, subid);
- 
-
+        {
+            System.Console.WriteLine("Subject to delete: "+ subid);
+            studentsSubjectsDAO.RemoveStudentsSubjects(id, subid); //NE radi BITNO
         }
         
         

@@ -21,9 +21,7 @@ class ProfessorConsoleView
     private void PrintProfessors(List<Professor> professors)
     {
         System.Console.WriteLine("Professors: ");
-        string header = $"ID CARD NUMBER {"",10} | LAST NAME {"",10} | FIRST NAME {"", 11} | ADDRESS{"",25} | BIRTH DATE {"", 12} | PHONE NUMBER {"",12} | WORKING YEARS {"",2}| E-MAIL {"",30} | CALLING {"", 4} |";
-
-        System.Console.WriteLine(header);
+        
         foreach (Professor p in professors)
         {
             System.Console.WriteLine(p);

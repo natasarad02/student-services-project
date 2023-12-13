@@ -24,7 +24,7 @@ namespace StudentskaSluzba.DAO;
 
         public StudentsSubjects AddStudentsSubjects(StudentsSubjects StudentsSubjects)
         {
-            //fali provera da li vec pohadja??? BITNO --> Da li je ova metoda potrebna, posto je nigde ne pozivamo? (ako mi nije promaklo)
+            
             StudentsSubjectss.Add(StudentsSubjects);
             storage.Save(StudentsSubjectss);
 
@@ -33,8 +33,15 @@ namespace StudentskaSluzba.DAO;
 
         public StudentsSubjects? RemoveStudentsSubjects(int id_s, int id_sub)
         {
-        StudentsSubjects? oldStudentsSubjects = GetStudentsSubjects(id_s, id_sub);
-            if (oldStudentsSubjects is null) return null;
+
+       
+            StudentsSubjects? oldStudentsSubjects = StudentsSubjectss.Find(s=>s.studentID==id_s && s.subjectID==id_sub);
+            if (oldStudentsSubjects is null)
+                {
+                    System.Console.WriteLine("Nije pronadjeno");
+                    return null;
+                }
+
 
             StudentsSubjectss.Remove(oldStudentsSubjects);
             storage.Save(StudentsSubjectss);
