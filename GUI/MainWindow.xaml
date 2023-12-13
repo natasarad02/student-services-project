@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="New" ></MenuItem>
+                <MenuItem Header="Save" ></MenuItem>
+                <MenuItem Header="Open" >
+                    <MenuItem Header="Students" ></MenuItem>
+                    <MenuItem Header="Subjects" ></MenuItem>
+                    <MenuItem Header="Professors" ></MenuItem>
+                    <MenuItem Header="Departments" ></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Close" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Update"></MenuItem>
+                <MenuItem Header="Delete"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About"></MenuItem>
+            </MenuItem>
+        </Menu>
+    </DockPanel>
 </Window>
