@@ -7,7 +7,7 @@ using System.Runtime.Loader;
 using System.Text;
 using System.Threading.Tasks;
 namespace StudentskaSluzba.Console;
-
+using StudentskaSluzba.Storage;
 class StudentConsoleView
 {
     private readonly StudentDAO studentDAO;
@@ -151,6 +151,7 @@ class StudentConsoleView
                     break;
                 }
                 studentDAO.addStudentSubject(id, sub_id);
+                
                 break;
             case "7":
                 System.Console.WriteLine("Enter students ID: ");

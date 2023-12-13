@@ -99,6 +99,8 @@ class StudentDAO
     {
         StudentsSubjects connection = new StudentsSubjects(id_student, id_subject);
         studentsSubjectsDAO.AddStudentsSubjects(connection);
+        // save?
+        
     }
 
     public List<ExamGrade> GetExamGrades(int studID)
@@ -110,9 +112,13 @@ class StudentDAO
     {
         ExamGrade exam = new ExamGrade(student, subject, grade, date);
         examGradeDAO1.AddExamGrade(exam);
+        storage.Save(students);
+        // save?
         if(examGradeDAO1.grade_exists(student, subject))
         {
             studentsSubjectsDAO.RemoveStudentsSubjects(student, subject);
+            // save?
+            
         }
     }
 
