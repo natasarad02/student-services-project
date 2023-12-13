@@ -57,7 +57,7 @@ namespace StudentskaSluzba.DAO
 
         public ExamGrade? RemoveExamGrade(int id)
         {
-            ExamGrade? oldExamGrade = GetExamGradeById(id);
+            ExamGrade? oldExamGrade = examGrades.Find(e => e.ID == id);
             if (oldExamGrade is null) return null;
 
             examGrades.Remove(oldExamGrade);

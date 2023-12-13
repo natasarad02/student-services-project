@@ -33,12 +33,17 @@ namespace StudentskaSluzba.DAO;
 
         public StudentsSubjects? RemoveStudentsSubjects(int id_s, int id_sub)
         {
-            StudentsSubjects? oldStudentsSubjects = StudentsSubjectss.Find(s=>s.studentID==id_s && s.subjectID==id_sub);
+        StudentsSubjects? oldStudentsSubjects = GetStudentsSubjects(id_s, id_sub);
             if (oldStudentsSubjects is null) return null;
 
             StudentsSubjectss.Remove(oldStudentsSubjects);
             storage.Save(StudentsSubjectss);
             return oldStudentsSubjects;
+        }
+
+        public StudentsSubjects? GetStudentsSubjects(int id_s, int id_sub)
+        {
+             return StudentsSubjectss.Find(s => s.studentID == id_s && s.subjectID == id_sub);
         }
 
         public List<Student> GetStudents(int id) //find all students that are taking this subject/class

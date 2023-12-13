@@ -255,17 +255,17 @@ class StudentConsoleView
 
         List<ExamGrade> grades = studentDAO.GetExamGrades(id);
         List<Subject> student_subjects = studentDAO.GetSubjects(id);
-        Student? removedStudent = studentDAO.removeStudent(id);
+        
 
         foreach(ExamGrade grade in grades)
         {
             System.Console.WriteLine(grade); //radi ali treba obrisati
-            examGradeDAO.RemoveExamGrade(grade.ID); //NE radi BITNO
+            examGradeDAO.RemoveExamGrade(grade.ID); 
         }
+        Student? removedStudent = studentDAO.removeStudent(id);
 
-        
-        
-            List<int> sub_ids = studentsSubjectsDAO.findAllConnectionsByStudent(id);
+
+        List<int> sub_ids = studentsSubjectsDAO.findAllConnectionsByStudent(id);
 
         foreach(int subid in sub_ids)
         {            
