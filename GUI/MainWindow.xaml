@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
@@ -39,7 +40,14 @@
             </ToolBar>
         </DockPanel>
 
-        
+        <DockPanel DockPanel.Dock="Bottom">
+            <MenuItem Header="Student services"></MenuItem>
+            <MenuItem Header="TRENUTNO STANJE"></MenuItem>
+            <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dddd, MMMM dd, yyyy - HH:mm:ss}'}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+        </DockPanel>
+
+
+
         <Border Background="LightGray">
             <!-- Your content goes here -->
         </Border>
