@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <DockPanel>
+    <DockPanel Margin="0">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="New" ></MenuItem>
@@ -28,11 +28,20 @@
                 <MenuItem Header="About"></MenuItem>
             </MenuItem>
         </Menu>
-        <Menu DockPanel.Dock="Bottom">
-            <MenuItem Header="Student services"></MenuItem>
-            <MenuItem Header="TRENUTNO STANJE"></MenuItem>
-            <MenuItem Header=""/>
-        </Menu>
-    </DockPanel>
 
+        <DockPanel DockPanel.Dock="Top">
+            <ToolBar Height="27">
+                <Button Content="Add"/>
+                <Button Content="Edit"/>
+                <Button Content="Delete"/>
+                <TextBox HorizontalAlignment="Left" Width="140"/>
+                <Button HorizontalAlignment="Right" Content="Search"/>
+            </ToolBar>
+        </DockPanel>
+
+        
+        <Border Background="LightGray">
+            <!-- Your content goes here -->
+        </Border>
+    </DockPanel>
 </Window>
