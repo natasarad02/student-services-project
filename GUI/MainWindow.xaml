@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    
+
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
@@ -28,5 +28,11 @@
                 <MenuItem Header="About"></MenuItem>
             </MenuItem>
         </Menu>
+        <Menu DockPanel.Dock="Bottom">
+            <MenuItem Header="Student services"></MenuItem>
+            <MenuItem Header="TRENUTNO STANJE"></MenuItem>
+            <MenuItem Header=""/>
+        </Menu>
     </DockPanel>
+
 </Window>
