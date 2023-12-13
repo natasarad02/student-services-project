@@ -48,8 +48,25 @@
 
 
 
-        <Border Background="LightGray">
+        <Border Background="#FFA9D2C9">
             <!-- Your content goes here -->
+
+            <TabControl>
+                <TabItem Header="Students">
+                    <Grid Background="#FFE5E5E5">
+                        <DataGrid d:ItemsSource="{d:SampleData ItemCount=4}"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Subjects">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+                <TabItem Header="Professors">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+                <TabItem Header="Departments">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+            </TabControl>
         </Border>
     </DockPanel>
 </Window>
