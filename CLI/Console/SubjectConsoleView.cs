@@ -143,7 +143,9 @@ class SubjectConsoleView
                     studentsid = int.Parse(System.Console.ReadLine());
                     //break;
                 }
-                subjectDAO.addStudentSubject(studentsid, subjectid);
+                StudentsSubjects connection = new StudentsSubjects(studentsid, subjectid);
+                studentsSubjectsDAO.AddStudentsSubjects(connection);
+                //bjectDAO.addStudentSubject(studentsid, subjectid);
                 break;
             case "7":
                 System.Console.WriteLine("Enter subjects ID: ");

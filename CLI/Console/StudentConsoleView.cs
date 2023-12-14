@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 namespace StudentskaSluzba.Console;
 using StudentskaSluzba.Storage;
+using System.Xml.Linq;
+
 class StudentConsoleView
 {
-    private readonly StudentDAO studentDAO;
+    private readonly StudentDAO studentDAO = new StudentDAO();
     private static StudentsSubjectsDAO studentsSubjectsDAO =  new StudentsSubjectsDAO();
     private static ExamGradeDAO examGradeDAO = new ExamGradeDAO();
     private static SubjectDAO subjectDAO = new SubjectDAO();
@@ -150,7 +152,9 @@ class StudentConsoleView
                     System.Console.WriteLine("Student is already taking this class");
                     break;
                 }
-                studentDAO.addStudentSubject(id, sub_id);
+                StudentsSubjects connection = new StudentsSubjects(id, sub_id);
+                studentsSubjectsDAO.AddStudentsSubjects(connection);
+                //studentDAO.addStudentSubject(id, sub_id);
                 
                 break;
             case "7":
@@ -196,8 +200,17 @@ class StudentConsoleView
                 int grade = ConsoleViewUtils.SafeInputGrade();
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
-                
-                studentDAO.grade(idss, subid, grade, studentDate);
+
+                ExamGrade exam_tmp = new ExamGrade(idss, subid, grade, studentDate);
+                examGradeDAO.AddExamGrade(exam_tmp);
+                // save?
+              /*  if (examGradeDAO.grade_exists(idss, subid))
+                {
+                    studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid);
+                    // save?
+
+                }*/
+                // studentDAO.grade(idss, subid, grade, studentDate);
                 if (studentsSubjectsDAO.doesConnectionExist(idss, subid)) 
                 { 
                     studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid); //izgleda ne radi?
@@ -244,6 +257,7 @@ class StudentConsoleView
 
     }
 
+    // ovde je problem kod novog studenta
     private void RemoveStudent()
     {
         int id = InputId();
@@ -256,30 +270,31 @@ class StudentConsoleView
 
         List<ExamGrade> grades = studentDAO.GetExamGrades(id);
         List<Subject> student_subjects = studentDAO.GetSubjects(id);
-        
 
+        System.Console.WriteLine(grades.Count);
+        System.Console.WriteLine(student_subjects.Count);
         foreach(ExamGrade grade in grades)
         {
 
-            System.Console.WriteLine(grade); //radi ali treba obrisati
-            examGradeDAO.RemoveExamGrade(grade.ID); 
+            System.Console.WriteLine(grade); //radi ali treba obrisati; 
 
-            
+           
             examGradeDAO.RemoveExamGrade(grade.ID); //NE radi BITNO
 
         }
-        Student? removedStudent = studentDAO.removeStudent(id);
+  
 
 
         List<int> sub_ids = studentsSubjectsDAO.findAllConnectionsByStudent(id);
-
+        System.Console.WriteLine(sub_ids.Count);
         foreach(int subid in sub_ids)
         {
             System.Console.WriteLine("Subject to delete: "+ subid);
             studentsSubjectsDAO.RemoveStudentsSubjects(id, subid); //NE radi BITNO
+            
         }
-        
-        
+
+        Student? removedStudent = studentDAO.removeStudent(id);
 
 
         if (removedStudent == null)

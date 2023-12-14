@@ -20,15 +20,16 @@ namespace StudentskaSluzba.DAO;
         {
             storage = new Storage<StudentsSubjects>("StudentsSubjects.txt");
             StudentsSubjectss = storage.Load();
+      
         }
 
-        public StudentsSubjects AddStudentsSubjects(StudentsSubjects StudentsSubjects)
+        public StudentsSubjects AddStudentsSubjects(StudentsSubjects stud_sub)
         {
             
-            StudentsSubjectss.Add(StudentsSubjects);
+            StudentsSubjectss.Add(stud_sub);
             storage.Save(StudentsSubjectss);
 
-            return StudentsSubjects;
+            return stud_sub;
         }
 
         public StudentsSubjects? RemoveStudentsSubjects(int id_s, int id_sub)
@@ -36,7 +37,8 @@ namespace StudentskaSluzba.DAO;
 
        
             StudentsSubjects? oldStudentsSubjects = StudentsSubjectss.Find(s=>s.studentID==id_s && s.subjectID==id_sub);
-            if (oldStudentsSubjects is null)
+            System.Console.WriteLine(oldStudentsSubjects.studentID);
+                if (oldStudentsSubjects is null)
                 {
                     System.Console.WriteLine("Nije pronadjeno");
                     return null;
@@ -118,7 +120,8 @@ namespace StudentskaSluzba.DAO;
 
         public bool doesConnectionBySubjectExist(int sub_id)
         {
-            StudentsSubjects connection = StudentsSubjectss.Find(s => s.subjectID == sub_id);
+            StudentsSubjects connection = new StudentsSubjects(); 
+            connection = StudentsSubjectss.Find(s => s.subjectID == sub_id);
             if (connection == null)
             {
                 return false;
@@ -131,7 +134,8 @@ namespace StudentskaSluzba.DAO;
 
         public List <int> findAllConnectionsByStudent(int stud_id)
         {
-            List<StudentsSubjects> connections = StudentsSubjectss.FindAll(s => s.studentID == stud_id);
+            List<StudentsSubjects> connections = new List<StudentsSubjects>();
+            connections = StudentsSubjectss.FindAll(s => s.studentID == stud_id);
             List<int> ids = new List<int>();
             foreach(StudentsSubjects conn in connections)
             {
@@ -139,4 +143,8 @@ namespace StudentskaSluzba.DAO;
             }
             return ids;
         }
+    public void saveAll()
+    {
+        storage.Save(StudentsSubjectss);
     }
+}
