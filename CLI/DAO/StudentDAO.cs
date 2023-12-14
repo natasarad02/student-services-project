@@ -95,34 +95,34 @@ class StudentDAO
         return studentsSubjectsDAO.GetSubjects(subjectID);
     }
     
-   /* public void addStudentSubject(int id_student, int id_subject)
+   public void addStudentSubject(StudentsSubjectsDAO studSubDAO, int id_student, int id_subject)
     {
        
         StudentsSubjects connection = new StudentsSubjects(id_student, id_subject);
-        studentsSubjectsDAO.AddStudentsSubjects(connection);
+        studSubDAO.AddStudentsSubjects(connection);
        // storage.Save(students);
         // save?
         
-    }*/
+    }
 
     public List<ExamGrade> GetExamGrades(int studID)
     {
         return examGradeDAO1.GetExamGradesByStudent(studID);
     }
 
-   /* public void grade(int student, int subject, int grade, DateOnly date)
+   public void grade(ExamGradeDAO examGrDAO, int student, int subject, int grade, DateOnly date)
     {
     
         ExamGrade exam = new ExamGrade(student, subject, grade, date);
-        examGradeDAO1.AddExamGrade(exam);
+        examGrDAO.AddExamGrade(exam);
         // save?
-        if(examGradeDAO1.grade_exists(student, subject))
+      /*  if(examGrDAO.grade_exists(student, subject))
         {
             studentsSubjectsDAO.RemoveStudentsSubjects(student, subject);
             // save?
             
-        }
-    }*/
+        }*/
+    }
 
   
     public float average_grade(int id)

@@ -152,9 +152,9 @@ class StudentConsoleView
                     System.Console.WriteLine("Student is already taking this class");
                     break;
                 }
-                StudentsSubjects connection = new StudentsSubjects(id, sub_id);
-                studentsSubjectsDAO.AddStudentsSubjects(connection);
-                //studentDAO.addStudentSubject(id, sub_id);
+                //StudentsSubjects connection = new StudentsSubjects(id, sub_id);
+                //studentsSubjectsDAO.AddStudentsSubjects(connection);
+                studentDAO.addStudentSubject(studentsSubjectsDAO, id, sub_id);
                 
                 break;
             case "7":
@@ -201,16 +201,16 @@ class StudentConsoleView
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
 
-                ExamGrade exam_tmp = new ExamGrade(idss, subid, grade, studentDate);
+              /*  ExamGrade exam_tmp = new ExamGrade(idss, subid, grade, studentDate);
                 examGradeDAO.AddExamGrade(exam_tmp);
                 // save?
-              /*  if (examGradeDAO.grade_exists(idss, subid))
+                if (examGradeDAO.grade_exists(idss, subid))
                 {
                     studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid);
                     // save?
 
                 }*/
-                // studentDAO.grade(idss, subid, grade, studentDate);
+                studentDAO.grade(examGradeDAO, idss, subid, grade, studentDate);
                 if (studentsSubjectsDAO.doesConnectionExist(idss, subid)) 
                 { 
                     studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid); //izgleda ne radi?
