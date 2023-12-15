@@ -80,8 +80,8 @@
                     <DataGrid Background="#FFE5E5E5"
                                Height="350"
                                 AutoGenerateColumns="False"
-                                x:Name=" SubjectsDataGrid"
-                                ItemSource="{Binding Subjects, UpdateSourceTrigger=PropertyChanged}"
+                                x:Name="SubjectsDataGrid"
+                                ItemsSource="{Binding Subjects, UpdateSourceTrigger=PropertyChanged}"
                                 SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
                                 SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Columns>
@@ -97,8 +97,8 @@
                     <DataGrid Background="#FFE5E5E5"
                                Height="350"
                                 AutoGenerateColumns="False"
-                                x:Name=" ProfessorsDataGrid"
-                                ItemSource="{Binding Professors, UpdateSourceTrigger=PropertyChanged}"
+                                x:Name="ProfessorsDataGrid"
+                                ItemsSource="{Binding Professors, UpdateSourceTrigger=PropertyChanged}"
                                 SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
                                 SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Columns>
