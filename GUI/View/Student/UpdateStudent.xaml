@@ -86,26 +86,43 @@
 
 
             <!-- Second Tab - List of Subjects -->
+            <!-- Trebaju li sva 4 dugmeta? -->
             <TabItem Header="Subjects">
                 <Grid>
-                    <!-- List of subjects the student currently takes -->
-                    <!-- Add buttons to add/remove subjects -->
+                    <StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Label>Ova opcija nije implementirana u ovoj verziji</Label>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Button Width="100" Margin="5" Content="Add Subject" />
+                            <Button Width="100" Margin="5" Content="Cancel" />
+                        </StackPanel>
+                    </StackPanel>
                 </Grid>
             </TabItem>
 
             <!-- Third Tab - Student Grades -->
             <TabItem Header="Grades">
                 <Grid>
-                    <!-- Display grades of the student -->
-                    <!-- Add buttons to add/remove grades -->
+                    <StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Label>Ova opcija nije implementirana u ovoj verziji</Label>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Button Width="100" Margin="5" Content="Add Grade" />
+                            <Button Width="100" Margin="5" Content="Cancel" />
+                        </StackPanel>
+                    </StackPanel>
                 </Grid>
             </TabItem>
         </TabControl>
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="Update" Click="Update_Click" />
-            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click" />
+            <Button Width="100" Margin="5" Content="Update" />
+            <Button Width="100" Margin="5" Content="Cancel" />
         </StackPanel>
     </Grid>
 </Window>
