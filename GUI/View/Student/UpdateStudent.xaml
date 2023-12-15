@@ -1,0 +1,41 @@
+<Window x:Class="GUI.View.UpdateStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Update Student" Height="600" Width="400">
+    <Grid Margin="20">
+        <TabControl>
+            <!-- First Tab - Student Details -->
+            <TabItem Header="Student Details">
+                <Grid>
+                    <!-- Labels and TextBoxes for student details -->
+                    <!-- Add your existing student details UI here -->
+                </Grid>
+            </TabItem>
+
+            <!-- Second Tab - List of Subjects -->
+            <TabItem Header="Subjects">
+                <Grid>
+                    <!-- List of subjects the student currently takes -->
+                    <!-- Add buttons to add/remove subjects -->
+                </Grid>
+            </TabItem>
+
+            <!-- Third Tab - Student Grades -->
+            <TabItem Header="Grades">
+                <Grid>
+                    <!-- Display grades of the student -->
+                    <!-- Add buttons to add/remove grades -->
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Width="100" Margin="5" Content="Update" Click="Update_Click" />
+            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
