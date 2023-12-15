@@ -9,7 +9,7 @@ using StudentskaSluzba.Model;
 
 namespace StudentskaSluzba.DAO;
 
-    class StudentsSubjectsDAO
+   public class StudentsSubjectsDAO
     {
         private readonly List<StudentsSubjects> StudentsSubjectss;
         private readonly Storage<StudentsSubjects> storage;

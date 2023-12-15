@@ -8,7 +8,7 @@ using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
 
 namespace StudentskaSluzba.DAO;
-class StudentDAO
+public class StudentDAO
 {
     private readonly List<Student> students;
     private readonly Storage<Student> storage;

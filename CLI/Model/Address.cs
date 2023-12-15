@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace StudentskaSluzba.Model;
 using StudentskaSluzba.Serialization;
 
-class Address : ISerializable
+public class Address : ISerializable
 {
 
     public string Street { get; set; }

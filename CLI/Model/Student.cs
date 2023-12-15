@@ -9,7 +9,7 @@ using System.Windows.Markup;
 namespace StudentskaSluzba.Model;
 
 enum Status{B, S}
-class Student : ISerializable
+public class Student : ISerializable
 {
 
     public string Last_Name { get; set; }

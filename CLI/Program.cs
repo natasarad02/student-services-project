@@ -1,6 +1,6 @@
 
+using CLI.Model.DAO;
 using StudentskaSluzba.Console;
-using StudentskaSluzba.DAO;
 using StudentskaSluzba.Model;
 namespace StudentskaSluzba;
 

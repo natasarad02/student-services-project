@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace StudentskaSluzba.DAO
 {
-    class DepartmentDAO
+    public class DepartmentDAO
     {
         private readonly List<Department> departments;
         private readonly Storage<Department> storage;

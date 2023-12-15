@@ -11,7 +11,7 @@ using StudentskaSluzba.Serialization;
 
 namespace StudentskaSluzba.Model;
 
-class Index : ISerializable
+public class Index : ISerializable
 {
 
     public int ID { get; set; }

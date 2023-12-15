@@ -1,5 +1,4 @@
-﻿using StudentskaSluzba.DAO;
-using StudentskaSluzba.Model;
+﻿using StudentskaSluzba.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +6,8 @@ using System.Runtime.Loader;
 using System.Text;
 using System.Threading.Tasks;
 namespace StudentskaSluzba.Console;
+
+using CLI.Model.DAO;
 using StudentskaSluzba.Storage;
 using System.Xml.Linq;
 

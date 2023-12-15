@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace StudentskaSluzba.Model;
 
-class Professor : ISerializable
+public class Professor : ISerializable
 {
     public int Id { get; set; }
 

@@ -9,7 +9,7 @@ using StudentskaSluzba.Serialization;
 
 namespace StudentskaSluzba.Model;
 
-class Department : ISerializable
+public class Department : ISerializable
 {
     public int Idd { get; set; } //department id
     public int Id { get; set; } 

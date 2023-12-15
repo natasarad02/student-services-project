@@ -7,7 +7,7 @@ using StudentskaSluzba.Serialization;
 
 namespace StudentskaSluzba.Model;
 
-class ExamGrade : ISerializable
+public class ExamGrade : ISerializable
 {
 
     public DateOnly grading_day { get; set; }
