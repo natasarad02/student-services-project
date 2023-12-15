@@ -58,9 +58,22 @@
 
             <TabControl>
                 <TabItem Header="Students">
-                    <Grid Background="#FFE5E5E5">
-                        <DataGrid d:ItemsSource="{d:SampleData ItemCount=4}"/>
-                    </Grid>
+                    <DataGrid Height="350"
+                                  Background="#FFE5E5E5"
+                                  AutoGenerateColumns="False"
+                                  x:Name="StudentDataGrid"
+                                  ItemsSource="{Binding Student, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectionMode="Single" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="First Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Last Name" Binding="{Binding last name}"/>
+                            <DataGridTextColumn Header="Year of studies" Binding="{Binding Year}"/>
+                            <DataGridTextColumn Header="Financial aid" Binding="{Binding sb}"/>
+                            <DataGridTextColumn Header="Average grade" Binding="{Binding Average}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </TabItem>
                 <TabItem Header="Subjects">
                     
@@ -101,7 +114,21 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="Departments">
-                    <Grid Background="#FFE5E5E5"/>
+                    <DataGrid Height="350"
+                              Background="#FFE5E5E5"
+                              AutoGenerateColumns="False"
+                              x:Name="DepartmentDataGrid"
+                              ItemsSource="{Binding Department, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding SelectedDepartment, UpdateSourceTrigger=PropertyChanged}"
+                              SelectionMode="Single" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Department Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Department ID" Binding="{Binding Idd}"/>
+                            <DataGridTextColumn Header="Head of Department" Binding="{Binding Head}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
                 </TabItem>
             </TabControl>
         </Border>
