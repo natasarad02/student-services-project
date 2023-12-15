@@ -67,7 +67,7 @@
 				<Grid>
 					<StackPanel>
 						<StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-							<Label>Ova opcija nije implementirana u ovoj verziji</Label>
+							<Label>This option is not implemented in current version.</Label>
 						</StackPanel>
 
 						<StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
