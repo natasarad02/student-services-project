@@ -15,7 +15,7 @@ namespace StudentskaSluzba.DAO
         private readonly List<ExamGrade> examGrades;
         private readonly Storage<ExamGrade> storage;
         private StudentDAO studentDAO = new StudentDAO();
-        private SubjectOB ExamGradeSubject;
+        public SubjectOB ExamGradeSubject;
 
         public ExamGradeDAO()
         {

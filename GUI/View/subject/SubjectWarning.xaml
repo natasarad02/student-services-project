@@ -9,7 +9,7 @@
                 <TextBlock Text="This subject cannot be deleted." Margin="0 0 10 10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                 <TextBlock Text="There are students enrolled in this subject." Margin="0 0 10 10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                 <TextBlock Text="Please reassign students or remove them from this subject before deleting." Margin="0 0 0 10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-                <Button Content="OK" Width="80" Margin="5" Padding="8 4" Background="#2196F3" Foreground="White" BorderBrush="#2196F3" BorderThickness="1" Click="OK_Click"/>
+				<Button Content="OK" Width="80" Margin="5" Padding="8 4" Background="#2196F3" Foreground="White" BorderBrush="#2196F3" BorderThickness="1"/> <!-- Click="OK_Click"/> -->
             </StackPanel>
         </Border>
     </Grid>
