@@ -13,7 +13,10 @@
 
   <ItemGroup>
     <Folder Include="Events\" />
-    <Folder Include="Layouts\" />
+    <Folder Include="View\Department\" />
+    <Folder Include="View\Student\" />
+    <Folder Include="View\Subject\" />
+    <Folder Include="View\Professor\" />
   </ItemGroup>
 
 </Project>
