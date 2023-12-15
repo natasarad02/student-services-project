@@ -91,7 +91,7 @@
                 <Grid>
                     <StackPanel>
                         <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Label>Ova opcija nije implementirana u ovoj verziji</Label>
+                            <Label>This option is not implemented in current version.</Label>
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
@@ -121,13 +121,9 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-<<<<<<< HEAD
+
             <Button Width="100" Margin="5" Content="Update"/> <!-- Click="Update_Click" /> -->
             <Button Width="100" Margin="5" Content="Cancel"/> <!-- Click="Cancel_Click" />-->
-=======
-            <Button Width="100" Margin="5" Content="Update" />
-            <Button Width="100" Margin="5" Content="Cancel" />
->>>>>>> 4e67c50d9977d7269c15d53d917aed7da826037c
         </StackPanel>
     </Grid>
 </Window>

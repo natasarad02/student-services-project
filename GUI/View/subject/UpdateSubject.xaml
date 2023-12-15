@@ -64,10 +64,18 @@
 
             <!-- Second Tab - List of Subjects -->
             <TabItem Header="Students">
-                <Grid>
-                    <!-- List of subjects the student currently takes -->
-                    <!-- Add buttons to add/remove subjects -->
-                </Grid>
+				<Grid>
+					<StackPanel>
+						<StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+							<Label>Ova opcija nije implementirana u ovoj verziji</Label>
+						</StackPanel>
+
+						<StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+							<Button Width="100" Margin="5" Content="Add Student" />
+							<Button Width="100" Margin="5" Content="Cancel" />
+						</StackPanel>
+					</StackPanel>
+				</Grid>
             </TabItem>
 
             
