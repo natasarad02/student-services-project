@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StudentskaSluzba.Storage;
 using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
+using CLI.Observer;
 
 namespace StudentskaSluzba.DAO;
 public class StudentDAO
@@ -15,10 +16,13 @@ public class StudentDAO
     private static StudentsSubjectsDAO studentsSubjectsDAO = new StudentsSubjectsDAO();
     private static ExamGradeDAO examGradeDAO1 = new ExamGradeDAO();
 
+    public SubjectOB StudentSubject;
+
     public StudentDAO()
     {
         storage = new Storage<Student>("students.txt");
         students = storage.Load();
+        StudentSubject = new SubjectOB();
     }
 
     private int GenerateId()
@@ -42,6 +46,7 @@ public class StudentDAO
         sstudent.ID = GenerateId();
         students.Add(sstudent);
         storage.Save(students);
+        StudentSubject.NotifyObservers();
         System.Console.WriteLine("Student added");
         return sstudent;    
     }
@@ -66,6 +71,7 @@ public class StudentDAO
 
 
         storage.Save(students);
+        StudentSubject.NotifyObservers();
         System.Console.WriteLine("Student is updated");
         return oldStudent;
     }
@@ -78,6 +84,7 @@ public class StudentDAO
 
         students.Remove(oldStudent);
         storage.Save(students);
+        StudentSubject.NotifyObservers();
         return oldStudent;
     }
 
