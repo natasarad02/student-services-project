@@ -30,6 +30,12 @@ public class Department : ISerializable
         Department_Professors = new List<Professor>();
     }
 
+    public Department(string name, string hod)
+    {
+        Name = name;
+        Hod = hod;
+    }
+
     public string[] ToCSV()
     {
         string[] csvValues =

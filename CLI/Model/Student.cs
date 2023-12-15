@@ -8,7 +8,7 @@ using System.Windows.Markup;
 
 namespace StudentskaSluzba.Model;
 
-enum Status{B, S}
+public enum Status{B, S}
 public class Student : ISerializable
 {
 
