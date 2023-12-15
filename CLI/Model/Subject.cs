@@ -4,7 +4,7 @@ using StudentskaSluzba.Serialization;
 
 namespace StudentskaSluzba.Model;
 
-enum semester {winter, summer}
+public enum semester {winter, summer}
 public class Subject : ISerializable
 {
     public int Ids { get; set; }
