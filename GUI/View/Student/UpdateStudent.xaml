@@ -44,8 +44,6 @@
                             <TextBox x:Name="txtHouseNumber" MinWidth="50"/>
                         </StackPanel>
 
-                        <!-- Add remaining StackPanels for other details like City, State, Birth Date, etc. -->
-
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <Label>Birth Date:</Label>
                             <DatePicker x:Name="dpBirthDate" Width="104" />
