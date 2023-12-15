@@ -7,7 +7,7 @@ using StudentskaSluzba.Storage;
 using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
 using System.Xml.Linq;
-
+using CLI.Observer;
 namespace StudentskaSluzba.DAO
 {
    public class ProfessorDAO
@@ -15,8 +15,8 @@ namespace StudentskaSluzba.DAO
         private readonly List<Professor> professors;
         private readonly Storage<Professor> storage;
         private SubjectDAO subjectDAO = new SubjectDAO();
-      
 
+        public SubjectOB ProfessorSubject;
         public ProfessorDAO()
         {
             storage = new Storage<Professor>("professors.txt");
@@ -46,6 +46,7 @@ namespace StudentskaSluzba.DAO
             professor.Id = GenerateId();
             professors.Add(professor);
             storage.Save(professors);
+            ProfessorSubject.NotifyObservers();
             return professor;
         }
 
@@ -67,6 +68,7 @@ namespace StudentskaSluzba.DAO
             oldProfessor.employment_year = professor.employment_year;
 
             storage.Save(professors);
+            ProfessorSubject.NotifyObservers();
             System.Console.WriteLine("Professor is updated");
             return oldProfessor;
         }
@@ -79,6 +81,7 @@ namespace StudentskaSluzba.DAO
 
             professors.Remove(oldProfessor);
             storage.Save(professors);
+            ProfessorSubject.NotifyObservers();
             return oldProfessor;
         }
 
