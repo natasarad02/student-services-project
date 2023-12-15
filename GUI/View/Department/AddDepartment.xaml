@@ -1,0 +1,52 @@
+<Window x:Class="GUI.View.AddDepartment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="AddDepartment" Height="250" Width="400">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Labels and TextBoxes for department details -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,10">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Margin" Value="0,5" />
+                    <Setter Property="Width" Value="100" />
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="5,0" />
+                    <Setter Property="MinWidth" Value="200" />
+                </Style>
+            </StackPanel.Resources>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label>Department ID:</Label>
+                <TextBox x:Name="txtDepartmentID" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label>Name:</Label>
+                <TextBox x:Name="txtName" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label>Head of Department:</Label>
+                <TextBox x:Name="txtHeadOfDepartment" />
+            </StackPanel>
+
+            <!-- Add more fields as needed -->
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Width="100" Margin="5" Content="Add" Click="Add_Click" />
+            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
