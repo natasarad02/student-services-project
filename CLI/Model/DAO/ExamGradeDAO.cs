@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StudentskaSluzba.Storage;
 using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
+using CLI.Observer;
 
 namespace StudentskaSluzba.DAO
 {
@@ -14,11 +15,13 @@ namespace StudentskaSluzba.DAO
         private readonly List<ExamGrade> examGrades;
         private readonly Storage<ExamGrade> storage;
         private StudentDAO studentDAO = new StudentDAO();
+        private SubjectOB ExamGradeSubject;
 
         public ExamGradeDAO()
         {
             storage = new Storage<ExamGrade>("exam_grades.txt");
             examGrades = storage.Load(); // BITNO mozda mora jos da se loaduje posle save-a da li citalo novododate
+            ExamGradeSubject = new SubjectOB();
         }
 
         private int GenerateId()
@@ -38,6 +41,7 @@ namespace StudentskaSluzba.DAO
             examGrade.ID = GenerateId();
             examGrades.Add(examGrade);
             storage.Save(examGrades);
+            ExamGradeSubject.NotifyObservers();
             return examGrade;
         }
 
@@ -52,6 +56,7 @@ namespace StudentskaSluzba.DAO
             oldExamGrade.grading_day = examGrade.grading_day;
 
             storage.Save(examGrades);
+            ExamGradeSubject.NotifyObservers();
             return oldExamGrade;
         }
 
@@ -62,6 +67,7 @@ namespace StudentskaSluzba.DAO
 
             examGrades.Remove(oldExamGrade);
             storage.Save(examGrades);
+            ExamGradeSubject.NotifyObservers();
             return oldExamGrade;
         }
 
