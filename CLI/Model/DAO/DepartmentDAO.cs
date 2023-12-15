@@ -7,6 +7,7 @@ using StudentskaSluzba.Storage;
 using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
 using System.Xml.Linq;
+using CLI.Observer;
 
 namespace StudentskaSluzba.DAO
 {
@@ -14,12 +15,14 @@ namespace StudentskaSluzba.DAO
     {
         private readonly List<Department> departments;
         private readonly Storage<Department> storage;
-        private static ProfessorDAO professorDAO= new ProfessorDAO();  
+        private static ProfessorDAO professorDAO= new ProfessorDAO();
+        public SubjectOB DepartmentSubject;
 
         public DepartmentDAO()
         {
             storage = new Storage<Department>("departments.txt");
             departments = storage.Load();
+            DepartmentSubject = new SubjectOB();
         }
 
         private int GenerateId()
@@ -45,6 +48,7 @@ namespace StudentskaSluzba.DAO
             department.Id = GenerateId();
             departments.Add(department);
             storage.Save(departments);
+            DepartmentSubject.NotifyObservers();
             return department;
         }
 
@@ -60,6 +64,7 @@ namespace StudentskaSluzba.DAO
 
             storage.Save(departments);
             System.Console.WriteLine("Department is updated");
+            DepartmentSubject.NotifyObservers();
             return oldDepartment;
         }
 
@@ -71,6 +76,7 @@ namespace StudentskaSluzba.DAO
 
             departments.Remove(oldDepartment);
             storage.Save(departments);
+            DepartmentSubject.NotifyObservers();
             return oldDepartment;
         }
 
