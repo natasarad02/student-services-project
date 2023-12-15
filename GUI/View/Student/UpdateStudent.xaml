@@ -4,16 +4,86 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Update Student" Height="600" Width="400">
+        Title="Update Student" Height="527" Width="400">
     <Grid Margin="20">
         <TabControl>
             <!-- First Tab - Student Details -->
             <TabItem Header="Student Details">
                 <Grid>
                     <!-- Labels and TextBoxes for student details -->
-                    <!-- Add your existing student details UI here -->
+                    <StackPanel>
+                        <StackPanel.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="Margin" Value="0,5" />
+                                <Setter Property="Width" Value="100" />
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Margin" Value="5,0" />
+                                <Setter Property="MinWidth" Value="200" />
+                            </Style>
+                            <Style TargetType="DatePicker">
+                                <Setter Property="Margin" Value="5,0" />
+                                <Setter Property="Width" Value="200" />
+                            </Style>
+                        </StackPanel.Resources>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>First Name:</Label>
+                            <TextBox x:Name="txtFirstName" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Last Name:</Label>
+                            <TextBox x:Name="txtLastName" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Address:</Label>
+                            <TextBox x:Name="txtStreet" MinWidth="150"/>
+                            <TextBox x:Name="txtHouseNumber" MinWidth="50"/>
+                        </StackPanel>
+
+                        <!-- Add remaining StackPanels for other details like City, State, Birth Date, etc. -->
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Birth Date:</Label>
+                            <DatePicker x:Name="dpBirthDate" Width="104" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Phone Number:</Label>
+                            <TextBox x:Name="txtPhone" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Email:</Label>
+                            <TextBox x:Name="txtEmail" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Index Number:</Label>
+                            <TextBox x:Name="txtIndex" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Enrollment year:</Label>
+                            <TextBox x:Name="txtYear" Width="146" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Current Year:</Label>
+                            <TextBox x:Name="txtCurYear" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Financial Aid:</Label>
+                            <TextBox x:Name="txtFinancing" />
+                        </StackPanel>
+                    </StackPanel>
                 </Grid>
             </TabItem>
+
 
             <!-- Second Tab - List of Subjects -->
             <TabItem Header="Subjects">
@@ -33,7 +103,7 @@
         </TabControl>
 
         <!-- Buttons -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
             <Button Width="100" Margin="5" Content="Update" Click="Update_Click" />
             <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click" />
         </StackPanel>
