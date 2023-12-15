@@ -5,24 +5,37 @@ using System.Text;
 using System.Threading.Tasks;
 using StudentskaSluzba.Model;
 using StudentskaSluzba.DAO;
-
+using CLI.Observer;
 namespace CLI.Controller
 {
     public class ProfessorsController
     {
-        private readonly ProfessorDAO professors;
+        private readonly ProfessorDAO professorsDAO;
 
         public ProfessorsController()
         {
-            professors = new ProfessorDAO();
+            professorsDAO = new ProfessorDAO();
 
         }
 
         public List<Professor> GetAllProfessors()
         {
-            List<Professor> tmp = new List<Professor>();
-            tmp = professors.GetAllProfessors();
-            return tmp;
+            return professorsDAO.GetAllProfessors();
+        }
+
+        public void Add(Professor professor)
+        {
+            professorsDAO.AddProfessor(professor);
+        }
+
+        public void Delete(int professorId)
+        {
+            professorsDAO.RemoveProfessor(professorId);
+        }
+
+        public void Subscribe(IObserver observer)
+        {
+            professorsDAO.ProfessorSubject.Subscribe(observer);
         }
     }
 }

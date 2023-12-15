@@ -2,11 +2,11 @@
 
 namespace CLI.Observer
 {
-    internal class Subject
+    public class SubjectOB
     {
         private List<IObserver> observers;
 
-        public Subject()
+        public SubjectOB()
         {
             observers = new List<IObserver>();
         }
