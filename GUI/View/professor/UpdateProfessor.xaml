@@ -4,14 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Update Student" Height="527" Width="400">
+        Title="Update Professor" Height="615" Width="400">
     <Grid Margin="20">
         <TabControl>
             <!-- First Tab - Student Details -->
-            <TabItem Header="Student Details">
+            <TabItem Header="Professor Details">
                 <Grid>
                     <!-- Labels and TextBoxes for student details -->
-                    <StackPanel>
+                    <StackPanel Grid.Row="0" Margin="0,0,0,10">
                         <StackPanel.Resources>
                             <Style TargetType="Label">
                                 <Setter Property="Margin" Value="0,5" />
@@ -22,15 +22,11 @@
                                 <Setter Property="Margin" Value="5,0" />
                                 <Setter Property="MinWidth" Value="200" />
                             </Style>
-                            <Style TargetType="DatePicker">
-                                <Setter Property="Margin" Value="5,0" />
-                                <Setter Property="Width" Value="200" />
-                            </Style>
                         </StackPanel.Resources>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>First Name:</Label>
-                            <TextBox x:Name="txtFirstName" />
+                            <Label>ID Card Number:</Label>
+                            <TextBox x:Name="txtIDCardNumber" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
@@ -39,21 +35,38 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Address:</Label>
-                            <TextBox x:Name="txtStreet" MinWidth="150"/>
-                            <TextBox x:Name="txtHouseNumber" MinWidth="50"/>
+                            <Label>First Name:</Label>
+                            <TextBox x:Name="txtFirstName" />
                         </StackPanel>
 
-                        <!-- Add remaining StackPanels for other details like City, State, Birth Date, etc. -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Street:</Label>
+                            <TextBox x:Name="txtStreet" />
+                        </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Birth Date:</Label>
-                            <DatePicker x:Name="dpBirthDate" Width="104" />
+                            <Label>Street Number:</Label>
+                            <TextBox x:Name="txtStreetNumber" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>City:</Label>
+                            <TextBox x:Name="txtCity" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Country:</Label>
+                            <TextBox x:Name="txtCountry" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Date of Birth:</Label>
+                            <DatePicker x:Name="dpBirthDate" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <Label>Phone Number:</Label>
-                            <TextBox x:Name="txtPhone" />
+                            <TextBox x:Name="txtPhoneNumber" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
@@ -62,50 +75,26 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Index Number:</Label>
-                            <TextBox x:Name="txtIndex" />
+                            <Label>Year of Employment:</Label>
+                            <TextBox x:Name="txtYearOfEmployment" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Enrollment year:</Label>
-                            <TextBox x:Name="txtYear" Width="146" />
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Current Year:</Label>
-                            <TextBox x:Name="txtCurYear" />
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Financial Aid:</Label>
-                            <TextBox x:Name="txtFinancing" />
+                            <Label>Calling:</Label>
+                            <TextBox x:Name="txtCalling" />
                         </StackPanel>
                     </StackPanel>
                 </Grid>
             </TabItem>
 
 
-            <!-- Second Tab - List of Subjects -->
-            <TabItem Header="Subjects">
-                <Grid>
-                    <!-- List of subjects the student currently takes -->
-                    <!-- Add buttons to add/remove subjects -->
-                </Grid>
-            </TabItem>
-
-            <!-- Third Tab - Student Grades -->
-            <TabItem Header="Grades">
-                <Grid>
-                    <!-- Display grades of the student -->
-                    <!-- Add buttons to add/remove grades -->
-                </Grid>
-            </TabItem>
+           
         </TabControl>
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="Update"/> <!-- Click="Update_Click" /> -->
-            <Button Width="100" Margin="5" Content="Cancel"/> <!-- Click="Cancel_Click" />-->
+            <Button Width="100" Margin="5" Content="Update" /> <!-- Click="Update_Click" /> -->
+            <Button Width="100" Margin="5" Content="Cancel" /> <!-- Click="Cancel_Click" />-->
         </StackPanel>
     </Grid>
 </Window>
