@@ -1,0 +1,14 @@
+<Window x:Class="GUI.View.DeleteConfirmation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Delete Confirmation" Height="150" Width="300">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Are you sure you want to delete this student?" Margin="5"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                <Button Content="Yes" Width="80" Margin="5" /> <!-- Click="Yes_Click" -->
+                <Button Content="No" Width="80" Margin="5" /> <!-- Click="No_Click" -->
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

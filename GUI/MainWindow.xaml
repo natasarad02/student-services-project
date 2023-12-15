@@ -9,6 +9,8 @@
         Title="MainWindow" Height="450" Width="800">
 
     <DockPanel Margin="0">
+
+        <!-- Menu bar -->
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="New" ></MenuItem>
@@ -30,6 +32,7 @@
             </MenuItem>
         </Menu>
 
+        <!-- Tool bar -->
         <DockPanel DockPanel.Dock="Top">
             <ToolBar Height="27">
                 <Button Content="Add"/>
@@ -40,9 +43,11 @@
             </ToolBar>
         </DockPanel>
 
+        <!-- Status bar -->
         <DockPanel DockPanel.Dock="Bottom">
             <MenuItem Header="Student services"></MenuItem>
             <MenuItem Header="TRENUTNO STANJE"></MenuItem>
+            <TextBlock x:Name="currentTabTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
             <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dddd, MMMM dd, yyyy - HH:mm:ss}'}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
         </DockPanel>
 
@@ -68,5 +73,10 @@
                 </TabItem>
             </TabControl>
         </Border>
+
+
+
     </DockPanel>
 </Window>
+    
+    

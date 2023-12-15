@@ -143,7 +143,9 @@ class SubjectConsoleView
                     studentsid = int.Parse(System.Console.ReadLine());
                     //break;
                 }
-                subjectDAO.addStudentSubject(studentsid, subjectid);
+               // StudentsSubjects connection = new StudentsSubjects(studentsid, subjectid);
+                //studentsSubjectsDAO.AddStudentsSubjects(connection);
+                subjectDAO.addStudentSubject(studentsSubjectsDAO, studentsid, subjectid);
                 break;
             case "7":
                 System.Console.WriteLine("Enter subjects ID: ");
@@ -205,7 +207,7 @@ class SubjectConsoleView
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:");
                 DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
                 //BITNO obrisati vezu iz StudSubj ako je ima!!! --> zasto ono bese --> odradjeno
-                subjectDAO.grade(idss, subid, grade, studentDate);
+                subjectDAO.grade(examGradeDAO, idss, subid, grade, studentDate);
                 studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid);
                 break;
         }

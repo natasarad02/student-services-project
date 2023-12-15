@@ -102,16 +102,16 @@ namespace StudentskaSluzba.DAO
             return studentsSubjectsDAO.GetStudents(subjectId);
         }
         
-        public void addStudentSubject(int id_student, int id_subject) //izbacuje vise
+        public void addStudentSubject(StudentsSubjectsDAO studSubDAO, int id_student, int id_subject) //izbacuje vise
         {
             StudentsSubjects connection = new StudentsSubjects(id_student, id_subject);
-            studentsSubjectsDAO.AddStudentsSubjects(connection);
+            studSubDAO.AddStudentsSubjects(connection);
         }
 
-        public void grade(int student, int subject, int grade, DateOnly date)
+        public void grade(ExamGradeDAO examGrDAO, int student, int subject, int grade, DateOnly date)
         {
             ExamGrade exam = new ExamGrade(student, subject, grade, date);
-            examGradeDAO1.AddExamGrade(exam);
+            examGrDAO.AddExamGrade(exam);
             if (examGradeDAO1.grade_exists(student, subject))
             {
                 studentsSubjectsDAO.RemoveStudentsSubjects(student, subject);
