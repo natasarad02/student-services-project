@@ -72,6 +72,7 @@ class StudentDAO
 
     public Student? removeStudent(int id)  //Kad brisemo studenta, treba prvo proveriti da li postoji i zatim izbrisati sve njegove ocene i konekcije sa predmetima
     {
+        
         Student? oldStudent = getStudentbyId(id);
         if (oldStudent is null) return null;
 
@@ -112,7 +113,7 @@ class StudentDAO
 
    public void grade(ExamGradeDAO examGrDAO, int student, int subject, int grade, DateOnly date)
     {
-    
+
         ExamGrade exam = new ExamGrade(student, subject, grade, date);
         examGrDAO.AddExamGrade(exam);
         // save?

@@ -29,13 +29,15 @@ namespace StudentskaSluzba.DAO;
             StudentsSubjectss.Add(stud_sub);
             storage.Save(StudentsSubjectss);
 
+            System.Console.WriteLine("Connection added");
+            return stud_sub;
+
             return stud_sub;
         }
 
         public StudentsSubjects? RemoveStudentsSubjects(int id_s, int id_sub)
         {
 
-       
             StudentsSubjects? oldStudentsSubjects = StudentsSubjectss.Find(s=>s.studentID==id_s && s.subjectID==id_sub);
             System.Console.WriteLine(oldStudentsSubjects.studentID);
                 if (oldStudentsSubjects is null)
