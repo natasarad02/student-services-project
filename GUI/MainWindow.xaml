@@ -63,10 +63,42 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Subjects">
-                    <Grid Background="#FFE5E5E5"/>
+                    
+                    <DataGrid Background="#FFE5E5E5"
+                               Height="350"
+                                AutoGenerateColumns="False"
+                                x:Name=" SubjectsDataGrid"
+                                ItemSource="{Binding Subjects, UpdateSourceTrigger=PropertyChanged}"
+                                SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
+                                SelectionMode="Single" IsReadOnly="True">
+                        <DataGrid.Columns>
+                                <DataGridTextColumn Header="Ids" Binding="{Binding Ids}"/>
+                                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                                <DataGridTextColumn Header="Espb" Binding="{Binding Espb}"/>
+                            <DataGridTextColumn Header="ProfessorID" Binding="{Binding ProfessorID}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </TabItem>
                 <TabItem Header="Professors">
-                    <Grid Background="#FFE5E5E5"/>
+                    <DataGrid Background="#FFE5E5E5"
+                               Height="350"
+                                AutoGenerateColumns="False"
+                                x:Name=" ProfessorsDataGrid"
+                                ItemSource="{Binding Professors, UpdateSourceTrigger=PropertyChanged}"
+                                SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
+                                SelectionMode="Single" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="num" Binding="{Binding num}"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
+                            <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                            <DataGridTextColumn Header="birth_date" Binding="{Binding birth_date}"/>
+                            <DataGridTextColumn Header="employement_year" Binding="{Binding employement_year}"/>
+                            <DataGridTextColumn Header="work_year" Binding="{Binding work_year}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </TabItem>
                 <TabItem Header="Departments">
                     <Grid Background="#FFE5E5E5"/>
