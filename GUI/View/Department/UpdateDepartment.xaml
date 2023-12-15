@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Update Department" Height="527" Width="400">
+        Title="Update Professors" Height="527" Width="400">
     <Grid Margin="20">
         <TabControl>
             <!-- First Tab - Student Details -->
@@ -108,5 +108,7 @@
             <Button Width="100" Margin="5" Content="Update" />
             <Button Width="100" Margin="5" Content="Cancel" />
         </StackPanel>
+
+        </TabControl>
     </Grid>
 </Window>
