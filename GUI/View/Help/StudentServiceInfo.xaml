@@ -1,0 +1,23 @@
+<Window x:Class="StudentServiceInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Student Service Information" Height="300" Width="400">
+
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="Application: Student Service" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+            <StackPanel Margin="0,0,0,10">
+                <TextBlock Text="Developers:" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Natasa Radmilovic, Teodora Becejac"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock Text="Features:" FontWeight="Bold"/>
+            <StackPanel>
+                <TextBlock Text="- Displays professors, students, subjects, and grades"/>
+                <TextBlock Text="- Stores information about them"/>
+            </StackPanel>
+            <TextBlock Text="Period of Development: October-December 2023" FontWeight="Bold" Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
