@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Update Student" Height="527" Width="400">
+        Title="Update Professors" Height="527" Width="400">
     <Grid Margin="20">
         <TabControl>
             <!-- First Tab - Student Details -->
@@ -85,9 +85,9 @@
             </TabItem>
 
 
-            <!-- Second Tab - List of Subjects -->
+            <!-- Second Tab - List of Professors -->
             <!-- Trebaju li sva 4 dugmeta? -->
-            <TabItem Header="Subjects">
+            <TabItem Header="Professors">
                 <Grid>
                     <StackPanel>
                         <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
@@ -95,39 +95,20 @@
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Button Width="100" Margin="5" Content="Add Subject" />
+                            <Button Width="100" Margin="5" Content="Add Professors" />
                             <Button Width="100" Margin="5" Content="Cancel" />
                         </StackPanel>
                     </StackPanel>
                 </Grid>
             </TabItem>
 
-            <!-- Third Tab - Student Grades -->
-            <TabItem Header="Grades">
-                <Grid>
-                    <StackPanel>
-                        <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Label>Ova opcija nije implementirana u ovoj verziji</Label>
-                        </StackPanel>
-                        
-                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Button Width="100" Margin="5" Content="Add Grade" />
-                            <Button Width="100" Margin="5" Content="Cancel" />
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-        </TabControl>
-
+            
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-<<<<<<< HEAD
-            <Button Width="100" Margin="5" Content="Update"/> <!-- Click="Update_Click" /> -->
-            <Button Width="100" Margin="5" Content="Cancel"/> <!-- Click="Cancel_Click" />-->
-=======
             <Button Width="100" Margin="5" Content="Update" />
             <Button Width="100" Margin="5" Content="Cancel" />
->>>>>>> 4e67c50d9977d7269c15d53d917aed7da826037c
         </StackPanel>
+
+        </TabControl>
     </Grid>
 </Window>
