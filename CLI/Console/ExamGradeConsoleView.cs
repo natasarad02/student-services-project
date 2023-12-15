@@ -1,4 +1,4 @@
-﻿using CLI.Model.DAO;
+﻿using StudentskaSluzba.DAO;
 using StudentskaSluzba.Model;
 using System;
 using System.Collections.Generic;
