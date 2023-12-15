@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StudentskaSluzba.Storage;
 using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
+using CLI.Observer;
 
 namespace StudentskaSluzba.DAO;
 
@@ -15,11 +16,12 @@ namespace StudentskaSluzba.DAO;
         private readonly Storage<StudentsSubjects> storage;
         private static StudentDAO studentDAO = new StudentDAO();
         private static SubjectDAO subjectDAO = new SubjectDAO();
-
+        public SubjectOB StudentSubjectSubject;
         public StudentsSubjectsDAO()
         {
             storage = new Storage<StudentsSubjects>("StudentsSubjects.txt");
             StudentsSubjectss = storage.Load();
+            StudentSubjectSubject = new SubjectOB();
       
         }
 
@@ -28,11 +30,11 @@ namespace StudentskaSluzba.DAO;
             
             StudentsSubjectss.Add(stud_sub);
             storage.Save(StudentsSubjectss);
-
+            StudentSubjectSubject.NotifyObservers();
             System.Console.WriteLine("Connection added");
             return stud_sub;
 
-            return stud_sub;
+            
         }
 
         public StudentsSubjects? RemoveStudentsSubjects(int id_s, int id_sub)
@@ -49,6 +51,7 @@ namespace StudentskaSluzba.DAO;
 
             StudentsSubjectss.Remove(oldStudentsSubjects);
             storage.Save(StudentsSubjectss);
+            StudentSubjectSubject.NotifyObservers();
             return oldStudentsSubjects;
         }
 
@@ -145,8 +148,5 @@ namespace StudentskaSluzba.DAO;
             }
             return ids;
         }
-    public void saveAll()
-    {
-        storage.Save(StudentsSubjectss);
-    }
+    
 }
