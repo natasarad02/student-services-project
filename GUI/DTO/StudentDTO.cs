@@ -167,6 +167,22 @@ namespace GUI.DTO
             return new Student(last_Name, first_Name, date_Of_Birth, address, phone_Number, email, index_Number, current_Year, status);
         }
 
+        public StudentDTO(Student student) {
+            last_Name = student.Last_Name;
+            first_Name = student.First_Name;
+            date_Of_Birth = student.Date_Of_Birth;
+            address = student.Address;
+            phone_Number = student.Phone_Number;
+            email = student.Email;
+            index_Number = student.index_number;
+            current_Year = student.Current_Year;
+            status = student.Status;
+            average_Grade = 0; // no grades yet
+            Passed_Exams = new List<ExamGrade>();
+            Failed_Exams = new List<ExamGrade>();
+            Is_Deleted = false; // not deleted when created
+        }
+
         public StudentDTO(string lname, string fname, DateOnly brdate, Address adr, string num, string emails, StudentskaSluzba.Model.Index idnum, int cyear, Status s)
         {
             last_Name = lname;
