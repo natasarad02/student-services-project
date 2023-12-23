@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Markup;
 
 namespace GUI
 {
@@ -23,6 +25,22 @@ namespace GUI
         public MainWindow()
         {
             InitializeComponent();
+
+            // Get the screen dimensions
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+
+            // Calculate 3/4 of the screen size
+            double targetWidth = screenWidth * 0.75;
+            double targetHeight = screenHeight * 0.75;
+
+            // Set the window size
+            Width = targetWidth;
+            Height = targetHeight;
+
+            Left = (screenWidth - targetWidth) / 2;
+            Top = (screenHeight - targetHeight) / 2;
+
         }
 
         private string SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -85,6 +103,10 @@ namespace GUI
             }
         }
 
+        private void StudentDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
+
 }

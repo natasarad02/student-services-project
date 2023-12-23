@@ -46,7 +46,6 @@
         <!-- Status bar -->
         <DockPanel DockPanel.Dock="Bottom">
             <MenuItem Header="Student services"></MenuItem>
-            
             <TextBlock x:Name="currentTabTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
             <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dddd, MMMM dd, yyyy - HH:mm:ss}'}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
         </DockPanel>
@@ -59,22 +58,23 @@
             <TabControl SelectionChanged="TabControl_SelectionChanged">
                 <TabItem Header="Students">
                     <DataGrid Height="350"
-                                  Background="#FFE5E5E5"
-                                  AutoGenerateColumns="False"
-                                  x:Name="StudentDataGrid"
-                                  ItemsSource="{Binding Student, UpdateSourceTrigger=PropertyChanged}"
-                                  SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
-                                  SelectionMode="Single" IsReadOnly="True">
+                      Background="#FFE5E5E5"
+                      AutoGenerateColumns="False"
+                      x:Name="StudentDataGrid"
+                      ItemsSource="{Binding Student, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+                      SelectionMode="Single" IsReadOnly="True" SelectionChanged="StudentDataGrid_SelectionChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header="First Name" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="Last Name" Binding="{Binding last_name}"/>
-                            <DataGridTextColumn Header="Year of studies" Binding="{Binding Year}"/>
-                            <DataGridTextColumn Header="Financial aid" Binding="{Binding sb}"/>
-                            <DataGridTextColumn Header="Average grade" Binding="{Binding Average}"/>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                            <DataGridTextColumn Header="First Name" Binding="{Binding Name}" Width="*"/>
+                            <DataGridTextColumn Header="Last Name" Binding="{Binding last_name}" Width="*"/>
+                            <DataGridTextColumn Header="Year of studies" Binding="{Binding Year}" Width="*"/>
+                            <DataGridTextColumn Header="Financial aid" Binding="{Binding sb}" Width="*"/>
+                            <DataGridTextColumn Header="Average grade" Binding="{Binding Average}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
+
                 <TabItem Header="Subjects">
                     
                     <DataGrid Background="#FFE5E5E5"
@@ -85,11 +85,11 @@
                                 SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
                                 SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Columns>
-                                <DataGridTextColumn Header="Ids" Binding="{Binding Ids}"/>
-                                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                                <DataGridTextColumn Header="Espb" Binding="{Binding Espb}"/>
-                            <DataGridTextColumn Header="ProfessorID" Binding="{Binding ProfessorID}"/>
+                            <DataGridTextColumn Header="Ids" Binding="{Binding Ids}" Width="*"/>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                            <DataGridTextColumn Header="Espb" Binding="{Binding Espb}" Width="*"/>
+                            <DataGridTextColumn Header="ProfessorID" Binding="{Binding ProfessorID}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
@@ -102,14 +102,14 @@
                                 SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
                                 SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header="num" Binding="{Binding num}"/>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
-                            <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
-                            <DataGridTextColumn Header="birth_date" Binding="{Binding birth_date}"/>
-                            <DataGridTextColumn Header="employement_year" Binding="{Binding employement_year}"/>
-                            <DataGridTextColumn Header="work_year" Binding="{Binding work_year}"/>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                            <DataGridTextColumn Header="num" Binding="{Binding num}" Width="*"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                            <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" Width="*"/>
+                            <DataGridTextColumn Header="Address" Binding="{Binding Address}" Width="*"/>
+                            <DataGridTextColumn Header="birth_date" Binding="{Binding birth_date}" Width="*"/>
+                            <DataGridTextColumn Header="employement_year" Binding="{Binding employement_year}" Width="*"/>
+                            <DataGridTextColumn Header="work_year" Binding="{Binding work_year}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
@@ -122,10 +122,10 @@
                               SelectedItem="{Binding SelectedDepartment, UpdateSourceTrigger=PropertyChanged}"
                               SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header="Department Name" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="Department ID" Binding="{Binding Idd}"/>
-                            <DataGridTextColumn Header="Head of Department" Binding="{Binding Head}"/>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                            <DataGridTextColumn Header="Department Name" Binding="{Binding Name}" Width="*"/>
+                            <DataGridTextColumn Header="Department ID" Binding="{Binding Idd}" Width="*"/>
+                            <DataGridTextColumn Header="Head of Department" Binding="{Binding Head}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
