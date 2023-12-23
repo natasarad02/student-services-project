@@ -71,6 +71,7 @@ namespace GUI
         }
         private void Add_Click(object sender, RoutedEventArgs e, SelectionChangedEventArgs sel_e)
         {
+            
             string tabHeader = SelectionChanged(sender, sel_e);
             switch (tabHeader)
                    {
