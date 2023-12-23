@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-namespace GUI.View.Professor
+namespace GUI.View
 {
-    public partial class UpdateProfessor : MainWindow, INotifyPropertyChanged
+    public partial class UpdateProfessor : Window, INotifyPropertyChanged
     {
         public ProfessorDTO Professor { get; set; }
         private ProfessorDAO professorsDAO;

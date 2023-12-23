@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-namespace GUI.View.Subject
+namespace GUI.View
 {
-    public partial class AddSubject : MainWindow, INotifyPropertyChanged
+    public partial class AddSubject : Window, INotifyPropertyChanged
     {
         public SubjectDTO Subject { get; set; }
         private SubjectDAO subjectsDAO;

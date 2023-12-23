@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using StudentskaSluzba.DAO;
+using GUI.DTO;
+namespace GUI.View
 
-namespace GUI.View.Professor
 {
-    public partial class AddProfessor : MainWindow, INotifyPropertyChanged
+    public partial class AddProfessor : Window, INotifyPropertyChanged
     {
         public ProfessorDTO Professor { get; set; }
         private ProfessorDAO professorsDAO;
