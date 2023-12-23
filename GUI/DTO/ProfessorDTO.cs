@@ -142,20 +142,8 @@ namespace GUI.DTO
         }
 
         public List<Subject> Subjects { get; set; }
-
-        public ProfessorDTO(int card, string name, string surname, Address address1, string phone, DateOnly br_date, int year, string email, string calling)
-        {
-            Num = card;
-            Name = name;
-            Surname = surname;
-            Address = address1;
-            Birth_Date = br_date;
-            Phone_Number = phone;
-            Email_Address = email;
-            Employment_Year = year;
-            Calling = calling;
-            Subjects = new List<Subject>();
-        }
+        
+      
 
         public ProfessorDTO()
         {

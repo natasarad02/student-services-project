@@ -11,7 +11,7 @@ namespace GUI.DTO
 {
     public class DepartmentDTO: INotifyPropertyChanged
     {
-        private int Id { get; set; }
+        private int Id;
 
         private int idd;
 
