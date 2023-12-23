@@ -164,7 +164,7 @@ namespace GUI.DTO
         public StudentDTO() { }
 
         public Student toStudent() {
-            return new Student(last_Name, first_Name, date_Of_Birth, address, phone_Number, email, index_Number, current_Year, status);
+            return new Student(Last_Name, First_Name, Date_Of_Birth, Address, Phone_Number, Email, Index_Number, Current_Year, Status);
         }
 
         public StudentDTO(Student student) {

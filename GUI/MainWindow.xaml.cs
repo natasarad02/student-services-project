@@ -30,13 +30,16 @@ namespace GUI
     public partial class MainWindow : Window, IObserver
     {
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
+        public ObservableCollection<StudentDTO> Students { get; set; }
+        public ObservableCollection<DepartmentDTO> Departments { get; set; }
         public SubjectDTO  SelectedSubject { get; set; }
 
         private SubjectDAO subjectsDAO { get; set; }
 
+        private StudentDTO SelectedStudent { get; set; }
         private StudentDAO studentDAO { get; set; }
         private DepartmentDAO departmentDAO { get; set; }
-
+        private DepartmentDTO SelectedDepartment { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
         public ProfessorDTO SelectedProfessor { get; set; }
 
@@ -56,7 +59,17 @@ namespace GUI
             professorsDAO = new ProfessorDAO();
             professorsDAO.ProfessorSubject.Subscribe(this);
 
-           
+
+            DataContext = this;
+            Students = new ObservableCollection<StudentDTO>();
+            studentDAO = new StudentDAO();
+            studentDAO.StudentSubject.Subscribe(this);
+
+            DataContext = this;
+            Departments = new ObservableCollection<DepartmentDTO>();
+            departmentDAO = new DepartmentDAO();
+            departmentDAO.DepartmentSubject.Subscribe(this);
+
 
             Update();
 
@@ -74,8 +87,6 @@ namespace GUI
 
             Left = (screenWidth - targetWidth) / 2;
             Top = (screenHeight - targetHeight) / 2;
-
-            
 
         }
         private void Add_Click(object sender, RoutedEventArgs e)//, SelectionChangedEventArgs sel_e)
@@ -101,7 +112,7 @@ namespace GUI
                            AddDepartment addDepartment = new AddDepartment(departmentDAO);
                            addDepartment.Show();
                            break;
-                           // Add more cases for additional tabs if needed
+                           
                    }
 
         }
@@ -119,6 +130,18 @@ namespace GUI
             {
                 Professors.Add(new ProfessorDTO(professor));
             }
+
+            Students.Clear();
+            foreach (Student student in studentDAO.GetAllStudents()) {
+                Students.Add(new StudentDTO(student));  
+            }
+
+            Departments.Clear();
+            foreach(Department department in departmentDAO.GetAllDepartments())
+            {
+                Departments.Add(new DepartmentDTO(department));
+            }
+
         }
 
         private string SelectionChanged(object sender, SelectionChangedEventArgs e)
