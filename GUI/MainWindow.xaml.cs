@@ -21,6 +21,7 @@ using CLI.Observer;
 using GUI.DTO;
 using StudentskaSluzba.DAO;
 using System.Windows;
+using CLI.Controller;
 
 namespace GUI
 {
@@ -34,42 +35,42 @@ namespace GUI
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
         public SubjectDTO  SelectedSubject { get; set; }
 
-        private SubjectDAO subjectsDAO { get; set; }
+        private SubjectsController subjectController { get; set; }
 
         public  StudentDTO SelectedStudent { get; set; }
-        private StudentDAO studentDAO { get; set; }
+        private StudentsController studentController { get; set; }
 
-        private DepartmentDAO departmentDAO { get; set; }
+        private DepartmentsController departmentController { get; set; }
         public DepartmentDTO SelectedDepartment { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
         public ProfessorDTO SelectedProfessor { get; set; }
 
-        private ProfessorDAO professorsDAO { get; set; }
+        private ProfessorsController professorController { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
             Subjects = new ObservableCollection<SubjectDTO>();
-            subjectsDAO = new SubjectDAO();
-            subjectsDAO.SubjectSubject.Subscribe(this);
+            subjectController = new SubjectsController();
+            subjectController.Subscribe(this);
 
             
             DataContext = this;
             Professors = new ObservableCollection<ProfessorDTO>();
-            professorsDAO = new ProfessorDAO();
-            professorsDAO.ProfessorSubject.Subscribe(this);
+            professorController = new ProfessorsController();
+            professorController.Subscribe(this);
 
 
             DataContext = this;
             Students = new ObservableCollection<StudentDTO>();
-            studentDAO = new StudentDAO();
-            studentDAO.StudentSubject.Subscribe(this);
+            studentController = new StudentsController();
+            studentController.Subscribe(this);
 
             DataContext = this;
             Departments = new ObservableCollection<DepartmentDTO>();
-            departmentDAO = new DepartmentDAO();
-            departmentDAO.DepartmentSubject.Subscribe(this);
+            departmentController = new DepartmentsController();
+            departmentController.Subscribe(this);
 
 
             Update();
@@ -96,21 +97,21 @@ namespace GUI
             switch (tabHeader)
                    {
                        case "Students":
-                           AddStudent addStudent = new AddStudent(studentDAO);
+                           AddStudent addStudent = new AddStudent(studentController);
                            addStudent.Show();
                            break;
                        case "Subjects":
-                           AddSubject addSubject = new AddSubject(subjectsDAO);
+                           AddSubject addSubject = new AddSubject(subjectController);
                            addSubject.Show();
                            break;
                        case "Professors":
                    
-                            AddProfessor addProfessor = new AddProfessor(professorsDAO);
+                            AddProfessor addProfessor = new AddProfessor(professorController);
                             addProfessor.Show();
 
                             break;
                        case "Departments":
-                           AddDepartment addDepartment = new AddDepartment(departmentDAO);
+                           AddDepartment addDepartment = new AddDepartment(departmentController);
                            addDepartment.Show();
                            break;
                            
@@ -121,24 +122,24 @@ namespace GUI
         public void Update()
         {
             Subjects.Clear();
-            foreach(Subject subject in subjectsDAO.GetAllSubjects())
+            foreach(Subject subject in subjectController.GetAllSubjects())
             {
                 Subjects.Add(new SubjectDTO(subject));
             }
         
             Professors.Clear();
-            foreach (Professor professor in professorsDAO.GetAllProfessors())
+            foreach (Professor professor in professorController.GetAllProfessors())
             {
                 Professors.Add(new ProfessorDTO(professor));
             }
 
             Students.Clear();
-            foreach (Student student in studentDAO.GetAllStudents()) {
+            foreach (Student student in studentController.GetAllStudents()) {
                 Students.Add(new StudentDTO(student));  
             }
 
             Departments.Clear();
-            foreach(Department department in departmentDAO.GetAllDepartments())
+            foreach(Department department in departmentController.GetAllDepartments())
             {
                 Departments.Add(new DepartmentDTO(department));
             }
@@ -198,7 +199,7 @@ namespace GUI
                     if (SelectedSubject == null)
                         MessageBox.Show("Please choose a subject to delete");
                     else
-                        subjectsDAO.RemoveSubject(SelectedSubject.Ids);
+                        subjectController.Delete(SelectedSubject.Ids);
                     
                     break;
                 case "Professors":
@@ -206,7 +207,7 @@ namespace GUI
                     if (SelectedProfessor == null)
                         MessageBox.Show("Please choose a professor to delete");
                     else
-                        subjectsDAO.RemoveSubject(SelectedProfessor.Num);
+                        professorController.Delete(SelectedProfessor.Num);
 
                     break;
                 case "Departments":

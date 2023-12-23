@@ -8,20 +8,20 @@ using GUI.DTO;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
-
+using CLI.Controller;
 namespace GUI.View
 {
     public partial class AddDepartment : Window, INotifyPropertyChanged
     {
         public DepartmentDTO department {  get; set; }
-        private DepartmentDAO departmentDAO;
+        private DepartmentsController departmentController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public AddDepartment(DepartmentDAO departmentDAO) {
+        public AddDepartment(DepartmentsController departmentController) {
             InitializeComponent();
             DataContext = this;
             department = new DepartmentDTO();
-            this.departmentDAO = departmentDAO;
+            this.departmentController = departmentController;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -31,7 +31,8 @@ namespace GUI.View
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            departmentDAO.AddDepartment(department.ToDepartment());
+            
+            departmentController.Add(department.ToDepartment());
             Close();
         }
 

@@ -10,21 +10,22 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using StudentskaSluzba.DAO;
 using GUI.DTO;
+using CLI.Controller;
 namespace GUI.View
 
 {
     public partial class AddProfessor : Window, INotifyPropertyChanged
     {
         public ProfessorDTO Professor { get; set; }
-        private ProfessorDAO professorsDAO;
+        private ProfessorsController professorController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public AddProfessor(ProfessorDAO professorsDAO)
+        public AddProfessor(ProfessorsController professorController)
         {
             InitializeComponent();
             DataContext = this;
             Professor = new ProfessorDTO();
-            this.professorsDAO = professorsDAO;
+            this.professorController = professorController;
 
         }
 
@@ -35,7 +36,7 @@ namespace GUI.View
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            professorsDAO.AddProfessor(Professor.ToProfessor());
+            professorController.Add(Professor.ToProfessor());
             Close();
         }
     }
