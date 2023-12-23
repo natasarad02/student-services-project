@@ -14,7 +14,7 @@ namespace GUI.View.Subject
     public partial class AddSubject : MainWindow, INotifyPropertyChanged
     {
         public SubjectDTO Subject { get; set; }
-        private SubjectDAO subjectsDAO { get; set; }
+        private SubjectDAO subjectsDAO;
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public AddSubject(SubjectDAO subjectsDAO)

@@ -15,7 +15,7 @@ namespace GUI.View.Subject
     {
         public SubjectDTO Subject { get; set; }
 
-        private SubjectDAO subjectsDAO { get; set; }
+        private SubjectDAO subjectsDAO;
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public UpdateSubject(SubjectDAO subjectsDAO)

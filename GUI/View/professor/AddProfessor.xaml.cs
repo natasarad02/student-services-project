@@ -14,7 +14,7 @@ namespace GUI.View.Professor
     public partial class AddProfessor : MainWindow, INotifyPropertyChanged
     {
         public ProfessorDTO Professor { get; set; }
-        private ProfessorDAO professorsDAO { get; set; }
+        private ProfessorDAO professorsDAO;
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public AddProfessor(ProfessorDAO professorsDAO)
