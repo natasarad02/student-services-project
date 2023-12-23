@@ -35,10 +35,11 @@ namespace GUI
 
         private SubjectDAO subjectsDAO { get; set; }
 
-        private StudentDTO SelectedStudent { get; set; }
+        public  StudentDTO SelectedStudent { get; set; }
         private StudentDAO studentDAO { get; set; }
+
         private DepartmentDAO departmentDAO { get; set; }
-        private DepartmentDTO SelectedDepartment { get; set; }
+        public DepartmentDTO SelectedDepartment { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
         public ProfessorDTO SelectedProfessor { get; set; }
 
@@ -155,27 +156,7 @@ namespace GUI
 
 
                     return tabHeader;
-                    // Perform actions based on the selected tab
-                    /*switch (tabHeader)
-                    {
-                        case "Students":
-                            // Access and manipulate Student entities
-                            // Example: viewModel.DeleteStudent();
-                            break;
-                        case "Subjects":
-                            // Access and manipulate Subject entities
-                            // Example: viewModel.AddSubject();
-                            break;
-                        case "Professors":
-                            // Access and manipulate Professor entities
-                            // Example: viewModel.EditProfessor();
-                            break;
-                        case "Departments":
-                            // Access and manipulate Department entities
-                            // Example: viewModel.UpdateDepartment();
-                            break;
-                            // Add more cases for additional tabs if needed
-                    }*/
+                    
                 }
             }
 

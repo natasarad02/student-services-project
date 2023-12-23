@@ -183,7 +183,7 @@ namespace GUI.DTO
             Is_Deleted = false; // not deleted when created
         }
 
-        public StudentDTO(string lname, string fname, DateOnly brdate, Address adr, string num, string emails, StudentskaSluzba.Model.Index idnum, int cyear, Status s)
+        /*public StudentDTO(string lname, string fname, DateOnly brdate, Address adr, string num, string emails, StudentskaSluzba.Model.Index idnum, int cyear, Status s)
         {
             last_Name = lname;
             first_Name = fname;
@@ -198,7 +198,7 @@ namespace GUI.DTO
             Passed_Exams = new List<ExamGrade>();
             Failed_Exams = new List<ExamGrade>();
             Is_Deleted = false; // not deleted when created
-        }
+        }*/
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

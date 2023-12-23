@@ -14,9 +14,7 @@ namespace GUI.View
     public partial class AddStudent : Window, INotifyPropertyChanged
     {
         public StudentDTO Student { get; set;}
-
-        private StudentDAO studentDAO { get; set; }
-
+        private StudentDAO studentDAO;
         public event PropertyChangedEventHandler ? PropertyChanged;
 
         public AddStudent(StudentDAO studentDAO) {

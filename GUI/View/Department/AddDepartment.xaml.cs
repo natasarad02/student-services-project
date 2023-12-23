@@ -14,8 +14,7 @@ namespace GUI.View
     public partial class AddDepartment : Window, INotifyPropertyChanged
     {
         public DepartmentDTO department {  get; set; }
-        private DepartmentDAO departmentDAO { get; set; }
-
+        private DepartmentDAO departmentDAO;
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public AddDepartment(DepartmentDAO departmentDAO) {

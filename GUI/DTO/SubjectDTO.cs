@@ -94,18 +94,6 @@ namespace GUI.DTO
         public List<StudentDTO> Students_Passed { get; set; }
         public List<StudentDTO> Students_Attending { get; set; }
 
-        public SubjectDTO(int id, string name, int espb, semester sem, int school_year, int professorId)
-        {
-            Ids = id;
-            Name = name;
-            Espb = espb;
-            semester = sem;
-            Year = school_year;
-            ProfessorId = professorId;
-            Students_Passed = new List<StudentDTO>();
-            Students_Attending = new List<StudentDTO>();
-        }
-
         public Subject ToSubject()
         {
             return new Subject(ids, name, espb, sem, year, professorId);

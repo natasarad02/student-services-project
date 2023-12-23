@@ -69,7 +69,7 @@ namespace GUI.DTO
 
         public Department ToDepartment()
         {
-            return new Department(Idd, Name, Hod);
+            return new Department(idd, name, hod);
         }
 
         public DepartmentDTO() { }
