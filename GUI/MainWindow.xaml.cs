@@ -95,7 +95,8 @@ namespace GUI
 
                             break;
                        case "Departments":
-                           
+                           AddDepartment addDepartment = new AddDepartment(departmentDAO);
+                           addDepartment.Show();
                            break;
                            // Add more cases for additional tabs if needed
                    }
