@@ -34,14 +34,13 @@ namespace GUI
         public ObservableCollection<StudentDTO> Students { get; set; }
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
 
-<<<<<<< HEAD
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
 
         public SubjectDTO  SelectedSubject { get; set; }
         private SubjectDAO subjectsDAO { get; set; }
-=======
+
         private SubjectsController subjectController { get; set; }
->>>>>>> 3ae21d5c80f81420a481916de96a3890ae28101b
+
 
         public  StudentDTO SelectedStudent { get; set; }
         private StudentsController studentController { get; set; }
@@ -137,7 +136,7 @@ namespace GUI
         public void Update()
         {
             Subjects.Clear();
-            foreach(Subject subject in subjectController.GetAllSubjects())
+            foreach(Subject subject in subjectsController.GetAllSubjects())
             {
                 Subjects.Add(new SubjectDTO(subject));
             }
