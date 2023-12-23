@@ -33,44 +33,59 @@ namespace GUI
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public ObservableCollection<StudentDTO> Students { get; set; }
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
-        public SubjectDTO  SelectedSubject { get; set; }
 
+<<<<<<< HEAD
+        public ObservableCollection<ProfessorDTO> Professors { get; set; }
+
+        public SubjectDTO  SelectedSubject { get; set; }
+        private SubjectDAO subjectsDAO { get; set; }
+=======
         private SubjectsController subjectController { get; set; }
+>>>>>>> 3ae21d5c80f81420a481916de96a3890ae28101b
 
         public  StudentDTO SelectedStudent { get; set; }
         private StudentsController studentController { get; set; }
 
         private DepartmentsController departmentController { get; set; }
         public DepartmentDTO SelectedDepartment { get; set; }
-        public ObservableCollection<ProfessorDTO> Professors { get; set; }
+        
         public ProfessorDTO SelectedProfessor { get; set; }
 
+        private ProfessorDAO professorsDAO { get; set; }
+
+
         private ProfessorsController professorController { get; set; }
+
 
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
+            
             Subjects = new ObservableCollection<SubjectDTO>();
             subjectController = new SubjectsController();
             subjectController.Subscribe(this);
 
             
-            DataContext = this;
+           
             Professors = new ObservableCollection<ProfessorDTO>();
             professorController = new ProfessorsController();
             professorController.Subscribe(this);
 
 
-            DataContext = this;
+            
             Students = new ObservableCollection<StudentDTO>();
             studentController = new StudentsController();
             studentController.Subscribe(this);
 
-            DataContext = this;
+            
             Departments = new ObservableCollection<DepartmentDTO>();
+            departmentDAO = new DepartmentDAO();
+            departmentDAO.DepartmentSubject.Subscribe(this);
+            DataContext = this;
+
             departmentController = new DepartmentsController();
             departmentController.Subscribe(this);
+
 
 
             Update();
