@@ -57,7 +57,7 @@
 
             <TabControl SelectionChanged="TabControl_SelectionChanged">
                 <TabItem Header="Students">
-                    <DataGrid Height="350"
+                    <DataGrid 
                       Background="#FFE5E5E5"
                       AutoGenerateColumns="False"
                       x:Name="StudentDataGrid"
@@ -78,7 +78,7 @@
                 <TabItem Header="Subjects">
                     
                     <DataGrid Background="#FFE5E5E5"
-                               Height="350"
+                               
                                 AutoGenerateColumns="False"
                                 x:Name="SubjectsDataGrid"
                                 ItemsSource="{Binding Subjects, UpdateSourceTrigger=PropertyChanged}"
@@ -95,7 +95,7 @@
                 </TabItem>
                 <TabItem Header="Professors">
                     <DataGrid Background="#FFE5E5E5"
-                               Height="350"
+                               
                                 AutoGenerateColumns="False"
                                 x:Name="ProfessorsDataGrid"
                                 ItemsSource="{Binding Professors, UpdateSourceTrigger=PropertyChanged}"
@@ -114,7 +114,7 @@
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="Departments">
-                    <DataGrid Height="350"
+                    <DataGrid 
                               Background="#FFE5E5E5"
                               AutoGenerateColumns="False"
                               x:Name="DepartmentDataGrid"
