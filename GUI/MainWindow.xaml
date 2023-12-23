@@ -35,7 +35,7 @@
         <!-- Tool bar -->
         <DockPanel DockPanel.Dock="Top">
             <ToolBar Height="27">
-                <Button Content="Add"/>
+                <Button Content="Add" Click="Add_Click"/>
                 <Button Content="Edit"/>
                 <Button Content="Delete"/>
                 <TextBox HorizontalAlignment="Left" Width="140"/>
@@ -55,7 +55,7 @@
         <Border Background="#FFA9D2C9">
             <!-- Your content goes here -->
 
-            <TabControl SelectionChanged="TabControl_SelectionChanged">
+            <TabControl Name="Tab" SelectionChanged="TabControl_SelectionChanged">
                 <TabItem Header="Students">
                     <DataGrid 
                       Background="#FFE5E5E5"
