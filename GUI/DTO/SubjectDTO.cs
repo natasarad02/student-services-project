@@ -64,7 +64,7 @@ namespace GUI.DTO
         }
 
         private semester sem;
-        public semester Sem
+        public semester semester
         {
             get { return sem; }
             set
@@ -99,7 +99,7 @@ namespace GUI.DTO
             Ids = id;
             Name = name;
             Espb = espb;
-            Sem = sem;
+            semester = sem;
             Year = school_year;
             ProfessorId = professorId;
             Students_Passed = new List<StudentDTO>();
@@ -108,7 +108,7 @@ namespace GUI.DTO
 
         public Subject ToSubject()
         {
-            return new Subject(Ids, Name, Espb, Sem, Year, ProfessorId);
+            return new Subject(ids, name, espb, sem, year, professorId);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -120,6 +120,22 @@ namespace GUI.DTO
 
         public SubjectDTO()
         {
+
+        }
+
+        public SubjectDTO(Subject subject)
+        {
+            ids = subject.Ids;
+            name = subject.Name;
+            espb = subject.Espb;
+            sem = subject.semester;
+            year = subject.year;
+            professorId = subject.ProfessorID;
+            Students_Passed = new List<StudentDTO>();
+            Students_Attending = new List<StudentDTO>();
+
+
+
 
         }
         

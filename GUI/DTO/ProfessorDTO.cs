@@ -159,6 +159,24 @@ namespace GUI.DTO
 
         public ProfessorDTO()
         {
+            
+
+        }
+
+        public ProfessorDTO(Professor prof)
+        {
+            num = prof.num;
+            name = prof.Name;
+            surname = prof.Surname;
+            address = prof.Address;
+            birth_Date = prof.birth_date;
+            phone_Number = prof.phone_number;
+            email_Address = prof.email_address;
+            employment_Year = prof.employment_year;
+            calling = prof.calling;
+            Subjects = new List<Subject>();
+
+
 
         }
         public Professor ToProfessor()
