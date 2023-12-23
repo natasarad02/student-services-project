@@ -69,16 +69,16 @@ namespace GUI.DTO
 
         public Department ToDepartment()
         {
-            return new Department(idd, name, hod);
+            return new Department(Idd, Name, Hod);
         }
 
         public DepartmentDTO() { }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public DepartmentDTO(DepartmentDTO department)
+        public DepartmentDTO(Department department)
         {
-            //treba li? Id = department.Id;
+            Id = department.Id;
             idd = department.Idd;
             name = department.Name;
             hod = department.Hod;
