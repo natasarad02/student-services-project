@@ -9,9 +9,9 @@ using GUI.DTO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-namespace GUI.View.Student
+namespace GUI.View
 {
-    public partial class AddStudent : MainWindow, INotifyPropertyChanged
+    public partial class AddStudent : Window, INotifyPropertyChanged
     {
         public StudentDTO Student { get; set;}
 
