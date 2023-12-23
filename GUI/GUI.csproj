@@ -13,9 +13,7 @@
 
   <ItemGroup>
     <Folder Include="Events\" />
-    <Folder Include="View\Department\" />
     <Folder Include="View\Help\" />
-    <Folder Include="View\Student\" />
   </ItemGroup>
 
 </Project>

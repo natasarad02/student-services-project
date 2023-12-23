@@ -69,7 +69,7 @@ namespace GUI.DTO
 
         public Department ToDepartment()
         {
-            return new StudentskaSluzba.Model.Department(idd, name, hod);
+            return new Department(idd, name, hod);
         }
 
         public DepartmentDTO() { }
@@ -91,6 +91,9 @@ namespace GUI.DTO
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+
+       
+
         }
 
 
