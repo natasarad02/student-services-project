@@ -8,22 +8,22 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
+using CLI.Controller;
 namespace GUI.View
 {
     public partial class UpdateDepartment : Window, INotifyPropertyChanged
     {
         public DepartmentDTO department { get; set; }
-        private DepartmentDAO departmentDAO { get; set; }
+        private DepartmentsController departmentController{ get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public UpdateDepartment(DepartmentDAO departmentDAO)
+        public UpdateDepartment(DepartmentsController departmentController)
         {
             InitializeComponent();
             DataContext = this;
             department = new DepartmentDTO();
-            this.departmentDAO = departmentDAO;
+            this.departmentController = departmentController;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -33,7 +33,7 @@ namespace GUI.View
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            departmentDAO.AddDepartment(department.ToDepartment());
+            departmentController.Add(department.ToDepartment());
             Close();
         }
     }

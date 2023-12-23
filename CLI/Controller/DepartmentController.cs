@@ -33,6 +33,11 @@ namespace CLI.Controller
             departmentDAO.RemoveDepartment(departmentId);
         }
 
+        public void Update(Department department)
+        {
+            departmentDAO.UpdateDepartment(department);
+        }
+
         public void Subscribe(IObserver observer)
         {
             departmentDAO.DepartmentSubject.Subscribe(observer);

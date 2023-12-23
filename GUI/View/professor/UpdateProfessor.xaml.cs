@@ -8,21 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.Windows;
-
+using CLI.Controller;
 namespace GUI.View
 {
     public partial class UpdateProfessor : Window, INotifyPropertyChanged
     {
         public ProfessorDTO Professor { get; set; }
-        private ProfessorDAO professorsDAO;
+        private ProfessorsController professorController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public UpdateProfessor(ProfessorDAO professorsDAO)
+        public UpdateProfessor(ProfessorsController professorController)
         {
             InitializeComponent();
             DataContext = this;
             Professor = new ProfessorDTO();
-            this.professorsDAO = professorsDAO;
+            this.professorController = professorController;
 
         }
 
@@ -33,7 +33,7 @@ namespace GUI.View
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            professorsDAO.UpdateProfessor(Professor.ToProfessor());
+            professorController.UpdateProfessor(Professor.ToProfessor());
             Close();
         }
     }
