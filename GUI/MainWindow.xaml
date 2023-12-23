@@ -65,7 +65,7 @@
                       SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
                       SelectionMode="Single" IsReadOnly="True" SelectionChanged="StudentDataGrid_SelectionChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                            <!--<DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/> -->
                             <DataGridTextColumn Header="First Name" Binding="{Binding First_Name}" Width="*"/>
                             <DataGridTextColumn Header="Last Name" Binding="{Binding Last_Name}" Width="*"/>
                             <DataGridTextColumn Header="Year of studies" Binding="{Binding Current_Year}" Width="*"/>
@@ -89,7 +89,7 @@
                             <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
                             <DataGridTextColumn Header="Espb" Binding="{Binding Espb}" Width="*"/>
-                            <DataGridTextColumn Header="ProfessorID" Binding="{Binding ProfessorID}" Width="*"/>
+                            <DataGridTextColumn Header="ProfessorID" Binding="{Binding ProfessorId}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>

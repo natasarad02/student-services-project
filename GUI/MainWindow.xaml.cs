@@ -32,8 +32,10 @@ namespace GUI
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public ObservableCollection<StudentDTO> Students { get; set; }
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
-        public SubjectDTO  SelectedSubject { get; set; }
 
+        public ObservableCollection<ProfessorDTO> Professors { get; set; }
+
+        public SubjectDTO  SelectedSubject { get; set; }
         private SubjectDAO subjectsDAO { get; set; }
 
         public  StudentDTO SelectedStudent { get; set; }
@@ -41,36 +43,35 @@ namespace GUI
 
         private DepartmentDAO departmentDAO { get; set; }
         public DepartmentDTO SelectedDepartment { get; set; }
-        public ObservableCollection<ProfessorDTO> Professors { get; set; }
+        
         public ProfessorDTO SelectedProfessor { get; set; }
-
         private ProfessorDAO professorsDAO { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
+            
             Subjects = new ObservableCollection<SubjectDTO>();
             subjectsDAO = new SubjectDAO();
             subjectsDAO.SubjectSubject.Subscribe(this);
 
             
-            DataContext = this;
+           
             Professors = new ObservableCollection<ProfessorDTO>();
             professorsDAO = new ProfessorDAO();
             professorsDAO.ProfessorSubject.Subscribe(this);
 
 
-            DataContext = this;
+            
             Students = new ObservableCollection<StudentDTO>();
             studentDAO = new StudentDAO();
             studentDAO.StudentSubject.Subscribe(this);
 
-            DataContext = this;
+            
             Departments = new ObservableCollection<DepartmentDTO>();
             departmentDAO = new DepartmentDAO();
             departmentDAO.DepartmentSubject.Subscribe(this);
-
+            DataContext = this;
 
             Update();
 
