@@ -9,9 +9,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-namespace GUI.View.Department
+namespace GUI.View
 {
-    internal class AddDepartment : MainWindow, INotifyPropertyChanged
+    internal class AddDepartment : Window, INotifyPropertyChanged
     {
         public DepartmentDTO department {  get; set; }
         private DepartmentDAO departmentDAO { get; set; }

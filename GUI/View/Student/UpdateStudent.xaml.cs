@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace GUI.View.Student
+namespace GUI.View
 {
-    internal class UpdateStudent : MainWindow, INotifyPropertyChanged
+    public partial class UpdateStudent : Window, INotifyPropertyChanged
     {
         public StudentDTO Student { get; set; }
 

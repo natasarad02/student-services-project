@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace GUI.View.Department
+namespace GUI.View
 {
-    internal class UpdateDepartment : MainWindow, INotifyPropertyChanged
+    public partial class UpdateDepartment : Window, INotifyPropertyChanged
     {
         public DepartmentDTO department { get; set; }
         private DepartmentDAO departmentDAO { get; set; }
