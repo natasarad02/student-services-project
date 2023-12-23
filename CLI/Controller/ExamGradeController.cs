@@ -32,7 +32,10 @@ namespace CLI.Controller
         {
             examGradeDAO.RemoveExamGrade(examGradeId);
         }
-
+        public void Update(ExamGrade examGrade)
+        {
+            examGradeDAO.UpdateExamGrade(examGrade);
+        }
         public void Subscribe(IObserver observer)
         {
             examGradeDAO.ExamGradeSubject.Subscribe(observer);

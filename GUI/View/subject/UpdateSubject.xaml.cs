@@ -8,22 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.Windows;
-
+using CLI.Controller;
 namespace GUI.View
 {
     public partial class UpdateSubject : Window, INotifyPropertyChanged
     {
         public SubjectDTO Subject { get; set; }
 
-        private SubjectDAO subjectsDAO;
+        private SubjectsController subjectController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public UpdateSubject(SubjectDAO subjectsDAO)
+        public UpdateSubject(SubjectsController subjectController)
         {
             InitializeComponent();
             DataContext = this;
             Subject = new SubjectDTO();
-            this.subjectsDAO = subjectsDAO;
+            this.subjectController = subjectController;
 
         }
 
@@ -34,7 +34,7 @@ namespace GUI.View
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            subjectsDAO.UpdateSubject(Subject.ToSubject());
+            subjectController.Update(Subject.ToSubject());
             Close();
         }
     }

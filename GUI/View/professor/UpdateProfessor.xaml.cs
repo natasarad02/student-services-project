@@ -33,7 +33,7 @@ namespace GUI.View
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            professorController.UpdateProfessor(Professor.ToProfessor());
+            professorController.Update(Professor.ToProfessor());
             Close();
         }
     }

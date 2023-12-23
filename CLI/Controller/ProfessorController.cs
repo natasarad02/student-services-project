@@ -33,6 +33,11 @@ namespace CLI.Controller
             professorsDAO.RemoveProfessor(professorId);
         }
 
+        public void Update(Professor professor)
+        {
+            professorsDAO.UpdateProfessor(professor);
+        }
+
         public void Subscribe(IObserver observer)
         {
             professorsDAO.ProfessorSubject.Subscribe(observer);

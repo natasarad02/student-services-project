@@ -37,6 +37,11 @@ namespace CLI.Controller
         {
             studentDAO.StudentSubject.Subscribe(observer);
         }
+
+        public void Update(Student student)
+        {
+            studentDAO.UpdateStudent(student);
+        }
     }
 }
 

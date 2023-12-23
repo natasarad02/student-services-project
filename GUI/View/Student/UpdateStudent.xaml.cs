@@ -8,14 +8,14 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
+using CLI.Controller;
 namespace GUI.View
 {
     public partial class UpdateStudent : Window, INotifyPropertyChanged
     {
         public StudentDTO Student { get; set; }
 
-        private StudentDAO studentDAO { get; set; }
+        private StudentsController studentController { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -24,7 +24,7 @@ namespace GUI.View
             InitializeComponent();
             DataContext = this;
             Student = new StudentDTO();
-            this.studentDAO = studentDAO;
+            this.studentController = studentController;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -34,7 +34,7 @@ namespace GUI.View
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            studentDAO.addStudent(Student.toStudent());
+            studentController.Update(Student.toStudent());
             Close();
         }
     }

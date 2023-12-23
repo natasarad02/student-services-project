@@ -32,7 +32,10 @@ namespace CLI.Controller
         {
             subjectsDAO.RemoveSubject(professorId);
         }
-
+        public void Update(Subject subject)
+        {
+            subjectsDAO.UpdateSubject(subject);
+        }
         public void Subscribe(IObserver observer)
         {
             subjectsDAO.SubjectSubject.Subscribe(observer);

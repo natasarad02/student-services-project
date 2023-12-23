@@ -33,7 +33,7 @@ namespace GUI.View
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            departmentController.Add(department.ToDepartment());
+            departmentController.Update(department.ToDepartment());
             Close();
         }
     }
