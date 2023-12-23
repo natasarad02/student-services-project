@@ -157,6 +157,16 @@ namespace GUI.DTO
             Subjects = new List<Subject>();
         }
 
+        public ProfessorDTO()
+        {
+
+        }
+        public Professor ToProfessor()
+
+        {
+            return new Professor(Num, Name, Surname, Address, Phone_Number, Birth_Date, Employment_Year, Email_Address,  Calling);
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string name)

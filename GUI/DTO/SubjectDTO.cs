@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using StudentskaSluzba.Model;
 
 namespace GUI.DTO
 {
@@ -105,16 +106,27 @@ namespace GUI.DTO
             Students_Attending = new List<StudentDTO>();
         }
 
+        public Subject ToSubject()
+        {
+            return new Subject(Ids, Name, Espb, Sem, Year, ProfessorId);
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        public SubjectDTO()
+        {
+
+        }
+        
     }
 
-    public enum semester
+   /* public enum semester
     {
         // Define semester enum values
-    }
+    }*/
 }
