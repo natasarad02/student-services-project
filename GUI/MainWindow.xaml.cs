@@ -48,6 +48,8 @@ namespace GUI
             subjectsDAO = new SubjectDAO();
             subjectsDAO.SubjectSubject.Subscribe(this);
 
+            
+            DataContext = this;
             Professors = new ObservableCollection<ProfessorDTO>();
             professorsDAO = new ProfessorDAO();
             professorsDAO.ProfessorSubject.Subscribe(this);
@@ -108,7 +110,7 @@ namespace GUI
             {
                 Subjects.Add(new SubjectDTO(subject));
             }
-
+        
             Professors.Clear();
             foreach (Professor professor in professorsDAO.GetAllProfessors())
             {
@@ -176,7 +178,37 @@ namespace GUI
             }
         }
 
-       // private void Delete_Cli
+        private void Delete_Click(object sender, RoutedEventArgs e, SelectionChangedEventArgs sel_e)
+        {
+            string tabHeader = SelectionChanged(sender, sel_e);
+            switch (tabHeader)
+            {
+                case "Students":
+                    // Access and manipulate Student entities
+                    // Example: viewModel.DeleteStudent();
+                    break;
+                case "Subjects":
+                    if (SelectedSubject == null)
+                        MessageBox.Show("Please choose a subject to delete");
+                    else
+                        subjectsDAO.RemoveSubject(SelectedSubject.Ids);
+                    
+                    break;
+                case "Professors":
+
+                    if (SelectedProfessor == null)
+                        MessageBox.Show("Please choose a professor to delete");
+                    else
+                        subjectsDAO.RemoveSubject(SelectedProfessor.Num);
+
+                    break;
+                case "Departments":
+                    // Access and manipulate Department entities
+                    // Example: viewModel.UpdateDepartment();
+                    break;
+                    // Add more cases for additional tabs if needed
+            }
+        }
         private void StudentDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
