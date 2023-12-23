@@ -173,6 +173,7 @@ namespace GUI
             }
         }
 
+       // private void Delete_Cli
         private void StudentDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
