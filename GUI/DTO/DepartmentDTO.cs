@@ -63,7 +63,6 @@ namespace GUI.DTO
             }
         }
 
-        private List<Professor> department_Professors;
 
         public List<Professor> Department_Professors { get; set; } //videti posle sta s ovim
 
@@ -82,19 +81,15 @@ namespace GUI.DTO
             idd = department.Idd;
             name = department.Name;
             hod = department.Hod;
+            Department_Professors = new List<Professor>();
         }
 
         protected virtual void OnPropertyChanged(string name)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-       
-
-        }
+    }
 
 
     }
