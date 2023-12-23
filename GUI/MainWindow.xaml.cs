@@ -59,7 +59,11 @@ namespace GUI
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            Students = new ObservableCollection<StudentDTO>();
+            studentController = new StudentsController();
+            studentController.Subscribe(this);
+
             Subjects = new ObservableCollection<SubjectDTO>();
             subjectController = new SubjectsController();
             subjectController.Subscribe(this);
@@ -71,20 +75,11 @@ namespace GUI
             professorController.Subscribe(this);
 
 
-            
-            Students = new ObservableCollection<StudentDTO>();
-            studentController = new StudentsController();
-            studentController.Subscribe(this);
-
-            
+                     
             Departments = new ObservableCollection<DepartmentDTO>();
             departmentController = new DepartmentsController();
             departmentController.Subscribe(this);
             DataContext = this;
-
-            departmentController = new DepartmentsController();
-            departmentController.Subscribe(this);
-
 
 
             Update();
@@ -135,6 +130,11 @@ namespace GUI
 
         public void Update()
         {
+            Students.Clear();
+            foreach (Student student in studentController.GetAllStudents())
+            {
+                Students.Add(new StudentDTO(student));
+            }
             Subjects.Clear();
             foreach(Subject subject in subjectController.GetAllSubjects())
             {
@@ -147,10 +147,7 @@ namespace GUI
                 Professors.Add(new ProfessorDTO(professor));
             }
 
-            Students.Clear();
-            foreach (Student student in studentController.GetAllStudents()) {
-                Students.Add(new StudentDTO(student));  
-            }
+          
 
             Departments.Clear();
             foreach(Department department in departmentController.GetAllDepartments())

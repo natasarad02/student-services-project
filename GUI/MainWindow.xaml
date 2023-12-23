@@ -61,7 +61,7 @@
                       Background="#FFE5E5E5"
                       AutoGenerateColumns="False"
                       x:Name="StudentDataGrid"
-                      ItemsSource="{Binding Student, UpdateSourceTrigger=PropertyChanged}"
+                      ItemsSource="{Binding Students, UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
                       SelectionMode="Single" IsReadOnly="True" SelectionChanged="StudentDataGrid_SelectionChanged">
                         <DataGrid.Columns>
@@ -114,7 +114,7 @@
                               Background="#FFE5E5E5"
                               AutoGenerateColumns="False"
                               x:Name="DepartmentDataGrid"
-                              ItemsSource="{Binding Department, UpdateSourceTrigger=PropertyChanged}"
+                              ItemsSource="{Binding Departments, UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding SelectedDepartment, UpdateSourceTrigger=PropertyChanged}"
                               SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Columns>
