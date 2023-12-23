@@ -20,6 +20,7 @@ using StudentskaSluzba.Model;
 using CLI.Observer;
 using GUI.DTO;
 using StudentskaSluzba.DAO;
+using System.Windows;
 
 namespace GUI
 {
@@ -40,6 +41,7 @@ namespace GUI
         public ProfessorDTO SelectedProfessor { get; set; }
 
         private ProfessorDAO professorsDAO { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -53,6 +55,8 @@ namespace GUI
             Professors = new ObservableCollection<ProfessorDTO>();
             professorsDAO = new ProfessorDAO();
             professorsDAO.ProfessorSubject.Subscribe(this);
+
+           
 
             Update();
 
@@ -74,10 +78,9 @@ namespace GUI
             
 
         }
-        private void Add_Click(object sender, RoutedEventArgs e, SelectionChangedEventArgs sel_e)
+        private void Add_Click(object sender, RoutedEventArgs e)//, SelectionChangedEventArgs sel_e)
         {
-            
-            string tabHeader = SelectionChanged(sender, sel_e);
+            string tabHeader = "Students";//SelectionChanged(sender, sel_e);
             switch (tabHeader)
                    {
                        case "Students":
@@ -180,7 +183,7 @@ namespace GUI
 
         private void Delete_Click(object sender, RoutedEventArgs e, SelectionChangedEventArgs sel_e)
         {
-            string tabHeader = SelectionChanged(sender, sel_e);
+           string tabHeader = "Students";
             switch (tabHeader)
             {
                 case "Students":

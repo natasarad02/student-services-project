@@ -35,7 +35,7 @@
         <!-- Tool bar -->
         <DockPanel DockPanel.Dock="Top">
             <ToolBar Height="27">
-                <Button Content="Add"/>
+                <Button Content="Add" Click="Add_Click"/>
                 <Button Content="Edit"/>
                 <Button Content="Delete"/>
                 <TextBox HorizontalAlignment="Left" Width="140"/>
