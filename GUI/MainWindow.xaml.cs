@@ -78,8 +78,8 @@ namespace GUI
 
             
             Departments = new ObservableCollection<DepartmentDTO>();
-            departmentDAO = new DepartmentDAO();
-            departmentDAO.DepartmentSubject.Subscribe(this);
+            departmentController = new DepartmentsController();
+            departmentController.Subscribe(this);
             DataContext = this;
 
             departmentController = new DepartmentsController();
@@ -136,7 +136,7 @@ namespace GUI
         public void Update()
         {
             Subjects.Clear();
-            foreach(Subject subject in subjectsController.GetAllSubjects())
+            foreach(Subject subject in subjectController.GetAllSubjects())
             {
                 Subjects.Add(new SubjectDTO(subject));
             }
