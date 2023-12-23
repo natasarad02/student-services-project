@@ -100,26 +100,26 @@ namespace GUI
             Top = (screenHeight - targetHeight) / 2;
 
         }
-        private void Add_Click(object sender, RoutedEventArgs e, SelectionChangedEventArgs sel_e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
-            string tabHeader = SelectionChanged(sender, sel_e);
-            switch (tabHeader)
+            int tabIndex = Tab.SelectedIndex;
+            switch (tabIndex)
                    {
-                       case "Students":
+                       case 0:
                            AddStudent addStudent = new AddStudent(studentController);
                            addStudent.Show();
                            break;
-                       case "Subjects":
+                       case 1:
                            AddSubject addSubject = new AddSubject(subjectController);
                            addSubject.Show();
                            break;
-                       case "Professors":
+                       case 2:
                    
                             AddProfessor addProfessor = new AddProfessor(professorController);
                             addProfessor.Show();
 
                             break;
-                       case "Departments":
+                       case 3:
                            AddDepartment addDepartment = new AddDepartment(departmentController);
                            addDepartment.Show();
                            break;
@@ -199,21 +199,21 @@ namespace GUI
 
         private void Delete_Click(object sender, RoutedEventArgs e, SelectionChangedEventArgs sel_e)
         {
-           string tabHeader = "Students";
-            switch (tabHeader)
+           int tabIndex = Tab.SelectedIndex;
+            switch (tabIndex)
             {
-                case "Students":
+                case 0:
                     // Access and manipulate Student entities
                     // Example: viewModel.DeleteStudent();
                     break;
-                case "Subjects":
+                case 1:
                     if (SelectedSubject == null)
                         MessageBox.Show("Please choose a subject to delete");
                     else
                         subjectController.Delete(SelectedSubject.Ids);
                     
                     break;
-                case "Professors":
+                case 2:
 
                     if (SelectedProfessor == null)
                         MessageBox.Show("Please choose a professor to delete");
@@ -221,7 +221,7 @@ namespace GUI
                         professorController.Delete(SelectedProfessor.Num);
 
                     break;
-                case "Departments":
+                case 3:
                     // Access and manipulate Department entities
                     // Example: viewModel.UpdateDepartment();
                     break;
