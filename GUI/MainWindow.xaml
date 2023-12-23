@@ -37,7 +37,7 @@
             <ToolBar Height="27">
                 <Button Content="Add" Click="Add_Click"/>
                 <Button Content="Edit"/>
-                <Button Content="Delete"/>
+                <Button Content="Delete"/> <!-- Click="Delete_Click" -->
                 <TextBox HorizontalAlignment="Left" Width="140"/>
                 <Button HorizontalAlignment="Right" Content="Search"/>
             </ToolBar>
@@ -65,7 +65,7 @@
                       SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
                       SelectionMode="Single" IsReadOnly="True" SelectionChanged="StudentDataGrid_SelectionChanged">
                         <DataGrid.Columns>
-                            <!--<DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/> -->
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
                             <DataGridTextColumn Header="First Name" Binding="{Binding First_Name}" Width="*"/>
                             <DataGridTextColumn Header="Last Name" Binding="{Binding Last_Name}" Width="*"/>
                             <DataGridTextColumn Header="Year of studies" Binding="{Binding Current_Year}" Width="*"/>
@@ -85,11 +85,11 @@
                                 SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
                                 SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Ids" Binding="{Binding Ids}" Width="*"/>
                             <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                            <DataGridTextColumn Header="Subject ID" Binding="{Binding Ids}" Width="*"/>
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
                             <DataGridTextColumn Header="Espb" Binding="{Binding Espb}" Width="*"/>
-                            <DataGridTextColumn Header="ProfessorID" Binding="{Binding ProfessorId}" Width="*"/>
+                            <DataGridTextColumn Header="Professors ID" Binding="{Binding ProfessorId}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
@@ -102,6 +102,7 @@
                                 SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
                                 SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
                             <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" Width="*"/>
                             <DataGridTextColumn Header="Calling" Binding="{Binding Calling}" Width="*"/>

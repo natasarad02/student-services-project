@@ -11,7 +11,20 @@ namespace GUI.DTO
 {
     public class DepartmentDTO: INotifyPropertyChanged
     {
-        private int Id;
+        private int id;
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
 
         private int idd;
 
@@ -68,7 +81,9 @@ namespace GUI.DTO
 
         public Department ToDepartment()
         {
-            return new Department(idd, name, hod);
+            Department d = new Department(idd, name, hod);
+            d.Id = id;
+            return d;
         }
 
         public DepartmentDTO() { }
@@ -77,7 +92,7 @@ namespace GUI.DTO
 
         public DepartmentDTO(Department department)
         {
-            Id = department.Id;
+            id = department.Id;
             idd = department.Idd;
             name = department.Name;
             hod = department.Hod;

@@ -12,6 +12,21 @@ namespace GUI.DTO
 {
     public class StudentDTO : INotifyPropertyChanged
     {
+        private int id;
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
         private string last_Name;
         public string Last_Name
         {
@@ -164,7 +179,9 @@ namespace GUI.DTO
         public StudentDTO() { }
 
         public Student toStudent() {
-            return new Student(Last_Name, First_Name, Date_Of_Birth, Address, Phone_Number, Email, Index_Number, Current_Year, Status);
+            Student s = new Student(Last_Name, First_Name, Date_Of_Birth, Address, Phone_Number, Email, Index_Number, Current_Year, Status);
+            s.ID = id;
+            return s;
         }
 
         public StudentDTO(Student student) {
@@ -181,6 +198,7 @@ namespace GUI.DTO
             Passed_Exams = new List<ExamGrade>();
             Failed_Exams = new List<ExamGrade>();
             Is_Deleted = false; // not deleted when created
+            id = student.ID;
         }
 
         

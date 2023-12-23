@@ -210,7 +210,7 @@ namespace GUI
                     if (SelectedSubject == null)
                         MessageBox.Show("Please choose a subject to delete");
                     else
-                        subjectController.Delete(SelectedSubject.Ids);
+                        subjectController.Delete(SelectedSubject.Id);
                     
                     break;
                 case 2:
@@ -218,8 +218,10 @@ namespace GUI
                     if (SelectedProfessor == null)
                         MessageBox.Show("Please choose a professor to delete");
                     else
-                        professorController.Delete(SelectedProfessor.Num);
-
+                        professorController.Delete(SelectedProfessor.Id); //da li uopste on dobije id???
+                        //professorController.Delete(0); testirano na ovom, uopste ne uradi to
+                        DeleteProfessor deleteProf = new DeleteProfessor();
+                        deleteProf.Show();
                     break;
                 case 3:
                     // Access and manipulate Department entities

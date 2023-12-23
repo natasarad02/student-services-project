@@ -12,7 +12,7 @@ namespace StudentskaSluzba.Model;
 public class Department : ISerializable
 {
     public int Idd { get; set; } //department id
-    public int Id { get; set; } 
+    public int Id { get; set; } //id for search
     public string Name { get; set; }
     public string Hod { get; set; } // Head Of Department
 

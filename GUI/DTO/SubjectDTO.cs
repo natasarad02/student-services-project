@@ -7,6 +7,22 @@ namespace GUI.DTO
 {
     public class SubjectDTO : INotifyPropertyChanged
     {
+
+        private int id;
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
         private int ids;
         public int Ids
         {
@@ -96,7 +112,9 @@ namespace GUI.DTO
 
         public Subject ToSubject()
         {
-            return new Subject(ids, name, espb, sem, year, professorId);
+            Subject s= new Subject(ids, name, espb, sem, year, professorId);
+            s.Id = id;
+            return s;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -121,10 +139,7 @@ namespace GUI.DTO
             professorId = subject.ProfessorID;
             Students_Passed = new List<StudentDTO>();
             Students_Attending = new List<StudentDTO>();
-
-
-
-
+            id = subject.Id;
         }
         
     }

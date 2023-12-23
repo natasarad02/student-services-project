@@ -12,6 +12,21 @@ namespace GUI.DTO
 {
     public class ProfessorDTO : INotifyPropertyChanged
     {
+        private int id;
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
         private int num;
         public int Num
         {
@@ -162,14 +177,17 @@ namespace GUI.DTO
             employment_Year = prof.employment_year;
             calling = prof.calling;
             Subjects = new List<Subject>();
-
+            id = prof.Id;
 
 
         }
         public Professor ToProfessor()
 
         {
-            return new Professor(Num, Name, Surname, Address, Phone_Number, Birth_Date, Employment_Year, Email_Address,  Calling);
+            Professor p= new Professor(Num, Name, Surname, Address, Phone_Number, Birth_Date, Employment_Year, Email_Address,  Calling);
+            p.Id = id;
+            return p;
+
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
