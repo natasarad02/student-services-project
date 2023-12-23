@@ -21,6 +21,7 @@ namespace StudentskaSluzba.DAO
         {
             storage = new Storage<Professor>("professors.txt");
             professors = storage.Load();
+            ProfessorSubject = new SubjectOB();
         }
 
         private int GenerateId()

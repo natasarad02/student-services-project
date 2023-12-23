@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace GUI.View
 {
-    internal class AddDepartment : Window, INotifyPropertyChanged
+    public partial class AddDepartment : Window, INotifyPropertyChanged
     {
         public DepartmentDTO department {  get; set; }
         private DepartmentDAO departmentDAO { get; set; }
