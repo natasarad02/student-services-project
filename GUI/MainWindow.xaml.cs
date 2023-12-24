@@ -147,8 +147,6 @@ namespace GUI
                 Professors.Add(new ProfessorDTO(professor));
             }
 
-          
-
             Departments.Clear();
             foreach(Department department in departmentController.GetAllDepartments())
             {

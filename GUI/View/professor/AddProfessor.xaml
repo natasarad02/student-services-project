@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="AddStudent" Height="6300" Width="400">
+        Title="AddStudent" Height="630" Width="400">
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -58,7 +58,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Country:</Label>
-                <TextBox x:Name="txtCountry" Text="{Binding Path=Address.Country, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="txtCountry" Text="{Binding Path=Professor.Address.Country, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
