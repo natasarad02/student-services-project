@@ -19,7 +19,7 @@ namespace GUI.View
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public UpdateStudent(StudentDAO studentDAO)
+        public UpdateStudent(StudentsController studentController )
         {
             InitializeComponent();
             DataContext = this;

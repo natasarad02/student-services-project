@@ -75,8 +75,10 @@ namespace GUI.DTO
 
         public AddressDTO(Address address)
         {
-            street = address.Street; number = address.Number;
-            city = address.City; country = address.Country;
+            street = address.Street; 
+            number = address.Number;
+            city = address.City; 
+            country = address.Country;
         }
 
 

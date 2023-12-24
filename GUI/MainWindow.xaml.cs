@@ -238,8 +238,13 @@ namespace GUI
             switch (tabIndex)
             {
                 case 0:
-                    // Access and manipulate Student entities
-                    // Example: viewModel.DeleteStudent();
+                    if (SelectedStudent == null)
+                        MessageBox.Show("Please choose a student to update!");
+                    else {
+                        UpdateStudent updateStudent = new UpdateStudent(studentController);
+                        updateStudent.Student = SelectedStudent;
+                        updateStudent.Show();
+                    }
                     break;
                 case 1:
                     if (SelectedSubject == null)
@@ -266,8 +271,13 @@ namespace GUI
                     }
                     break;
                 case 3:
-                    // Access and manipulate Department entities
-                    // Example: viewModel.UpdateDepartment();
+                    if (SelectedDepartment == null)
+                        MessageBox.Show("Please choose a department to update");
+                    else {
+                        UpdateDepartment updateDepartment = new UpdateDepartment(departmentController);
+                        updateDepartment.department = SelectedDepartment;
+                        updateDepartment.Show();
+                    }                    
                     break;
                     // Add more cases for additional tabs if needed
             }
