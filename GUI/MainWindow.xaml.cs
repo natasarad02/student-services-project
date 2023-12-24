@@ -203,8 +203,10 @@ namespace GUI
             switch (tabIndex)
             {
                 case 0:
-                    // Access and manipulate Student entities
-                    // Example: viewModel.DeleteStudent();
+                    if (SelectedStudent == null)
+                        MessageBox.Show("Please choose a student to delete");
+                    else
+                        studentController.Delete(SelectedStudent.Id);
                     break;
                 case 1:
                     if (SelectedSubject == null)
@@ -224,10 +226,11 @@ namespace GUI
                         //deleteProf.Show();
                     break;
                 case 3:
-                    // Access and manipulate Department entities
-                    // Example: viewModel.UpdateDepartment();
+                    if (SelectedDepartment == null)
+                        MessageBox.Show("Please choose a department to delete");
+                    else
+                        departmentController.Delete(SelectedDepartment.Id);
                     break;
-                    // Add more cases for additional tabs if needed
             }
         }
 
