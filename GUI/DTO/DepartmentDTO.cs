@@ -36,8 +36,12 @@ namespace GUI.DTO
             }
             set
             {
-                idd = value;
-                OnPropertyChanged("Idd");
+                if(value != idd)
+                {
+                    idd = value;
+                    OnPropertyChanged("Idd");
+                }
+              
             }
         }
 

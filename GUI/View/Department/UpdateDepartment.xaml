@@ -31,19 +31,19 @@
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <Label>Department ID:</Label>
                             <TextBox x:Name="txtDepartmentID"
-									 Text="{Binding Path = Department.Idd, UpdateSourceTrigger=PropertyChanged}" />
+									 Text="{Binding Path = department.Idd, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <Label>Name:</Label>
                             <TextBox x:Name="txtName"
-									 Text="{Binding Path = Department.Name, UpdateSourceTrigger=PropertyChanged}" />
+									 Text="{Binding Path = department.Name, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <Label>Head of Department:</Label>
 							<TextBox x:Name="txtHeadOfDepartment"
-									 Text="{Binding Path = Department.Hod, UpdateSourceTrigger=PropertyChanged}" > </TextBox>
+									 Text="{Binding Path = department.Hod, UpdateSourceTrigger=PropertyChanged}" > </TextBox>
                         </StackPanel>
 
                     </StackPanel>

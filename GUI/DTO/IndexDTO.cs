@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using StudentskaSluzba.Model;
 
 namespace GUI.DTO
 {
@@ -12,8 +13,11 @@ namespace GUI.DTO
             get { return collegeMajor; }
             set
             {
-                collegeMajor = value;
-                OnPropertyChanged("CollegeMajor");
+                if (collegeMajor != value)
+                {
+                    collegeMajor = value;
+                    OnPropertyChanged("CollegeMajor");
+                }
             }
         }
 
@@ -24,8 +28,11 @@ namespace GUI.DTO
             get { return numberMark; }
             set
             {
-                numberMark = value;
-                OnPropertyChanged("NumberMark");
+                if (numberMark != value)
+                {
+                    numberMark = value;
+                    OnPropertyChanged("NumberMark");
+                }
             }
         }
 
@@ -36,11 +43,22 @@ namespace GUI.DTO
             get { return yoe; }
             set
             {
-                yoe = value;
-                OnPropertyChanged("Yoe");
+                if (yoe != value)
+                {
+                    yoe = value;
+                    OnPropertyChanged("Yoe");
+                }
             }
         }
+        public StudentskaSluzba.Model.Index ToIndex()
+        {
+            StudentskaSluzba.Model.Index i = new StudentskaSluzba.Model.Index(collegeMajor, numberMark, yoe);
+            return i;
+        }
+        public event PropertyChangedEventHandler? PropertyChanged;
 
+
+  
         public IndexDTO() { }
 
         public IndexDTO(StudentskaSluzba.Model.Index index)
@@ -49,12 +67,13 @@ namespace GUI.DTO
             numberMark = index.number_mark;
             yoe = index.YOE;
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         protected virtual void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+
+
+
     }
 }

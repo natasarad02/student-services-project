@@ -120,7 +120,7 @@ namespace GUI.DTO
                 if (value != index_Number)
                 {
                     index_Number = value;
-                    OnPropertyChanged("Index_Number");
+                    OnPropertyChanged(nameof(Index_Number));
                 }
             }
         }
@@ -184,7 +184,7 @@ namespace GUI.DTO
         }
 
         public Student toStudent() {
-            Student s = new Student(Last_Name, First_Name, Date_Of_Birth, Address, Phone_Number, Email, Index_Number, Current_Year, Status);
+            Student s = new Student(last_Name, first_Name, date_Of_Birth, address, phone_Number, email, index_Number, current_Year, status);
             s.ID = id;
             return s;
         }

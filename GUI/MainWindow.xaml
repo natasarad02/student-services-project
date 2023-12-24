@@ -71,6 +71,7 @@
                             <DataGridTextColumn Header="Year of studies" Binding="{Binding Current_Year}" Width="*"/>
                             <DataGridTextColumn Header="Financial aid" Binding="{Binding Status}" Width="*"/>
                             <DataGridTextColumn Header="Average grade" Binding="{Binding Average_Grade}" Width="*"/>
+                            <DataGridTextColumn Header="Index number" Binding="{Binding Index_Number}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
