@@ -99,6 +99,7 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
+            
 
             <!-- Third Tab - Student Grades -->
             <TabItem Header="Grades">

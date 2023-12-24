@@ -108,6 +108,7 @@
                             <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" Width="*"/>
                             <DataGridTextColumn Header="Calling" Binding="{Binding Calling}" Width="*"/>
                             <DataGridTextColumn Header="E-Mail" Binding="{Binding Email_Address}" Width="*"/>
+                            <DataGridTextColumn Header="Employement_Year" Binding="{Binding Employment_Year}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
