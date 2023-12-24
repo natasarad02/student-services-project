@@ -43,22 +43,22 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Street:</Label>
-                <TextBox x:Name="txtStreet" Text="{Binding Path=Professor.Address.Street, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="txtStreet" Text="{Binding Path=Address.Street, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Street Number:</Label>
-                <TextBox x:Name="txtStreetNumber" Text="{Binding Path=Professor.Address.Number, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="txtStreetNumber" Text="{Binding Path=Address.Number, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>City:</Label>
-                <TextBox x:Name="txtCity" Text="{Binding Path=Professor.Address.City, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="txtCity" Text="{Binding Path=Address.City, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Country:</Label>
-                <TextBox x:Name="txtCountry" Text="{Binding Path=Professor.Address.Country, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="txtCountry" Text="{Binding Path=Address.Country, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">

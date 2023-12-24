@@ -176,7 +176,12 @@ namespace GUI.DTO
         public List<ExamGrade> Failed_Exams { get; set; } //videti posle sta s ovim
         public bool Is_Deleted { get; set; }
 
-        public StudentDTO() { }
+        public StudentDTO() {
+
+            index_Number = new StudentskaSluzba.Model.Index();
+            address = new Address();
+        
+        }
 
         public Student toStudent() {
             Student s = new Student(Last_Name, First_Name, Date_Of_Birth, Address, Phone_Number, Email, Index_Number, Current_Year, Status);

@@ -15,6 +15,11 @@ public class Address : ISerializable
     public string Country { get; set; }
 
     public int ID { get; set; }
+
+    public Address()
+    {
+
+    }
     
     public Address(string street, int number, string city, string country)
     {
@@ -28,7 +33,13 @@ public class Address : ISerializable
     public string ToString2()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append(Street + "," + Number + "," + City + "," + Country);
+        sb.Append(Street ?? "");
+        sb.Append(",");
+        sb.Append(Number.ToString());
+        sb.Append(",");
+        sb.Append(City ?? "");
+        sb.Append(",");
+        sb.Append(Country ?? "");
 
         return sb.ToString();
     }
