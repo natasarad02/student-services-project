@@ -6,4 +6,3 @@
 5|321|Elektrotehnika|3|6|winter|3
 6|158|Matematika|9|9|winter|4
 7|792|Osnove racunarstva|7|9|winter|3
-8|917|Fizika|8|5|winter|2

@@ -37,7 +37,7 @@
             <ToolBar Height="27">
                 <Button Content="Add" Click="Add_Click"/>
                 <Button Content="Edit"/>
-                <Button Content="Delete"/> <!-- Click="Delete_Click" -->
+                <Button Content="Delete" Click="Delete_Click"/> <!-- Click="Delete_Click" -->
                 <TextBox HorizontalAlignment="Left" Width="140"/>
                 <Button HorizontalAlignment="Right" Content="Search"/>
             </ToolBar>

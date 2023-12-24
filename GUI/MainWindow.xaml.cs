@@ -197,7 +197,7 @@ namespace GUI
             }
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e, SelectionChangedEventArgs sel_e)
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
            int tabIndex = Tab.SelectedIndex;
             switch (tabIndex)
@@ -220,8 +220,8 @@ namespace GUI
                     else
                         professorController.Delete(SelectedProfessor.Id); //da li uopste on dobije id???
                         //professorController.Delete(0); testirano na ovom, uopste ne uradi to
-                        DeleteProfessor deleteProf = new DeleteProfessor();
-                        deleteProf.Show();
+                       // DeleteProfessor deleteProf = new DeleteProfessor();
+                        //deleteProf.Show();
                     break;
                 case 3:
                     // Access and manipulate Department entities
