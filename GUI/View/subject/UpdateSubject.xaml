@@ -24,37 +24,37 @@
 							</Style>
 						</StackPanel.Resources>
 
-						<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-							<Label>Subject ID:</Label>
-							<TextBox x:Name="txtSubjectID" />
-						</StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Subject ID:</Label>
+                            <TextBox x:Name="txtSubjectID" Text="{Binding Path=Subject.Ids, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </StackPanel>
 
-						<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-							<Label>Name:</Label>
-							<TextBox x:Name="txtName" />
-						</StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Name:</Label>
+                            <TextBox x:Name="txtName" Text="{Binding Path=Subject.Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </StackPanel>
 
-						<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-							<Label>ESPB:</Label>
-							<TextBox x:Name="txtESPB" />
-						</StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>ESPB:</Label>
+                            <TextBox x:Name="txtESPB" Text="{Binding Path=Subject.Espb, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </StackPanel>
 
-						<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-							<Label>Semester:</Label>
-							<TextBox x:Name="txtSemester" />
-						</StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Semester:</Label>
+                            <TextBox x:Name="txtSemester" Text="{Binding Path=Subject.semester, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </StackPanel>
 
-						<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-							<Label>School Year:</Label>
-							<TextBox x:Name="txtSchoolYear" />
-						</StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>School Year:</Label>
+                            <TextBox x:Name="txtSchoolYear" Text="{Binding Path=Subject.Year, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </StackPanel>
 
-						<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-							<Label>Professor ID:</Label>
-							<TextBox x:Name="txtProfessorID" />
-						</StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Professor ID:</Label>
+                            <TextBox x:Name="txtProfessorID" Text="{Binding Path=Subject.ProfessorId, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </StackPanel>
 
-						<!-- Add more fields as needed -->
+                        <!-- Add more fields as needed -->
 					</StackPanel>
 
 			
@@ -83,7 +83,7 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="Update"/>
+            <Button Width="100" Margin="5" Content="Update" Click="Update_Click"/>
             <!-- Click="Update_Click" /> -->
             <Button Width="100" Margin="5" Content="Cancel"/>
             <!-- Click="Cancel_Click" />-->

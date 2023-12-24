@@ -230,6 +230,45 @@ namespace GUI
                     // Add more cases for additional tabs if needed
             }
         }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            int tabIndex = Tab.SelectedIndex;
+            switch (tabIndex)
+            {
+                case 0:
+                    // Access and manipulate Student entities
+                    // Example: viewModel.DeleteStudent();
+                    break;
+                case 1:
+                    if (SelectedSubject == null)
+                        MessageBox.Show("Please choose a subject to update");
+                    else
+                    {
+                        UpdateSubject updateSubject = new UpdateSubject(subjectController);
+                        updateSubject.Subject = SelectedSubject;
+                        updateSubject.Show();
+                        // subjectController.Update(SelectedSubject.ToSubject());
+                    }
+
+                    break;
+                case 2:
+
+                    if (SelectedProfessor == null)
+                        MessageBox.Show("Please choose a professor to update");
+                    else
+                        professorController.Update(SelectedProfessor.ToProfessor()); //da li uopste on dobije id???
+                                                                          //professorController.Delete(0); testirano na ovom, uopste ne uradi to
+                                                                          // DeleteProfessor deleteProf = new DeleteProfessor();
+                                                                          //deleteProf.Show();
+                    break;
+                case 3:
+                    // Access and manipulate Department entities
+                    // Example: viewModel.UpdateDepartment();
+                    break;
+                    // Add more cases for additional tabs if needed
+            }
+        }
         private void StudentDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
