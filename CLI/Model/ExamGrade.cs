@@ -15,25 +15,6 @@ public class ExamGrade : ISerializable
     public int grade 
     {
         get; set;
-       /* get 
-        {
-            return grade;
-        
-        }
-
-
-        set {
-
-            if (grade < 11 && grade > 5)
-            {
-                grade = value;
-            }
-            else {
-                System.Console.WriteLine("Grade must be between 6 and 10!");
-            }
-
-        resiti beskonacnu petlju
-        }*/
     
     }
 
