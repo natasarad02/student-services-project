@@ -78,7 +78,7 @@ namespace GUI.DTO
                 if (value != address)
                 {
                     address = value;
-                    OnPropertyChanged("Address");
+                    OnPropertyChanged(nameof(Address));
                 }
             }
         }
@@ -161,8 +161,8 @@ namespace GUI.DTO
 
         public ProfessorDTO()
         {
-            
 
+            address = new Address();
         }
 
         public ProfessorDTO(Professor prof)
@@ -184,7 +184,7 @@ namespace GUI.DTO
         public Professor ToProfessor()
 
         {
-            Professor p= new Professor(Num, Name, Surname, Address, Phone_Number, Birth_Date, Employment_Year, Email_Address,  Calling);
+            Professor p= new Professor(num, name, surname, address, phone_Number, birth_Date, employment_Year, email_Address,  calling);
             p.Id = id;
             return p;
 

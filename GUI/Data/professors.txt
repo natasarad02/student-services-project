@@ -10,3 +10,4 @@
 9|Jelena|Jovanov|Trg Slobode,21,Podgorica,Crna Gora|067/123456789|jelena.jovanov@hotmail.com|2015|1/20/1993|123456789|dr
 10|Marko|Kovačev|Ulica Kralja Milutina,17,Niš,Srbija|064/876543210|marko.kovacev@gmail.com|2020|2/25/2000|234567890|dipl
 11|Sara|Stanković|Bulevar Oslobođenja,55,Beograd,Srbija|060/345678901|sara.stankovic@yahoo.com|2019|3/30/1998|345678901|mr
+12|b|aa|,0,,|1225152|a|0|1/1/0001|0|dr

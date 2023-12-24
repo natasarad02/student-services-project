@@ -37,7 +37,7 @@ namespace GUI
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
 
         public SubjectDTO  SelectedSubject { get; set; }
-        private SubjectDAO subjectsDAO { get; set; }
+       // private SubjectDAO subjectsDAO { get; set; }
 
         private SubjectsController subjectController { get; set; }
 
@@ -50,7 +50,7 @@ namespace GUI
         
         public ProfessorDTO SelectedProfessor { get; set; }
 
-        private ProfessorDAO professorsDAO { get; set; }
+       // private ProfessorDAO professorsDAO { get; set; }
 
 
         private ProfessorsController professorController { get; set; }
