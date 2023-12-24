@@ -257,10 +257,12 @@ namespace GUI
                     if (SelectedProfessor == null)
                         MessageBox.Show("Please choose a professor to update");
                     else
-                        professorController.Update(SelectedProfessor.ToProfessor()); //da li uopste on dobije id???
-                                                                          //professorController.Delete(0); testirano na ovom, uopste ne uradi to
-                                                                          // DeleteProfessor deleteProf = new DeleteProfessor();
-                                                                          //deleteProf.Show();
+                    {
+                        UpdateProfessor updateProfessor = new UpdateProfessor(professorController);
+                        updateProfessor.Professor = SelectedProfessor;
+                        updateProfessor.Professor.Address = SelectedProfessor.Address;
+                        updateProfessor.Show();
+                    }
                     break;
                 case 3:
                     // Access and manipulate Department entities
