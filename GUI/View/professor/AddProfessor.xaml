@@ -27,62 +27,64 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>ID Card Number:</Label>
-                <TextBox x:Name="txtIDCardNumber" />
+                <TextBox x:Name="txtIDCardNumber" 
+                         Text="{Binding Path =Professor.Num, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Last Name:</Label>
-                <TextBox x:Name="txtLastName" />
+                <TextBox x:Name="txtLastName" Text="{Binding Path=Professor.Surname, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>First Name:</Label>
-                <TextBox x:Name="txtFirstName" />
+                <TextBox x:Name="txtFirstName" Text="{Binding Path=Professor.Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Street:</Label>
-                <TextBox x:Name="txtStreet" />
+                <TextBox x:Name="txtStreet" Text="{Binding Path=Professor.Address.Street, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Street Number:</Label>
-                <TextBox x:Name="txtStreetNumber" />
+                <TextBox x:Name="txtStreetNumber" Text="{Binding Path=Professor.Address.Number, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>City:</Label>
-                <TextBox x:Name="txtCity" />
+                <TextBox x:Name="txtCity" Text="{Binding Path=Professor.Address.City, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Country:</Label>
-                <TextBox x:Name="txtCountry" />
+                <TextBox x:Name="txtCountry" Text="{Binding Path=Professor.Address.Country, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Date of Birth:</Label>
-                <DatePicker x:Name="dpBirthDate" />
+                <DatePicker x:Name="dpBirthDate" Text="{Binding Path=Professor.Birth_Date, UpdateSourceTrigger=PropertyChanged}">
+                    </DatePicker>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Phone Number:</Label>
-                <TextBox x:Name="txtPhoneNumber" />
+                <TextBox x:Name="txtPhoneNumber" Text="{Binding Path=Professor.Phone_Number, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Email:</Label>
-                <TextBox x:Name="txtEmail" />
+                <TextBox x:Name="txtEmail" Text="{Binding Path=Professor.Email_Address, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Year of Employment:</Label>
-                <TextBox x:Name="txtYearOfEmployment" />
+                <TextBox x:Name="txtYearOfEmployment" Text="{Binding Path=Professor.Employement_Year, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Calling:</Label>
-                <TextBox x:Name="txtCalling" />
+                <TextBox x:Name="txtCalling" Text="{Binding Path=Professor.Calling, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <!-- Add more fields as needed -->
@@ -90,7 +92,7 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="Add"/> <!-- Click="Add_Click" /> -->
+            <Button Width="100" Margin="5" Content="Add" Click="Add_Click"/> <!-- Click="Add_Click" /> -->
             <Button Width="100" Margin="5" Content="Cancel"/> <!-- Click="Cancel_Click" /> -->
         </StackPanel>
     </Grid>

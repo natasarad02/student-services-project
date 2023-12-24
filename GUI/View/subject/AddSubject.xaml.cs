@@ -36,6 +36,11 @@ namespace GUI.View
             subjectController.Add(Subject.ToSubject());
             Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }

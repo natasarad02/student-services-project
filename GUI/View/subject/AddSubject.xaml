@@ -27,32 +27,32 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Subject ID:</Label>
-                <TextBox x:Name="txtSubjectID" />
+                <TextBox x:Name="txtSubjectID" Text="{Binding Path=Subject.Ids, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Name:</Label>
-                <TextBox x:Name="txtName" />
+                <TextBox x:Name="txtName" Text="{Binding Path=Subject.Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>ESPB:</Label>
-                <TextBox x:Name="txtESPB" />
+                <TextBox x:Name="txtESPB" Text="{Binding Path=Subject.Espb, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Semester:</Label>
-                <TextBox x:Name="txtSemester" />
+                <TextBox x:Name="txtSemester" Text="{Binding Path=Subject.semester, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>School Year:</Label>
-                <TextBox x:Name="txtSchoolYear" />
+                <TextBox x:Name="txtSchoolYear" Text="{Binding Path=Subject.Year, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Professor ID:</Label>
-                <TextBox x:Name="txtProfessorID" />
+                <TextBox x:Name="txtProfessorID" Text="{Binding Path=Subject.ProfessorId, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <!-- Add more fields as needed -->
@@ -60,7 +60,7 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="Add" /> <!-- Click="Add_Click" /> -->
+            <Button Width="100" Margin="5" Content="Add" Click="Add_Click"/> <!-- Click="Add_Click" /> -->
             <Button Width="100" Margin="5" Content="Cancel" /> <!-- Click="Cancel_Click" /> -->
         </StackPanel>
     </Grid>
