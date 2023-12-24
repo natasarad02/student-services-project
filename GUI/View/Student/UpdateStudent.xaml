@@ -78,7 +78,13 @@
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <Label>Index Number:</Label>
                             <TextBox x:Name="txtIndex" 
-                                Text="{Binding Path = Student.Index_Number, UpdateSourceTrigger=PropertyChanged}" />
+                                 Text="{Binding Path = Student.Index.CollegeMajor , UpdateSourceTrigger=PropertyChanged}" MinWidth="60" />
+                            <TextBox x:Name="numIndex" MinWidth ="60" 
+                                 Text="{Binding Path = Student.Index.NumberMark, UpdateSourceTrigger=PropertyChanged}"
+                                 ></TextBox>
+                            <TextBox x:Name="Year_of_e" MinWidth="60"
+                                 Text="{Binding Path = Student.Index.Yao, UpdateSourceTrigger=PropertyChanged}"
+                                 ></TextBox>
                         </StackPanel>
 
 

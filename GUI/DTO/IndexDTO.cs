@@ -43,11 +43,11 @@ namespace GUI.DTO
 
         public IndexDTO() { }
 
-        public IndexDTO(string cm, int nm, int y)
+        public IndexDTO(StudentskaSluzba.Model.Index index)
         {
-            collegeMajor = cm;
-            numberMark = nm;
-            yoe = y;
+            collegeMajor = index.college_major;
+            numberMark = index.number_mark;
+            yoe = index.YOE;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
