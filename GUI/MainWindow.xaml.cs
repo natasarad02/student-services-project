@@ -263,7 +263,7 @@ namespace GUI
                     {
                         UpdateProfessor updateProfessor = new UpdateProfessor(professorController);
                         updateProfessor.Professor = SelectedProfessor;
-                        updateProfessor.Professor.Address = SelectedProfessor.Address;
+                        //updateProfessor.Professor.Address = SelectedProfessor.Address;
                         updateProfessor.Show();
                     }
                     break;
