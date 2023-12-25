@@ -37,7 +37,10 @@ namespace GUI.View
             Close();
         }
 
-      
+        private void No_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 
 }
