@@ -218,7 +218,12 @@ namespace GUI
                     if (SelectedProfessor == null)
                         MessageBox.Show("Please choose a professor to delete");
                     else
-                        professorController.Delete(SelectedProfessor.Id); //da li uopste on dobije id???
+                    {
+                        DeleteProfessor deleteProfessor = new DeleteProfessor(professorController);
+                        deleteProfessor.Professor = SelectedProfessor;
+                        deleteProfessor.Show();
+                    }
+                       // professorController.Delete(SelectedProfessor.Id); //da li uopste on dobije id???
                         //professorController.Delete(0); testirano na ovom, uopste ne uradi to
                        // DeleteProfessor deleteProf = new DeleteProfessor();
                         //deleteProf.Show();
