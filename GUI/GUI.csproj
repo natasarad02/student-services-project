@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Events\" />
-    <Folder Include="View\Help\" />
   </ItemGroup>
 
   <ItemGroup>
