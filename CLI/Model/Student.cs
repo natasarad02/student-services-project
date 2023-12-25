@@ -5,6 +5,7 @@ using System.Diagnostics.Metrics;
 using System.IO;
 using Microsoft.VisualBasic.FileIO;
 using System.Windows.Markup;
+using System.Globalization;
 
 namespace StudentskaSluzba.Model;
 
@@ -62,7 +63,7 @@ public class Student : ISerializable
     {
         string[] csvValues =
         {
-            ID.ToString(), Last_Name, First_Name, Date_Of_Birth.ToString("dd-MM-yyyy"), Address.ToString2(),
+            ID.ToString(), Last_Name, First_Name, Date_Of_Birth.ToString("MM-dd-yyyy"), Address.ToString2(),
             Phone_Number, Email, index_number.ToString2(),
             Current_Year.ToString(), Status.ToString()
             
@@ -75,6 +76,12 @@ public class Student : ISerializable
         ID = int.Parse(values[0]);
         Last_Name = values[1];
         First_Name = values[2];
+
+        string dateFormat = "MM-dd-yyyy";
+        if (DateTime.TryParseExact(values[3], dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+        {
+            Date_Of_Birth = parsedDate.Date; // Use .Date to get only the date part
+        }
         Date_Of_Birth = DateTime.Parse(values[3]);
        // System.Console.WriteLine(values[4] + " " + values[4].GetType());
         Address = Address.FromString(values[4]);

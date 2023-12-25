@@ -10,12 +10,11 @@
 10|Pavlovic|Stefan|12-12-1995|Bulevar Revolucije,6,Novi Sad,Srbija|060/123456789|stefan.pavlovic@gmail.com|it-22-2021|2|B
 11|Nikolic|Jelena|07-07-2000|Ulica Cara Dusana,9,Beograd,Srbija|063/987654321|jelena.nikolic@hotmail.com|ps-78-2018|3|B
 13|Kovacevic|Ana|03-03-1997|Ulica Kralja Milutina,17,Nis,Srbija|064/876543210|ana.kovacevic@gmail.com|arh-11-2020|1|B
-14|Petrovic|Nikola|08-08-1998|Bulevar Arsenija Carnojevica,3,Novi Sad,Srbija|066/654321098|nikola.petrovic@yahoo.com|etf-99-202111|4|B
+14|Petrovic|Nikola|08-08-1898|Bulevar Arsenija Carnojevica,3,Novi Sad,Srbija|066/654321098|nikola.petrovic@yahoo.com|etf-99-202111|4|B
 15|Jovanovic|Jovana|10-10-1992|Ulica Kneza Mihaila,15,Novi Sad,Srbija|065/987654321|jovana.jovanovic@gmail.com|ftn-77-2016|3|B
 16|Milovanovic|Andjela|06-06-1996|Ulica Nikole Tesle,60,Beograd,Srbija|065/123456|andjela.milovanovic@yahoo.com|ge-22-2022|2|B
 17|Djordjevic|Vukasin|01-01-2001|Braće Jugovića,7,Beograd,Srbija|066/8888888|vuk.djordjevic@hotmail.com|fiz-33-2015|5|B
 18|Mujic|Ana|01-01-0001|Kv,10,Kraljevo,Srbija|256416846|vciavcia|-0-0|3|B
 19|Radmilovic|Natasa|01-01-0001|Milovana Glisica,7,Novi Sad,Srbija|061/552-0022|aaa|-0-0|3|B
 20|sss|ddd|01-01-0001|ddd,2,aaa,aaa|323232|aaa|ra-20-0|0|B
-21|sssss|aaaa|01-01-0001|aaaaa,0,ssss,aaaaaa|3232323|aaaaaa|dd-0-0|0|B
-22|ssss|aaaa|01-01-0002|aaa,2,aaa,aaa|27277272|aaa|ar-0-0|0|B
+22|ssss|aaaa|01-12-0002|aaa,2,aaa,aaa|27277272|aaa|ar-0-0|0|B

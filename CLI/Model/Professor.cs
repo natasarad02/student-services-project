@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using StudentskaSluzba.Serialization;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace StudentskaSluzba.Model;
 
@@ -94,8 +95,12 @@ public class Professor : ISerializable
         Address = Address.FromString(values[3]);
         phone_number = values[4];
         email_address = values[5];
-        employment_year = int.Parse(values[6]); 
-        birth_date = DateTime.Parse(values[7]);
+        employment_year = int.Parse(values[6]);
+        string dateFormat = "MM-dd-yyyy";
+        if (DateTime.TryParseExact(values[7], dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+        {
+            birth_date = parsedDate.Date; // Use .Date to get only the date part
+        }
         num = int.Parse(values[8]); 
         calling = values[9];
 
@@ -112,7 +117,7 @@ public class Professor : ISerializable
             phone_number,
             email_address,
             employment_year.ToString(),
-            birth_date.ToString(),
+            birth_date.ToString("MM-dd-yyyy"),
             num.ToString(),
             calling.ToString()
 
