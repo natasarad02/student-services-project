@@ -52,8 +52,7 @@ namespace GUI
         
         public ProfessorDTO SelectedProfessor { get; set; }
 
-       // private ProfessorDAO professorsDAO { get; set; }
-
+        // private ProfessorDAO professorsDAO { get; set; }
 
         private ProfessorsController professorController { get; set; }
 
@@ -102,12 +101,11 @@ namespace GUI
             Left = (screenWidth - targetWidth) / 2;
             Top = (screenHeight - targetHeight) / 2;
 
-            DispatcherTimer clockTimer = new DispatcherTimer();
-            clockTimer.Interval = TimeSpan.FromSeconds(1); // Update every second
-            clockTimer.Tick += ClockTimer_Tick;
-            clockTimer.Start();
+            
 
         }
+
+
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             int tabIndex = Tab.SelectedIndex;
@@ -305,33 +303,6 @@ namespace GUI
         private void StudentDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private readonly DispatcherTimer _clockTimer = new DispatcherTimer();
-
-        private string _currentTime;
-
-        public string CurrentTime
-        {
-            get { return _currentTime; }
-            set
-            {
-                _currentTime = value;
-                OnPropertyChanged(nameof(CurrentTime));
-            }
-        }
-
-        private void ClockTimer_Tick(object sender, EventArgs e)
-        {
-            // Update the CurrentTime property with the new time
-            CurrentTime = DateTime.Now.ToString("dddd, MMMM dd, yyyy - HH:mm:ss");
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }
