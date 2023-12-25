@@ -17,7 +17,7 @@ public class Professor : ISerializable
 
     public Address Address { get; set; }
 
-    public DateOnly birth_date { get; set; }
+    public DateTime birth_date { get; set; }
     public int employment_year { get; set; }
 
     public int work_year {
@@ -67,7 +67,7 @@ public class Professor : ISerializable
     }
 
 
-    public Professor(int card, string name, string surname, Address address1, string phone, DateOnly br_date, int year, string email, string calling)
+    public Professor(int card, string name, string surname, Address address1, string phone, DateTime br_date, int year, string email, string calling)
 
     {
         //Id = id;
@@ -95,7 +95,7 @@ public class Professor : ISerializable
         phone_number = values[4];
         email_address = values[5];
         employment_year = int.Parse(values[6]); 
-        birth_date = DateOnly.Parse(values[7]);
+        birth_date = DateTime.Parse(values[7]);
         num = int.Parse(values[8]); 
         calling = values[9];
 

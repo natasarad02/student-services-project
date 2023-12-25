@@ -113,7 +113,7 @@ namespace StudentskaSluzba.DAO
             studSubDAO.AddStudentsSubjects(connection);
         }
 
-        public void grade(ExamGradeDAO examGrDAO, int student, int subject, int grade, DateOnly date)
+        public void grade(ExamGradeDAO examGrDAO, int student, int subject, int grade, DateTime date)
         {
             ExamGrade exam = new ExamGrade(student, subject, grade, date);
             examGrDAO.AddExamGrade(exam);

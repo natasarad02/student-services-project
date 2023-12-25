@@ -15,7 +15,7 @@ public class Student : ISerializable
     public string Last_Name { get; set; }
     public string First_Name { get; set; }
 
-    public DateOnly Date_Of_Birth { get; set; }
+    public DateTime Date_Of_Birth { get; set; }
     public Address Address { get; set; }
     public string Phone_Number { get; set; }
     public string Email { get; set; }
@@ -40,7 +40,7 @@ public class Student : ISerializable
         Failed_Exams = new List<ExamGrade>();
     }
 
-    public Student(string lname, string fname, DateOnly brdate, Address adr, string num, string email, Index idnum, int cyear, Status s)
+    public Student(string lname, string fname, DateTime brdate, Address adr, string num, string email, Index idnum, int cyear, Status s)
     {
         
         Last_Name = lname;
@@ -62,7 +62,7 @@ public class Student : ISerializable
     {
         string[] csvValues =
         {
-            ID.ToString(), Last_Name, First_Name, Date_Of_Birth.ToString(), Address.ToString2(),
+            ID.ToString(), Last_Name, First_Name, Date_Of_Birth.ToString("dd-MM-yyyy"), Address.ToString2(),
             Phone_Number, Email, index_number.ToString2(),
             Current_Year.ToString(), Status.ToString()
             
@@ -75,7 +75,7 @@ public class Student : ISerializable
         ID = int.Parse(values[0]);
         Last_Name = values[1];
         First_Name = values[2];
-        Date_Of_Birth = DateOnly.Parse(values[3]);
+        Date_Of_Birth = DateTime.Parse(values[3]);
        // System.Console.WriteLine(values[4] + " " + values[4].GetType());
         Address = Address.FromString(values[4]);
         Phone_Number = values[5];

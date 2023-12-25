@@ -55,8 +55,8 @@ namespace GUI.DTO
             }
         }
 
-        private DateOnly date_Of_Birth;
-        public DateOnly Date_Of_Birth
+        private DateTime date_Of_Birth;
+        public DateTime Date_Of_Birth
         {
             get { return date_Of_Birth; }
             set

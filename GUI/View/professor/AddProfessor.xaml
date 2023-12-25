@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="AddProfessor" Height="630" Width="400">
+    
+    
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -63,7 +65,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Date of Birth:</Label>
-                <DatePicker x:Name="dpBirthDate" Text="{Binding Path=Professor.Birth_Date, UpdateSourceTrigger=PropertyChanged}">
+                <DatePicker x:Name="dpBirthDate" Text="{Binding Path=Professor.Birth_Date, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                     </DatePicker>
             </StackPanel>
 
