@@ -204,7 +204,11 @@ namespace GUI
                     if (SelectedStudent == null)
                         MessageBox.Show("Please choose a student to delete");
                     else
-                        studentController.Delete(SelectedStudent.Id);
+                    {
+                        DeleteStudent deleteStudent = new DeleteStudent(studentController);
+                        deleteStudent.Student = SelectedStudent;
+                        deleteStudent.Show();
+                    }
                     break;
                 case 1:
                     if (SelectedSubject == null)
@@ -226,16 +230,16 @@ namespace GUI
                         deleteProfessor.Professor = SelectedProfessor;
                         deleteProfessor.Show();
                     }
-                       // professorController.Delete(SelectedProfessor.Id); //da li uopste on dobije id???
-                        //professorController.Delete(0); testirano na ovom, uopste ne uradi to
-                       // DeleteProfessor deleteProf = new DeleteProfessor();
-                        //deleteProf.Show();
                     break;
                 case 3:
                     if (SelectedDepartment == null)
                         MessageBox.Show("Please choose a department to delete");
                     else
-                        departmentController.Delete(SelectedDepartment.Id);
+                    {
+                        DeleteDepartment deleteDepartment = new DeleteDepartment(departmentController);
+                        deleteDepartment.department = SelectedDepartment;
+                        deleteDepartment.Show();
+                    }
                     break;
             }
         }

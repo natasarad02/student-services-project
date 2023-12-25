@@ -8,4 +8,3 @@
 7|914|ACS|Petrović Nikola
 8|633|PRNI|Jovanov Jelena
 9|247|Masinstvo|Kovačev Marko
-10|22|aaa|22222
