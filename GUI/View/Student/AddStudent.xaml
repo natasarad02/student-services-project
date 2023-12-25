@@ -57,7 +57,25 @@
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Birth Date:</Label>
                 <DatePicker x:Name="dpBirthDate" Width="104" 
-                            Text="{Binding Path = Student.Date_Of_Birth, UpdateSourceTrigger=PropertyChanged}" />
+                            Text="{Binding Path = Student.Date_Of_Birth, UpdateSourceTrigger=PropertyChanged}">
+
+                    <DatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBox x:Name="PART_TextBox" 
+                                     Text="{Binding Path=SelectedDate, 
+                                                    RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, 
+                                                    StringFormat='dd-MM-yyyy', 
+                                                    UpdateSourceTrigger=PropertyChanged}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
+                
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
