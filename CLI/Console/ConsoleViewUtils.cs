@@ -95,12 +95,12 @@ static class ConsoleViewUtils
 
 
 
-    public static DateOnly SafeInputDate()
+    public static DateTime SafeInputDate()
     {
-        DateOnly input;
+        DateTime input;
         string raw = System.Console.ReadLine() ?? string.Empty;
 
-        while (!DateOnly.TryParse(raw, out input))
+        while (!DateTime.TryParse(raw, out input))
         {
             System.Console.WriteLine("Not a valid date, please enter date in this format MM-DD-YYYY: ");
             raw = System.Console.ReadLine();

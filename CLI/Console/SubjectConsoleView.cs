@@ -205,7 +205,7 @@ class SubjectConsoleView
                 System.Console.WriteLine("Enter grade: ");
                 int grade = ConsoleViewUtils.SafeInputGrade();//int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:");
-                DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
+                DateTime studentDate = DateTime.Parse(System.Console.ReadLine());
                 //BITNO obrisati vezu iz StudSubj ako je ima!!! --> zasto ono bese --> odradjeno
                 subjectDAO.grade(examGradeDAO, idss, subid, grade, studentDate);
                 studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid);

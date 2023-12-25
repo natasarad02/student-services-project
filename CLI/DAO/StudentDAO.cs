@@ -118,7 +118,7 @@ public class StudentDAO
         return examGradeDAO1.GetExamGradesByStudent(studID);
     }
 
-   public void grade(ExamGradeDAO examGrDAO, int student, int subject, int grade, DateOnly date)
+   public void grade(ExamGradeDAO examGrDAO, int student, int subject, int grade, DateTime date)
     {
 
         ExamGrade exam = new ExamGrade(student, subject, grade, date);

@@ -50,7 +50,7 @@ class StudentConsoleView
         string fName = ConsoleViewUtils.SafeInputName();
        
         System.Console.WriteLine("Enter student's date of birth: ");
-        DateOnly br_date = ConsoleViewUtils.SafeInputDate(); 
+        DateTime br_date = ConsoleViewUtils.SafeInputDate(); 
 
         System.Console.WriteLine("Enter student's street: ");
         string street = ConsoleViewUtils.SafeInputName(); 
@@ -201,7 +201,7 @@ class StudentConsoleView
                                 
                 int grade = ConsoleViewUtils.SafeInputGrade();
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
-                DateOnly studentDate = DateOnly.Parse(System.Console.ReadLine());
+                DateTime studentDate = DateTime.Parse(System.Console.ReadLine());
 
               /*  ExamGrade exam_tmp = new ExamGrade(idss, subid, grade, studentDate);
                 examGradeDAO.AddExamGrade(exam_tmp);

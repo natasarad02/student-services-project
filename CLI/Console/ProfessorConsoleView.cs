@@ -56,7 +56,7 @@ class ProfessorConsoleView
         Address adr = new Address(street, streetNum, city, country);
 
         System.Console.WriteLine("Enter professor's date of birth: ");
-        DateOnly br_date = ConsoleViewUtils.SafeInputDate();//DateOnly.Parse(System.Console.ReadLine());
+        DateTime br_date = ConsoleViewUtils.SafeInputDate();//DateOnly.Parse(System.Console.ReadLine());
 
         System.Console.WriteLine("Enter professor's phone number: ");
         string phone_num = ConsoleViewUtils.SafeInputPhoneNumber(); //System.Console.ReadLine() ?? string.Empty;

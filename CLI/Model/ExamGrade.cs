@@ -10,7 +10,7 @@ namespace StudentskaSluzba.Model;
 public class ExamGrade : ISerializable
 {
 
-    public DateOnly grading_day { get; set; }
+    public DateTime grading_day { get; set; }
 
     public int grade 
     {
@@ -29,7 +29,7 @@ public class ExamGrade : ISerializable
     {
 
     }
-    public ExamGrade(int studId, int subId, int gr, DateOnly date)
+    public ExamGrade(int studId, int subId, int gr, DateTime date)
     {
         studentID = studId;
         subjectID = subId;
@@ -55,7 +55,7 @@ public class ExamGrade : ISerializable
     public void FromCSV(string[] values)
     {
         ID = int.Parse(values[0]);
-        grading_day = DateOnly.Parse(values[1]);
+        grading_day = DateTime.Parse(values[1]);
         grade = int.Parse(values[2]);
         studentID = int.Parse(values[3]);
         subjectID = int.Parse(values[4]);

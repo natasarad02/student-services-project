@@ -83,8 +83,8 @@ namespace GUI.DTO
             }
         }
 
-        private DateOnly birth_Date;
-        public DateOnly Birth_Date
+        private DateTime birth_Date;
+        public DateTime Birth_Date
         {
             get { return birth_Date; }
             set

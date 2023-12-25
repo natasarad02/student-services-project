@@ -40,7 +40,7 @@ class ExamGradeConsoleView
 
 
         System.Console.WriteLine("Enter exam date: ");
-        DateOnly exam_date = ConsoleViewUtils.SafeInputDate(); 
+        DateTime exam_date = ConsoleViewUtils.SafeInputDate(); 
 
 
 
