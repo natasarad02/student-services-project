@@ -302,6 +302,7 @@ namespace GUI
             }
         }
 
+
         public void Help_Click(object sender, RoutedEventArgs e) {
             StudentServiceInfo studentServiceInfo = new StudentServiceInfo();
             studentServiceInfo.Show();

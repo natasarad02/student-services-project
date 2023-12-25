@@ -37,5 +37,10 @@ namespace GUI.View
             studentController.Update(Student.toStudent());
             Close();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

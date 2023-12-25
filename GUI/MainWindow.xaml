@@ -14,7 +14,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="New" Click="Add_Click"></MenuItem>
-                <MenuItem Header="Save" ></MenuItem>
+            <MenuItem Header="Save" ></MenuItem>
                 <MenuItem Header="Open" >
                     <MenuItem Header="Students" Click="Open_Student_Click"></MenuItem>
                     <MenuItem Header="Subjects" Click="Open_Subject_Click"></MenuItem>
