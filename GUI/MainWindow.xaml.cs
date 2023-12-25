@@ -329,6 +329,12 @@ namespace GUI
 
         }
 
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            Application.Current.Shutdown();
+        }
+
     }
 
 }
