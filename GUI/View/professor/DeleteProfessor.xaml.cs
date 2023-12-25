@@ -36,4 +36,8 @@ public partial class DeleteProfessor : Window, INotifyPropertyChanged
         professorController.Delete(Professor.ToProfessor().Id);
         Close();
     }
+    private void No_Click(object sender, RoutedEventArgs e)
+    {
+        Close();
+    }
 }

@@ -7,7 +7,7 @@
             <TextBlock Text="Are you sure you want to delete this professor?" Margin="5"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
                 <Button Content="Yes" Width="80" Margin="5" Click="Yes_Click"/> <!-- Click="Yes_Click"/>-->
-                <Button Content="No" Width="80" Margin="5"/> <!-- Click="No_Click"/> -->
+                <Button Content="No" Width="80" Margin="5" Click="No_Click"/> <!-- Click="No_Click"/> -->
             </StackPanel>
         </StackPanel>
     </Grid>
