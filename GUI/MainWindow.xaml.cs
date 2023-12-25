@@ -24,6 +24,7 @@ using System.Windows;
 using CLI.Controller;
 using System.Windows.Threading;
 using System.ComponentModel;
+using GUI.View.Help;
 
 namespace GUI
 {
@@ -301,7 +302,29 @@ namespace GUI
             }
         }
 
-        
+
+        public void Help_Click(object sender, RoutedEventArgs e) {
+            StudentServiceInfo studentServiceInfo = new StudentServiceInfo();
+            studentServiceInfo.Show();
+        }
+
+        private void Open_Student_Click(object sender, EventArgs e)
+        {
+            Tab.SelectedIndex = 0;
+        }
+        private void Open_Subject_Click(object sender, EventArgs e)
+        {
+            Tab.SelectedIndex = 1;
+        }
+        private void Open_Professor_Click(object sender, EventArgs e)
+        {
+            Tab.SelectedIndex = 2;
+        }
+        private void Open_Department_Click(object sender, EventArgs e)
+        {
+            Tab.SelectedIndex = 3;
+        }
+
         private void StudentDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

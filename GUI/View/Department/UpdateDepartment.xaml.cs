@@ -36,5 +36,10 @@ namespace GUI.View
             departmentController.Update(department.ToDepartment());
             Close();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -112,7 +112,7 @@
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
             <Button Width="100" Margin="5" Content="Add" Click="Add_Click"/>  <!--Click="Add_Click"-->
-            <Button Width="100" Margin="5" Content="Cancel" /> <!--ClickMode="Cancel_Click" -->
+            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> <!--ClickMode="Cancel_Click" -->
         </StackPanel>
     </Grid>
 </Window>

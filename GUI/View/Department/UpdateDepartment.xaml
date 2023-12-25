@@ -62,7 +62,7 @@
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                             <Button Width="100" Margin="5" Content="Add Professor" />
-                            <Button Width="100" Margin="5" Content="Cancel" />
+                            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </Grid>
@@ -74,7 +74,7 @@
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
             <Button Width="100" Margin="5" Content="Update" Click ="Update_Click"/>
-            <Button Width="100" Margin="5" Content="Cancel" />
+            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
         </StackPanel>
     </Grid>
 </Window>

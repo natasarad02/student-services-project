@@ -39,6 +39,11 @@ namespace GUI.View
             professorController.Add(Professor.ToProfessor());
             Close();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
     
 }

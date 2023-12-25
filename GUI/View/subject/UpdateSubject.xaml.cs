@@ -37,6 +37,11 @@ namespace GUI.View
             subjectController.Update(Subject.ToSubject());
             Close();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 
 }
