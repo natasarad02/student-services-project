@@ -16,4 +16,3 @@
 17|Djordjevic|Vukasin|1/1/2001|Braće Jugovića,7,Beograd,Srbija|066/8888888|vuk.djordjevic@hotmail.com|fiz-33-2015|5|B
 18|Mujic|Ana|1/1/0001|Kv,10,Kraljevo,Srbija|256416846|vciavcia|-0-0|3|B
 19|Radmilovic|Natasa|1/1/0001|Milovana Glisica,7,Novi Sad,Srbija|061/552-0022|aaa|-0-0|3|B
-20|sss|ddd|1/1/0001|ddd,2,aaa,aaa|323232|aaa|ra-20-0|0|B
