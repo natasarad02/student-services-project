@@ -23,6 +23,7 @@ using StudentskaSluzba.DAO;
 using System.Windows;
 using CLI.Controller;
 using System.Windows.Threading;
+using System.ComponentModel;
 
 namespace GUI
 {
@@ -31,7 +32,6 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window, IObserver
     {
-        private readonly DispatcherTimer _timer = new DispatcherTimer();
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public ObservableCollection<StudentDTO> Students { get; set; }
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
@@ -61,6 +61,7 @@ namespace GUI
         public MainWindow()
         {
             InitializeComponent();
+                      
 
             Students = new ObservableCollection<StudentDTO>();
             studentController = new StudentsController();
@@ -101,9 +102,10 @@ namespace GUI
             Left = (screenWidth - targetWidth) / 2;
             Top = (screenHeight - targetHeight) / 2;
 
-            _timer.Interval = TimeSpan.FromSeconds(1); // Update every second
-            _timer.Tick += Timer_Tick;
-            _timer.Start();
+            DispatcherTimer clockTimer = new DispatcherTimer();
+            clockTimer.Interval = TimeSpan.FromSeconds(1); // Update every second
+            clockTimer.Tick += ClockTimer_Tick;
+            clockTimer.Start();
 
         }
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -304,10 +306,32 @@ namespace GUI
         {
 
         }
-        private void Timer_Tick(object sender, EventArgs e)
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private readonly DispatcherTimer _clockTimer = new DispatcherTimer();
+
+        private string _currentTime;
+
+        public string CurrentTime
         {
-            // Update the binding source (DateTime.Now)
-            DataContext = DateTime.Now;
+            get { return _currentTime; }
+            set
+            {
+                _currentTime = value;
+                OnPropertyChanged(nameof(CurrentTime));
+            }
+        }
+
+        private void ClockTimer_Tick(object sender, EventArgs e)
+        {
+            // Update the CurrentTime property with the new time
+            CurrentTime = DateTime.Now.ToString("dddd, MMMM dd, yyyy - HH:mm:ss");
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }
