@@ -22,6 +22,7 @@ using GUI.DTO;
 using StudentskaSluzba.DAO;
 using System.Windows;
 using CLI.Controller;
+using System.Windows.Threading;
 
 namespace GUI
 {
@@ -30,6 +31,7 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window, IObserver
     {
+        private readonly DispatcherTimer _timer = new DispatcherTimer();
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public ObservableCollection<StudentDTO> Students { get; set; }
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
@@ -98,6 +100,10 @@ namespace GUI
 
             Left = (screenWidth - targetWidth) / 2;
             Top = (screenHeight - targetHeight) / 2;
+
+            _timer.Interval = TimeSpan.FromSeconds(1); // Update every second
+            _timer.Tick += Timer_Tick;
+            _timer.Start();
 
         }
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -298,6 +304,12 @@ namespace GUI
         {
 
         }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Update the binding source (DateTime.Now)
+            DataContext = DateTime.Now;
+        }
+
     }
 
 }

@@ -47,7 +47,7 @@
         <DockPanel DockPanel.Dock="Bottom">
             <MenuItem Header="Student services"></MenuItem>
             <TextBlock x:Name="currentTabTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{}{0:dddd, MMMM dd, yyyy - HH:mm:ss}'}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock Text="{Binding StringFormat='{}{0:dddd, MMMM dd, yyyy - HH:mm:ss}'}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
         </DockPanel>
 
 
