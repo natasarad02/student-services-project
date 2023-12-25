@@ -300,6 +300,8 @@ namespace GUI
                     // Add more cases for additional tabs if needed
             }
         }
+
+        
         private void StudentDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
