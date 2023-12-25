@@ -210,8 +210,11 @@ namespace GUI
                     if (SelectedSubject == null)
                         MessageBox.Show("Please choose a subject to delete");
                     else
-                        subjectController.Delete(SelectedSubject.Id);
-                    
+                    {
+                        DeleteSubject deleteSubject = new DeleteSubject(subjectController);
+                        deleteSubject.Subject = SelectedSubject;
+                        deleteSubject.Show();
+                    }
                     break;
                 case 2:
 
