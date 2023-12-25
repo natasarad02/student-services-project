@@ -33,6 +33,7 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window, IObserver
     {
+
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public ObservableCollection<StudentDTO> Students { get; set; }
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
@@ -40,7 +41,6 @@ namespace GUI
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
 
         public SubjectDTO  SelectedSubject { get; set; }
-       // private SubjectDAO subjectsDAO { get; set; }
 
         private SubjectsController subjectController { get; set; }
 
@@ -53,10 +53,12 @@ namespace GUI
         
         public ProfessorDTO SelectedProfessor { get; set; }
 
-        // private ProfessorDAO professorsDAO { get; set; }
-
         private ProfessorsController professorController { get; set; }
 
+        //---ostali kontroleri---
+        private ExamGradesController examGradesController { get; set; }
+        private StudentsSubjectsController studentsSubjectsController { get; set; }
+        //-----------------------
 
         public MainWindow()
         {
@@ -334,6 +336,16 @@ namespace GUI
         {
             Close();
             Application.Current.Shutdown();
+        }
+
+        private void Click_Save(object sender, RoutedEventArgs e) {
+            studentController.Save();
+            subjectController.Save();
+            professorController.Save();
+            departmentController.Save();
+            //studentsSubjectsController.Save(); jos nema pa puca
+            // examGradesController.Save();
+            MessageBox.Show("Save successfull!");
         }
 
     }

@@ -7,6 +7,7 @@ using StudentskaSluzba.Storage;
 using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
 using CLI.Observer;
+using System.Xml.Linq;
 
 namespace StudentskaSluzba.DAO;
 public class StudentDAO
@@ -30,6 +31,10 @@ public class StudentDAO
         if (students.Count == 0)
             return 0;
         return students[^1].ID + 1;
+    }
+
+    public void save() {
+        storage.Save(students);
     }
 
     public Student addStudent(Student sstudent) { 

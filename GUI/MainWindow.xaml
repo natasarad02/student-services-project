@@ -14,7 +14,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="New" Click="Add_Click"></MenuItem>
-            <MenuItem Header="Save" ></MenuItem>
+            <MenuItem Header="Save" Click="Click_Save" ></MenuItem>
                 <MenuItem Header="Open" >
                     <MenuItem Header="Students" Click="Open_Student_Click"></MenuItem>
                     <MenuItem Header="Subjects" Click="Open_Subject_Click"></MenuItem>
@@ -39,20 +39,27 @@
                     <StackPanel>
                         <Image Source="/Icons/Add.png" Width="32" Height="32"/>
                     </StackPanel>
+                    <Button.ToolTip>
+                        <ToolTip Content="Add Item"/>
+                    </Button.ToolTip>
                 </Button>
                 <Button Click="Update_Click">
                     <StackPanel>
                         <Image Source="/Icons/Edit.png" Width="32" Height="32"/>
-
                     </StackPanel>
+                    <Button.ToolTip>
+                        <ToolTip Content="Edit Item"/>
+                    </Button.ToolTip>
                 </Button>
                 <Button Click="Delete_Click">
                     <StackPanel>
                         <Image Source="/Icons/Delete.png" Width="32" Height="32"/>
-
                     </StackPanel>
+                    <Button.ToolTip>
+                        <ToolTip Content="Delete Item"/>
+                    </Button.ToolTip>
                 </Button> 
-                <TextBox HorizontalAlignment="Left" Width="140"/>
+                <TextBox HorizontalAlignment="Right" Width="140"/>
                 <Button HorizontalAlignment="Right" Content="Search"/>
             </ToolBar>
         </DockPanel>

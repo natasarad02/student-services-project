@@ -25,7 +25,12 @@ namespace StudentskaSluzba.DAO;
       
         }
 
-        public StudentsSubjects AddStudentsSubjects(StudentsSubjects stud_sub)
+    public void save()
+    {
+        storage.Save(StudentsSubjectss);
+    }
+
+    public StudentsSubjects AddStudentsSubjects(StudentsSubjects stud_sub)
         {
             
             StudentsSubjectss.Add(stud_sub);

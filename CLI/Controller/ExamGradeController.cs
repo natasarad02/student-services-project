@@ -40,5 +40,11 @@ namespace CLI.Controller
         {
             examGradeDAO.ExamGradeSubject.Subscribe(observer);
         }
+
+        public void Save()
+        {
+            examGradeDAO.save();
+        }
+
     }
 }

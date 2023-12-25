@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using CLI.Controller;
+using System.Globalization;
+using System.Windows.Data;
+
 namespace GUI.View
 {
     public partial class UpdateStudent : Window, INotifyPropertyChanged
@@ -42,5 +45,8 @@ namespace GUI.View
         {
             Close();
         }
+
+        
+
     }
 }

@@ -25,6 +25,11 @@ namespace StudentskaSluzba.DAO
             DepartmentSubject = new SubjectOB();
         }
 
+        public void save()
+        {
+            storage.Save(departments);
+        }
+
         private int GenerateId()
         {
             if (departments.Count == 0)
