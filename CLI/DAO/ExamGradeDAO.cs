@@ -24,6 +24,11 @@ namespace StudentskaSluzba.DAO
             ExamGradeSubject = new SubjectOB();
         }
 
+        public void save()
+        {
+            storage.Save(examGrades);
+        }
+
         private int GenerateId()
         {
             if (examGrades.Count == 0)

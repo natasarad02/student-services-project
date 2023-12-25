@@ -42,5 +42,11 @@ namespace CLI.Controller
         {
             professorsDAO.ProfessorSubject.Subscribe(observer);
         }
+
+        public void Save()
+        {
+            professorsDAO.save();
+        }
+
     }
 }

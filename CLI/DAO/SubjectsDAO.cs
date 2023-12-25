@@ -24,6 +24,11 @@ namespace StudentskaSluzba.DAO
             SubjectSubject = new SubjectOB();
         }
 
+        public void save()
+        {
+            storage.Save(subjects);
+        }
+
         private int GenerateId()
         {
             if (subjects.Count == 0)

@@ -42,6 +42,10 @@ namespace CLI.Controller
         {
             studentDAO.UpdateStudent(student);
         }
+
+        public void Save() {
+            studentDAO.save();
+        }
     }
 }
 

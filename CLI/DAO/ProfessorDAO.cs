@@ -24,6 +24,11 @@ namespace StudentskaSluzba.DAO
             ProfessorSubject = new SubjectOB();
         }
 
+        public void save()
+        {
+            storage.Save(professors);
+        }
+
         private int GenerateId()
         {
             if (professors.Count == 0)
