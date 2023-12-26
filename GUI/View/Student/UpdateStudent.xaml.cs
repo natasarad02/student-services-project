@@ -11,6 +11,8 @@ using System.Windows;
 using CLI.Controller;
 using System.Globalization;
 using System.Windows.Data;
+using System.Windows.Controls;
+using StudentskaSluzba.Model;
 
 namespace GUI.View
 {
@@ -22,7 +24,7 @@ namespace GUI.View
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public UpdateStudent(StudentsController studentController )
+        public UpdateStudent(StudentsController studentController)
         {
             InitializeComponent();
             DataContext = this;
@@ -46,7 +48,6 @@ namespace GUI.View
             Close();
         }
 
-        
-
     }
+
 }
