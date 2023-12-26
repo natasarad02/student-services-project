@@ -68,7 +68,7 @@
         <DockPanel DockPanel.Dock="Bottom">
             <MenuItem Header="Student services"></MenuItem>
             <TextBlock x:Name="currentTabTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Text="{Binding CurrentTime}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock x:Name="dateTimeTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" Width="250"/>
         </DockPanel>
 
         <Border Background="#FFA9D2C9">
