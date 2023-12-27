@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using StudentskaSluzba.Model;
 
+
 namespace GUI.DTO
 {
     public class SubjectDTO : INotifyPropertyChanged
@@ -88,7 +89,7 @@ namespace GUI.DTO
                 if (value != sem)
                 {
                     sem = value;
-                    OnPropertyChanged("Sem");
+                    OnPropertyChanged("semester");
                 }
             }
         }

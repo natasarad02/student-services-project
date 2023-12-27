@@ -39,9 +39,12 @@
                             <TextBox x:Name="txtESPB" Text="{Binding Path=Subject.Espb, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
                             <Label>Semester:</Label>
-                            <TextBox x:Name="txtSemester" Text="{Binding Path=Subject.semester, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.semester, Mode=TwoWay}">
+                                <ComboBoxItem Content="Winter" Tag="winter"></ComboBoxItem>
+                                <ComboBoxItem Content="Summer" Tag="summer"></ComboBoxItem>
+                            </ComboBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
