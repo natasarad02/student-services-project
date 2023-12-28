@@ -119,7 +119,7 @@ public class Professor : ISerializable
             employment_year.ToString(),
             birth_date.ToString("MM-dd-yyyy"),
             num.ToString(),
-            calling.ToString()
+            calling
 
         };
         return csvValues;

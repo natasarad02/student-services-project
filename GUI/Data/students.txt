@@ -17,3 +17,9 @@
 18|Mujic|Ana|01-01-0001|Kv,10,Kraljevo,Srbija|256416846|vciavcia|-0-0|3|B
 19|Radmilovic|Natasa|01-01-0001|Milovana Glisica,7,Novi Sad,Srbija|061/552-0022|aaa|-0-0|3|B
 20|sss|ddd|01-01-0001|ddd,2,aaa,aaa|323232|aaa|ra-20-0|0|B
+21|2|1|01-01-0001|aaaa,0,sss,sss|||-0-0|0|B
+22|aaaa|aaa|01-01-0001|,0,aaaa,aaaa|32132|aaaa|-0-0|0|B
+23||aaaa|01-01-0001|,0,,|||-0-0|0|B
+24|||01-01-0001|,0,,|||-0-0|0|B
+25|||01-01-0001|,0,,|qqqqqqqqqq||-0-0|0|B
+26|bbbb|aaa|01-01-0001|aaaa,2,aaa,aaaa||aaa|ra-222-22222|22222|B
