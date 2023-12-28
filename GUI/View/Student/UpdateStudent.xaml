@@ -6,9 +6,6 @@
         xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
         Title="Update Student" Height="620" Width="400">
-        <Window.Resources>
-            <local:StatusConverter x:Key="StatusConverter" />
-        </Window.Resources>
 
     <Grid Margin="20">
         <TabControl>
@@ -108,9 +105,9 @@
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <Label>Financial Aid:</Label>
-                            <ComboBox x:Name="cmbFinancing" SelectedItem="{Binding Path=Student.Status, Converter={StaticResource StatusConverter}, Mode=TwoWay}">
-                                <ComboBoxItem>Government Budget</ComboBoxItem>
-                                <ComboBoxItem>Self Financing</ComboBoxItem>
+                            <ComboBox x:Name="cmbFinancing" SelectedValuePath="Tag" SelectedValue="{Binding Student.Status, Mode=TwoWay}">
+                                <ComboBoxItem Content="Government Budget" Tag="B"></ComboBoxItem>
+                                <ComboBoxItem Content="Self Fonancing" Tag="S"></ComboBoxItem>
                             </ComboBox>
                         </StackPanel>
 

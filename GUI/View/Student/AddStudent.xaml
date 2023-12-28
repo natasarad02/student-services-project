@@ -88,13 +88,10 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Enrollment year:</Label>
-                <!-- napraviti da je unos ovde i u index paralelan -->
                 <TextBox x:Name="txtYear" Width="146" Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 
             </StackPanel>
-            <!-- ne postoji polje enrollment year, dodati i izmeniti posle -->
-            <!--Text="{Binding Path = Student.Current_Year, UpdateSourceTrigger=PropertyChanged}"-->
-
+            
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Current Year:</Label>
                 <TextBox x:Name="txtCurYear" 
@@ -103,11 +100,12 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Financial Aid:</Label>
-                <TextBox x:Name="txtFinancing" 
-                         Text="{Binding Path = Student.Status, UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox x:Name="cmbFinancing" SelectedValuePath="Tag" SelectedValue="{Binding Student.Status, Mode=TwoWay}">
+                    <ComboBoxItem Content="Government Budget" Tag="B"></ComboBoxItem>
+                    <ComboBoxItem Content="Self Fonancing" Tag="S"></ComboBoxItem>
+                </ComboBox>
             </StackPanel>
 
-          
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
