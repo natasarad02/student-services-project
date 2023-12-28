@@ -50,10 +50,10 @@
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
                             <Label>School year:</Label>
                             <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.Year, Mode=TwoWay}">
-                                <ComboBoxItem Content="1" Tag="1"></ComboBoxItem>
-                                <ComboBoxItem Content="2" Tag="2"></ComboBoxItem>
-                                <ComboBoxItem Content="3" Tag="3"></ComboBoxItem>
-                                <ComboBoxItem Content="4" Tag="4"></ComboBoxItem>
+                                <ComboBoxItem Content="First year" Tag="1"></ComboBoxItem>
+                                <ComboBoxItem Content="Second year" Tag="2"></ComboBoxItem>
+                                <ComboBoxItem Content="Third year" Tag="3"></ComboBoxItem>
+                                <ComboBoxItem Content="Fourth year" Tag="4"></ComboBoxItem>
                             </ComboBox>
                         </StackPanel>
 
