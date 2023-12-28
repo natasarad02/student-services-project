@@ -86,6 +86,12 @@ namespace GUI
             Departments = new ObservableCollection<DepartmentDTO>();
             departmentController = new DepartmentsController();
             departmentController.Subscribe(this);
+
+            StudentDataGrid.ItemsSource = Students;
+            ProfessorsDataGrid.ItemsSource = Professors;
+            SubjectsDataGrid.ItemsSource = Subjects;
+            DepartmentDataGrid.ItemsSource = Departments;
+
             DataContext = this;
 
 

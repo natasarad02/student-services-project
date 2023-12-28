@@ -44,7 +44,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
                 <Label>Semester:</Label>
-                <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.semester, Mode=TwoWay}">
+                <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.semester, Mode=OneWayToSource}">
                     <ComboBoxItem Content="Winter" Tag="winter"></ComboBoxItem>
                     <ComboBoxItem Content="Summer" Tag="summer"></ComboBoxItem>
                 </ComboBox>

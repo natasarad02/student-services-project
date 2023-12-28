@@ -90,8 +90,14 @@ public class Student : ISerializable
         Email = values[6];
         index_number = Index.FromString(values[7]);
         Current_Year = int.Parse(values[8]); // da li treba racunati automatski tren_godina - godina_iz_indeksa? IZMENITI
-        Enum.Parse(typeof(Status), values[9], true);
         
+        if (values[9].Equals("B"))
+        {
+            Status = Status.B;
+        }
+        else {
+            Status = Status.S;
+        }
 
 
     }
