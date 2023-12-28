@@ -112,7 +112,7 @@
                             <Label>Financial Aid:</Label>
                             <ComboBox x:Name="cmbFinancing" SelectedValuePath="Tag" SelectedValue="{Binding Student.Status, Mode=TwoWay}">
                                 <ComboBoxItem Content="Government Budget" Tag="B"></ComboBoxItem>
-                                <ComboBoxItem Content="Self Fonancing" Tag="S"></ComboBoxItem>
+                                <ComboBoxItem Content="Self Financing" Tag="S"></ComboBoxItem>
                             </ComboBox>
                         </StackPanel>
 
