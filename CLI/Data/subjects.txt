@@ -7,3 +7,4 @@
 6|158|Matematika|9|9|winter|4
 7|792|Osnove racunarstva|7|9|winter|3
 8|917|Fizika|8|5|winter|2
+9|1|a|2|1|summer|2022
