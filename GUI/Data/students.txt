@@ -1,4 +1,4 @@
-0|Jovanovic|Jova|01-01-2000|Dunavska ulica,1,Novi Sad,Srbija|061/1111111|jova@gmail.com|ra-37-2021|4|B
+0|Jovanovic|Jova|01-01-2000|Dunavska ulica,1,Novi Sad,Srbija|061/1111111|jova@gmail.com|ra-37-2021|4|S
 2|Milovanovic|Milovan|07-07-1999|Ulica Kralja Tvrtka,5,Sarajevo,Bosna i Hercegovina|063/987654|mjilovan@yahoo.com|si-45-2019|3|B
 3|Popovic|Ana|05-05-2001|Bulevar Despota Stefana,25,Beograd,Srbija|064/4444444|ana.popovic@yahoo.com|it-78-2022|2|B
 4|Kovacevic|Stefan|12-12-2002|Trg Republike,10,Novi Sad,Srbija|062/5555555|stefan_kovacevic@gmail.com|cs-22-2023|1|B

@@ -14,5 +14,5 @@
 15|Jovanovic|Jovana|10-10-1992|Ulica Kneza Mihaila,15,Novi Sad,Srbija|065/987654321|jovana.jovanovic@gmail.com|ftn-77-2016|3|B
 16|Milovanovic|Andjela|06-06-1996|Ulica Nikole Tesle,60,Beograd,Srbija|065/123456|andjela.milovanovic@yahoo.com|ge-22-2022|2|B
 17|Djordjevic|Vuk|01-01-2001|Braće Jugovića,7,Beograd,Srbija|066/8888888|vuk.djordjevic@hotmail.com|fiz-33-2015|5|B
-18|aaa|aa|03-02-2002|a,2,a,p|061/5520022|n@gmail.com|ra-20-2021|2|B
-19|B|c|10-10-2000|D,1,s,s|063/123456|dfghj@vcj.com|ra-123-2030|3|B
+18|aaa|aa|03-02-2002|a,2,a,p|061/5520022|n@gmail.com|ra-20-2021|2|S
+19|B|c|10-10-2000|D,1,s,s|063/123456|dfghj@vcj.com|ra-123-2030|3|S

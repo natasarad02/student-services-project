@@ -1,14 +1,14 @@
-0|123|Analiza 1|9|0|summer|1
-1|456|OET|9|1|summer|1
+0|123|Analiza 1|9|0|winter|1
+1|456|OET|9|1|winter|1
 2|127|Softversko inzenjerstvo|8|4|winter|4
 3|503|Algoritmi i strukture podataka|6|9|winter|1
 4|645|Web razvoj|4|9|winter|2
 5|321|Elektrotehnika|3|6|winter|3
 7|792|Osnove racunarstva|7|9|winter|3
 8|11111||0|0|winter|0
-9|1111111||0|0|summer|0
+9|1111111||0|0|winter|0
 10|454545||0|0|winter|0
-11|21313||0|0|summer|0
+11|21313||0|0|winter|0
 12|12121212||0|0|winter|0
 13|0||0|0|winter|0
 14|1212||0|0|winter|1
