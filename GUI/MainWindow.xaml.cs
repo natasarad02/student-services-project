@@ -87,11 +87,11 @@ namespace GUI
             departmentController = new DepartmentsController();
             departmentController.Subscribe(this);
 
-            StudentDataGrid.ItemsSource = Students;
+            /*StudentDataGrid.ItemsSource = Students;
             ProfessorsDataGrid.ItemsSource = Professors;
             SubjectsDataGrid.ItemsSource = Subjects;
             DepartmentDataGrid.ItemsSource = Departments;
-
+            */
             DataContext = this;
 
 
@@ -282,6 +282,7 @@ namespace GUI
                         UpdateStudent updateStudent = new UpdateStudent(studentController);
                         updateStudent.Student = SelectedStudent;
                         updateStudent.Show();
+
                     }
                     break;
                 case 1:

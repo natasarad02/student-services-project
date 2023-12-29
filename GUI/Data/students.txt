@@ -15,18 +15,3 @@
 16|Milovanovic|Andjela|06-06-1996|Ulica Nikole Tesle,60,Beograd,Srbija|065/123456|andjela.milovanovic@yahoo.com|ge-22-2022|2|B
 17|Djordjevic|Vukasin|01-01-2001|Braće Jugovića,7,Beograd,Srbija|066/8888888|vuk.djordjevic@hotmail.com|fiz-33-2015|5|B
 18|Mujic|Ana|01-01-0001|Kv,10,Kraljevo,Srbija|256416846|vciavcia|-0-0|3|B
-19|Radmilovic|Natasa|01-01-0001|Milovana Glisica,7,Novi Sad,Srbija|061/552-0022|aaa|-0-0|3|B
-20|sss|ddd|01-01-0001|ddd,2,aaa,aaa|323232|aaa|ra-20-0|0|B
-21|ss|aaa|01-01-0001|,0,,|||-0-0|0|B
-22||a|01-01-0001|,0,,|||-0-0|0|B
-23||aa|01-01-0001|,0,,|||-0-0|0|B
-24|||01-01-0001|,0,,|||-0-0|0|B
-25|bbb|aaa|01-01-0001|aaaa,0,aaaa,aaa|3213123|aaa|rara-0-0|0|B
-26|b|a|01-01-0001|aaaa,0,sss,aaaa|1212121|aaa|ra-0-0|0|B
-27|aaa|aaa|01-01-0001|aaa,0,aa,aa|||-0-0|0|B
-21|2|1|01-01-0001|aaaa,0,sss,sss|||-0-0|0|B
-22|aaaa|aaa|01-01-0001|,0,aaaa,aaaa|32132|aaaa|-0-0|4|B
-23||aaaa|01-01-0001|,0,,|||-0-0|0|B
-24|||01-01-0001|,0,,|||-0-0|2|B
-25|||01-01-0001|,0,,|qqqqqqqqqq||-0-0|0|B
-26|bbbb|ccccc|01-01-0001|aaaa,2,aaa,aaaa||aaa|ra-222-22222|22222|B

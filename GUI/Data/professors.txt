@@ -9,15 +9,3 @@
 8|Nikola|Petrović|Bulevar Arsenija Čarnojevića,3,Novi Sad,Srbija|066/654321098|nikola.petrovic@yahoo.com|2023|01-01-0001|12345678|mr
 9|Jelena|Jovanov|Trg Slobode,21,Podgorica,Crna Gora|067/123456789|jelena.jovanov@hotmail.com|2015|01-01-0001|123456789|dr
 11|Sara|Stankovićaaa|Bulevar Oslobođenja,55,Beograd,Srbija|060/345678901|sara.stankovic@yahoo.com|2019|01-01-0001|345678901|mr
-12|sss|aaa|sss,2,aaa,sss|016616161|aaa|2022|01-01-0001|0|dr
-13|ssss|aaa|aaa,7,aaa,sss|2828288|aaaa|0|01-01-0001|21212|dr
-15|a|a|a,2,a,a|aaaaaa|a|2022|01-01-0001|1111111|dr
-16|a|aa|aa,2,aa,aaa||aaa|222|01-01-0001|121212|aa
-17|asa|sas|aaa,2,asas,asas|21212|asa|0|01-01-0001|666666|asa
-18|||,0,,|2323|aaa|2022|01-01-0001|2819281|dr
-19|||,0,,||sdsd|2002|01-01-0001|2121214|dr
-20|||,0,,|||2002|01-01-0001|12121211|dr
-21|||,0,,|||2002|01-01-0001|121212121|dr
-22|||,0,,|||0|01-01-0001|121210009|dr
-23|||,0,,|||0|01-01-0001|67676|2
-24|||,0,,|||0|01-01-0001|213123123|

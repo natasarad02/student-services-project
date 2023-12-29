@@ -8,11 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\About.png" />
     <None Remove="Icons\Add.png" />
     <None Remove="Icons\Alecive-Flatwoken-Apps-Dialog-Add.512.png" />
+    <None Remove="Icons\Close.png" />
     <None Remove="Icons\Delete.png" />
     <None Remove="Icons\Edit.png" />
     <None Remove="Icons\Edit2.png" />
+    <None Remove="Icons\Open.png" />
+    <None Remove="Icons\Save.png" />
     <None Remove="Icons\Sbstnblnd-Plateau-Apps-menu-editor.512.png" />
   </ItemGroup>
 
@@ -25,10 +29,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Icons\About.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Add.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Alecive-Flatwoken-Apps-Dialog-Add.512.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Close.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Delete.png">
@@ -38,6 +48,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Edit2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\Save.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Sbstnblnd-Plateau-Apps-menu-editor.512.png">
