@@ -290,8 +290,8 @@ namespace GUI
                         MessageBox.Show("Please choose a subject to update");
                     else
                     {
-                        UpdateSubject updateSubject = new UpdateSubject(subjectController);
-                        updateSubject.Subject = SelectedSubject;
+                        UpdateSubject updateSubject = new UpdateSubject(subjectController, SelectedSubject);
+                        //updateSubject.Subject = SelectedSubject;
                         updateSubject.Show();
                         // subjectController.Update(SelectedSubject.ToSubject());
                     }

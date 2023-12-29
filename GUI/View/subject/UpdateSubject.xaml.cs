@@ -13,18 +13,19 @@ namespace GUI.View
 {
     public partial class UpdateSubject : Window, INotifyPropertyChanged
     {
+        private SubjectDTO oldSubject;
         public SubjectDTO Subject { get; set; }
 
         private SubjectsController subjectController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public UpdateSubject(SubjectsController subjectController)
+        public UpdateSubject(SubjectsController subjectController, SubjectDTO existingSubject)
         {
             InitializeComponent();
             DataContext = this;
-            Subject = new SubjectDTO();
             this.subjectController = subjectController;
-
+            oldSubject = existingSubject.Clone();
+            Subject = existingSubject;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -40,6 +41,7 @@ namespace GUI.View
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            Subject.CopyFrom(oldSubject);
             Close();
         }
     }

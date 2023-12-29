@@ -142,7 +142,37 @@ namespace GUI.DTO
             Students_Attending = new List<StudentDTO>();
             id = subject.Id;
         }
+
+        public SubjectDTO Clone()
+        {
+            return new SubjectDTO
+            {
+                ids = this.ids,
+                name = this.name,
+                espb = this.espb,
+                sem = this.sem,
+                year = this.year,
+                professorId = this.professorId,
+                Students_Passed = this.Students_Passed,
+                Students_Attending = this.Students_Attending,
+                id = this.id
+        };
+        }
+
         
+        public void CopyFrom(SubjectDTO subject)
+        {
+            ids = subject.ids;
+            name = subject.name;
+            espb = subject.espb;
+            sem = subject.semester;
+            year = subject.year;
+            professorId = subject.professorId;
+            Students_Passed = subject.Students_Passed;
+            Students_Attending = subject.Students_Attending;
+            id = subject.Id;
+        }
+
     }
 
    /* public enum semester
