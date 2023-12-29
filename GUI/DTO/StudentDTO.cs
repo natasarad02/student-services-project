@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using StudentskaSluzba.Model;
 using System.Windows.Data;
 
+
 namespace GUI.DTO
 {
     public class StudentDTO : INotifyPropertyChanged

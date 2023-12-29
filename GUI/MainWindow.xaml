@@ -109,6 +109,8 @@
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
                             <DataGridTextColumn Header="Espb" Binding="{Binding Espb}" Width="*"/>
                             <DataGridTextColumn Header="Professors ID" Binding="{Binding ProfessorId}" Width="*"/>
+                            <DataGridTextColumn Header="Semester" Binding="{Binding semester}" Width="*"/>
+
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>

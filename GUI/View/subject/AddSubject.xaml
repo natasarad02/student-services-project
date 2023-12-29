@@ -3,8 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
         Title="AddSubject" Height="394" Width="400">
+    <Window.Resources>
+        <local:SemesterConverter x:Key="SemesterConverter" />
+    </Window.Resources>
+
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -42,7 +47,10 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Semester:</Label>
-                <TextBox x:Name="txtSemester" Text="{Binding Path=Subject.semester, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <ComboBox x:Name="cmbWInter" SelectedItem="{Binding Path=Subject.semester, Converter={StaticResource SemesterConverter}, Mode=TwoWay}">
+                    <ComboBoxItem>Winter</ComboBoxItem>
+                    <ComboBoxItem>Summer</ComboBoxItem>
+                </ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
@@ -60,8 +68,10 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="Add" Click="Add_Click"/> <!-- Click="Add_Click" /> -->
-            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> <!-- Click="Cancel_Click" /> -->
+            <Button Width="100" Margin="5" Content="Add" Click="Add_Click"/>
+            <!-- Click="Add_Click" /> -->
+            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+            <!-- Click="Cancel_Click" /> -->
         </StackPanel>
     </Grid>
 </Window>

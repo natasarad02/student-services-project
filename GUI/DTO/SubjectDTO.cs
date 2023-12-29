@@ -88,7 +88,7 @@ namespace GUI.DTO
                 if (value != sem)
                 {
                     sem = value;
-                    OnPropertyChanged("Sem");
+                    OnPropertyChanged("semester");
                 }
             }
         }
