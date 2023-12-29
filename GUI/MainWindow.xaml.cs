@@ -87,32 +87,31 @@ namespace GUI
             departmentController = new DepartmentsController();
             departmentController.Subscribe(this);
 
-            /*StudentDataGrid.ItemsSource = Students;
+            StudentDataGrid.ItemsSource = Students;
             ProfessorsDataGrid.ItemsSource = Professors;
             SubjectsDataGrid.ItemsSource = Subjects;
             DepartmentDataGrid.ItemsSource = Departments;
-            */
+            
             DataContext = this;
 
 
             Update();
 
-            // Get the screen dimensions
+            
             double screenWidth = SystemParameters.PrimaryScreenWidth;
             double screenHeight = SystemParameters.PrimaryScreenHeight;
 
-            // Calculate 3/4 of the screen size
+            
             double targetWidth = screenWidth * 0.75;
             double targetHeight = screenHeight * 0.75;
 
-            // Set the window size
             Width = targetWidth;
             Height = targetHeight;
 
             Left = (screenWidth - targetWidth) / 2;
             Top = (screenHeight - targetHeight) / 2;
 
-            //vreme i datum
+            // vreme i datum
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += UpdateDateTime;
@@ -215,8 +214,7 @@ namespace GUI
                 {
                     string tabHeader = selectedTab.Header.ToString();
 
-                    // Update the TextBlock text to display the current tab
-                    currentTabTextBlock.Text = "Current Tab: " + tabHeader;
+                     currentTabTextBlock.Text = "Current Tab: " + tabHeader;
                 }
             }
         }
@@ -290,11 +288,10 @@ namespace GUI
                         MessageBox.Show("Please choose a subject to update");
                     else
                     {
-                        UpdateSubject updateSubject = new UpdateSubject(subjectController, SelectedSubject);
-                        //updateSubject.Subject = SelectedSubject;
+                        UpdateSubject updateSubject = new UpdateSubject(subjectController);
+                        updateSubject.Subject = SelectedSubject;
                         updateSubject.Show();
-                        // subjectController.Update(SelectedSubject.ToSubject());
-                    }
+                     }
 
                     break;
                 case 2:
@@ -318,8 +315,7 @@ namespace GUI
                         updateDepartment.Show();
                     }                    
                     break;
-                    // Add more cases for additional tabs if needed
-            }
+                 }
         }
 
 
