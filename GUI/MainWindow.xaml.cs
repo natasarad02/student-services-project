@@ -60,6 +60,8 @@ namespace GUI
         private StudentsSubjectsController studentsSubjectsController { get; set; }
         //-----------------------
 
+        private DispatcherTimer timer;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -84,6 +86,12 @@ namespace GUI
             Departments = new ObservableCollection<DepartmentDTO>();
             departmentController = new DepartmentsController();
             departmentController.Subscribe(this);
+
+            StudentDataGrid.ItemsSource = Students;
+            ProfessorsDataGrid.ItemsSource = Professors;
+            SubjectsDataGrid.ItemsSource = Subjects;
+            DepartmentDataGrid.ItemsSource = Departments;
+
             DataContext = this;
 
 
@@ -104,8 +112,17 @@ namespace GUI
             Left = (screenWidth - targetWidth) / 2;
             Top = (screenHeight - targetHeight) / 2;
 
-            
+            //vreme i datum
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += UpdateDateTime;
+            timer.Start();
 
+        }
+
+        private void UpdateDateTime(object sender, EventArgs e)
+        {
+            dateTimeTextBlock.Text = DateTime.Now.ToString("dddd, yyyy-MM-dd HH:mm:ss");
         }
 
 

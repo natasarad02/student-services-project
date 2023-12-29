@@ -6,9 +6,6 @@
         xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
         Title="AddSubject" Height="394" Width="400">
-    <Window.Resources>
-        <local:SemesterConverter x:Key="SemesterConverter" />
-    </Window.Resources>
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -45,17 +42,22 @@
                 <TextBox x:Name="txtESPB" Text="{Binding Path=Subject.Espb, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
                 <Label>Semester:</Label>
-                <ComboBox x:Name="cmbWInter" SelectedItem="{Binding Path=Subject.semester, Converter={StaticResource SemesterConverter}, Mode=TwoWay}">
-                    <ComboBoxItem>Winter</ComboBoxItem>
-                    <ComboBoxItem>Summer</ComboBoxItem>
+                <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.semester, Mode=OneWayToSource}">
+                    <ComboBoxItem Content="Winter" Tag="winter"></ComboBoxItem>
+                    <ComboBoxItem Content="Summer" Tag="summer"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>School Year:</Label>
-                <TextBox x:Name="txtSchoolYear" Text="{Binding Path=Subject.Year, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
+                <Label>School year:</Label>
+                <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.Year, Mode=TwoWay}">
+                    <ComboBoxItem Content="1" Tag="1"></ComboBoxItem>
+                    <ComboBoxItem Content="2" Tag="2"></ComboBoxItem>
+                    <ComboBoxItem Content="3" Tag="3"></ComboBoxItem>
+                    <ComboBoxItem Content="4" Tag="4"></ComboBoxItem>
+                </ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">

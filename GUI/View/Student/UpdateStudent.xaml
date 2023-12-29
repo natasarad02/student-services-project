@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
         Title="Update Student" Height="620" Width="400">
-    
+
     <Grid Margin="20">
         <TabControl>
             <!-- First Tab - Student Details -->
@@ -98,15 +99,20 @@
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <Label>Current Year:</Label>
-                            <TextBox x:Name="txtCurYear" 
-                                Text="{Binding Path = Student.Current_Year, UpdateSourceTrigger=PropertyChanged}" />
+                            <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Student.Current_Year, Mode=TwoWay}">
+                                <ComboBoxItem Content="First year" Tag="1"></ComboBoxItem>
+                                <ComboBoxItem Content="Second year" Tag="2"></ComboBoxItem>
+                                <ComboBoxItem Content="Third year" Tag="3"></ComboBoxItem>
+                                <ComboBoxItem Content="Fourth year" Tag="4"></ComboBoxItem>
+                                <ComboBoxItem Content="Additional 5th year" Tag="5"></ComboBoxItem>
+                            </ComboBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <Label>Financial Aid:</Label>
-                            <ComboBox x:Name="cmbFinancing" SelectedItem="{Binding Path=Student.Status, UpdateSourceTrigger=PropertyChanged}">
-                                <ComboBoxItem Content="B"/>
-                                <ComboBoxItem Content="S"/>
+                            <ComboBox x:Name="cmbFinancing" SelectedValuePath="Tag" SelectedValue="{Binding Student.Status, Mode=TwoWay}">
+                                <ComboBoxItem Content="Government Budget" Tag="B"></ComboBoxItem>
+                                <ComboBoxItem Content="Self Financing" Tag="S"></ComboBoxItem>
                             </ComboBox>
                         </StackPanel>
 

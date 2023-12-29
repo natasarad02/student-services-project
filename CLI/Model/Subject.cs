@@ -67,7 +67,15 @@ public class Subject : ISerializable
         Name = values[2];
         Espb = int.Parse(values[3]);
         ProfessorID = int.Parse(values[4]);
-        Enum.Parse(typeof(semester), values[5], true);
+        if (values[5].Equals("summer"))
+        {
+            semester = semester.summer;
+        }
+        else
+        {
+            semester = semester.winter;
+        }
+        //Enum.Parse(typeof(semester), values[5], true);
         year = int.Parse(values[6]);
 
     }

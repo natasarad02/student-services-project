@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using StudentskaSluzba.Model;
 
+
 namespace GUI.DTO
 {
     public class SubjectDTO : INotifyPropertyChanged

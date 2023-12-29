@@ -68,7 +68,7 @@
         <DockPanel DockPanel.Dock="Bottom">
             <MenuItem Header="Student services"></MenuItem>
             <TextBlock x:Name="currentTabTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Text="{Binding CurrentTime}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock x:Name="dateTimeTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" Width="250"/>
         </DockPanel>
 
         <Border Background="#FFA9D2C9">
@@ -110,7 +110,10 @@
                             <DataGridTextColumn Header="Espb" Binding="{Binding Espb}" Width="*"/>
                             <DataGridTextColumn Header="Professors ID" Binding="{Binding ProfessorId}" Width="*"/>
                             <DataGridTextColumn Header="Semester" Binding="{Binding semester}" Width="*"/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3ce749a5854a40864033de5498b3065a8454954c
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
