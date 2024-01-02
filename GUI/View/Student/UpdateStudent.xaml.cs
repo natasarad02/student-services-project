@@ -22,6 +22,8 @@ namespace GUI.View
 
         private StudentsController studentController { get; set; }
 
+       
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public UpdateStudent(StudentsController studentController)
@@ -30,6 +32,7 @@ namespace GUI.View
             DataContext = this;
             Student = new StudentDTO();
             this.studentController = studentController;
+
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -46,6 +49,12 @@ namespace GUI.View
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Add_Subject(object sender, RoutedEventArgs e)
+        {
+            SubjectList subjectList = new SubjectList(Student.toStudent());
+            subjectList.Show();
         }
 
     }
