@@ -25,20 +25,27 @@ namespace GUI.View
         private StudentsController studentController { get; set; }
         private SubjectsController subjectsController { get; set; }
         private StudentsSubjectsController studentSubjectsController { get; set; }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
+        public event PropertyChangedEventHandler? PropertyChanged;
+     
         public UpdateStudent(StudentsController studentController, StudentsSubjectsController studentSubjectsController)
         {
             InitializeComponent();
+            
             DataContext = this;
             Student = new StudentDTO();
-            attendingSubjects = new ObservableCollection<SubjectDTO>();
-            subjectsController = new SubjectsController();
-            subjectsController.Subscribe(this);
+           
+           // subjectsController = new SubjectsController();
+            //subjectsController.Subscribe(this);
 
             this.studentController = studentController;
             this.studentSubjectsController = studentSubjectsController;
+           
+            attendingSubjects = new ObservableCollection<SubjectDTO>();
+
+            studentSubjectsController.Subscribe(this);
+            Update();
+
 
         }
 
@@ -66,17 +73,17 @@ namespace GUI.View
             subjectList.Show();
         }
 
-        public void Update()
+      public void Update()
         {
-
-            attendingSubjects.Clear();
-            foreach (Subject subject in subjectsController.GetAllSubjects())
-            {
-                attendingSubjects.Add(new SubjectDTO(subject));
-            }
-
-
-
+         
+                attendingSubjects.Clear();
+                foreach (Subject subject in studentSubjectsController.GetAllSubjectsById(Student.Id))
+                {
+                MessageBox.Show("uslo");
+                     attendingSubjects.Add(new SubjectDTO(subject));
+                }
+        
+            
         }
 
     }

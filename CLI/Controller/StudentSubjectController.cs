@@ -45,5 +45,10 @@ namespace CLI.Controller
             studentsSubjectsDAO.save();
         }
 
+        public List<Subject> GetAllSubjectsById(int id)
+        {
+            return studentsSubjectsDAO.GetSubjects(id);
+        }
+
     }
 }
