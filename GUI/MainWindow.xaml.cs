@@ -133,7 +133,7 @@ namespace GUI
                     subjectSearch(query);
                     break;
                 case 2: // profesor
-                    //professorSearch(query);
+                    professorSearch(query);
                     break;
                 case 3: //departman, za ovo ne treba search
                     
@@ -143,6 +143,45 @@ namespace GUI
 
         }
 
+        private void professorSearch(string query)
+        {
+
+            string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = words[i].Trim();
+            }
+
+            string idnum = string.Empty;
+            string firstName = string.Empty;
+            string lastName = string.Empty;
+
+            if (words.Length == 1)
+            {
+                lastName = words[0];
+            }
+            else if (words.Length == 2)
+            {
+                lastName = words[0];
+                firstName = words[1];
+            }
+            else if (words.Length >= 3)
+            {
+
+                idnum = words[0];
+                firstName = words[1];
+                lastName = string.Join(" ", words.Skip(2));
+            }
+
+            var searchResults = Professors.Where(professor =>
+                                (string.IsNullOrEmpty(idnum) || professor.Num.ToString().ToUpper().Contains(idnum.ToUpper())) &&
+                                (string.IsNullOrEmpty(firstName) || professor.Name.ToUpper().Contains(firstName.ToUpper())) &&
+                                (string.IsNullOrEmpty(lastName) || professor.Surname.ToUpper().Contains(lastName.ToUpper()))
+                            ).ToList();
+
+           ProfessorsDataGrid.ItemsSource = searchResults;
+        }
         private void studentSearch(string query) {
             
             string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
