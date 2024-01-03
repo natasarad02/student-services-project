@@ -105,7 +105,7 @@
         </DockPanel>
 
         <Border Background="#FFA9D2C9">
-            <!-- Your content goes here -->
+            
 
             <TabControl Name="Tab" SelectionChanged="TabControl_SelectionChanged">
                 <TabItem Header="Students">

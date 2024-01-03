@@ -10,7 +10,7 @@
             <!-- First Tab - Student Details -->
             <TabItem Header="Student Details">
                 <Grid>
-                    <!-- Labels and TextBoxes for student details -->
+                    
                     <StackPanel>
                         <StackPanel.Resources>
                             <Style TargetType="Label">

@@ -38,6 +38,7 @@ namespace GUI
         public ObservableCollection<StudentDTO> Students { get; set; }
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
 
+        //public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
 
         public SubjectDTO  SelectedSubject { get; set; }
@@ -75,8 +76,11 @@ namespace GUI
             subjectController = new SubjectsController();
             subjectController.Subscribe(this);
 
-            
+            studentsSubjectsController = new StudentsSubjectsController();
+            studentsSubjectsController.Subscribe(this);
+
            
+
             Professors = new ObservableCollection<ProfessorDTO>();
             professorController = new ProfessorsController();
             professorController.Subscribe(this);
@@ -87,32 +91,31 @@ namespace GUI
             departmentController = new DepartmentsController();
             departmentController.Subscribe(this);
 
-            /*StudentDataGrid.ItemsSource = Students;
+            StudentDataGrid.ItemsSource = Students;
             ProfessorsDataGrid.ItemsSource = Professors;
             SubjectsDataGrid.ItemsSource = Subjects;
             DepartmentDataGrid.ItemsSource = Departments;
-            */
+            
             DataContext = this;
 
 
             Update();
 
-            // Get the screen dimensions
+            
             double screenWidth = SystemParameters.PrimaryScreenWidth;
             double screenHeight = SystemParameters.PrimaryScreenHeight;
 
-            // Calculate 3/4 of the screen size
+            
             double targetWidth = screenWidth * 0.75;
             double targetHeight = screenHeight * 0.75;
 
-            // Set the window size
             Width = targetWidth;
             Height = targetHeight;
 
             Left = (screenWidth - targetWidth) / 2;
             Top = (screenHeight - targetHeight) / 2;
 
-            //vreme i datum
+            // vreme i datum
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += UpdateDateTime;
@@ -179,6 +182,13 @@ namespace GUI
                 Departments.Add(new DepartmentDTO(department));
             }
 
+            
+
+
+
+
+
+
         }
 
         private string SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -215,8 +225,7 @@ namespace GUI
                 {
                     string tabHeader = selectedTab.Header.ToString();
 
-                    // Update the TextBlock text to display the current tab
-                    currentTabTextBlock.Text = "Current Tab: " + tabHeader;
+                     currentTabTextBlock.Text = "Current Tab: " + tabHeader;
                 }
             }
         }
@@ -279,9 +288,13 @@ namespace GUI
                     if (SelectedStudent == null)
                         MessageBox.Show("Please choose a student to update!");
                     else {
-                        UpdateStudent updateStudent = new UpdateStudent(studentController);
+                        UpdateStudent updateStudent = new UpdateStudent(studentController, studentsSubjectsController);
                         updateStudent.Student = SelectedStudent;
+                       // attendingSubjects = new ObservableCollection<SubjectDTO>();
+                        //updateStudent.attendingSubjects = attendingSubjects;
+                       
                         updateStudent.Show();
+                       // updateStudent.Update();
 
                     }
                     break;
@@ -290,11 +303,10 @@ namespace GUI
                         MessageBox.Show("Please choose a subject to update");
                     else
                     {
-                        UpdateSubject updateSubject = new UpdateSubject(subjectController, SelectedSubject);
-                        //updateSubject.Subject = SelectedSubject;
+                        UpdateSubject updateSubject = new UpdateSubject(subjectController);
+                        updateSubject.Subject = SelectedSubject;
                         updateSubject.Show();
-                        // subjectController.Update(SelectedSubject.ToSubject());
-                    }
+                     }
 
                     break;
                 case 2:
@@ -318,8 +330,7 @@ namespace GUI
                         updateDepartment.Show();
                     }                    
                     break;
-                    // Add more cases for additional tabs if needed
-            }
+                 }
         }
 
 
