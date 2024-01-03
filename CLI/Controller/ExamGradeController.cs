@@ -46,5 +46,9 @@ namespace CLI.Controller
             examGradeDAO.save();
         }
 
+        public List<ExamGrade> getGradesForStudent(int student_id) {
+            return examGradeDAO.GetExamGradesByStudent(student_id);
+        }
+
     }
 }

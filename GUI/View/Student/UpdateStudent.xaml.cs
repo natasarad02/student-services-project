@@ -28,16 +28,30 @@ namespace GUI.View
         public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
         public List<Subject> previousList { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
-     
+        
+        private ExamGradesController examGradesController { get; set; }
+
+        public ObservableCollection<ExamGradeDTO> Grades { get; set; }
+
         public UpdateStudent(StudentsController studentController, StudentsSubjectsController studentSubjectsController)
         {
             InitializeComponent();
             
             DataContext = this;
             Student = new StudentDTO();
+
            
             subjectsController = new SubjectsController();
            // subjectsController.Subscribe(this);
+
+
+            // subjectsController = new SubjectsController();
+            //subjectsController.Subscribe(this);
+
+
+            Grades = new ObservableCollection<ExamGradeDTO>();
+            examGradesController = new ExamGradesController();
+            examGradesController.Subscribe(this);
 
             this.studentController = studentController;
             this.studentSubjectsController = studentSubjectsController;
@@ -93,7 +107,6 @@ namespace GUI.View
         public void Update()
         {
             attendingSubjects.Clear();
-         
 
 
             foreach (Subject subject in studentSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
@@ -101,7 +114,18 @@ namespace GUI.View
                 attendingSubjects.Add(new SubjectDTO(subject));
             }
 
+            Grades.Clear();
+                foreach (ExamGrade examGrade in examGradesController.getGradesForStudent(Student.Id)) {
+                    Grades.Add(new ExamGradeDTO(examGrade));
+                    //kako dodati ime predmeta?
+                }
+            
         }
+
+
+
+
+        
         private void TabUpdate_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (TabUpdate.SelectedItem is TabItem selectedTab && selectedTab.Header.ToString() == "Subjects")

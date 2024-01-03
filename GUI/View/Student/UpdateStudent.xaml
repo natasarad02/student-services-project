@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
+
         Title="Update Student" Height="650" Width="400">
+
 
 
     <Grid Margin="20">
@@ -163,8 +165,8 @@
             </TabItem>
 
 
-            <!-- Third Tab - Student Grades -->
-            <TabItem Header="Grades">
+
+            <TabItem Header="Passed exams">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*"/>
@@ -174,13 +176,34 @@
                         <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                             <Label>Ova opcija nije implementirana u ovoj verziji</Label>
                         </StackPanel>
+                        <StackPanel>
+                            <DataGrid Background="#FFE5E5E5"
+                                      AutoGenerateColumns="False"
+                                      x:Name="StudentDataGrid"
+                                      ItemsSource="{Binding Students, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectionMode="Single" IsReadOnly="True" >
+                                <!-- SelectionChanged="StudentDataGrid_SelectionChanged" -->
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Id" Width="*"/>
+                                    <DataGridTextColumn Header="Subject Id" Width="*"/>
+                                    <DataGridTextColumn Header="Subject name" Width="*"/>
+                                    <DataGridTextColumn Header="ESPB" Width="*"/>
+                                    <DataGridTextColumn Header="Date of Grading" Width="*"/>
+                                    <DataGridTextColumn Header="Grade" Width="*"/>
 
-                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Button Width="100" Margin="5" Content="Add Grade" />
-                            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
                         </StackPanel>
-                    </StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                                <Button Width="100" Margin="5" Content="Add Grade" />
+                                <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+
                 </Grid>
+               
             </TabItem>
         </TabControl>
 

@@ -92,8 +92,8 @@
                     </Button.ToolTip>
                 </Button>
                 <FrameworkElement Width="450"/>
-                <TextBox HorizontalAlignment="Right" Width="140"/>
-                <Button HorizontalAlignment="Right" Content="Search"/>
+                <TextBox x:Name="txtSearchBox" HorizontalAlignment="Right" Width="140"/>
+                <Button HorizontalAlignment="Right" Content="Search" Click="SearchButton_Click"/>
             </ToolBar>
         </DockPanel>
 

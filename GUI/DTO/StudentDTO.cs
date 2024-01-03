@@ -207,6 +207,9 @@ namespace GUI.DTO
             id = student.ID;
         }
 
+        public string getIndeks() {
+            return Index_Number.ToString();
+        }
         
         public event PropertyChangedEventHandler? PropertyChanged;
 

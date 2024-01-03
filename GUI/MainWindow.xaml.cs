@@ -119,6 +119,70 @@ namespace GUI
 
         }
 
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string query = txtSearchBox.Text; 
+
+            int tabIndex = Tab.SelectedIndex;
+            switch (tabIndex)
+            {
+                case 0: //student
+                    studentSearch(query);
+                    break;
+                case 1: // subject
+                    
+                    break;
+                case 2: // profesor
+
+                    break;
+                case 3: //departman, za ovo ne treba search
+                    
+                    break;
+
+            }
+
+        }
+
+        private void studentSearch(string query) {
+            
+            string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = words[i].Trim();
+            }
+
+            string index = string.Empty;
+            string firstName = string.Empty;
+            string lastName = string.Empty;
+
+            if (words.Length == 1)
+            {
+                lastName = words[0]; 
+            }
+            else if (words.Length == 2)
+            {
+                lastName = words[0]; 
+                firstName = words[1]; 
+            }
+            else if (words.Length >= 3)
+            {
+                
+                index = words[0]; 
+                firstName = words[1]; 
+                lastName = string.Join(" ", words.Skip(2)); 
+            }
+
+            var searchResults = Students.Where(student =>
+                                (string.IsNullOrEmpty(index) || student.getIndeks().ToUpper().Contains(index.ToUpper())) &&
+                                (string.IsNullOrEmpty(firstName) || student.First_Name.ToUpper().Contains(firstName.ToUpper())) &&
+                                (string.IsNullOrEmpty(lastName) || student.Last_Name.ToUpper().Contains(lastName.ToUpper()))
+                            ).ToList();
+
+            StudentDataGrid.ItemsSource = searchResults;
+        }
+
+
         private void UpdateDateTime(object sender, EventArgs e)
         {
             dateTimeTextBlock.Text = DateTime.Now.ToString("dddd, yyyy-MM-dd HH:mm:ss");
@@ -177,6 +241,7 @@ namespace GUI
             {
                 Departments.Add(new DepartmentDTO(department));
             }
+
 
            /* foreach (Student student in studentController.GetAllStudents())
             {
