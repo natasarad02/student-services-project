@@ -130,10 +130,10 @@ namespace GUI
                     studentSearch(query);
                     break;
                 case 1: // subject
-                    
+                    subjectSearch(query);
                     break;
                 case 2: // profesor
-
+                    //professorSearch(query);
                     break;
                 case 3: //departman, za ovo ne treba search
                     
@@ -182,6 +182,36 @@ namespace GUI
             StudentDataGrid.ItemsSource = searchResults;
         }
 
+        private void subjectSearch(string query)
+        {
+
+            string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = words[i].Trim();
+            }
+
+            string ids = string.Empty;
+            string subjectName = string.Empty;
+            
+            if (words.Length == 1)
+            {
+                subjectName = words[0];
+            }
+            else if (words.Length >= 2)
+            {
+                subjectName = words[0];
+                ids = words[1];
+            }
+           
+
+            var searchResults = Subjects.Where(subject =>
+                                (string.IsNullOrEmpty(ids) || subject.Ids.ToString().ToUpper().Contains(ids.ToUpper())) &&
+                                (string.IsNullOrEmpty(subjectName) || subject.Name.ToUpper().Contains(subjectName.ToUpper()))).ToList();
+
+            SubjectsDataGrid.ItemsSource = searchResults;
+        }
 
         private void UpdateDateTime(object sender, EventArgs e)
         {
