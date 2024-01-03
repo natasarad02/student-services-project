@@ -28,19 +28,15 @@ using GUI.View.Help;
 
 namespace GUI
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window, IObserver
+      public partial class MainWindow : Window, IObserver
     {
 
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public ObservableCollection<StudentDTO> Students { get; set; }
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
-
-        //public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
 
+       // public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
         public SubjectDTO  SelectedSubject { get; set; }
 
         private SubjectsController subjectController { get; set; }
@@ -78,7 +74,7 @@ namespace GUI
 
             studentsSubjectsController = new StudentsSubjectsController();
             studentsSubjectsController.Subscribe(this);
-
+            //attendingSubjects = new ObservableCollection<SubjectDTO>();
            
 
             Professors = new ObservableCollection<ProfessorDTO>();
@@ -134,10 +130,10 @@ namespace GUI
                     studentSearch(query);
                     break;
                 case 1: // subject
-                    
+                    subjectSearch(query);
                     break;
                 case 2: // profesor
-
+                    professorSearch(query);
                     break;
                 case 3: //departman, za ovo ne treba search
                     
@@ -147,6 +143,45 @@ namespace GUI
 
         }
 
+        private void professorSearch(string query)
+        {
+
+            string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = words[i].Trim();
+            }
+
+            string idnum = string.Empty;
+            string firstName = string.Empty;
+            string lastName = string.Empty;
+
+            if (words.Length == 1)
+            {
+                lastName = words[0];
+            }
+            else if (words.Length == 2)
+            {
+                lastName = words[0];
+                firstName = words[1];
+            }
+            else if (words.Length >= 3)
+            {
+
+                idnum = words[0];
+                firstName = words[1];
+                lastName = string.Join(" ", words.Skip(2));
+            }
+
+            var searchResults = Professors.Where(professor =>
+                                (string.IsNullOrEmpty(idnum) || professor.Num.ToString().ToUpper().Contains(idnum.ToUpper())) &&
+                                (string.IsNullOrEmpty(firstName) || professor.Name.ToUpper().Contains(firstName.ToUpper())) &&
+                                (string.IsNullOrEmpty(lastName) || professor.Surname.ToUpper().Contains(lastName.ToUpper()))
+                            ).ToList();
+
+           ProfessorsDataGrid.ItemsSource = searchResults;
+        }
         private void studentSearch(string query) {
             
             string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -186,6 +221,36 @@ namespace GUI
             StudentDataGrid.ItemsSource = searchResults;
         }
 
+        private void subjectSearch(string query)
+        {
+
+            string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = words[i].Trim();
+            }
+
+            string ids = string.Empty;
+            string subjectName = string.Empty;
+            
+            if (words.Length == 1)
+            {
+                subjectName = words[0];
+            }
+            else if (words.Length >= 2)
+            {
+                subjectName = words[0];
+                ids = words[1];
+            }
+           
+
+            var searchResults = Subjects.Where(subject =>
+                                (string.IsNullOrEmpty(ids) || subject.Ids.ToString().ToUpper().Contains(ids.ToUpper())) &&
+                                (string.IsNullOrEmpty(subjectName) || subject.Name.ToUpper().Contains(subjectName.ToUpper()))).ToList();
+
+            SubjectsDataGrid.ItemsSource = searchResults;
+        }
 
         private void UpdateDateTime(object sender, EventArgs e)
         {
@@ -245,6 +310,26 @@ namespace GUI
             {
                 Departments.Add(new DepartmentDTO(department));
             }
+
+
+           /* foreach (Student student in studentController.GetAllStudents())
+            {
+
+                attendingSubjects.Clear();
+                //int broj = studentsSubjectsController.GetAllSubjectsById(student.ID).Count;
+               // MessageBox.Show(broj.ToString());
+                foreach (Subject subject in studentsSubjectsController.GetAllSubjectsById(student.ID))
+                {
+                    attendingSubjects.Add(new SubjectDTO(subject));
+                }
+
+
+            }*/
+
+
+
+
+
 
         }
 
@@ -347,8 +432,9 @@ namespace GUI
                     else {
                         UpdateStudent updateStudent = new UpdateStudent(studentController, studentsSubjectsController);
                         updateStudent.Student = SelectedStudent;
-                       // attendingSubjects = new ObservableCollection<SubjectDTO>();
-                        //updateStudent.attendingSubjects = attendingSubjects;
+                       // updateStudent.previousList = studentsSubjectsController.GetAllSubjectsById(SelectedStudent.Id);
+                        // attendingSubjects = new ObservableCollection<SubjectDTO>();
+                       // updateStudent.attendingSubjects = attendingSubjects;
                        
                         updateStudent.Show();
                        // updateStudent.Update();

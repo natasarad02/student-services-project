@@ -15,17 +15,18 @@ using System.Windows.Controls;
 using StudentskaSluzba.Model;
 using System.Collections.ObjectModel;
 using CLI.Observer;
-
+using System.Windows.Controls;
 namespace GUI.View
 {
     public partial class UpdateStudent : Window, INotifyPropertyChanged, IObserver
     {
         public StudentDTO Student { get; set; }
 
-        private StudentsController studentController { get; set; }
-        private SubjectsController subjectsController { get; set; }
-        private StudentsSubjectsController studentSubjectsController { get; set; }
+        private StudentsController studentController;
+        private SubjectsController subjectsController;
+        private StudentsSubjectsController studentSubjectsController;
         public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
+        public List<Subject> previousList { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
         
         private ExamGradesController examGradesController { get; set; }
@@ -39,8 +40,14 @@ namespace GUI.View
             DataContext = this;
             Student = new StudentDTO();
 
+           
+            subjectsController = new SubjectsController();
+           // subjectsController.Subscribe(this);
+
+
             // subjectsController = new SubjectsController();
             //subjectsController.Subscribe(this);
+
 
             Grades = new ObservableCollection<ExamGradeDTO>();
             examGradesController = new ExamGradesController();
@@ -48,11 +55,25 @@ namespace GUI.View
 
             this.studentController = studentController;
             this.studentSubjectsController = studentSubjectsController;
-           
+            
+           // subjectsController = new SubjectsController();
+
+
             attendingSubjects = new ObservableCollection<SubjectDTO>();
 
-            studentSubjectsController.Subscribe(this);
-            Update();
+            // studentSubjectsController.Subscribe(this);
+            //subjectsController.Subscribe(this);
+            //
+
+
+            TabUpdate.SelectionChanged += TabUpdate_SelectionChanged;
+            /* if (TabUpdate.SelectedItem is TabItem selectedTab && selectedTab.Header.ToString() == "Subjects")
+             {
+                 Update();
+             }*/
+
+            // previousList = new List<Subject>();
+            // previousList = studentSubjectsController.GetAllSubjectsById(Student.Id);
 
 
         }
@@ -76,22 +97,24 @@ namespace GUI.View
 
         private void Add_Subject(object sender, RoutedEventArgs e)
         {
-            SubjectList subjectList = new SubjectList(Student, studentController, studentSubjectsController, attendingSubjects);
+            SubjectList subjectList = new SubjectList(Student, studentController, studentSubjectsController);
             subjectList.attendingSubjects = attendingSubjects;
+            //;
+            
             subjectList.Show();
         }
 
-      public void Update()
+        public void Update()
         {
-         
-                attendingSubjects.Clear();
-                foreach (Subject subject in studentSubjectsController.GetAllSubjectsById(Student.Id))
-                {
-                MessageBox.Show("uslo");
-                     attendingSubjects.Add(new SubjectDTO(subject));
-                }
-                
-                Grades.Clear();
+            attendingSubjects.Clear();
+
+
+            foreach (Subject subject in studentSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
+            {
+                attendingSubjects.Add(new SubjectDTO(subject));
+            }
+
+            Grades.Clear();
                 foreach (ExamGrade examGrade in examGradesController.getGradesForStudent(Student.Id)) {
                     Grades.Add(new ExamGradeDTO(examGrade));
                     //kako dodati ime predmeta?
@@ -99,6 +122,25 @@ namespace GUI.View
             
         }
 
+
+
+
+        
+        private void TabUpdate_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TabUpdate.SelectedItem is TabItem selectedTab && selectedTab.Header.ToString() == "Subjects")
+            {
+                // Get the index of the selected tab
+                int tabIndex = TabUpdate.SelectedIndex;
+
+                // Check if the selected tab is the "Subjects" tab
+                if (tabIndex == 1)
+                {
+                    // Trigger the Update() method
+                    Update();
+                }
+            }
+        }
     }
 
 }

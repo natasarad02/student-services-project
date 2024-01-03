@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
-        Title="Update Student" Height="620" Width="527">
+
+        Title="Update Student" Height="650" Width="400">
+
+
 
     <Grid Margin="20">
-        <TabControl>
+        <TabControl x:Name="TabUpdate" SelectionChanged="TabUpdate_SelectionChanged">
             <!-- First Tab - Student Details -->
             <TabItem Header="Student Details">
                 <Grid>
-                    
+
                     <StackPanel>
                         <StackPanel.Resources>
                             <Style TargetType="Label">
@@ -63,7 +66,7 @@
                             <Label>Birth Date:</Label>
                             <DatePicker x:Name="dpBirthDate" Width="104" 
                                     Text="{Binding Path = Student.Date_Of_Birth, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-                               
+
                             </DatePicker>
                         </StackPanel>
 
@@ -127,15 +130,17 @@
                 <Grid>
                     <StackPanel>
                         <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                           <!-- <Label>This option is not implemented in current version.</Label> -->
+                            <!-- <Label>This option is not implemented in current version.</Label> -->
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                             <Button Width="100" Margin="5" Content="Add" Click="Add_Subject" />
-                            <Button Width="100" Margin="5" Content="Delete"/> <!-- Click="Delete_Subject_Click" />-->
-                            <Button Width="100" Margin="5" Content="Pass"/> <!-- Click="Pass_Subject_Click" /> -->
-                           <!-- <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> -->
-                            
+                            <Button Width="100" Margin="5" Content="Delete"/>
+                            <!-- Click="Delete_Subject_Click" />-->
+                            <Button Width="100" Margin="5" Content="Pass"/>
+                            <!-- Click="Pass_Subject_Click" /> -->
+                            <!-- <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> -->
+
                         </StackPanel>
                         <DataGrid Background="#FFE5E5E5"
            
@@ -156,52 +161,64 @@
 
                     </StackPanel>
                 </Grid>
-                
-            </TabItem>
-            
 
-            
+            </TabItem>
+
+
+
             <TabItem Header="Passed exams">
                 <Grid>
-                    <StackPanel>
-                        <DataGrid 
-  Background="#FFE5E5E5"
-  AutoGenerateColumns="False"
-  x:Name="StudentDataGrid"
-  ItemsSource="{Binding Students, UpdateSourceTrigger=PropertyChanged}"
-  SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
-  SelectionMode="Single" IsReadOnly="True" >
-                            <!-- SelectionChanged="StudentDataGrid_SelectionChanged" -->
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Id" Width="*"/>
-                                <DataGridTextColumn Header="Subject Id" Width="*"/>
-                                <DataGridTextColumn Header="Subject name" Width="*"/>
-                                <DataGridTextColumn Header="ESPB" Width="*"/>
-                                <DataGridTextColumn Header="Date of Grading" Width="*"/>
-                                <DataGridTextColumn Header="Grade" Width="*"/>
-                                
-                            </DataGrid.Columns>
-                        </DataGrid>
-
-                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Button Width="100" Margin="5" Content="Add Grade" />
-                            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="39*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.ColumnSpan="2">
+                        <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Label>Ova opcija nije implementirana u ovoj verziji</Label>
                         </StackPanel>
-                    </StackPanel>
+                        <StackPanel>
+                            <DataGrid Background="#FFE5E5E5"
+                                      AutoGenerateColumns="False"
+                                      x:Name="StudentDataGrid"
+                                      ItemsSource="{Binding Students, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectionMode="Single" IsReadOnly="True" >
+                                <!-- SelectionChanged="StudentDataGrid_SelectionChanged" -->
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Id" Width="*"/>
+                                    <DataGridTextColumn Header="Subject Id" Width="*"/>
+                                    <DataGridTextColumn Header="Subject name" Width="*"/>
+                                    <DataGridTextColumn Header="ESPB" Width="*"/>
+                                    <DataGridTextColumn Header="Date of Grading" Width="*"/>
+                                    <DataGridTextColumn Header="Grade" Width="*"/>
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                                <Button Width="100" Margin="5" Content="Add Grade" />
+                                <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+
                 </Grid>
+               
             </TabItem>
         </TabControl>
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
 
-            <Button Width="100" Margin="5" Content="Update" Click="Update_Click" /> <!-- Click="Update_Click" /> -->
-            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> <!-- Click="Cancel_Click" />-->
-        
-        
-        
+            <Button Width="100" Margin="5" Content="Update" Click="Update_Click" />
+            <!-- Click="Update_Click" /> -->
+            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+            <!-- Click="Cancel_Click" />-->
+
+
+
         </StackPanel>
 
-     
+
     </Grid>
 </Window>

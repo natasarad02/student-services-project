@@ -19,23 +19,24 @@ namespace GUI.View
         private StudentsSubjectsController studentsSubjectsController { get; set; }
 
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
+        
         public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
         public SubjectDTO SelectedSubject { get; set; }
 
         public StudentDTO Student { get; set; }
         private SubjectsController subjectController { get; set; }
-        public SubjectList(StudentDTO Student, StudentsController studentController, StudentsSubjectsController studentsSubjectsController, ObservableCollection<SubjectDTO> attendingSubjects)
+        public SubjectList(StudentDTO Student, StudentsController studentController, StudentsSubjectsController studentsSubjectsController)
         {
             InitializeComponent();
             Subjects = new ObservableCollection<SubjectDTO>();
             subjectController = new SubjectsController();
             subjectController.Subscribe(this);
             studentsController = studentController;
-            
 
+            attendingSubjects = new ObservableCollection<SubjectDTO>();
             this.Student = Student;
             this.studentsSubjectsController = studentsSubjectsController;
-            attendingSubjects = new ObservableCollection<SubjectDTO>();
+            //this.attendingSubjects = attendingSubjects;
             DataContext = this;
 
 
@@ -47,9 +48,28 @@ namespace GUI.View
         {
 
             Subjects.Clear();
+            bool subjectIsFound = false;
             foreach (Subject subject in subjectController.GetAllSubjects())
             {
-                Subjects.Add(new SubjectDTO(subject));
+                foreach (Subject attendingSubject in studentsSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
+                {
+                    if(attendingSubject.Id == subject.Id)
+                    {
+                        subjectIsFound = true;
+                        break;
+                    }
+                }
+
+                if (!subjectIsFound)
+                {
+                    if (subject.year >= Student.Current_Year)
+                    {
+                        Subjects.Add(new SubjectDTO(subject));
+                    }
+
+                }
+               
+                
             }
 
 
@@ -64,6 +84,7 @@ namespace GUI.View
             Close();
         }
 
+        
        
     }
 }
