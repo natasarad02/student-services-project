@@ -10,7 +10,7 @@ namespace CLI.Controller
 {
     public class StudentsSubjectsController
     {
-        private readonly StudentsSubjectsDAO studentsSubjectsDAO;
+        private static StudentsSubjectsDAO studentsSubjectsDAO;
 
         public StudentsSubjectsController()
         {
@@ -23,9 +23,11 @@ namespace CLI.Controller
             return studentsSubjectsDAO.GetAllStudentsSubjectss();
         }
 
-        public void Add(StudentsSubjects stud_sub)
+        public void Add(int id_student, int id_subject)
         {
-            studentsSubjectsDAO.AddStudentsSubjects(stud_sub);
+            StudentsSubjects connection = new StudentsSubjects(id_student, id_subject);
+            studentsSubjectsDAO.AddStudentsSubjects(connection);
+           
         }
 
         public void Delete(int studId, int subId)
@@ -41,6 +43,11 @@ namespace CLI.Controller
         public void Save()
         {
             studentsSubjectsDAO.save();
+        }
+
+        public List<Subject> GetAllSubjectsById(int id)
+        {
+            return studentsSubjectsDAO.GetSubjects(id);
         }
 
     }

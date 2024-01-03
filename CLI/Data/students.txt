@@ -16,3 +16,4 @@
 17|Djordjevic|Vuk|01-01-2001|Braće Jugovića,7,Beograd,Srbija|066/8888888|vuk.djordjevic@hotmail.com|fiz-33-2015|5|B
 18|aaa|aa|03-02-2002|a,2,a,p|061/5520022|n@gmail.com|ra-20-2021|2|S
 19|B|c|10-10-2000|D,1,s,s|063/123456|dfghj@vcj.com|ra-123-2030|3|S
+20|Becejac|Zeljko|04-20-1969|kkkkjhggf,57,Novi sad,Srbija|064/556854|zeljko@gmail.com|ra-37-2021|2|B

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
         Title="Update Student" Height="650" Width="400">
+    
 
     <Grid Margin="20">
         <TabControl>
@@ -127,15 +128,36 @@
                 <Grid>
                     <StackPanel>
                         <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Label>This option is not implemented in current version.</Label>
+                           <!-- <Label>This option is not implemented in current version.</Label> -->
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Button Width="100" Margin="5" Content="Add Subject" />
-                            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+                            <Button Width="100" Margin="5" Content="Add" Click="Add_Subject" />
+                            <Button Width="100" Margin="5" Content="Delete"/> <!-- Click="Delete_Subject_Click" />-->
+                            <Button Width="100" Margin="5" Content="Pass"/> <!-- Click="Pass_Subject_Click" /> -->
+                           <!-- <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> -->
+                            
                         </StackPanel>
+                        <DataGrid Background="#FFE5E5E5"
+           
+            AutoGenerateColumns="False"
+            x:Name="SubjectsDataGrid"
+            ItemsSource="{Binding attendingSubjects, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
+            SelectionMode="Single" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                                <DataGridTextColumn Header="Subject ID" Binding="{Binding Ids}" Width="*"/>
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="Espb" Binding="{Binding Espb}" Width="*"/>
+                                <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="*"/>
+                                <DataGridTextColumn Header="Semester" Binding="{Binding semester}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
                     </StackPanel>
                 </Grid>
+                
             </TabItem>
             
 
@@ -161,6 +183,11 @@
 
             <Button Width="100" Margin="5" Content="Update" Click="Update_Click" /> <!-- Click="Update_Click" /> -->
             <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> <!-- Click="Cancel_Click" />-->
+        
+        
+        
         </StackPanel>
+
+     
     </Grid>
 </Window>

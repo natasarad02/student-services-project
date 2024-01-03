@@ -34,7 +34,6 @@ namespace GUI
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public ObservableCollection<StudentDTO> Students { get; set; }
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
-            
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
 
         public SubjectDTO  SelectedSubject { get; set; }
@@ -72,8 +71,11 @@ namespace GUI
             subjectController = new SubjectsController();
             subjectController.Subscribe(this);
 
-            
+            studentsSubjectsController = new StudentsSubjectsController();
+            studentsSubjectsController.Subscribe(this);
+
            
+
             Professors = new ObservableCollection<ProfessorDTO>();
             professorController = new ProfessorsController();
             professorController.Subscribe(this);
@@ -175,6 +177,13 @@ namespace GUI
                 Departments.Add(new DepartmentDTO(department));
             }
 
+            
+
+
+
+
+
+
         }
 
         private string SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -274,9 +283,13 @@ namespace GUI
                     if (SelectedStudent == null)
                         MessageBox.Show("Please choose a student to update!");
                     else {
-                        UpdateStudent updateStudent = new UpdateStudent(studentController);
+                        UpdateStudent updateStudent = new UpdateStudent(studentController, studentsSubjectsController);
                         updateStudent.Student = SelectedStudent;
+                       // attendingSubjects = new ObservableCollection<SubjectDTO>();
+                        //updateStudent.attendingSubjects = attendingSubjects;
+                       
                         updateStudent.Show();
+                       // updateStudent.Update();
 
                     }
                     break;
