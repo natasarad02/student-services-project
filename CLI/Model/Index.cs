@@ -77,9 +77,7 @@ public class Index : ISerializable
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append("College major mark: " + college_major + ", ");
-        sb.Append("Enrollment number mark: " + number_mark + ", ");
-        sb.Append("Enrollment year: " + YOE);
+        sb.Append(college_major+"-"+number_mark+"-"+YOE);
 
         return sb.ToString();
     }

@@ -27,16 +27,24 @@ namespace GUI.View
         private StudentsSubjectsController studentSubjectsController { get; set; }
         public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
-     
+        
+        private ExamGradesController examGradesController { get; set; }
+
+        public ObservableCollection<ExamGradeDTO> Grades { get; set; }
+
         public UpdateStudent(StudentsController studentController, StudentsSubjectsController studentSubjectsController)
         {
             InitializeComponent();
             
             DataContext = this;
             Student = new StudentDTO();
-           
-           // subjectsController = new SubjectsController();
+
+            // subjectsController = new SubjectsController();
             //subjectsController.Subscribe(this);
+
+            Grades = new ObservableCollection<ExamGradeDTO>();
+            examGradesController = new ExamGradesController();
+            examGradesController.Subscribe(this);
 
             this.studentController = studentController;
             this.studentSubjectsController = studentSubjectsController;
@@ -82,7 +90,12 @@ namespace GUI.View
                 MessageBox.Show("uslo");
                      attendingSubjects.Add(new SubjectDTO(subject));
                 }
-        
+                
+                Grades.Clear();
+                foreach (ExamGrade examGrade in examGradesController.getGradesForStudent(Student.Id)) {
+                    Grades.Add(new ExamGradeDTO(examGrade));
+                    //kako dodati ime predmeta?
+                }
             
         }
 

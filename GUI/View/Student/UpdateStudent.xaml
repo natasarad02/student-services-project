@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
-        Title="Update Student" Height="620" Width="513">
+        Title="Update Student" Height="620" Width="527">
 
     <Grid Margin="20">
         <TabControl>
@@ -160,14 +160,29 @@
             </TabItem>
             
 
-            <!-- Third Tab - Student Grades -->
-            <TabItem Header="Grades">
+            
+            <TabItem Header="Passed exams">
                 <Grid>
                     <StackPanel>
-                        <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Label>Ova opcija nije implementirana u ovoj verziji</Label>
-                        </StackPanel>
-                        
+                        <DataGrid 
+  Background="#FFE5E5E5"
+  AutoGenerateColumns="False"
+  x:Name="StudentDataGrid"
+  ItemsSource="{Binding Students, UpdateSourceTrigger=PropertyChanged}"
+  SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+  SelectionMode="Single" IsReadOnly="True" >
+                            <!-- SelectionChanged="StudentDataGrid_SelectionChanged" -->
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Id" Width="*"/>
+                                <DataGridTextColumn Header="Subject Id" Width="*"/>
+                                <DataGridTextColumn Header="Subject name" Width="*"/>
+                                <DataGridTextColumn Header="ESPB" Width="*"/>
+                                <DataGridTextColumn Header="Date of Grading" Width="*"/>
+                                <DataGridTextColumn Header="Grade" Width="*"/>
+                                
+                            </DataGrid.Columns>
+                        </DataGrid>
+
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                             <Button Width="100" Margin="5" Content="Add Grade" />
                             <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>

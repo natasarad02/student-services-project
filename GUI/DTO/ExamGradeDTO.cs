@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentskaSluzba.Model;
+using System;
 using System.ComponentModel;
 
 namespace GUI.DTO
@@ -41,9 +42,9 @@ namespace GUI.DTO
             }
         }
 
-        private DateOnly gradingDay;
+        private DateTime gradingDay;
 
-        public DateOnly GradingDay
+        public DateTime GradingDay
         {
             get { return gradingDay; }
             set
@@ -55,7 +56,14 @@ namespace GUI.DTO
 
         public ExamGradeDTO() { }
 
-        public ExamGradeDTO(int studId, int subId, int gr, DateOnly date)
+        public ExamGradeDTO(ExamGrade examGrade) { 
+            studentID = examGrade.studentID;
+            subjectID = examGrade.subjectID;    
+            grade = examGrade.grade;
+            gradingDay = examGrade.grading_day;
+        }
+
+        public ExamGradeDTO(int studId, int subId, int gr, DateTime date)
         {
             studentID = studId;
             subjectID = subId;
