@@ -14,23 +14,26 @@ namespace GUI.View
 {
     public partial class SubjectList : Window, IObserver
     {
-        private StudentsSubjectsController studentSubjectsController { get; set; }
-
+       
+        private StudentsController studentsController { get; set; }
+        private StudentsSubjectsController studentsSubjectsController { get; set; }
 
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public SubjectDTO SelectedSubject { get; set; }
 
-        public Student Student { get; set; }
+        public StudentDTO Student { get; set; }
         private SubjectsController subjectController { get; set; }
-        public SubjectList(Student Student)
+        public SubjectList(StudentDTO Student, StudentsController studentController, StudentsSubjectsController studentsSubjectsController)
         {
             InitializeComponent();
             Subjects = new ObservableCollection<SubjectDTO>();
             subjectController = new SubjectsController();
             subjectController.Subscribe(this);
+            studentsController = studentController;
+            
 
-            Student = this.Student;
-            studentSubjectsController = new StudentsSubjectsController();
+            this.Student = Student;
+            this.studentsSubjectsController = studentsSubjectsController;
             DataContext = this;
 
 
@@ -53,10 +56,9 @@ namespace GUI.View
 
         private void Add_Subject_Click(object sender, RoutedEventArgs e)
         {
-            // ovde ce ici provera uslova
-            StudentsSubjects connection = new StudentsSubjects(Student.ID, SelectedSubject.Id);
-            studentSubjectsController.Add(connection);
             
+            studentsSubjectsController.Add(Student.Id, SelectedSubject.Id);
+            Close();
         }
     }
 }

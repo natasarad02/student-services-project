@@ -22,16 +22,17 @@ namespace GUI.View
 
         private StudentsController studentController { get; set; }
 
-       
+        private StudentsSubjectsController studentSubjectsController { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public UpdateStudent(StudentsController studentController)
+        public UpdateStudent(StudentsController studentController, StudentsSubjectsController studentSubjectsController)
         {
             InitializeComponent();
             DataContext = this;
             Student = new StudentDTO();
             this.studentController = studentController;
+            this.studentSubjectsController = studentSubjectsController;
 
         }
 
@@ -53,7 +54,7 @@ namespace GUI.View
 
         private void Add_Subject(object sender, RoutedEventArgs e)
         {
-            SubjectList subjectList = new SubjectList(Student.toStudent());
+            SubjectList subjectList = new SubjectList(Student, studentController, studentSubjectsController);
             subjectList.Show();
         }
 

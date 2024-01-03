@@ -12,9 +12,9 @@ namespace CLI.Controller
     {
         private readonly StudentsSubjectsDAO studentsSubjectsDAO;
 
-        public StudentsSubjectsController()
+        public StudentsSubjectsController(StudentsSubjectsDAO studentsSubjectsDAO)
         {
-            studentsSubjectsDAO = new StudentsSubjectsDAO();
+            this.studentsSubjectsDAO = studentsSubjectsDAO;
 
         }
 
@@ -23,9 +23,11 @@ namespace CLI.Controller
             return studentsSubjectsDAO.GetAllStudentsSubjectss();
         }
 
-        public void Add(StudentsSubjects stud_sub)
+        public void Add(int id_student, int id_subject)
         {
-            studentsSubjectsDAO.AddStudentsSubjects(stud_sub);
+            StudentsSubjects connection = new StudentsSubjects(id_student, id_subject);
+            studentsSubjectsDAO.AddStudentsSubjects(connection);
+           
         }
 
         public void Delete(int studId, int subId)

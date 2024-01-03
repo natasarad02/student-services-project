@@ -75,7 +75,8 @@ namespace GUI
             subjectController = new SubjectsController();
             subjectController.Subscribe(this);
 
-            
+            studentsSubjectsController = new StudentsSubjectsController();
+            studentsSubjectsController.Subscribe(this);
            
             Professors = new ObservableCollection<ProfessorDTO>();
             professorController = new ProfessorsController();
@@ -277,7 +278,7 @@ namespace GUI
                     if (SelectedStudent == null)
                         MessageBox.Show("Please choose a student to update!");
                     else {
-                        UpdateStudent updateStudent = new UpdateStudent(studentController);
+                        UpdateStudent updateStudent = new UpdateStudent(studentController, studentsSubjectsController);
                         updateStudent.Student = SelectedStudent;
                         updateStudent.Show();
 
