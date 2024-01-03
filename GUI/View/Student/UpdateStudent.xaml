@@ -135,8 +135,7 @@
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                             <Button Width="100" Margin="5" Content="Add" Click="Add_Subject" />
-                            <Button Width="100" Margin="5" Content="Delete"/>
-                            <!-- Click="Delete_Subject_Click" />-->
+                            <Button Width="100" Margin="5" Content="Delete" Click="Delete_Subject_Click" />
                             <Button Width="100" Margin="5" Content="Pass"/>
                             <!-- Click="Pass_Subject_Click" /> -->
                             <!-- <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> -->
@@ -146,9 +145,9 @@
            
             AutoGenerateColumns="False"
             x:Name="SubjectsDataGrid"
-            ItemsSource="{Binding attendingSubjects, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Subjects, UpdateSourceTrigger=PropertyChanged}"
             SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
-            SelectionMode="Single" IsReadOnly="True">
+            SelectionMode="Single" IsReadOnly="True" SelectionChanged="SubjectsDataGrid_SelectionChanged">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
                                 <DataGridTextColumn Header="Subject ID" Binding="{Binding Ids}" Width="*"/>
