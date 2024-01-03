@@ -19,11 +19,12 @@ namespace GUI.View
         private StudentsSubjectsController studentsSubjectsController { get; set; }
 
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
+        public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
         public SubjectDTO SelectedSubject { get; set; }
 
         public StudentDTO Student { get; set; }
         private SubjectsController subjectController { get; set; }
-        public SubjectList(StudentDTO Student, StudentsController studentController, StudentsSubjectsController studentsSubjectsController)
+        public SubjectList(StudentDTO Student, StudentsController studentController, StudentsSubjectsController studentsSubjectsController, ObservableCollection<SubjectDTO> attendingSubjects)
         {
             InitializeComponent();
             Subjects = new ObservableCollection<SubjectDTO>();
@@ -34,6 +35,7 @@ namespace GUI.View
 
             this.Student = Student;
             this.studentsSubjectsController = studentsSubjectsController;
+            attendingSubjects = new ObservableCollection<SubjectDTO>();
             DataContext = this;
 
 
@@ -58,7 +60,10 @@ namespace GUI.View
         {
             
             studentsSubjectsController.Add(Student.Id, SelectedSubject.Id);
+            attendingSubjects.Add(SelectedSubject);
             Close();
         }
+
+       
     }
 }

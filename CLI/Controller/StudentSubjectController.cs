@@ -10,11 +10,11 @@ namespace CLI.Controller
 {
     public class StudentsSubjectsController
     {
-        private readonly StudentsSubjectsDAO studentsSubjectsDAO;
+        private static StudentsSubjectsDAO studentsSubjectsDAO;
 
-        public StudentsSubjectsController(StudentsSubjectsDAO studentsSubjectsDAO)
+        public StudentsSubjectsController()
         {
-            this.studentsSubjectsDAO = studentsSubjectsDAO;
+            studentsSubjectsDAO = new StudentsSubjectsDAO();
 
         }
 

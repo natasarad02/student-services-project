@@ -141,7 +141,7 @@
            
             AutoGenerateColumns="False"
             x:Name="SubjectsDataGrid"
-            ItemsSource="{Binding Subjects, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding attendingSubjects, UpdateSourceTrigger=PropertyChanged}"
             SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
             SelectionMode="Single" IsReadOnly="True">
                             <DataGrid.Columns>

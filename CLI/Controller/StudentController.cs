@@ -12,11 +12,11 @@ namespace CLI.Controller
     public class StudentsController
     {
         private readonly StudentDAO studentDAO;
-        private readonly StudentsSubjectsDAO studentsSubjectsDAO;
+      
         public StudentsController()
         {
             studentDAO = new StudentDAO();
-            studentsSubjectsDAO = new StudentsSubjectsDAO();
+           
         }
 
         public List<Student> GetAllStudents()
@@ -48,10 +48,10 @@ namespace CLI.Controller
             studentDAO.save();
         }
 
-        public void AddStudentSubject(int id_student, int id_subject)
+       /* public void AddStudentSubject(int id_student, int id_subject)
         {
             studentDAO.addStudentSubject(studentsSubjectsDAO, id_student, id_subject);
-        }
+        }*/
     }
 }
 
