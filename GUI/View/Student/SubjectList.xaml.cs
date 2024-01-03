@@ -48,9 +48,28 @@ namespace GUI.View
         {
 
             Subjects.Clear();
+            bool subjectIsFound = false;
             foreach (Subject subject in subjectController.GetAllSubjects())
             {
-                Subjects.Add(new SubjectDTO(subject));
+                foreach (Subject attendingSubject in studentsSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
+                {
+                    if(attendingSubject.Id == subject.Id)
+                    {
+                        subjectIsFound = true;
+                        break;
+                    }
+                }
+
+                if (!subjectIsFound)
+                {
+                    if (subject.year >= Student.Current_Year)
+                    {
+                        Subjects.Add(new SubjectDTO(subject));
+                    }
+
+                }
+               
+                
             }
 
 
