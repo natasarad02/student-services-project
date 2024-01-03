@@ -36,6 +36,7 @@ namespace GUI
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
 
+       // public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
         public SubjectDTO  SelectedSubject { get; set; }
 
         private SubjectsController subjectController { get; set; }
@@ -73,7 +74,7 @@ namespace GUI
 
             studentsSubjectsController = new StudentsSubjectsController();
             studentsSubjectsController.Subscribe(this);
-
+            //attendingSubjects = new ObservableCollection<SubjectDTO>();
            
 
             Professors = new ObservableCollection<ProfessorDTO>();
@@ -177,7 +178,19 @@ namespace GUI
                 Departments.Add(new DepartmentDTO(department));
             }
 
-            
+           /* foreach (Student student in studentController.GetAllStudents())
+            {
+
+                attendingSubjects.Clear();
+                //int broj = studentsSubjectsController.GetAllSubjectsById(student.ID).Count;
+               // MessageBox.Show(broj.ToString());
+                foreach (Subject subject in studentsSubjectsController.GetAllSubjectsById(student.ID))
+                {
+                    attendingSubjects.Add(new SubjectDTO(subject));
+                }
+
+
+            }*/
 
 
 
@@ -285,8 +298,9 @@ namespace GUI
                     else {
                         UpdateStudent updateStudent = new UpdateStudent(studentController, studentsSubjectsController);
                         updateStudent.Student = SelectedStudent;
-                       // attendingSubjects = new ObservableCollection<SubjectDTO>();
-                        //updateStudent.attendingSubjects = attendingSubjects;
+                       // updateStudent.previousList = studentsSubjectsController.GetAllSubjectsById(SelectedStudent.Id);
+                        // attendingSubjects = new ObservableCollection<SubjectDTO>();
+                       // updateStudent.attendingSubjects = attendingSubjects;
                        
                         updateStudent.Show();
                        // updateStudent.Update();
