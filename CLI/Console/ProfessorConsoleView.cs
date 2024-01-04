@@ -11,7 +11,7 @@ namespace StudentskaSluzba.Console;
 
 class ProfessorConsoleView
 {
-    private readonly ProfessorDAO professorDAO;
+    private readonly ProfessorDAO professorDAO = new ProfessorDAO();
 
     public ProfessorConsoleView(ProfessorDAO profDAO)
     {
@@ -90,6 +90,7 @@ class ProfessorConsoleView
         System.Console.WriteLine("3: Update professor");
         System.Console.WriteLine("4: Remove professor");
         System.Console.WriteLine("5: List subjects that specific professor teaches");
+        System.Console.WriteLine("6: Show and sort professors");
         System.Console.WriteLine("0: Close");
     }
 
@@ -125,7 +126,30 @@ class ProfessorConsoleView
                     System.Console.WriteLine(subject);
                 }
                 break;
+            case "6":
+                sort();
+                break;
         }
+    }
+
+    public void sort()
+    {
+
+        System.Console.WriteLine("\nEnter page: ");
+        int page = ConsoleViewUtils.SafeInputInt();
+        System.Console.WriteLine("\nEnter page size: ");
+        int pageSize = ConsoleViewUtils.SafeInputInt();
+        System.Console.WriteLine("\nEnter sort criteria: ");
+        System.Console.WriteLine("\nPossible sort criterias: Id, Name, Last name, E-Mail");
+        string sortCriteria = System.Console.ReadLine() ?? string.Empty;
+        System.Console.WriteLine("\nEnter 0 for ascending, any key for descending: ");
+        int sortDirectionInput = ConsoleViewUtils.SafeInputInt();
+        SortDirection sortDirection = sortDirectionInput == 0 ? SortDirection.Ascending : SortDirection.Descending;
+
+        List<Professor> sorted_professors = professorDAO.sortedProfessor(page, pageSize, sortCriteria, sortDirection);
+
+        PrintProfessors(sorted_professors);
+
     }
     public void RunMenu()
     {

@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="Test.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CLI\CLI.csproj" />
   </ItemGroup>
 

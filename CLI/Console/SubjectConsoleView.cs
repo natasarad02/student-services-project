@@ -76,6 +76,7 @@ class SubjectConsoleView
         System.Console.WriteLine("6: Add students that take this subject");
         System.Console.WriteLine("7: Show students that passed the exam");
         System.Console.WriteLine("8: Student passed the exam - add grade");
+        System.Console.WriteLine("9: Show and sort subjects");
         System.Console.WriteLine("0: Close");
     }
 
@@ -210,7 +211,30 @@ class SubjectConsoleView
                 subjectDAO.grade(examGradeDAO, idss, subid, grade, studentDate);
                 studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid);
                 break;
+            case "9":
+                sort();
+                break;
         }
+    }
+
+    public void sort()
+    {
+
+        System.Console.WriteLine("\nEnter page: ");
+        int page = ConsoleViewUtils.SafeInputInt();
+        System.Console.WriteLine("\nEnter page size: ");
+        int pageSize = ConsoleViewUtils.SafeInputInt();
+        System.Console.WriteLine("\nEnter sort criteria: ");
+        System.Console.WriteLine("\nPossible sort criterias: Id, Ids, Name, ESPB, Year, Semester");
+        string sortCriteria = System.Console.ReadLine() ?? string.Empty;
+        System.Console.WriteLine("\nEnter 0 for ascending, any key for descending: ");
+        int sortDirectionInput = ConsoleViewUtils.SafeInputInt();
+        SortDirection sortDirection = sortDirectionInput == 0 ? SortDirection.Ascending : SortDirection.Descending;
+
+        List<Subject> sorted_subjects = subjectDAO.sortedSubject(page, pageSize, sortCriteria, sortDirection);
+
+        PrintSubjects(sorted_subjects);
+
     }
     public void RunMenu()
     {
