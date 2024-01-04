@@ -73,6 +73,7 @@ namespace GUI.View
         {
             Subject.ProfessorId = -1;
             Subject.ProfessorName = "";
+
             addProfessorButton.IsEnabled = true;
             deleteProfessorButton.IsEnabled = false;
         }
