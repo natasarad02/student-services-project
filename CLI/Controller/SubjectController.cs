@@ -45,5 +45,9 @@ namespace CLI.Controller
         {
             subjectsDAO.save();
         }
+
+        public Subject findSubjectById(int id) {
+            return subjectsDAO.GetSubjectById(id);
+        }
     }
 }

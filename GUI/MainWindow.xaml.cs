@@ -6,14 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Markup;
 using GUI.View;
 using System.Collections.ObjectModel;
 using StudentskaSluzba.Model;
@@ -310,22 +302,6 @@ namespace GUI
             {
                 Departments.Add(new DepartmentDTO(department));
             }
-
-
-           /* foreach (Student student in studentController.GetAllStudents())
-            {
-
-                attendingSubjects.Clear();
-                //int broj = studentsSubjectsController.GetAllSubjectsById(student.ID).Count;
-               // MessageBox.Show(broj.ToString());
-                foreach (Subject subject in studentsSubjectsController.GetAllSubjectsById(student.ID))
-                {
-                    attendingSubjects.Add(new SubjectDTO(subject));
-                }
-
-
-            }*/
-
 
 
 

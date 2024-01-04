@@ -54,6 +54,40 @@ namespace GUI.DTO
             }
         }
 
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
+        }
+
+        public int esbp;
+        public int Esbp
+        {
+            get { return esbp; }
+            set
+            {
+                esbp = value;
+                OnPropertyChanged("Espb");
+            }
+        }
+
+        private int subject_id;
+        public int Subject_ID
+        {
+            get { return subject_id; }
+            set
+            {
+                subject_id = value;
+                OnPropertyChanged("Subject_ID");
+            }
+        }
+
         public ExamGradeDTO() { }
 
         public ExamGradeDTO(ExamGrade examGrade) { 
@@ -63,12 +97,26 @@ namespace GUI.DTO
             gradingDay = examGrade.grading_day;
         }
 
-        public ExamGradeDTO(int studId, int subId, int gr, DateTime date)
+        public ExamGradeDTO(ExamGrade examGrade, string name, int esbp, int ID)
+        {
+            studentID = examGrade.studentID;
+            subjectID = examGrade.subjectID;
+            grade = examGrade.grade;
+            gradingDay = examGrade.grading_day;
+            this.name = name;
+            this.esbp = esbp;
+            this.subject_id = ID;
+        }
+
+        public ExamGradeDTO(int studId, int subId, int gr, DateTime date, string name, int esbp, int subject_ID)
         {
             studentID = studId;
             subjectID = subId;
             grade = gr;
             gradingDay = date;
+            this.name = name;
+            this.esbp = esbp;
+            this.subject_id = subject_ID;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
