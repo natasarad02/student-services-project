@@ -1,10 +1,7 @@
-0|123|Analiza 1|9|0|winter|1
-1|456|OET|9|1|winter|1
-2|127|Softversko inzenjerstvo|8|4|winter|4
-3|503|Algoritmi i strukture podataka|6|9|winter|1
-4|645|Web razvoj|4|9|winter|2
-5|321|Elektrotehnika|3|6|winter|3
-6|158|Matematika|9|9|winter|4
-7|792|Osnove racunarstva|7|9|winter|3
-8|917|Fizika|8|5|winter|2
-9|45566|pr|2|0|summer|1
+0|123|Analiza 1|9|-1|a|winter|1
+1|456|OET|9|-1|a|winter|1
+2|127|Softversko inzenjerstvo|8|-1|a|winter|4
+3|503|Algoritmi i strukture podataka|6|-1|b|winter|1
+4|645|Web razvoj|4|-1|a|winter|2
+5|321|Elektrotehnika|3|-1|a|summer|1
+7|729|Osnove racunarstva|7|-1|a|summer|3

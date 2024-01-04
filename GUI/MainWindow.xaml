@@ -143,7 +143,7 @@
                             <DataGridTextColumn Header="Espb" Binding="{Binding Espb}" Width="*"/>
                             <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="*"/>
                             <DataGridTextColumn Header="Semester" Binding="{Binding semester}" Width="*"/>
-                       </DataGrid.Columns>
+                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
                 <TabItem Header="Professors">

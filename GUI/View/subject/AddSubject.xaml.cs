@@ -45,6 +45,12 @@ namespace GUI.View
         {
             Close();
         }
+
+        private void Add_Professor(object sender, RoutedEventArgs e)
+        {
+            ProfessorList professorList = new ProfessorList(Subject, subjectController);
+            professorList.Show();
+        }
     }
 
 }

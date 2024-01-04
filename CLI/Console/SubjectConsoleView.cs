@@ -53,7 +53,7 @@ class SubjectConsoleView
         System.Console.WriteLine("Enter subject professor id: ");
         int professorId = ConsoleViewUtils.SafeInputInt(); 
 
-        return new Subject(id, name, espb, semester, schoolYear, professorId);
+        return new Subject(id, name, espb, semester, schoolYear);
     }
 
 

@@ -15,6 +15,7 @@ public class Subject : ISerializable
 
     public int ProfessorID { get; set; }
 
+    public string ProfessorName { get; set; }
     public List<Student> Students_passed { get; set; }
 
     public List<Student> Students_attending { get; set; }
@@ -30,15 +31,18 @@ public class Subject : ISerializable
     {
         Students_passed = new List<Student>();
         Students_attending = new List<Student>();
+        ProfessorID = -1;
+        ProfessorName = "";
     }
 
-    public Subject(int id, string name, int espb, semester SEM, int school_year, int professorId)
+    public Subject(int id, string name, int espb, semester SEM, int school_year)
     {
         Ids = id;
         Name = name;
         Espb = espb;
         semester = SEM;
-        ProfessorID = professorId; 
+       // ProfessorID = -1;
+       // ProfessorName = "";
         year = school_year;
         Students_passed = new List<Student>();
         Students_attending = new List<Student>();
@@ -54,6 +58,7 @@ public class Subject : ISerializable
             Espb.ToString(),
             //enum semestar
             ProfessorID.ToString(),
+            ProfessorName,
             semester.ToString(),
             year.ToString()
         };
@@ -67,7 +72,8 @@ public class Subject : ISerializable
         Name = values[2];
         Espb = int.Parse(values[3]);
         ProfessorID = int.Parse(values[4]);
-        if (values[5].Equals("summer"))
+        ProfessorName = values[5];
+        if (values[6].Equals("summer"))
         {
             semester = semester.summer;
         }
@@ -76,7 +82,7 @@ public class Subject : ISerializable
             semester = semester.winter;
         }
         //Enum.Parse(typeof(semester), values[5], true);
-        year = int.Parse(values[6]);
+        year = int.Parse(values[7]);
 
     }
 

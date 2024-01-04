@@ -69,6 +69,7 @@ namespace StudentskaSluzba.DAO
             oldSubject.semester = subject.semester;
             oldSubject.year = subject.year;
             oldSubject.ProfessorID = subject.ProfessorID;
+            oldSubject.ProfessorName = subject.ProfessorName; 
             oldSubject.Espb = subject.Espb;
             oldSubject.Students_passed = subject.Students_passed;
             oldSubject.Students_attending = subject.Students_attending;

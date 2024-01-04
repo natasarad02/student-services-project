@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
-        Title="AddSubject" Height="394" Width="400">
+        Title="AddSubject" Height="394" Width="420">
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -60,8 +60,9 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Professor ID:</Label>
-                <TextBox x:Name="txtProfessorID" Text="{Binding Path=Subject.ProfessorId, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <Label>Professor name:</Label>
+                <TextBox x:Name="txtProfessorName" Text="{Binding Path=Subject.ProfessorName, UpdateSourceTrigger=PropertyChanged}" Width="178" Height="33"></TextBox>
+                <Button Content="+" Height="33" Width="26" Click="Add_Professor"/>
             </StackPanel>
 
         </StackPanel>

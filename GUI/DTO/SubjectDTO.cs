@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Windows;
 using StudentskaSluzba.Model;
 
 
@@ -108,13 +109,30 @@ namespace GUI.DTO
             }
         }
 
+        private string professorName;
+        public string ProfessorName
+        {
+            get { return professorName; }
+            set
+            {
+                if (value != professorName)
+                {
+                    professorName = value;
+                    OnPropertyChanged("ProfessorName");
+                }
+            }
+        }
+
         public List<StudentDTO> Students_Passed { get; set; }
         public List<StudentDTO> Students_Attending { get; set; }
-
+        
         public Subject ToSubject()
         {
-            Subject s= new Subject(ids, name, espb, sem, year, professorId);
+            Subject s= new Subject(ids, name, espb, sem, year);
             s.Id = id;
+            s.ProfessorID = professorId;
+            s.ProfessorName = professorName;
+          
             return s;
         }
 
@@ -137,10 +155,13 @@ namespace GUI.DTO
             espb = subject.Espb;
             sem = subject.semester;
             year = subject.year;
-            professorId = subject.ProfessorID;
+           // professorId = subject.ProfessorID;
             Students_Passed = new List<StudentDTO>();
             Students_Attending = new List<StudentDTO>();
             id = subject.Id;
+            professorId = subject.ProfessorID;
+            professorName = subject.ProfessorName;
+           
         }
 
         
