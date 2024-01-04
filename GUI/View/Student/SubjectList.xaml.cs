@@ -80,7 +80,7 @@ namespace GUI.View
         {
             
             studentsSubjectsController.Add(Student.Id, SelectedSubject.Id);
-            attendingSubjects.Add(SelectedSubject);
+            //attendingSubjects.Add(SelectedSubject);
             Close();
         }
 

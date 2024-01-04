@@ -21,14 +21,14 @@ namespace GUI.View
     public partial class UpdateStudent : Window, INotifyPropertyChanged, IObserver
     {
         public StudentDTO Student { get; set; }
-
+        public SubjectDTO SelectedSubject { get; set; }
         private StudentsController studentController;
         private SubjectsController subjectsController;
         private StudentsSubjectsController studentSubjectsController;
-        public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
+        public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public List<Subject> previousList { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
-        
+        private bool isUpdate = false;
         private ExamGradesController examGradesController { get; set; }
 
         public ObservableCollection<ExamGradeDTO> Grades { get; set; }
@@ -56,13 +56,13 @@ namespace GUI.View
             this.studentController = studentController;
             this.studentSubjectsController = studentSubjectsController;
             
-           // subjectsController = new SubjectsController();
+            subjectsController = new SubjectsController();
 
 
-            attendingSubjects = new ObservableCollection<SubjectDTO>();
+            Subjects = new ObservableCollection<SubjectDTO>();
 
-            // studentSubjectsController.Subscribe(this);
-            //subjectsController.Subscribe(this);
+            studentSubjectsController.Subscribe(this);
+            subjectsController.Subscribe(this);
             //
 
 
@@ -98,7 +98,7 @@ namespace GUI.View
         private void Add_Subject(object sender, RoutedEventArgs e)
         {
             SubjectList subjectList = new SubjectList(Student, studentController, studentSubjectsController);
-            subjectList.attendingSubjects = attendingSubjects;
+            subjectList.attendingSubjects = Subjects;
             //;
             
             subjectList.Show();
@@ -106,12 +106,12 @@ namespace GUI.View
 
         public void Update()
         {
-            attendingSubjects.Clear();
+            Subjects.Clear();
 
 
             foreach (Subject subject in studentSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
             {
-                attendingSubjects.Add(new SubjectDTO(subject));
+                Subjects.Add(new SubjectDTO(subject));
             }
 
             Grades.Clear();
@@ -134,12 +134,33 @@ namespace GUI.View
                 int tabIndex = TabUpdate.SelectedIndex;
 
                 // Check if the selected tab is the "Subjects" tab
-                if (tabIndex == 1)
+                if (tabIndex == 1 && isUpdate == false)
                 {
                     // Trigger the Update() method
-                    Update();
+                    
+                        // Trigger the Update() method
+                        Update();
+                        isUpdate = true;
+                        //SelectedSubject = new SubjectDTO();
+                    
+
+                    //SelectedSubject = new SubjectDTO();
                 }
             }
+        }
+
+
+        private void SubjectsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        public void Delete_Subject_Click(object sender, RoutedEventArgs e)
+        {
+            studentSubjectsController.Delete(Student.Id, SelectedSubject.Id);
+            Subjects.Remove(SelectedSubject);
+           
+
         }
     }
 
