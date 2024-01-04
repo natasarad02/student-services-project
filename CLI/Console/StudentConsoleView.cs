@@ -100,6 +100,7 @@ class StudentConsoleView
         System.Console.WriteLine("7: Show grades from specific student");
         System.Console.WriteLine("8: Student passed an exam - add grade");
         System.Console.WriteLine("9: Show average grade for specific student");
+        System.Console.WriteLine("10: Show and sort students");
         System.Console.WriteLine("0: Close");
     }
 
@@ -203,15 +204,7 @@ class StudentConsoleView
                 System.Console.WriteLine("Enter date in format mm/dd/yyyy:" );
                 DateTime studentDate = DateTime.Parse(System.Console.ReadLine());
 
-              /*  ExamGrade exam_tmp = new ExamGrade(idss, subid, grade, studentDate);
-                examGradeDAO.AddExamGrade(exam_tmp);
-                // save?
-                if (examGradeDAO.grade_exists(idss, subid))
-                {
-                    studentsSubjectsDAO.RemoveStudentsSubjects(idss, subid);
-                    // save?
-
-                }*/
+              
                 studentDAO.grade(examGradeDAO, idss, subid, grade, studentDate);
                 if (studentsSubjectsDAO.doesConnectionExist(idss, subid)) 
                 { 
@@ -238,9 +231,32 @@ class StudentConsoleView
                     System.Console.WriteLine("This student has no grades yet.");
                 }
                 break;
+            case "10":
+                sort();
+                break;
 
         }
     }
+
+    public void sort() {
+
+        System.Console.WriteLine("\nEnter page: ");
+        int page = ConsoleViewUtils.SafeInputInt();
+        System.Console.WriteLine("\nEnter page size: ");
+        int pageSize = ConsoleViewUtils.SafeInputInt();
+        System.Console.WriteLine("\nEnter sort criteria: ");
+        System.Console.WriteLine("\nPossible sort criterias: Id, Name, Last name, Current year, Status, Average grade");
+        string sortCriteria = System.Console.ReadLine() ?? string.Empty;
+        System.Console.WriteLine("\nEnter 0 for ascending, any key for descending: ");
+        int sortDirectionInput = ConsoleViewUtils.SafeInputInt();
+        SortDirection sortDirection = sortDirectionInput == 0 ? SortDirection.Ascending : SortDirection.Descending;
+
+        List<Student> sorted_students = studentDAO.sortedStudent(page, pageSize, sortCriteria, sortDirection);
+
+        PrintStudents(sorted_students);
+
+    }
+
     public void RunMenu()
     {
         while(true)
@@ -259,7 +275,6 @@ class StudentConsoleView
 
     }
 
-    // ovde je problem kod novog studenta
     private void RemoveStudent()
     {
         int id = InputId();
@@ -278,10 +293,10 @@ class StudentConsoleView
         foreach(ExamGrade grade in grades)
         {
 
-            System.Console.WriteLine(grade); //radi ali treba obrisati; 
+            System.Console.WriteLine(grade);
 
            
-            examGradeDAO.RemoveExamGrade(grade.ID); //NE radi BITNO
+            examGradeDAO.RemoveExamGrade(grade.ID); 
 
         }
   

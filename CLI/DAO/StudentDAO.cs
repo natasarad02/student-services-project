@@ -10,6 +10,7 @@ using CLI.Observer;
 using System.Xml.Linq;
 
 namespace StudentskaSluzba.DAO;
+
 public class StudentDAO
 {
     private readonly List<Student> students;
@@ -114,9 +115,6 @@ public class StudentDAO
         StudentsSubjects connection = new StudentsSubjects(id_student, id_subject);
         studSubDAO.AddStudentsSubjects(connection);
         
-       // storage.Save(students);
-        // save?
-        
     }
 
     public List<ExamGrade> GetExamGrades(int studID)
@@ -129,13 +127,7 @@ public class StudentDAO
 
         ExamGrade exam = new ExamGrade(student, subject, grade, date);
         examGrDAO.AddExamGrade(exam);
-        // save?
-      /*  if(examGrDAO.grade_exists(student, subject))
-        {
-            studentsSubjectsDAO.RemoveStudentsSubjects(student, subject);
-            // save?
-            
-        }*/
+        
     }
 
   
@@ -164,6 +156,43 @@ public class StudentDAO
         {
             return true;
         }
+    }
+
+    public List<Student> sortedStudent(int page, int pageSize, string sortCriteria, SortDirection sortDirection)
+    {
+        IEnumerable<Student> sstudents = students;
+
+        switch (sortCriteria)
+        {
+            case "Id":
+                sstudents = students.OrderBy(x => x.ID); 
+                break;
+            case "Name":
+                sstudents = students.OrderBy(x => x.First_Name);
+                break;
+            case "Last name":
+                sstudents = students.OrderBy(x => x.Last_Name);
+                break;
+            case "Current year":
+                sstudents = students.OrderBy(x => x.Current_Year);
+                break;
+            case "Status":
+                sstudents = students.OrderBy(x => x.Status);
+                break;
+            case "Average grade": //smisliti kako, mozda za svakog studenta set average grade i onda poredjati?
+                foreach (Student s in students) {
+                    s.Average_Grade = average_grade(s.ID);
+                }
+                sstudents = students.OrderBy(x => x.Average_Grade);
+                break;
+        }
+
+        if (sortDirection == SortDirection.Descending)
+            sstudents = sstudents.Reverse();
+
+        sstudents = sstudents.Skip((page - 1) * pageSize).Take(pageSize);
+
+        return sstudents.ToList();
     }
 
 }

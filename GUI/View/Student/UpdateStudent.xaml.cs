@@ -42,13 +42,7 @@ namespace GUI.View
 
            
             subjectsController = new SubjectsController();
-           // subjectsController.Subscribe(this);
-
-
-            // subjectsController = new SubjectsController();
-            //subjectsController.Subscribe(this);
-
-
+           
             Grades = new ObservableCollection<ExamGradeDTO>();
             examGradesController = new ExamGradesController();
             examGradesController.Subscribe(this);
@@ -63,19 +57,10 @@ namespace GUI.View
 
             studentSubjectsController.Subscribe(this);
             subjectsController.Subscribe(this);
-            //
-
+         
 
             TabUpdate.SelectionChanged += TabUpdate_SelectionChanged;
-            /* if (TabUpdate.SelectedItem is TabItem selectedTab && selectedTab.Header.ToString() == "Subjects")
-             {
-                 Update();
-             }*/
-
-            // previousList = new List<Subject>();
-            // previousList = studentSubjectsController.GetAllSubjectsById(Student.Id);
-
-
+            
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -99,8 +84,7 @@ namespace GUI.View
         {
             SubjectList subjectList = new SubjectList(Student, studentController, studentSubjectsController);
             subjectList.attendingSubjects = Subjects;
-            //;
-            
+                        
             subjectList.Show();
         }
 

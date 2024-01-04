@@ -1,6 +1,6 @@
 ﻿namespace StudentskaSluzba.DAO;
 
-enum SortDirection
+public enum SortDirection
 {
     Ascending,
     Descending
