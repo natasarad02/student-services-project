@@ -111,6 +111,36 @@ namespace StudentskaSluzba.DAO
             Professor professor = GetProfessorById(id);
             return professor != null;
         }
-        
+
+        public List<Professor> sortedProfessor(int page, int pageSize, string sortCriteria, SortDirection sortDirection)
+        {
+            IEnumerable<Professor> sprofessors = professors;
+
+            switch (sortCriteria)
+            {
+                case "Id":
+                    sprofessors = professors.OrderBy(x => x.Id);
+                    break;
+                case "Name":
+                    sprofessors = professors.OrderBy(x => x.Name);
+                    break;
+                case "Last name":
+                    sprofessors = professors.OrderBy(x => x.Surname);
+                    break;
+                case "Calling":
+                    sprofessors = sprofessors.OrderBy(x => x.calling);
+                    break;
+                case "E-Mail":
+                    sprofessors = sprofessors.OrderBy(x => x.email_address);
+                    break;
+            }
+
+            if (sortDirection == SortDirection.Descending)
+                sprofessors = sprofessors.Reverse();
+
+            sprofessors = sprofessors.Skip((page - 1) * pageSize).Take(pageSize);
+
+            return sprofessors.ToList();
+        }
     }
 }

@@ -141,6 +141,41 @@ namespace StudentskaSluzba.DAO
             }
         }
 
+        public List<Subject> sortedSubject(int page, int pageSize, string sortCriteria, SortDirection sortDirection)
+        {
+            IEnumerable<Subject> ssubjects = subjects;
+
+            switch (sortCriteria)
+            {
+                case "Id":
+                    ssubjects = subjects.OrderBy(x => x.Id);
+                    break;
+
+                case "Ids":
+                    ssubjects = subjects.OrderBy(x => x.Ids);
+                    break;
+                case "Name":
+                    ssubjects = subjects.OrderBy(x => x.Name);
+                    break;
+                case "ESPB":
+                    ssubjects = subjects.OrderBy(x => x.Espb);
+                    break;
+                case "Year":
+                    ssubjects = subjects.OrderBy(x => x.year);
+                    break;
+                case "Semester":
+                    ssubjects = subjects.OrderBy(x => x.semester);
+                    break;
+            }
+
+            if (sortDirection == SortDirection.Descending)
+                ssubjects = ssubjects.Reverse();
+
+            ssubjects = ssubjects.Skip((page - 1) * pageSize).Take(pageSize);
+
+            return ssubjects.ToList();
+        }
+
 
 
     }

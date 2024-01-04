@@ -9,6 +9,7 @@ using StudentskaSluzba.Model;
 using System.Collections.ObjectModel;
 using GUI.DTO;
 using CLI.Observer;
+using System.Collections.Generic;
 
 namespace GUI.View
 {
@@ -47,30 +48,45 @@ namespace GUI.View
         public void Update()
         {
 
-            Subjects.Clear();
-            bool subjectIsFound = false;
+           Subjects.Clear();
+            // bool subjectIsFound = false;
+
+            List<Subject> tmpSubjectList = new List<Subject>();//subjectController.GetAllSubjects();
             foreach (Subject subject in subjectController.GetAllSubjects())
             {
+                if (subject.year >= Student.Current_Year)
+                {
+                    tmpSubjectList.Add(subject);
+                }
+            }
+            foreach (Subject subject in subjectController.GetAllSubjects())
+            {
+
+
+               // MessageBox.Show(subject.Id.ToString());
                 foreach (Subject attendingSubject in studentsSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
                 {
-                    if(attendingSubject.Id == subject.Id)
+
+
+                   // MessageBox.Show(attendingSubject.Id.ToString());
+                    if(subject.Id == attendingSubject.Id)
                     {
-                        subjectIsFound = true;
+
+                        //subjectIsFound = true;
+                       // MessageBox.Show("Predmet je pronadjen");
+                        tmpSubjectList.Remove(subject);
                         break;
-                    }
-                }
-
-                if (!subjectIsFound)
-                {
-                    if (subject.year >= Student.Current_Year)
-                    {
-                        Subjects.Add(new SubjectDTO(subject));
+                        
                     }
 
-                }
+
+
+                }        
                
                 
             }
+            foreach(Subject subject in tmpSubjectList)
+                Subjects.Add(new SubjectDTO(subject));
 
 
 
