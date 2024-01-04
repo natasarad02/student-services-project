@@ -31,7 +31,7 @@ namespace GUI.DTO
 
         private int subjectID;
 
-        public int SubjectID
+        public int SubjectID //stvarni id
         {
             get { return subjectID; }
             set
@@ -89,7 +89,7 @@ namespace GUI.DTO
         }
 
         private int subject_id;
-        public int Subject_ID
+        public int Subject_ID //sifra
         {
             get { return subject_id; }
             set
@@ -119,6 +119,18 @@ namespace GUI.DTO
             this.name = name;
             this.esbp = esbp;
             this.subject_id = ID;
+        }
+
+        public ExamGrade toExam() 
+        {
+            ExamGrade ex = new ExamGrade();
+            ex.subjectID = this.subjectID;
+            ex.grade = this.grade;
+            ex.grading_day = gradingDay;
+            ex.studentID = this.studentID;
+            ex.ID = myId;
+
+            return ex;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

@@ -156,6 +156,18 @@ namespace GUI.View
 
         }
 
+        public void Pass_Subject_Click(object sender, RoutedEventArgs e) {
+            if (SelectedGrade == null)
+            {
+                MessageBox.Show("Please choose a subject in order to pass this");
+            }
+            else
+            {
+                GradeStudent gradeStudent = new GradeStudent(examGradesController, SelectedSubject, Student); //pokusaj
+                gradeStudent.Show();
+            }
+        }
+
     }
 
 }
