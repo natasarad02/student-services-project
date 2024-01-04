@@ -6,6 +6,17 @@ namespace GUI.DTO
 {
     public class ExamGradeDTO : INotifyPropertyChanged
     {
+        private int myId;
+
+        public int MyId
+        { 
+            get { return myId; } 
+            set {  myId = value; 
+                   OnPropertyChanged("MyId");
+                }
+        }
+
+
         private int studentID;
 
         public int StudentID
@@ -90,7 +101,8 @@ namespace GUI.DTO
 
         public ExamGradeDTO() { }
 
-        public ExamGradeDTO(ExamGrade examGrade) { 
+        public ExamGradeDTO(ExamGrade examGrade) {
+            myId = examGrade.ID;
             studentID = examGrade.studentID;
             subjectID = examGrade.subjectID;    
             grade = examGrade.grade;
@@ -99,6 +111,7 @@ namespace GUI.DTO
 
         public ExamGradeDTO(ExamGrade examGrade, string name, int esbp, int ID)
         {
+            myId = examGrade.ID;
             studentID = examGrade.studentID;
             subjectID = examGrade.subjectID;
             grade = examGrade.grade;
@@ -106,17 +119,6 @@ namespace GUI.DTO
             this.name = name;
             this.esbp = esbp;
             this.subject_id = ID;
-        }
-
-        public ExamGradeDTO(int studId, int subId, int gr, DateTime date, string name, int esbp, int subject_ID)
-        {
-            studentID = studId;
-            subjectID = subId;
-            grade = gr;
-            gradingDay = date;
-            this.name = name;
-            this.esbp = esbp;
-            this.subject_id = subject_ID;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

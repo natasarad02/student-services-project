@@ -22,6 +22,9 @@ namespace GUI.View
     {
         public StudentDTO Student { get; set; }
         public SubjectDTO SelectedSubject { get; set; }
+
+        public ExamGradeDTO SelectedGrade { get; set; }
+
         private StudentsController studentController;
         private SubjectsController subjectsController;
         private StudentsSubjectsController studentSubjectsController;
@@ -137,8 +140,22 @@ namespace GUI.View
             studentSubjectsController.Delete(Student.Id, SelectedSubject.Id);
             Subjects.Remove(SelectedSubject);
            
+        }
+
+        public void Delete_Grade_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedGrade == null) {
+                MessageBox.Show("Please choose a grade to delete");
+            }
+            else
+            {
+                DeleteGrade deleteGrade = new DeleteGrade(examGradesController);
+                deleteGrade.exam = SelectedGrade;
+                deleteGrade.Show();
+            }
 
         }
+
     }
 
 }

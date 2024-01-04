@@ -191,8 +191,7 @@
 
                         </StackPanel>
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                                <Button Width="100" Margin="5" Content="Add Grade" />
-                                <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+                                <Button Width="100" Margin="5" Content="Delete Grade" Click="Delete_Grade_Click"/>
                             </StackPanel>
                         </StackPanel>
 
