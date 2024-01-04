@@ -91,45 +91,38 @@ namespace GUI.View
         public void Update()
         {
             Subjects.Clear();
-
-
             foreach (Subject subject in studentSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
             {
                 Subjects.Add(new SubjectDTO(subject));
             }
 
             Grades.Clear();
-                foreach (ExamGrade examGrade in examGradesController.getGradesForStudent(Student.Id)) {
-                    Grades.Add(new ExamGradeDTO(examGrade));
-                    //kako dodati ime predmeta?
-                }
-            
+            foreach (ExamGrade examGrade in examGradesController.getGradesForStudent(Student.Id)) 
+            {
+                Subject subject = subjectsController.findSubjectById(examGrade.subjectID);
+                Grades.Add(new ExamGradeDTO(examGrade, subject.Name, subject.Espb, subject.Ids));
+            }
+
         }
 
-
-
-
-        
         private void TabUpdate_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (TabUpdate.SelectedItem is TabItem selectedTab && selectedTab.Header.ToString() == "Subjects")
             {
-                // Get the index of the selected tab
                 int tabIndex = TabUpdate.SelectedIndex;
 
-                // Check if the selected tab is the "Subjects" tab
                 if (tabIndex == 1 && isUpdate == false)
                 {
-                    // Trigger the Update() method
-                    
-                        // Trigger the Update() method
                         Update();
                         isUpdate = true;
-                        //SelectedSubject = new SubjectDTO();
-                    
-
-                    //SelectedSubject = new SubjectDTO();
                 }
+
+                if (tabIndex == 2 && isUpdate == false)
+                { 
+                        Update();
+                        isUpdate = true;
+                }
+
             }
         }
 

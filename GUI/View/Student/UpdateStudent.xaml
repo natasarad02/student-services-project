@@ -171,25 +171,21 @@
                         <ColumnDefinition Width="39*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.ColumnSpan="2">
-                        <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Label>Ova opcija nije implementirana u ovoj verziji</Label>
-                        </StackPanel>
+                        
                         <StackPanel>
                             <DataGrid Background="#FFE5E5E5"
                                       AutoGenerateColumns="False"
-                                      x:Name="StudentDataGrid"
-                                      ItemsSource="{Binding Students, UpdateSourceTrigger=PropertyChanged}"
-                                      SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
+                                      x:Name="GradesDataGrid"
+                                      ItemsSource="{Binding Grades, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedItem="{Binding SelectedGrade, UpdateSourceTrigger=PropertyChanged}"
                                       SelectionMode="Single" IsReadOnly="True" >
                                 <!-- SelectionChanged="StudentDataGrid_SelectionChanged" -->
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Id" Width="*"/>
-                                    <DataGridTextColumn Header="Subject Id" Width="*"/>
-                                    <DataGridTextColumn Header="Subject name" Width="*"/>
-                                    <DataGridTextColumn Header="ESPB" Width="*"/>
-                                    <DataGridTextColumn Header="Date of Grading" Width="*"/>
-                                    <DataGridTextColumn Header="Grade" Width="*"/>
-
+                                    <DataGridTextColumn Header="Subject Id" Binding="{Binding Subject_ID}" Width="*"/>
+                                    <DataGridTextColumn Header="Subject name" Binding="{Binding Name}" Width="*"/>
+                                    <DataGridTextColumn Header="ESPB" Binding="{Binding Esbp}" Width="*" />
+                                    <DataGridTextColumn Header="Date of Grading" Binding="{Binding GradingDay}" Width="*"/>
+                                    <DataGridTextColumn Header="Grade" Binding="{Binding Grade}" Width="*"/>
                                 </DataGrid.Columns>
                             </DataGrid>
 
