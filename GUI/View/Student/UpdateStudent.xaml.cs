@@ -157,7 +157,7 @@ namespace GUI.View
         }
 
         public void Pass_Subject_Click(object sender, RoutedEventArgs e) {
-            if (SelectedGrade == null)
+            if (SelectedSubject == null)
             {
                 MessageBox.Show("Please choose a subject in order to pass this");
             }
