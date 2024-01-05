@@ -199,38 +199,6 @@
                 </Grid>
 
             </TabItem>
-            <TabItem Header="Professors" Margin="-2,-2,-2,0">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="39*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.ColumnSpan="2">
-
-                        <StackPanel>
-                            <DataGrid Background="#FFE5E5E5"
-            
-             AutoGenerateColumns="False"
-             x:Name="ProfessorsDataGrid"
-             ItemsSource="{Binding Professors, UpdateSourceTrigger=PropertyChanged}"
-             SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
-             SelectionMode="Single" IsReadOnly="True">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
-                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
-                                    <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" Width="*"/>
-                                    <DataGridTextColumn Header="Calling" Binding="{Binding Calling}" Width="*"/>
-                                    <DataGridTextColumn Header="E-Mail" Binding="{Binding Email_Address}" Width="*"/>
-                                </DataGrid.Columns>
-                            </DataGrid>
-
-                        </StackPanel>
-
-                    </StackPanel>
-
-                </Grid>
-
-            </TabItem>
 
         </TabControl>
 
