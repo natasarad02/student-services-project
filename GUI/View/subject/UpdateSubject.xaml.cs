@@ -19,14 +19,16 @@ namespace GUI.View
         public SubjectDTO Subject { get; set; }
 
         private SubjectsController subjectController;
+        private ProfessorsController professorsController { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public UpdateSubject(SubjectDTO Subject, SubjectsController subjectController)
+        public UpdateSubject(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorsController)
         {
             InitializeComponent();
             DataContext = this;
             this.Subject = Subject;
             this.subjectController = subjectController;
+            this.professorsController = professorsController;
             // oldSubject = existingSubject.Clone();
             if (Subject.ProfessorName.Equals(""))
             { 
@@ -63,7 +65,7 @@ namespace GUI.View
 
         private void Add_Professor(object sender, RoutedEventArgs e)
         {
-            ProfessorList professorList = new ProfessorList(Subject, subjectController);
+            ProfessorList professorList = new ProfessorList(Subject, subjectController, professorsController);
             professorList.Show();
             addProfessorButton.IsEnabled = false;
             deleteProfessorButton.IsEnabled = true;

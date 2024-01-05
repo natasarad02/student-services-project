@@ -1,11 +1,15 @@
-0|123|Analiza 1|9|6|Stefan Đorđev|winter|1
+0|123|Analiza 1|9|5|Milica Pavlović|winter|1
 1|456|OET|9|0|Mitar Mitrovic|winter|1
 2|127|Softversko inzenjerstvo|8|6|Stefan Đorđev|winter|4
 3|503|Algoritmi i strukture podataka|6|-1|b|winter|1
 4|645|Web razvoj|4|6|Stefan Đorđev|winter|2
 5|321|Elektrotehnika|3|8|Nikola Petrović|summer|1
-7|729|Osnove racunarstva|7|9|Jelena Jovanov|summer|3
+7|729|Osnove racunarstva|7|3|Bojana Nikolic|summer|3
 8|56565656||0|7|Ana Ivanović|winter|0
 9|121212454||0|-1|Nikola Petrović|winter|0
 10|0||0|5|Milica Pavlović|winter|0
 11|1313145||0|6|Stefan Đorđev|winter|0
+12|121212||0|7|Ana Ivanović|winter|1
+13|33333||0|0||winter|1
+14|12121277||0|0||winter|1
+15|122121211||0|0||winter|1

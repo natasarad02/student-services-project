@@ -260,7 +260,7 @@ namespace GUI
                            addStudent.Show();
                            break;
                        case 1:
-                           AddSubject addSubject = new AddSubject(subjectController);
+                           AddSubject addSubject = new AddSubject(subjectController, professorController);
                            addSubject.Show();
                            break;
                        case 2:
@@ -422,7 +422,7 @@ namespace GUI
                         MessageBox.Show("Please choose a subject to update");
                     else
                     {
-                        UpdateSubject updateSubject = new UpdateSubject(SelectedSubject, subjectController);
+                        UpdateSubject updateSubject = new UpdateSubject(SelectedSubject, subjectController, professorController);
                         //updateSubject.Subject = SelectedSubject;
                         updateSubject.Show();
                      }

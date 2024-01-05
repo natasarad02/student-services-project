@@ -25,11 +25,11 @@ namespace GUI.View
 
         public SubjectDTO Subject { get; set; }
         private ProfessorsController professorController { get; set; }
-        public ProfessorList(SubjectDTO Subject, SubjectsController subjectController)
+        public ProfessorList(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorController)
         {
             InitializeComponent();
             Professors = new ObservableCollection<ProfessorDTO>();
-            professorController = new ProfessorsController();
+            this.professorController = professorController;
             professorController.Subscribe(this);
             this.subjectController = subjectController;
 
@@ -46,45 +46,10 @@ namespace GUI.View
         {
 
             Professors.Clear();
-            // bool subjectIsFound = false;
+            
 
             List<Professor> tmpProfessorList = new List<Professor>();//subjectController.GetAllSubjects();
-            /*foreach (Subject subject in subjectController.GetAllSubjects())
-            {
-                if (subject.year >= Student.Current_Year)
-                {
-                    tmpSubjectList.Add(subject);
-                }
-            }
-            foreach (Subject subject in subjectController.GetAllSubjects())
-            {
-
-
-                // MessageBox.Show(subject.Id.ToString());
-                foreach (Subject attendingSubject in studentsSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
-                {
-
-
-                    // MessageBox.Show(attendingSubject.Id.ToString());
-                    if (subject.Id == attendingSubject.Id)
-                    {
-
-                        //subjectIsFound = true;
-                        // MessageBox.Show("Predmet je pronadjen");
-                        tmpSubjectList.Remove(subject);
-                        break;
-
-                    }
-
-
-
-                }
-
-
-            }
-            foreach (Subject subject in tmpSubjectList)
-                Subjects.Add(new SubjectDTO(subject));
-            */
+           
 
             foreach(Professor professor in professorController.GetAllProfessors())
                 Professors.Add(new ProfessorDTO(professor));

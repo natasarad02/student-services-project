@@ -93,7 +93,7 @@ namespace GUI.View
 
         private void Add_Subject(object sender, RoutedEventArgs e)
         {
-            SubjectList subjectList = new SubjectList(Student, studentController, studentSubjectsController);
+            SubjectList subjectList = new SubjectList(Student, studentController, studentSubjectsController, subjectsController);
             subjectList.attendingSubjects = Subjects;
                         
             subjectList.Show();

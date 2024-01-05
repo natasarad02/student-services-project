@@ -5,3 +5,4 @@
 4|645|Web razvoj|4|-1|a|winter|2
 5|321|Elektrotehnika|3|-1|a|summer|1
 7|729|Osnove racunarstva|7|-1|a|summer|3
+8|282828|aa|2|0||winter|2002

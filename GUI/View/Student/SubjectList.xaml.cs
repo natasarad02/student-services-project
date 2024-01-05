@@ -26,11 +26,11 @@ namespace GUI.View
 
         public StudentDTO Student { get; set; }
         private SubjectsController subjectController { get; set; }
-        public SubjectList(StudentDTO Student, StudentsController studentController, StudentsSubjectsController studentsSubjectsController)
+        public SubjectList(StudentDTO Student, StudentsController studentController, StudentsSubjectsController studentsSubjectsController, SubjectsController subjectController)
         {
             InitializeComponent();
             Subjects = new ObservableCollection<SubjectDTO>();
-            subjectController = new SubjectsController();
+            this.subjectController = subjectController;
             subjectController.Subscribe(this);
             studentsController = studentController;
 

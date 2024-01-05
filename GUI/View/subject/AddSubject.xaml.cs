@@ -16,14 +16,14 @@ namespace GUI.View
         public SubjectDTO Subject { get; set; }
         private SubjectsController subjectController;
         public event PropertyChangedEventHandler? PropertyChanged;
-
-        public AddSubject(SubjectsController subjectController)
+        private ProfessorsController professorsController;
+        public AddSubject(SubjectsController subjectController, ProfessorsController professorsController)
         {
             InitializeComponent();
             DataContext = this;
             Subject = new SubjectDTO();
             this.subjectController = subjectController;
-
+            this.professorsController = professorsController;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -48,7 +48,7 @@ namespace GUI.View
 
         private void Add_Professor(object sender, RoutedEventArgs e)
         {
-            ProfessorList professorList = new ProfessorList(Subject, subjectController);
+            ProfessorList professorList = new ProfessorList(Subject, subjectController, professorsController);
             professorList.Show();
         }
     }
