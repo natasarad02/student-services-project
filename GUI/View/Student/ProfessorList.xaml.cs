@@ -52,7 +52,7 @@ namespace GUI.View
             Professors.Clear();
 
 
-            foreach (Subject subject in studentsSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
+            foreach (Subject subject in studentsSubjectsController.GetAllSubjectsByStudent(Student.toStudent(), subjectController))
             {
 
                 bool duplicate = false;

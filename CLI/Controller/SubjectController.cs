@@ -66,5 +66,13 @@ namespace CLI.Controller
 
             
         }
+
+        public Subject GetSubjectById(int subjectId)
+        {
+            return subjectsDAO.GetSubjectById(subjectId);
+        }
+
+
+
     }
 }

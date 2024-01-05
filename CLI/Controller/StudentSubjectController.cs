@@ -45,10 +45,25 @@ namespace CLI.Controller
             studentsSubjectsDAO.save();
         }
 
-        public List<Subject> GetAllSubjectsByStudent(Student student)
+        public List<Subject> GetAllSubjectsByStudent(Student student, SubjectsController subjectsController)
         {
-            int id = student.ID;
-            return studentsSubjectsDAO.GetSubjects(id);
+            List<int> subjectIds = new List<int>();
+
+            List<StudentsSubjects> temp = GetAllStudentsSubjects().FindAll(s => s.studentID == student.ID);
+
+            foreach (StudentsSubjects s in temp)
+            {
+                subjectIds.Add(s.subjectID);
+            }
+
+            List<Subject> subjects = new List<Subject>();
+
+            foreach (int subjectId in subjectIds)
+            {
+                subjects.Add(subjectsController.GetSubjectById(subjectId));
+            }
+
+            return subjects;
         }
 
     }

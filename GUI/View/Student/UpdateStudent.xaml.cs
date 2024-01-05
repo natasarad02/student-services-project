@@ -103,7 +103,7 @@ namespace GUI.View
         public void Update()
         {
             Subjects.Clear();
-            foreach (Subject subject in studentSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
+            foreach (Subject subject in studentSubjectsController.GetAllSubjectsByStudent(Student.toStudent(), subjectsController))
             {
                 Subjects.Add(new SubjectDTO(subject));
             }

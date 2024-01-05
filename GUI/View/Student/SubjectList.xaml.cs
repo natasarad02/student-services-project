@@ -38,6 +38,7 @@ namespace GUI.View
             this.Student = Student;
             this.studentsSubjectsController = studentsSubjectsController;
             //this.attendingSubjects = attendingSubjects;
+            studentsSubjectsController.Subscribe(this);
             DataContext = this;
 
 
@@ -54,7 +55,7 @@ namespace GUI.View
             List<Subject> tmpSubjectList = new List<Subject>();//subjectController.GetAllSubjects();
             foreach (Subject subject in subjectController.GetAllSubjects())
             {
-                if (subject.year >= Student.Current_Year)
+                if (subject.year <= Student.Current_Year)
                 {
                     tmpSubjectList.Add(subject);
                 }
@@ -64,7 +65,7 @@ namespace GUI.View
 
 
                // MessageBox.Show(subject.Id.ToString());
-                foreach (Subject attendingSubject in studentsSubjectsController.GetAllSubjectsByStudent(Student.toStudent()))
+                foreach (Subject attendingSubject in studentsSubjectsController.GetAllSubjectsByStudent(Student.toStudent(), subjectController))
                 {
 
 

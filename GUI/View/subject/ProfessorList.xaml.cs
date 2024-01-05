@@ -17,6 +17,7 @@ namespace GUI.View
     {
 
         private SubjectsController subjectController { get; set; }
+
         
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
 
@@ -32,7 +33,7 @@ namespace GUI.View
             this.professorController = professorController;
             professorController.Subscribe(this);
             this.subjectController = subjectController;
-
+           
             professorsSubjects = new ObservableCollection<ProfessorDTO>();
             this.Subject = Subject;
             DataContext = this;
@@ -62,6 +63,7 @@ namespace GUI.View
 
             Subject.ProfessorId = SelectedProfessor.Id;
             Subject.ProfessorName = SelectedProfessor.Name + " " + SelectedProfessor.Surname;
+            
             Close();
            
         }
