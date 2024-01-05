@@ -49,5 +49,22 @@ namespace CLI.Controller
         public Subject findSubjectById(int id) {
             return subjectsDAO.GetSubjectById(id);
         }
+
+        public Professor getProfessorForSubject(Subject subject, List<Professor> allProfessors)
+        {
+           
+            foreach (Professor professor in allProfessors)
+            {
+                if(professor.Id == subject.ProfessorID)
+                {
+                    return professor;
+                }
+            }
+            return null;
+         
+                
+
+            
+        }
     }
 }

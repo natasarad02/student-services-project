@@ -24,19 +24,22 @@ namespace GUI.View
         public SubjectDTO SelectedSubject { get; set; }
 
         public ExamGradeDTO SelectedGrade { get; set; }
-
+        private bool isUpdate = false;
         private StudentsController studentController;
         private SubjectsController subjectsController;
+        private ProfessorsController professorsController;
+
         private StudentsSubjectsController studentSubjectsController;
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public List<Subject> previousList { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
-        private bool isUpdate = false;
+       
         private ExamGradesController examGradesController { get; set; }
 
         public ObservableCollection<ExamGradeDTO> Grades { get; set; }
-
-        public UpdateStudent(StudentsController studentController, StudentsSubjectsController studentSubjectsController)
+        public ObservableCollection<ProfessorDTO> Professors { get; set; }
+        public HashSet<Professor> ProfessorsHashSet;
+        public UpdateStudent(StudentsController studentController, StudentsSubjectsController studentSubjectsController, SubjectsController subjectsController, ProfessorsController professorsController)
         {
             InitializeComponent();
             
@@ -50,18 +53,23 @@ namespace GUI.View
             examGradesController = new ExamGradesController();
             examGradesController.Subscribe(this);
 
+            Professors = new ObservableCollection<ProfessorDTO>();
+            ProfessorsHashSet = new HashSet<Professor>();
+            this.professorsController = professorsController;
+            professorsController.Subscribe(this);
+
             this.studentController = studentController;
             this.studentSubjectsController = studentSubjectsController;
             
-            subjectsController = new SubjectsController();
+            this.subjectsController = subjectsController;
 
 
             Subjects = new ObservableCollection<SubjectDTO>();
 
             studentSubjectsController.Subscribe(this);
             subjectsController.Subscribe(this);
-         
 
+            //Update();
             TabUpdate.SelectionChanged += TabUpdate_SelectionChanged;
             
         }
@@ -91,6 +99,7 @@ namespace GUI.View
             subjectList.Show();
         }
 
+
         public void Update()
         {
             Subjects.Clear();
@@ -106,7 +115,11 @@ namespace GUI.View
                 Grades.Add(new ExamGradeDTO(examGrade, subject.Name, subject.Espb, subject.Ids));
             }
 
+           
+           
         }
+
+
 
         private void TabUpdate_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -114,16 +127,15 @@ namespace GUI.View
             {
                 int tabIndex = TabUpdate.SelectedIndex;
 
-                if (tabIndex == 1 && isUpdate == false)
-                {
-                        Update();
-                        isUpdate = true;
-                }
+               
 
-                if (tabIndex == 2 && isUpdate == false)
-                { 
+                if (isUpdate == false)
+                {
+                    if (tabIndex == 1 || tabIndex == 2 || tabIndex == 3)
+                    {
                         Update();
                         isUpdate = true;
+                    }
                 }
 
             }
@@ -166,6 +178,12 @@ namespace GUI.View
                 GradeStudent gradeStudent = new GradeStudent(examGradesController, SelectedSubject, Student); //pokusaj
                 gradeStudent.Show();
             }
+        }
+
+        public void Show_Professors_Click(object sender, RoutedEventArgs e)
+        {
+            StudentProfessorList professorList = new StudentProfessorList(Student, studentSubjectsController, professorsController, subjectsController);
+            professorList.Show();
         }
 
     }

@@ -51,6 +51,7 @@ namespace GUI.View
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             subjectController.Update(Subject.ToSubject());
+            subjectController.Save();
             Close();
         }
 

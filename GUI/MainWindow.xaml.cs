@@ -406,7 +406,7 @@ namespace GUI
                     if (SelectedStudent == null)
                         MessageBox.Show("Please choose a student to update!");
                     else {
-                        UpdateStudent updateStudent = new UpdateStudent(studentController, studentsSubjectsController);
+                        UpdateStudent updateStudent = new UpdateStudent(studentController, studentsSubjectsController, subjectController, professorController);
                         updateStudent.Student = SelectedStudent;
                        // updateStudent.previousList = studentsSubjectsController.GetAllSubjectsById(SelectedStudent.Id);
                         // attendingSubjects = new ObservableCollection<SubjectDTO>();
