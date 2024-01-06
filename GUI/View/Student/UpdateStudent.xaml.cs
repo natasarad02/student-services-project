@@ -105,7 +105,10 @@ namespace GUI.View
             Subjects.Clear();
             foreach (Subject subject in studentSubjectsController.GetAllSubjectsByStudent(Student.toStudent(), subjectsController))
             {
-                Subjects.Add(new SubjectDTO(subject));
+                if(subject.year <= Student.Current_Year)
+                    Subjects.Add(new SubjectDTO(subject));
+                else
+                    studentSubjectsController.Delete(Student.Id, subject.Id);
             }
 
             Grades.Clear();
