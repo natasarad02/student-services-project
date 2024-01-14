@@ -15,5 +15,5 @@
 16|Milovanovic|Andjela|06-06-1996|Ulica Nikole Tesle,60,Beograd,Srbija|065/123456|andjela.milovanovic@yahoo.com|ge-22-2022|2|B
 17|Djordjevic|Vukasin|01-01-2001|Braće Jugovića,7,Beograd,Srbija|066/8888888|vuk.djordjevic@hotmail.com|fiz-33-2015|5|B
 18|Mujic|Ana|01-01-0001|Kv,10,Kraljevo,Srbija|256416846|vciavcia|-0-0|2|B
-19|Becejac|Zeljko|04-20-1969|Veselina Maslese,76,Novi Sad,Srbija|064/123456|zeljko@gmail.com|RA-370-2021|3|B
+19|Becejac|Teodora|04-20-1969|Veselina Maslese,76,Novi Sad,Srbija|064/123456|zeljko@gmail.com|RA-370-2021|3|B
 20|Grkovic|Dusan|06-19-2002|Kneza Mihaila,7,Sremska Kamenica,Srbija|064/123456|grkila@gmail.com|RA-56-2021|3|B

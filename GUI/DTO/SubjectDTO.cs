@@ -167,8 +167,4 @@ namespace GUI.DTO
         
     }
 
-   /* public enum semester
-    {
-        // Define semester enum values
-    }*/
 }

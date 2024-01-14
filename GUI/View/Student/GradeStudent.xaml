@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Grade Student" Height="290" Width="389">
+        Title="Grade Student" Height="310" Width="389">
     <Grid Margin="20,20,20,32">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="173.84" />
@@ -57,8 +57,8 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0" Width="219">
-            <Button Width="100" Margin="5" Content="Add"  />
-            <Button Width="100" Margin="5" Content="Cancel"  />
+            <Button Width="100" Margin="5" Content="Add" Click="Add_Click" />
+            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click" />
         </StackPanel>
     </Grid>
 </Window>

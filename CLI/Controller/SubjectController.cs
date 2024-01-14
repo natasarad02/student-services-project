@@ -62,9 +62,6 @@ namespace CLI.Controller
             }
             return null;
          
-                
-
-            
         }
 
         public Subject GetSubjectById(int subjectId)
@@ -72,7 +69,9 @@ namespace CLI.Controller
             return subjectsDAO.GetSubjectById(subjectId);
         }
 
-
+        public List<Subject> getSubjectsForProfessor(int prof_if) {
+            return subjectsDAO.getSubjectsByProfID(prof_if);
+        }
 
     }
 }

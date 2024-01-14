@@ -65,7 +65,6 @@ namespace GUI.View
 
 
             Subjects = new ObservableCollection<SubjectDTO>();
-
             studentSubjectsController.Subscribe(this);
             subjectsController.Subscribe(this);
 
@@ -178,7 +177,7 @@ namespace GUI.View
             }
             else
             {
-                GradeStudent gradeStudent = new GradeStudent(examGradesController, SelectedSubject, Student); //pokusaj
+                GradeStudent gradeStudent = new GradeStudent(examGradesController, SelectedSubject, Student, Subjects, studentSubjectsController); 
                 gradeStudent.Show();
             }
         }

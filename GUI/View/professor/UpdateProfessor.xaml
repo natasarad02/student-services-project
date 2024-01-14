@@ -7,7 +7,7 @@
         Title="Update Professor" Height="615" Width="400">
     <Grid Margin="20">
         <TabControl>
-            <!-- First Tab - Student Details -->
+            
             <TabItem Header="Professor Details">
                 <Grid>
                     
@@ -27,7 +27,7 @@
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <Label>ID Card Number:</Label>
                             <TextBox x:Name="txtIDCardNumber" 
-             Text="{Binding Path =Professor.Num, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                Text="{Binding Path =Professor.Num, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
@@ -90,8 +90,39 @@
                 </Grid>
             </TabItem>
 
+            <TabItem Header="Subjects">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="39*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.ColumnSpan="2">
+                        <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
+                            <Button Width="100" Margin="5" Content="Delete Subject" />
+                            <Button Width="100" Margin="5" Content="Add Subject"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <DataGrid Background="#FFE5E5E5"
+                              AutoGenerateColumns="False"
+                              x:Name="SubjectsDataGrid"
+                              ItemsSource="{Binding MySubjects, UpdateSourceTrigger=PropertyChanged}" 
+                              SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
+                              SelectionMode="Single" IsReadOnly="True" >        
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Subject Id" Binding="{Binding Ids}" Width="*"/>
+                                    <DataGridTextColumn Header="Subject name" Binding="{Binding Name}" Width="*"/>
+                                    <DataGridTextColumn Header="Year of studies" Binding="{Binding Year}" Width="*" />
+                                    <DataGridTextColumn Header="Semester" Binding="{Binding semester}" Width="*"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
 
-           
+                        </StackPanel>
+                        
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+            
         </TabControl>
 
         <!-- Buttons -->

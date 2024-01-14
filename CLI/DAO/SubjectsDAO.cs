@@ -105,7 +105,6 @@ namespace StudentskaSluzba.DAO
         {
             List<Subject> temp = subjects.FindAll(e => e.ProfessorID == profID);
             return temp;
-            //dodati pri ispisu da ispisuje samo osnovne info tj BEZ LISTA
         }
 
         public List<Student> GetStudents(int subjectId) //izbacuje vise
@@ -176,8 +175,6 @@ namespace StudentskaSluzba.DAO
 
             return ssubjects.ToList();
         }
-
-
 
     }
 }
