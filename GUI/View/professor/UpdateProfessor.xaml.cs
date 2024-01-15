@@ -12,6 +12,7 @@ using CLI.Controller;
 using System.Collections.ObjectModel;
 using CLI.Observer;
 using StudentskaSluzba.Model;
+using System.Windows.Controls;
 
 namespace GUI.View
 {
@@ -22,15 +23,16 @@ namespace GUI.View
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<SubjectDTO> MySubjects;
         private SubjectsController subjectsController;
+        private SubjectDTO SelectedSubject;
 
 
-        public UpdateProfessor(ProfessorsController professorController)
+        public UpdateProfessor(ProfessorsController professorController, ProfessorDTO SelectedProfessor)
         {
             InitializeComponent();
             DataContext = this;
-            Professor = new ProfessorDTO();
+            Professor = SelectedProfessor;
             this.professorController = professorController;
-
+            SelectedSubject = new SubjectDTO();
             MySubjects = new ObservableCollection<SubjectDTO>();    
             subjectsController = new SubjectsController();
             subjectsController.Subscribe(this);
@@ -40,8 +42,8 @@ namespace GUI.View
         }
 
         public void Update() {
-            MySubjects.Clear(); //kao da ne radi tj puni uvek istim vrednostima
-            foreach (Subject subject in subjectsController.getSubjectsForProfessor(Professor.Id)) {
+            MySubjects.Clear();
+            foreach (Subject subject in subjectsController.getSubjectsForProfessor(Professor.Id)) { 
                 MySubjects.Add(new SubjectDTO(subject));
             }
         }
@@ -59,6 +61,15 @@ namespace GUI.View
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Delete_Subject(object sender, RoutedEventArgs e)
+        {
+            //za selektovani predmet staviti da je prof id == -1 i prof name = null
+            //ne radi
+            MySubjects.Remove(SelectedSubject);
+            SelectedSubject.Id = -1;
+            SelectedSubject.ProfessorName = "";
         }
     }
 

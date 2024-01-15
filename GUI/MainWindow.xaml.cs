@@ -434,9 +434,7 @@ namespace GUI
                         MessageBox.Show("Please choose a professor to update");
                     else
                     {
-                        UpdateProfessor updateProfessor = new UpdateProfessor(professorController);
-                        updateProfessor.Professor = SelectedProfessor;
-                        //updateProfessor.Professor.Address = SelectedProfessor.Address;
+                        UpdateProfessor updateProfessor = new UpdateProfessor(professorController, SelectedProfessor);
                         updateProfessor.Show();
                     }
                     break;
