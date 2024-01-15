@@ -109,19 +109,22 @@ namespace StudentskaSluzba.DAO
         }
         public bool doesDepartmentExist(int id)
         {
-            /*  Department department = departments.Find(s => s.Id == id);
-              if (department == null)
-              {
-                  return false;
-              }
-              else
-              {
-                  return true;
-              }*/
 
             Department dep = GetDepartmentById(id);
             return dep != null;
         }
 
+        public List<Professor> GetProfessorsThatCouldBeHOD(int dep_id) 
+        {
+            Department dep = GetDepartmentById(dep_id);
+            List<Professor> pass_criteria= new List<Professor>(); // vandredni ili redovni + rade preko 5 godina
+            foreach (Professor prof in dep.Department_Professors) {
+                if ((prof.calling == "associate professor" || prof.calling == "professor") && (2024 - prof.employment_year) > 5) 
+                { 
+                    pass_criteria.Add(prof);
+                }
+            }
+            return pass_criteria;
+        }
     }
 }
