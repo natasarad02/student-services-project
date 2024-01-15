@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="Update Department" Height="250" Width="400">
     <Grid Margin="20">
-        <TabControl>
+        <TabControl x:Name="TabUpdate" SelectionChanged="TabUpdate_SelectionChanged">
             <!-- First Tab - Student Details -->
             <TabItem Header="Student Details">
                 <Grid>
@@ -58,7 +58,7 @@
                     <StackPanel>
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
-                            <Button Width="100" Margin="5" Content="Add Professor" />
+                            <Button Width="100" Margin="5" Content="Add Professor" Click="Add_Professor"/>
                             <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
                         </StackPanel>
 
@@ -67,7 +67,7 @@
                                   AutoGenerateColumns="False"
                                   x:Name="SubjectsDataGrid"
                                   ItemsSource="{Binding allProfessors, UpdateSourceTrigger=PropertyChanged}" 
-                                  SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
                                   SelectionMode="Single" IsReadOnly="True" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Professor Name" Binding="{Binding First_name}" Width="*"/>

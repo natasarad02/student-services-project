@@ -11,6 +11,8 @@ using System.Windows;
 using CLI.Controller;
 using CLI.Observer;
 using StudentskaSluzba.Model;
+using System.Collections.ObjectModel;
+using System.Windows.Controls;
 
 namespace GUI.View
 {
@@ -20,26 +22,52 @@ namespace GUI.View
         private DepartmentsController departmentController{ get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-
+        private bool isUpdate = false;
+        private ProfessorsController professorsController { get; set; }
         //private List<ProfessorDTO> possibleHOD;
 
-        private List<ProfessorDTO> allProfessors;
-
-        public UpdateDepartment(DepartmentsController departmentController)
+        public ObservableCollection<ProfessorDTO> allProfessors;
+        public List<Professor> tmpProfessorList;
+        public UpdateDepartment(DepartmentsController departmentController, ProfessorsController professorsController)
         {
             InitializeComponent();
-            DataContext = this;
+      
             department = new DepartmentDTO();
             this.departmentController = departmentController;
             //possibleHOD = new List<ProfessorDTO>();
-            allProfessors = new List<ProfessorDTO>();
+            allProfessors = new ObservableCollection<ProfessorDTO>();
+            tmpProfessorList = new List<Professor>();
+            this.professorsController = professorsController;
             //Update();
+            professorsController.Subscribe(this);
+            DataContext = this;
+            TabUpdate.SelectionChanged += TabUpdate_SelectionChanged;
         }
 
+        private void TabUpdate_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TabUpdate.SelectedItem is TabItem selectedTab && selectedTab.Header.ToString() == "Subjects")
+            {
+                int tabIndex = TabUpdate.SelectedIndex;
+
+
+
+                if (isUpdate == false)
+                {
+                    if (tabIndex == 1)
+                    {
+                        Update();
+                        isUpdate = true;
+                    }
+                }
+
+            }
+        }
         public void Update() { 
             allProfessors.Clear();
-            foreach (Professor prof in department.Department_Professors)
+            foreach (Professor prof in departmentController.getProfessorsByDepartmentId(department.Id))
             {
+                MessageBox.Show(prof.Name);
                 allProfessors.Add(new ProfessorDTO(prof));
             }
         }
@@ -59,5 +87,17 @@ namespace GUI.View
         {
             Close();
         }
+
+        private void Add_Professor(object sender, RoutedEventArgs e)
+        {
+            DepartmentProfessorList professorList = new DepartmentProfessorList(department, professorsController, departmentController);
+            //professorList.attendingSubjects = Subjects;
+            MessageBox.Show(departmentController.getProfessorsByDepartmentId(department.Id)[0].Name);
+           
+            professorList.tmpProfessorList = tmpProfessorList;
+           
+            professorList.Show();
+        }
+
     }
 }

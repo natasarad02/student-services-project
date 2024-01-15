@@ -104,10 +104,11 @@ namespace StudentskaSluzba.DAO
            
             Department dep = GetDepartmentById(departmentID);
 
-            storage.Save(departments);
+            
             DepartmentSubject.NotifyObservers();
 
-            dep.Department_Professors.Add(pro);
+            dep.Department_Professors.Add(pro.Id);
+            storage.Save(departments);
         }
         public bool doesDepartmentExist(int id)
         {
@@ -116,7 +117,13 @@ namespace StudentskaSluzba.DAO
             return dep != null;
         }
 
-        public List<Professor> GetProfessorsThatCouldBeHOD(int dep_id) 
+        public List<int> GetProfessorList(int id)
+        {
+            Department dep = GetDepartmentById(id);
+            return dep.Department_Professors;
+
+        }
+     /*   public List<Professor> GetProfessorsThatCouldBeHOD(int dep_id) 
         {
             Department dep = GetDepartmentById(dep_id);
             List<Professor> pass_criteria= new List<Professor>(); // vandredni ili redovni + rade preko 5 godina
@@ -127,6 +134,6 @@ namespace StudentskaSluzba.DAO
                 }
             }
             return pass_criteria;
-        }
+        }*/
     }
 }

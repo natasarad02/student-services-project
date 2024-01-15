@@ -47,7 +47,7 @@ namespace GUI.View
             Student = new StudentDTO();
 
            
-            subjectsController = new SubjectsController();
+            //subjectsController = new SubjectsController();
            
             Grades = new ObservableCollection<ExamGradeDTO>();
             this.examGradesController = new ExamGradesController();

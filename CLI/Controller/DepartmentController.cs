@@ -48,8 +48,15 @@ namespace CLI.Controller
             departmentDAO.save();
         }
 
-        public List<Professor> GetHODcandidates(int dep_id) {
-            return departmentDAO.GetProfessorsThatCouldBeHOD(dep_id);
+        /* public List<Professor> GetHODcandidates(int dep_id) {
+             return departmentDAO.GetProfessorsThatCouldBeHOD(dep_id);
+         }*/
+
+        public List<int> getProfessorsByDepartmentId(int dep_id)
+        {
+            Department dep = departmentDAO.GetDepartmentById(dep_id);
+            return dep.Department_Professors;
+
         }
     }
 }

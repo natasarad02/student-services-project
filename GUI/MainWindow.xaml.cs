@@ -442,7 +442,7 @@ namespace GUI
                     if (SelectedDepartment == null)
                         MessageBox.Show("Please choose a department to update");
                     else {
-                        UpdateDepartment updateDepartment = new UpdateDepartment(departmentController);
+                        UpdateDepartment updateDepartment = new UpdateDepartment(departmentController, professorController);
                         updateDepartment.department = SelectedDepartment;
                         updateDepartment.Show();
                     }                    
