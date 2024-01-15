@@ -50,7 +50,7 @@ namespace GUI.View
             subjectsController = new SubjectsController();
            
             Grades = new ObservableCollection<ExamGradeDTO>();
-            examGradesController = new ExamGradesController();
+            this.examGradesController = new ExamGradesController();
             examGradesController.Subscribe(this);
 
             Professors = new ObservableCollection<ProfessorDTO>();
@@ -92,7 +92,7 @@ namespace GUI.View
 
         private void Add_Subject(object sender, RoutedEventArgs e)
         {
-            SubjectList subjectList = new SubjectList(Student, studentController, studentSubjectsController, subjectsController);
+            SubjectList subjectList = new SubjectList(Student, examGradesController, studentController, studentSubjectsController, subjectsController);
             subjectList.attendingSubjects = Subjects;
                         
             subjectList.Show();

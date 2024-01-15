@@ -18,7 +18,7 @@ namespace GUI.View
        
         private StudentsController studentsController { get; set; }
         private StudentsSubjectsController studentsSubjectsController { get; set; }
-
+        private ExamGradesController examGradesController { get; set; }
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         
         public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
@@ -26,7 +26,7 @@ namespace GUI.View
 
         public StudentDTO Student { get; set; }
         private SubjectsController subjectController { get; set; }
-        public SubjectList(StudentDTO Student, StudentsController studentController, StudentsSubjectsController studentsSubjectsController, SubjectsController subjectController)
+        public SubjectList(StudentDTO Student, ExamGradesController examGradesController, StudentsController studentController, StudentsSubjectsController studentsSubjectsController, SubjectsController subjectController)
         {
             InitializeComponent();
             Subjects = new ObservableCollection<SubjectDTO>();
@@ -39,6 +39,7 @@ namespace GUI.View
             this.studentsSubjectsController = studentsSubjectsController;
             //this.attendingSubjects = attendingSubjects;
             studentsSubjectsController.Subscribe(this);
+            this.examGradesController = examGradesController;
             DataContext = this;
 
 
@@ -59,6 +60,18 @@ namespace GUI.View
                 {
                     tmpSubjectList.Add(subject);
                 }
+            }
+            foreach(Subject subject in subjectController.GetAllSubjects())
+            {
+                foreach(ExamGrade grade in examGradesController.GetAllExamGrades())
+                {
+                    if(subject.Id == grade.subjectID)
+                    {
+                        tmpSubjectList.Remove(subject);
+                        break;
+                    }
+                }
+
             }
             foreach (Subject subject in subjectController.GetAllSubjects())
             {
