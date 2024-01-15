@@ -61,5 +61,9 @@ namespace GUI.View
             Close();
         }
 
+        private void txtID_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            //ne znam sta je ovo
+        }
     }
 }
