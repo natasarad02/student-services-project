@@ -47,5 +47,9 @@ namespace CLI.Controller
         {
             departmentDAO.save();
         }
+
+        public List<Professor> GetHODcandidates(int dep_id) {
+            return departmentDAO.GetProfessorsThatCouldBeHOD(dep_id);
+        }
     }
 }

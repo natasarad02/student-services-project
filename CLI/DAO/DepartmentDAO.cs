@@ -104,8 +104,10 @@ namespace StudentskaSluzba.DAO
            
             Department dep = GetDepartmentById(departmentID);
 
-            dep.Department_Professors.Add(pro);
+            storage.Save(departments);
+            DepartmentSubject.NotifyObservers();
 
+            dep.Department_Professors.Add(pro);
         }
         public bool doesDepartmentExist(int id)
         {
