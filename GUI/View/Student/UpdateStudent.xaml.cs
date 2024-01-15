@@ -151,8 +151,16 @@ namespace GUI.View
 
         public void Delete_Subject_Click(object sender, RoutedEventArgs e)
         {
-            studentSubjectsController.Delete(Student.Id, SelectedSubject.Id);
-            Subjects.Remove(SelectedSubject);
+            if(SelectedSubject == null)
+            {
+                Console.WriteLine("Please select subject for deleting");
+            }
+            else
+            {
+                studentSubjectsController.Delete(Student.Id, SelectedSubject.Id);
+                Subjects.Remove(SelectedSubject);
+            }
+            
            
         }
 
