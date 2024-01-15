@@ -52,6 +52,10 @@ namespace StudentskaSluzba.DAO
          
            
             subject.Id = GenerateId();
+            if(subject.ProfessorName == null)
+            {
+                subject.ProfessorID = -1;
+            }
             subjects.Add(subject);
             storage.Save(subjects);
             SubjectSubject.NotifyObservers();
@@ -68,8 +72,17 @@ namespace StudentskaSluzba.DAO
             oldSubject.Name = subject.Name;
             oldSubject.semester = subject.semester;
             oldSubject.year = subject.year;
-            oldSubject.ProfessorID = subject.ProfessorID;
-            oldSubject.ProfessorName = subject.ProfessorName; 
+            
+            oldSubject.ProfessorName = subject.ProfessorName;
+            if(subject.ProfessorName == null)
+            {
+                oldSubject.ProfessorID = -1;
+            }
+            else
+            {
+                oldSubject.ProfessorID = subject.ProfessorID;
+            }
+            
             oldSubject.Espb = subject.Espb;
             oldSubject.Students_passed = subject.Students_passed;
             oldSubject.Students_attending = subject.Students_attending;

@@ -31,8 +31,7 @@ public class Subject : ISerializable
     {
         Students_passed = new List<Student>();
         Students_attending = new List<Student>();
-        ProfessorID = -1;
-        ProfessorName = "";
+        
     }
 
     public Subject(int id, string name, int espb, semester SEM, int school_year)
@@ -41,8 +40,7 @@ public class Subject : ISerializable
         Name = name;
         Espb = espb;
         semester = SEM;
-       // ProfessorID = -1;
-       // ProfessorName = "";
+       
         year = school_year;
         Students_passed = new List<Student>();
         Students_attending = new List<Student>();
