@@ -57,10 +57,7 @@ namespace GUI.View
 
         private void Add_Professor_Click(object sender, RoutedEventArgs e)
         {
-
-            Department.Department_Professors.Add(SelectedProfessor.ToProfessor());
-            tmpProfessorList.Add(SelectedProfessor.ToProfessor());
-            MessageBox.Show(tmpProfessorList[0].Name);
+            departmentsController.addProfessor(Department.Id, SelectedProfessor.Id);
             Close();
 
         }

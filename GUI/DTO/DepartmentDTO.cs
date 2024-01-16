@@ -80,13 +80,29 @@ namespace GUI.DTO
             }
         }
 
+        private List<int> department_Professors;
+        public List<int> Department_Professors
+        {
+            get
+            {
+                return department_Professors;
+            }
 
-        public List<Professor> Department_Professors { get; set; } //videti posle sta s ovim
+            set
+            {
+                if (value != department_Professors)
+                {
+                    department_Professors = value;
+                    //OnPropertyChanged("Hod");
+                }
+            }
+        }//videti posle sta s ovim
 
         public Department ToDepartment()
         {
             Department d = new Department(idd, name, hod);
             d.Id = id;
+            d.Department_Professors = department_Professors;
             return d;
         }
 
@@ -100,7 +116,7 @@ namespace GUI.DTO
             idd = department.Idd;
             name = department.Name;
             hod = department.Hod;
-            Department_Professors = new List<Professor>();
+            Department_Professors = department.Department_Professors;
         }
 
         protected virtual void OnPropertyChanged(string name)

@@ -55,7 +55,14 @@ namespace CLI.Controller
         public List<int> getProfessorsByDepartmentId(int dep_id)
         {
             Department dep = departmentDAO.GetDepartmentById(dep_id);
+           
             return dep.Department_Professors;
+
+        }
+
+        public void addProfessor(int  dep_id, int prof_id)
+        {
+            departmentDAO.addProfessor(dep_id, prof_id);
 
         }
     }

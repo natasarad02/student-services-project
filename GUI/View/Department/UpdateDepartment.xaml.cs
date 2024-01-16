@@ -65,10 +65,18 @@ namespace GUI.View
         }
         public void Update() { 
             allProfessors.Clear();
-            foreach (Professor prof in departmentController.getProfessorsByDepartmentId(department.Id))
+            foreach (int profID in departmentController.getProfessorsByDepartmentId(department.Id))
             {
-                MessageBox.Show(prof.Name);
-                allProfessors.Add(new ProfessorDTO(prof));
+                MessageBox.Show(profID.ToString());
+                foreach(Professor prof in professorsController.GetAllProfessors())
+                {
+                    if(prof.Id == profID)
+                    {
+                        allProfessors.Add(new ProfessorDTO(prof));
+                        break;
+                    }
+                }
+               
             }
         }
 
@@ -92,9 +100,7 @@ namespace GUI.View
         {
             DepartmentProfessorList professorList = new DepartmentProfessorList(department, professorsController, departmentController);
             //professorList.attendingSubjects = Subjects;
-            MessageBox.Show(departmentController.getProfessorsByDepartmentId(department.Id)[0].Name);
-           
-            professorList.tmpProfessorList = tmpProfessorList;
+      
            
             professorList.Show();
         }
