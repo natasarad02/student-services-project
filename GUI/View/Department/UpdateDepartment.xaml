@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Update Department" Height="250" Width="400">
+        Title="Update Department" Height="500" Width="400">
     <Grid Margin="20">
-        <TabControl x:Name="TabUpdate" SelectionChanged="TabUpdate_SelectionChanged">
+        <TabControl x:Name="TabUpdateDepartment" SelectionChanged="TabUpdateDepartment_SelectionChanged">
             <!-- First Tab - Student Details -->
             <TabItem Header="Student Details">
                 <Grid>
@@ -53,32 +53,35 @@
 
             <!-- Second Tab - List of Professor -->
             <!-- Trebaju li sva 4 dugmeta? -->
-            <TabItem Header="Professor">
+            <TabItem Header="Professors">
                 <Grid>
                     <StackPanel>
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
                             <Button Width="100" Margin="5" Content="Add Professor" Click="Add_Professor"/>
+                            <Button Width="100" Content="Delete Professor" Click="Delete_Professor_Click"/>
                             <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+
                         </StackPanel>
 
-                        <StackPanel >
+                        <StackPanel>
                             <DataGrid Background="#FFE5E5E5"
-                                  AutoGenerateColumns="False"
-                                  x:Name="SubjectsDataGrid"
-                                  ItemsSource="{Binding allProfessors, UpdateSourceTrigger=PropertyChanged}" 
-                                  SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
-                                  SelectionMode="Single" IsReadOnly="True" >
+         AutoGenerateColumns="False"
+         x:Name="ProfessorsDataGrid"
+         ItemsSource="{Binding Professors, UpdateSourceTrigger=PropertyChanged}" 
+         SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
+         SelectionMode="Single" IsReadOnly="True">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Professor Name" Binding="{Binding First_name}" Width="*"/>
-                                    <DataGridTextColumn Header="Professor Surname" Binding="{Binding Last_name}" Width="*"/>
-                                    <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*" />
-                                    <DataGridTextColumn Header="Employment year" Binding="{Binding Yoe}" Width="*"/>
+                                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                                    <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" Width="*"/>
+                                    <DataGridTextColumn Header="Calling" Binding="{Binding Calling}" Width="*"/>
+                                    <DataGridTextColumn Header="E-Mail" Binding="{Binding Email_Address}" Width="*"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
 
-                        
+
                     </StackPanel>
                 </Grid>
             </TabItem>

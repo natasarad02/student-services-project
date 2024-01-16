@@ -25,30 +25,33 @@ namespace GUI.View
         private bool isUpdate = false;
         private ProfessorsController professorsController { get; set; }
         //private List<ProfessorDTO> possibleHOD;
-
-        public ObservableCollection<ProfessorDTO> allProfessors;
+        public ProfessorDTO SelectedProfessor { get; set; }
+        public ObservableCollection<ProfessorDTO> Professors { get; set; }
         public List<Professor> tmpProfessorList;
         public UpdateDepartment(DepartmentsController departmentController, ProfessorsController professorsController)
         {
             InitializeComponent();
-      
+            DataContext = this;
             department = new DepartmentDTO();
             this.departmentController = departmentController;
-            //possibleHOD = new List<ProfessorDTO>();
-            allProfessors = new ObservableCollection<ProfessorDTO>();
+            departmentController.Subscribe(this);
             tmpProfessorList = new List<Professor>();
             this.professorsController = professorsController;
-            //Update();
             professorsController.Subscribe(this);
-            DataContext = this;
-            TabUpdate.SelectionChanged += TabUpdate_SelectionChanged;
+            //Update();
+
+            //possibleHOD = new List<ProfessorDTO>();
+            Professors = new ObservableCollection<ProfessorDTO>();
+         
+
+            TabUpdateDepartment.SelectionChanged += TabUpdateDepartment_SelectionChanged;
         }
 
-        private void TabUpdate_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TabUpdateDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (TabUpdate.SelectedItem is TabItem selectedTab && selectedTab.Header.ToString() == "Subjects")
+            if (TabUpdateDepartment.SelectedItem is TabItem selectedTab)
             {
-                int tabIndex = TabUpdate.SelectedIndex;
+                int tabIndex = TabUpdateDepartment.SelectedIndex;
 
 
 
@@ -57,27 +60,28 @@ namespace GUI.View
                     if (tabIndex == 1)
                     {
                         Update();
+                       
                         isUpdate = true;
                     }
                 }
 
+             
             }
         }
-        public void Update() { 
-            allProfessors.Clear();
-            foreach (int profID in departmentController.getProfessorsByDepartmentId(department.Id))
+        public void Update() {
+            Professors.Clear();
+
+           
+           
+            foreach (Professor prof in departmentController.getProfessorsByDepartmentProfessors(department.ToDepartment(), professorsController))
             {
-                MessageBox.Show(profID.ToString());
-                foreach(Professor prof in professorsController.GetAllProfessors())
-                {
-                    if(prof.Id == profID)
-                    {
-                        allProfessors.Add(new ProfessorDTO(prof));
-                        break;
-                    }
-                }
+               Professors.Add(new ProfessorDTO(prof));
+             //  MessageBox.Show("dodaje");
                
             }
+           
+
+
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -98,12 +102,27 @@ namespace GUI.View
 
         private void Add_Professor(object sender, RoutedEventArgs e)
         {
-            DepartmentProfessorList professorList = new DepartmentProfessorList(department, professorsController, departmentController);
+            DepartmentProfessorList professorList = new DepartmentProfessorList(department, professorsController, departmentController, Professors);
             //professorList.attendingSubjects = Subjects;
       
            
             professorList.Show();
         }
 
+        public void Delete_Professor_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedProfessor == null)
+            {
+                MessageBox.Show("Please select professor for deleting");
+            }
+            else
+            {
+                department.Department_Professors.Remove(SelectedProfessor.Id);
+                Professors.Remove(SelectedProfessor);
+               
+            }
+
+
+        }
     }
 }

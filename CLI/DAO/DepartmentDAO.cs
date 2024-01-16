@@ -8,6 +8,7 @@ using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
 using System.Xml.Linq;
 using CLI.Observer;
+using CLI.Controller;
 
 namespace StudentskaSluzba.DAO
 {
@@ -104,11 +105,9 @@ namespace StudentskaSluzba.DAO
            
             Department dep = GetDepartmentById(departmentID);
 
-            
+            dep.Department_Professors.Add(pro.Id);
             DepartmentSubject.NotifyObservers();
 
-            dep.Department_Professors.Add(pro.Id);
-            storage.Save(departments);
         }
         public bool doesDepartmentExist(int id)
         {
@@ -123,17 +122,6 @@ namespace StudentskaSluzba.DAO
             return dep.Department_Professors;
 
         }
-     /*   public List<Professor> GetProfessorsThatCouldBeHOD(int dep_id) 
-        {
-            Department dep = GetDepartmentById(dep_id);
-            List<Professor> pass_criteria= new List<Professor>(); // vandredni ili redovni + rade preko 5 godina
-            foreach (Professor prof in dep.Department_Professors) {
-                if ((prof.calling == "associate professor" || prof.calling == "professor") && (2024 - prof.employment_year) > 5) 
-                { 
-                    pass_criteria.Add(prof);
-                }
-            }
-            return pass_criteria;
-        }*/
+       
     }
 }

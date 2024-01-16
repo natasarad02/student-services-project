@@ -93,7 +93,7 @@ namespace GUI.DTO
                 if (value != department_Professors)
                 {
                     department_Professors = value;
-                    //OnPropertyChanged("Hod");
+                    OnPropertyChanged(nameof(Department_Professors));
                 }
             }
         }//videti posle sta s ovim

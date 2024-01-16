@@ -125,7 +125,7 @@ namespace GUI.View
 
         private void TabUpdate_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (TabUpdate.SelectedItem is TabItem selectedTab && selectedTab.Header.ToString() == "Subjects")
+            if (TabUpdate.SelectedItem is TabItem selectedTab)
             {
                 int tabIndex = TabUpdate.SelectedIndex;
 
@@ -153,7 +153,7 @@ namespace GUI.View
         {
             if(SelectedSubject == null)
             {
-                Console.WriteLine("Please select subject for deleting");
+                MessageBox.Show("Please select subject for deleting");
             }
             else
             {
