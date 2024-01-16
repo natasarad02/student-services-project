@@ -37,7 +37,7 @@ namespace GUI.View
             attendingSubjects = new ObservableCollection<SubjectDTO>();
             this.Student = Student;
             this.studentsSubjectsController = studentsSubjectsController;
-            //this.attendingSubjects = attendingSubjects;
+
             studentsSubjectsController.Subscribe(this);
             this.examGradesController = examGradesController;
             DataContext = this;

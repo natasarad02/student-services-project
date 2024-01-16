@@ -24,7 +24,7 @@ namespace GUI.View
 
         public string professorName { get; set; }
 
-        
+
         private SubjectsController subjectController { get; set; }
         public SubjectList2(int prof_if, string prof_name, SubjectsController subjectController)
         {
@@ -34,7 +34,7 @@ namespace GUI.View
             subjectController.Subscribe(this);
             professorID = prof_if;
             professorName = prof_name;
-            
+
             DataContext = this;
 
 
@@ -44,29 +44,25 @@ namespace GUI.View
         }
         public void Update()
         {
-
             Subjects.Clear();
 
-            foreach (Subject subject in subjectController.GetAllSubjects())
+            foreach (Subject subject in subjectController.getSubjectsWithoutProfessor())
             {
-                if (subject.year <= Student.Current_Year)
-                {
-                    tmpSubjectList.Add(subject);
-                }
+                Subjects.Add(new SubjectDTO(subject));
             }
-
-            
-
         }
 
         private void Add_Subject_Click(object sender, RoutedEventArgs e)
         {
-
-            //studentsSubjectsController.Add(Student.Id, SelectedSubject.Id);
+            SelectedSubject.ProfessorId = professorID;
+            SelectedSubject.ProfessorName = professorName;
+            subjectController.Update(SelectedSubject.ToSubject());
             Close();
         }
 
-
+        private void Cancel_Click(object sender, RoutedEventArgs e) {
+            Close();
+        }
 
     }
 }

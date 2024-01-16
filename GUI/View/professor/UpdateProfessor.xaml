@@ -99,7 +99,7 @@
                     <StackPanel Grid.ColumnSpan="2">
                         <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
                             <Button Width="100" Margin="5" Content="Delete Subject" Click="Delete_Subject" />
-                            <Button Width="100" Margin="5" Content="Add Subject"/>
+                            <Button Width="100" Margin="5" Content="Add Subject" Click="Add_Subject_Click"/>
                         </StackPanel>
                         <StackPanel>
                             <DataGrid Background="#FFE5E5E5"
@@ -127,8 +127,8 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="Update" Click="Update_Click"/> <!-- Click="Update_Click" /> -->
-            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> <!-- Click="Cancel_Click" />-->
+            <Button Width="100" Margin="5" Content="Update" Click="Update_Click"/>
+            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> 
         </StackPanel>
     </Grid>
 </Window>

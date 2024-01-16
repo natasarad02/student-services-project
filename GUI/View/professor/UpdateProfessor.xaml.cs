@@ -91,8 +91,10 @@ namespace GUI.View
         }
 
         private void Add_Subject_Click(object sender, RoutedEventArgs e) 
-        { 
-            //prikazi sve
+        {
+            string full_name = Professor.Name + " " + Professor.Surname;
+            SubjectList2 subjectList2 = new SubjectList2(Professor.Id, full_name, subjectsController);
+            subjectList2.Show();
         }
 
     }
