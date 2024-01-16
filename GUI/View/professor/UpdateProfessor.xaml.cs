@@ -97,6 +97,13 @@ namespace GUI.View
             subjectList2.Show();
         }
 
+        private void ShowStudents_Click(object sender, RoutedEventArgs e)
+        {
+            StudentList studentList = new StudentList(Professor, subjectsController);
+            studentList.Show();
+        }
+
+
     }
 
 }

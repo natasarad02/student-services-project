@@ -28,7 +28,8 @@ namespace GUI.View
         private ProfessorsController professorsController { get; set; }
 
        
-        public StudentProfessorList(StudentDTO Student,  StudentsSubjectsController studentsSubjectsController,ProfessorsController professorsController, SubjectsController subjectController)
+        public StudentProfessorList(StudentDTO Student,  StudentsSubjectsController studentsSubjectsController,
+                                    ProfessorsController professorsController, SubjectsController subjectController)
         {
             InitializeComponent();
 
