@@ -157,8 +157,10 @@ namespace GUI.View
             }
             else
             {
-                studentSubjectsController.Delete(Student.Id, SelectedSubject.Id);
-                Subjects.Remove(SelectedSubject);
+                DeleteSubjectFromStudent deleteSubject = new DeleteSubjectFromStudent(studentSubjectsController, Subjects, Student, SelectedSubject);
+                deleteSubject.Show();
+               // studentSubjectsController.Delete(Student.Id, SelectedSubject.Id);
+                //Subjects.Remove(SelectedSubject);
             }
             
            

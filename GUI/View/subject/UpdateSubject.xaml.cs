@@ -21,7 +21,7 @@ namespace GUI.View
         private SubjectsController subjectController;
         private ProfessorsController professorsController { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
-
+        
         public UpdateSubject(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorsController)
         {
             InitializeComponent();
@@ -42,7 +42,18 @@ namespace GUI.View
 
 
             }
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
 
+
+            double targetWidth = screenWidth * 0.75;
+            double targetHeight = screenHeight * 0.75;
+
+            Width = targetWidth;
+            Height = targetHeight;
+
+            Left = (screenWidth - targetWidth) / 2;
+            Top = (screenHeight - targetHeight) / 2;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -74,11 +85,22 @@ namespace GUI.View
 
         private void Delete_Professor(object sender, RoutedEventArgs e)
         {
-            Subject.ProfessorId = -1;
+            
+            
+            DeleteProfessorFromSubject deleteProfessor = new DeleteProfessorFromSubject(Subject, addProfessorButton, deleteProfessorButton);
+            deleteProfessor.Show();
+            /*Subject.ProfessorId = -1;
             Subject.ProfessorName = "";
-
-            addProfessorButton.IsEnabled = true;
+            */
+          
+          /*  addProfessorButton.IsEnabled = true;
             deleteProfessorButton.IsEnabled = false;
+            */
+
+            
+             
+            
+            
         }
     }
 

@@ -41,6 +41,18 @@ namespace GUI.View
 
             Update();
 
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+
+
+            double targetWidth = screenWidth * 0.75;
+            double targetHeight = screenHeight * 0.75;
+
+            Width = targetWidth;
+            Height = targetHeight;
+
+            Left = (screenWidth - targetWidth) / 2;
+            Top = (screenHeight - targetHeight) / 2;
 
         }
         public void Update()
@@ -61,10 +73,18 @@ namespace GUI.View
         private void Add_Professor_Click(object sender, RoutedEventArgs e)
         {
 
-            Subject.ProfessorId = SelectedProfessor.Id;
-            Subject.ProfessorName = SelectedProfessor.Name + " " + SelectedProfessor.Surname;
+            if(SelectedProfessor == null)
+            {
+                MessageBox.Show("Please choose a professor to add");
+            }
+            else
+            {
+                Subject.ProfessorId = SelectedProfessor.Id;
+                Subject.ProfessorName = SelectedProfessor.Name + " " + SelectedProfessor.Surname;
+
+                Close();
+            }
             
-            Close();
            
         }
 

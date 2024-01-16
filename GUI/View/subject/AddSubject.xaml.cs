@@ -24,6 +24,18 @@ namespace GUI.View
             Subject = new SubjectDTO();
             this.subjectController = subjectController;
             this.professorsController = professorsController;
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+
+
+            double targetWidth = screenWidth * 0.75;
+            double targetHeight = screenHeight * 0.75;
+
+            Width = targetWidth;
+            Height = targetHeight;
+
+            Left = (screenWidth - targetWidth) / 2;
+            Top = (screenHeight - targetHeight) / 2;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

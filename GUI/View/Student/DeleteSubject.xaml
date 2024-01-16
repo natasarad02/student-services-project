@@ -1,0 +1,18 @@
+<Window x:Class="GUI.View.DeleteSubjectFromStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Delete Confirmation" Height="200" Width="350">
+    <Grid>
+        <Border BorderBrush="DarkGray" BorderThickness="1" Background="LightGray" CornerRadius="5">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15">
+                <TextBlock Text="Confirmation" FontWeight="Bold" FontSize="16" Margin="0 0 0 10" HorizontalAlignment="Center"/>
+                <TextBlock Text="Are you sure you want to delete this subject?" Margin="0 0 0 10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Yes" Width="80" Margin="5" Padding="8 4" Background="#4CAF50" Foreground="White" BorderBrush="#4CAF50" BorderThickness="1" Click="Yes_Click"/> <!-- Click="Yes_Click"/>-->
+                    <Button Content="No" Width="80" Margin="5" Padding="8 4" Background="#F44336" Foreground="White" BorderBrush="#F44336" BorderThickness="1" Click="No_Click"/> <!-- Click="No_Click"/> -->
+                </StackPanel>
+               <!-- <TextBlock Text="By deleting this student, you will also delete their grades and subjects." Margin="0 10 0 0" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="Red" FontSize="10"/> -->
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

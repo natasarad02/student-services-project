@@ -97,8 +97,17 @@ namespace GUI.View
         private void Add_Subject_Click(object sender, RoutedEventArgs e)
         {
             
-            studentsSubjectsController.Add(Student.Id, SelectedSubject.Id);
-            Close();
+            if(SelectedSubject == null)
+            {
+                MessageBox.Show("Please choose a subject to add");
+            }
+            else
+            {
+                studentsSubjectsController.Add(Student.Id, SelectedSubject.Id);
+                Close();
+
+            }
+           
         }
 
         
