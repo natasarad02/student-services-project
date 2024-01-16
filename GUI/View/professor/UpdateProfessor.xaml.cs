@@ -23,16 +23,19 @@ namespace GUI.View
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<SubjectDTO> MySubjects;
         private SubjectsController subjectsController;
-        private SubjectDTO SelectedSubject;
+        
+        
+        public SubjectDTO SelectedSubject { get; set; }
 
 
         public UpdateProfessor(ProfessorsController professorController, ProfessorDTO SelectedProfessor)
         {
+
             InitializeComponent();
             DataContext = this;
             Professor = SelectedProfessor;
             this.professorController = professorController;
-            SelectedSubject = new SubjectDTO();
+            //SelectedSubject = new SubjectDTO(); //ovog nema u updateStudent ali bez toga je selected subejct stalno na null
             MySubjects = new ObservableCollection<SubjectDTO>();    
             subjectsController = new SubjectsController();
             subjectsController.Subscribe(this);
@@ -66,11 +69,32 @@ namespace GUI.View
         private void Delete_Subject(object sender, RoutedEventArgs e)
         {
             //za selektovani predmet staviti da je prof id == -1 i prof name = null
-            //ne radi
-            MySubjects.Remove(SelectedSubject);
-            SelectedSubject.Id = -1;
-            SelectedSubject.ProfessorName = "";
+
+            if (SelectedSubject == null) //stalno je null
+            {
+                MessageBox.Show("Please select a subject to delete!!!");
+            }
+            else { 
+            
+                MySubjects.Remove(SelectedSubject);
+                MessageBox.Show(SelectedSubject.ToSubject().ToString());
+                SelectedSubject.ProfessorId = -1;
+                SelectedSubject.ProfessorName = null;
+
+                //pozvati kontoler za predmete i ubaciti 
+                //subjectsController.Update(SelectedSubject.ToSubject()); //ovo radi, ali da ne menja stalno je zakomentarisano
+
+                MessageBox.Show(SelectedSubject.ToSubject().ToString());
+            
+            }
+
         }
+
+        private void Add_Subject_Click(object sender, RoutedEventArgs e) 
+        { 
+            //prikazi sve
+        }
+
     }
 
 }

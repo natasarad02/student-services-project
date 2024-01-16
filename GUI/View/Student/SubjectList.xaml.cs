@@ -51,9 +51,8 @@ namespace GUI.View
         {
 
            Subjects.Clear();
-            // bool subjectIsFound = false;
 
-            List<Subject> tmpSubjectList = new List<Subject>();//subjectController.GetAllSubjects();
+            List<Subject> tmpSubjectList = new List<Subject>();
             foreach (Subject subject in subjectController.GetAllSubjects())
             {
                 if (subject.year <= Student.Current_Year)
@@ -76,33 +75,22 @@ namespace GUI.View
             foreach (Subject subject in subjectController.GetAllSubjects())
             {
 
-
-               // MessageBox.Show(subject.Id.ToString());
                 foreach (Subject attendingSubject in studentsSubjectsController.GetAllSubjectsByStudent(Student.toStudent(), subjectController))
                 {
 
-
-                   // MessageBox.Show(attendingSubject.Id.ToString());
                     if(subject.Id == attendingSubject.Id)
                     {
 
-                        //subjectIsFound = true;
-                       // MessageBox.Show("Predmet je pronadjen");
                         tmpSubjectList.Remove(subject);
                         break;
                         
                     }
 
-
-
-                }        
-               
+                }                      
                 
             }
             foreach(Subject subject in tmpSubjectList)
                 Subjects.Add(new SubjectDTO(subject));
-
-
 
         }
 

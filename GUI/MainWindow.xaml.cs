@@ -28,7 +28,6 @@ namespace GUI
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
 
-       // public ObservableCollection<SubjectDTO> attendingSubjects { get; set; }
         public SubjectDTO  SelectedSubject { get; set; }
 
         private SubjectsController subjectController { get; set; }
