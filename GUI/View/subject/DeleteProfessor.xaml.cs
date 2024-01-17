@@ -22,7 +22,7 @@ public partial class DeleteProfessorFromSubject : Window, INotifyPropertyChanged
     public bool yesClick { get; set; }
     public Button addProfessorButton { get; set; }
     public Button deleteProfessorButton { get; set; }
-
+    
     public DeleteProfessorFromSubject(SubjectDTO Subject, Button addProfessorButton, Button deleteProfessorButton, UpdateSubject parentWindow)
     {
         InitializeComponent();

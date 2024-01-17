@@ -17,6 +17,7 @@ namespace GUI.View
         private SubjectsController subjectController;
         public event PropertyChangedEventHandler? PropertyChanged;
         private ProfessorsController professorsController;
+        public MainWindow mainWindow { get; set; }
         public AddSubject(SubjectsController subjectController, ProfessorsController professorsController, MainWindow mainWindow)
         {
             InitializeComponent();
@@ -26,12 +27,13 @@ namespace GUI.View
             this.professorsController = professorsController;
             double screenWidth = SystemParameters.PrimaryScreenWidth;
             double screenHeight = SystemParameters.PrimaryScreenHeight;
-
+            this.mainWindow = mainWindow;
 
            
 
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+            mainWindow.IsEnabled = false;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -42,6 +44,7 @@ namespace GUI.View
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             subjectController.Add(Subject.ToSubject());
+
             Close();
         }
 
@@ -51,6 +54,7 @@ namespace GUI.View
         }
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.IsEnabled = true;
             Close();
         }
 

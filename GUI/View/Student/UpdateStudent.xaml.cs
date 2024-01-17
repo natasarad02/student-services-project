@@ -39,6 +39,8 @@ namespace GUI.View
         public ObservableCollection<ExamGradeDTO> Grades { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
         public HashSet<Professor> ProfessorsHashSet;
+
+        public MainWindow mainWindow { get; set; }
         public UpdateStudent(StudentsController studentController, StudentsSubjectsController studentSubjectsController, SubjectsController subjectsController, ProfessorsController professorsController, MainWindow mainWindow)
         {
             InitializeComponent();
@@ -71,9 +73,11 @@ namespace GUI.View
             //Update();
             TabUpdate.SelectionChanged += TabUpdate_SelectionChanged;
 
+            this.mainWindow = mainWindow;
 
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+            mainWindow.IsEnabled = false;
 
         }
 
@@ -91,6 +95,7 @@ namespace GUI.View
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.IsEnabled = true;
             Close();
         }
 

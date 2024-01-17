@@ -21,7 +21,7 @@ namespace GUI.View
         private SubjectsController subjectController;
         private ProfessorsController professorsController { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
-        
+        public MainWindow mainWindow { get; set; }  
         public UpdateSubject(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorsController, MainWindow mainWindow)
         {
             InitializeComponent();
@@ -29,6 +29,7 @@ namespace GUI.View
             this.Subject = Subject;
             this.subjectController = subjectController;
             this.professorsController = professorsController;
+            this.mainWindow = mainWindow;
             // oldSubject = existingSubject.Clone();
             if (Subject.ProfessorName.Equals(""))
             { 
@@ -46,6 +47,8 @@ namespace GUI.View
 
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+            mainWindow.IsEnabled = false;
+            
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -62,7 +65,8 @@ namespace GUI.View
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-           // Subject.CopyFrom(oldSubject);
+            // Subject.CopyFrom(oldSubject);
+            mainWindow.IsEnabled = true;
             Close();
         }
 

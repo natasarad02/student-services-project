@@ -19,15 +19,17 @@ namespace GUI.View
         public ProfessorDTO Professor { get; set; }
         private ProfessorsController professorController;
         public event PropertyChangedEventHandler? PropertyChanged;
-
+        public MainWindow mainWindow { get; set; }
         public AddProfessor(ProfessorsController professorController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
             Professor = new ProfessorDTO();
             this.professorController = professorController;
+            this.mainWindow = mainWindow;
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+            mainWindow.IsEnabled = false;
 
         }
 
@@ -44,6 +46,7 @@ namespace GUI.View
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.IsEnabled = true;
             Close();
         }
     }

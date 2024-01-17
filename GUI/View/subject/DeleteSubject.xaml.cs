@@ -16,15 +16,17 @@ namespace GUI.View
         public SubjectDTO Subject { get; set; }
         private SubjectsController subjectController;
         public event PropertyChangedEventHandler? PropertyChanged;
-
+        public MainWindow mainWindow {  get; set; }
         public DeleteSubject(SubjectsController subjectController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
             Subject = new SubjectDTO();
             this.subjectController = subjectController;
+            this.mainWindow = mainWindow;
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+            mainWindow.IsEnabled = false;
 
         }
 
@@ -41,6 +43,7 @@ namespace GUI.View
 
         private void No_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.IsEnabled = true;
             Close();
         }
     }

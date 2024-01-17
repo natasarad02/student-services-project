@@ -26,7 +26,7 @@ namespace GUI.View
         
         
         public SubjectDTO SelectedSubject { get; set; }
-
+        public MainWindow mainWindow { get; set; }
 
         public UpdateProfessor(ProfessorsController professorController, ProfessorDTO SelectedProfessor, MainWindow mainWindow)
         {
@@ -41,9 +41,10 @@ namespace GUI.View
             subjectsController.Subscribe(this);
             SubjectsDataGrid.ItemsSource = MySubjects;
             Update();
+            this.mainWindow = mainWindow;
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
-
+            mainWindow.IsEnabled = false;
         }
 
         public void Update() {
@@ -65,6 +66,7 @@ namespace GUI.View
         }
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.IsEnabled = true;
             Close();
         }
 

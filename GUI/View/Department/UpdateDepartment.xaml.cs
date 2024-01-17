@@ -28,6 +28,8 @@ namespace GUI.View
         public ProfessorDTO SelectedProfessor { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
         public List<Professor> tmpProfessorList;
+
+        public MainWindow mainWindow { get; set; }
         public UpdateDepartment(DepartmentsController departmentController, ProfessorsController professorsController, MainWindow mainWindow)
         {
             InitializeComponent();
@@ -43,10 +45,11 @@ namespace GUI.View
             //possibleHOD = new List<ProfessorDTO>();
             Professors = new ObservableCollection<ProfessorDTO>();
          
-
+            this.mainWindow = mainWindow;
             TabUpdateDepartment.SelectionChanged += TabUpdateDepartment_SelectionChanged;
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+            mainWindow.IsEnabled = false;
         }
 
         private void TabUpdateDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -99,6 +102,7 @@ namespace GUI.View
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.IsEnabled = true;
             Close();
         }
 
