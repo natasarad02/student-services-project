@@ -168,8 +168,11 @@ namespace GUI
                 firstName = words[1];
                 lastName = string.Join(" ", words.Skip(2));
             }
+            ObservableCollection<ProfessorDTO> professorsTotal = new ObservableCollection<ProfessorDTO>();
+            foreach (Professor p in professorController.GetAllProfessors())
+                professorsTotal.Add(new ProfessorDTO(p));
 
-            var searchResults = Professors.Where(professor =>
+            var searchResults = professorsTotal.Where(professor =>
                                 (string.IsNullOrEmpty(idnum) || professor.Num.ToString().ToUpper().Contains(idnum.ToUpper())) &&
                                 (string.IsNullOrEmpty(firstName) || professor.Name.ToUpper().Contains(firstName.ToUpper())) &&
                                 (string.IsNullOrEmpty(lastName) || professor.Surname.ToUpper().Contains(lastName.ToUpper()))
@@ -207,7 +210,12 @@ namespace GUI
                 lastName = string.Join(" ", words.Skip(2)); 
             }
 
-            var searchResults = Students.Where(student =>
+            ObservableCollection<StudentDTO> studentsTotal = new ObservableCollection<StudentDTO>();
+            foreach(Student s in studentController.GetAllStudents()) 
+                studentsTotal.Add(new StudentDTO(s));
+            
+           
+            var searchResults = studentsTotal.Where(student =>
                                 (string.IsNullOrEmpty(index) || student.getIndeks().ToUpper().Contains(index.ToUpper())) &&
                                 (string.IsNullOrEmpty(firstName) || student.First_Name.ToUpper().Contains(firstName.ToUpper())) &&
                                 (string.IsNullOrEmpty(lastName) || student.Last_Name.ToUpper().Contains(lastName.ToUpper()))
@@ -238,9 +246,11 @@ namespace GUI
                 subjectName = words[0];
                 ids = words[1];
             }
-           
+            ObservableCollection<SubjectDTO> subjectsTotal = new ObservableCollection<SubjectDTO>();
+            foreach (Subject s in subjectController.GetAllSubjects())
+                subjectsTotal.Add(new SubjectDTO(s));
 
-            var searchResults = Subjects.Where(subject =>
+            var searchResults = subjectsTotal.Where(subject =>
                                 (string.IsNullOrEmpty(ids) || subject.Ids.ToString().ToUpper().Contains(ids.ToUpper())) &&
                                 (string.IsNullOrEmpty(subjectName) || subject.Name.ToUpper().Contains(subjectName.ToUpper()))).ToList();
 
