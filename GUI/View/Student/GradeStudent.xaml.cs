@@ -22,7 +22,7 @@ namespace GUI.View
         private SubjectDTO Subject;
 
         public GradeStudent(ExamGradesController examGradesController, SubjectDTO Selected_Subject, StudentDTO SelectedStudent,
-                            ObservableCollection<SubjectDTO> Subjects, StudentsSubjectsController studentSubjectsController) { 
+                            ObservableCollection<SubjectDTO> Subjects, StudentsSubjectsController studentSubjectsController, UpdateStudent parentWindow) { 
             InitializeComponent();
             DataContext = this;
             exam = new ExamGradeDTO();
@@ -38,6 +38,8 @@ namespace GUI.View
             //ispis unutar windowa
             txtID.Text = Selected_Subject.Ids.ToString();
             txtName.Text = Selected_Subject.Name;
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
 
         }
 

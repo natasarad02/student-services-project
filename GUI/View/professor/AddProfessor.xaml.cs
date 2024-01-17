@@ -20,12 +20,14 @@ namespace GUI.View
         private ProfessorsController professorController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public AddProfessor(ProfessorsController professorController)
+        public AddProfessor(ProfessorsController professorController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
             Professor = new ProfessorDTO();
             this.professorController = professorController;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
 
         }
 

@@ -17,12 +17,14 @@ namespace GUI.View
         private StudentsController studentController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public DeleteStudent(StudentsController studentController)
+        public DeleteStudent(StudentsController studentController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
             Student = new StudentDTO();
             this.studentController = studentController;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
         }
 
         private void Yes_Click(object sender, RoutedEventArgs e)

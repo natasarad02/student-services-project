@@ -20,7 +20,7 @@ namespace GUI.View
         private StudentsSubjectsController studentsSubjectController;
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<SubjectDTO> Subjects{ get; set; }
-        public DeleteSubjectFromStudent(StudentsSubjectsController studentsSubjectController, ObservableCollection<SubjectDTO> Subjects, StudentDTO Student, SubjectDTO SelectedSubject)
+        public DeleteSubjectFromStudent(StudentsSubjectsController studentsSubjectController, ObservableCollection<SubjectDTO> Subjects, StudentDTO Student, SubjectDTO SelectedSubject, UpdateStudent parentWindow)
         {
             InitializeComponent();
             DataContext = this;
@@ -28,7 +28,8 @@ namespace GUI.View
             this.studentsSubjectController = studentsSubjectController;
             this.Subjects = Subjects;
             this.Student = Student;
-
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

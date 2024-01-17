@@ -26,7 +26,7 @@ namespace GUI.View
 
         public SubjectDTO Subject { get; set; }
         private ProfessorsController professorController { get; set; }
-        public ProfessorList(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorController)
+        public ProfessorList(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorController, SubjectWindowInterface parentWindow)
         {
             InitializeComponent();
             Professors = new ObservableCollection<ProfessorDTO>();
@@ -41,18 +41,8 @@ namespace GUI.View
 
             Update();
 
-            double screenWidth = SystemParameters.PrimaryScreenWidth;
-            double screenHeight = SystemParameters.PrimaryScreenHeight;
-
-
-            double targetWidth = screenWidth * 0.75;
-            double targetHeight = screenHeight * 0.75;
-
-            Width = targetWidth;
-            Height = targetHeight;
-
-            Left = (screenWidth - targetWidth) / 2;
-            Top = (screenHeight - targetHeight) / 2;
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
 
         }
         public void Update()

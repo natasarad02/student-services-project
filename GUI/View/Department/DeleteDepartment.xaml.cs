@@ -17,12 +17,14 @@ namespace GUI.View
         private DepartmentsController departmentController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public DeleteDepartment(DepartmentsController departmentController)
+        public DeleteDepartment(DepartmentsController departmentController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
             department = new DepartmentDTO();
             this.departmentController = departmentController;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

@@ -17,12 +17,14 @@ namespace GUI.View
         private SubjectsController subjectController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public DeleteSubject(SubjectsController subjectController)
+        public DeleteSubject(SubjectsController subjectController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
             Subject = new SubjectDTO();
             this.subjectController = subjectController;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
 
         }
 

@@ -28,7 +28,7 @@ namespace GUI.View
         public ProfessorDTO SelectedProfessor { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
         public List<Professor> tmpProfessorList;
-        public UpdateDepartment(DepartmentsController departmentController, ProfessorsController professorsController)
+        public UpdateDepartment(DepartmentsController departmentController, ProfessorsController professorsController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
@@ -45,6 +45,8 @@ namespace GUI.View
          
 
             TabUpdateDepartment.SelectionChanged += TabUpdateDepartment_SelectionChanged;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
         }
 
         private void TabUpdateDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -102,7 +104,7 @@ namespace GUI.View
 
         private void Add_Professor(object sender, RoutedEventArgs e)
         {
-            DepartmentProfessorList professorList = new DepartmentProfessorList(department, professorsController, departmentController, Professors);
+            DepartmentProfessorList professorList = new DepartmentProfessorList(department, professorsController, departmentController, Professors, this);
             //professorList.attendingSubjects = Subjects;
       
            
@@ -117,9 +119,11 @@ namespace GUI.View
             }
             else
             {
-                department.Department_Professors.Remove(SelectedProfessor.Id);
+                DeleteProfessorFromDepartment deleteProfessor = new DeleteProfessorFromDepartment(SelectedProfessor, department, Professors, this);
+                deleteProfessor.Show();
+               /* department.Department_Professors.Remove(SelectedProfessor.Id);
                 Professors.Remove(SelectedProfessor);
-               
+               */
             }
 
 

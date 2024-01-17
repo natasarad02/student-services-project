@@ -17,11 +17,13 @@ namespace GUI.View
         private StudentsController studentController;
         public event PropertyChangedEventHandler ? PropertyChanged;
 
-        public AddStudent(StudentsController studentController) {
+        public AddStudent(StudentsController studentController, MainWindow mainWindow) {
             InitializeComponent();
             DataContext = this;
             Student = new StudentDTO();
             this.studentController = studentController;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

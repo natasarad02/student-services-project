@@ -24,7 +24,7 @@ namespace GUI.View
         public ProfessorDTO SelectedProfessor { get; set; }
 
         public List<Professor> tmpProfessorList;
-        public DepartmentProfessorList(DepartmentDTO Department, ProfessorsController professorsController, DepartmentsController departmentsController, ObservableCollection<ProfessorDTO> departmentProfessors)
+        public DepartmentProfessorList(DepartmentDTO Department, ProfessorsController professorsController, DepartmentsController departmentsController, ObservableCollection<ProfessorDTO> departmentProfessors, UpdateDepartment parentWindow)
         {
             InitializeComponent();
 
@@ -39,6 +39,8 @@ namespace GUI.View
 
 
             Update();
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
 
 
         }

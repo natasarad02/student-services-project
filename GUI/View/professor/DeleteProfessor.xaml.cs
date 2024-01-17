@@ -17,12 +17,14 @@ public partial class DeleteProfessor : Window, INotifyPropertyChanged
     private ProfessorsController professorController;
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    public DeleteProfessor(ProfessorsController professorController)
+    public DeleteProfessor(ProfessorsController professorController, MainWindow mainWindow)
     {
         InitializeComponent();
         DataContext = this;
         Professor = new ProfessorDTO();
         this.professorController = professorController;
+        Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+        Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
 
     }
 

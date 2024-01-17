@@ -28,7 +28,7 @@ namespace GUI.View
         public SubjectDTO SelectedSubject { get; set; }
 
 
-        public UpdateProfessor(ProfessorsController professorController, ProfessorDTO SelectedProfessor)
+        public UpdateProfessor(ProfessorsController professorController, ProfessorDTO SelectedProfessor, MainWindow mainWindow)
         {
 
             InitializeComponent();
@@ -41,6 +41,8 @@ namespace GUI.View
             subjectsController.Subscribe(this);
             SubjectsDataGrid.ItemsSource = MySubjects;
             Update();
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
 
         }
 
@@ -93,13 +95,13 @@ namespace GUI.View
         private void Add_Subject_Click(object sender, RoutedEventArgs e) 
         {
             string full_name = Professor.Name + " " + Professor.Surname;
-            SubjectList2 subjectList2 = new SubjectList2(Professor.Id, full_name, subjectsController);
+            SubjectList2 subjectList2 = new SubjectList2(Professor.Id, full_name, subjectsController, this);
             subjectList2.Show();
         }
 
         private void ShowStudents_Click(object sender, RoutedEventArgs e)
         {
-            StudentList studentList = new StudentList(Professor, subjectsController);
+            StudentList studentList = new StudentList(Professor, subjectsController, this);
             studentList.Show();
         }
 

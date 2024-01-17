@@ -25,7 +25,7 @@ namespace GUI.View
         private SubjectsController subjectsController { get; set; }
 
         //List of students for a professor
-        public StudentList(ProfessorDTO pprofessor, SubjectsController subjectsController) 
+        public StudentList(ProfessorDTO pprofessor, SubjectsController subjectsController, UpdateProfessor parentWindow) 
         {
             InitializeComponent();
 
@@ -38,7 +38,8 @@ namespace GUI.View
 
             DataContext = this;
             Update();
-
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
         }
 
         //za svakog profesora naci sve predmete -> subjectController

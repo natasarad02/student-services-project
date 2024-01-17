@@ -18,11 +18,13 @@ namespace GUI.View
         private ExamGradesController examGradesController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public DeleteGrade(ExamGradesController examGradesController) { 
+        public DeleteGrade(ExamGradesController examGradesController, UpdateStudent parentWindow) { 
             InitializeComponent();
             DataContext = this;
             exam = new ExamGradeDTO();
             this.examGradesController = examGradesController;
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
         }
 
         private void Yes_Click(object sender, RoutedEventArgs e)
