@@ -28,7 +28,7 @@ namespace GUI.View
         public ProfessorDTO SelectedProfessor { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
         public List<Professor> tmpProfessorList;
-
+        
         public MainWindow mainWindow { get; set; }
         public UpdateDepartment(DepartmentsController departmentController, ProfessorsController professorsController, MainWindow mainWindow)
         {
@@ -51,6 +51,28 @@ namespace GUI.View
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
             Closing += Window_Closing;
+
+            if (department.Hod != null)
+            {
+                if (department.Hod.Equals(""))
+                {
+                    deleteProfessorButton.IsEnabled = false;
+                    addProfessorButton.IsEnabled = true;
+                }
+                else
+                {
+                    deleteProfessorButton.IsEnabled = true;
+                    addProfessorButton.IsEnabled = false;
+
+
+                }
+            }
+            else
+            {
+                deleteProfessorButton.IsEnabled = false;
+                addProfessorButton.IsEnabled = true;
+            }
+
         }
 
         private void TabUpdateDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -140,12 +162,16 @@ namespace GUI.View
         }
 
         public void Add_HOD(object sender, RoutedEventArgs e) {
-            
+            PossibleHODList possible = new PossibleHODList(departmentController, department);
+            possible.Show();
+            Update();
         }
 
         public void Delete_HOD(object sender, RoutedEventArgs e)
         {
-
+            department.Hod = null;
+            department.Hod_id = -1;
+            Update();
         }
 
     }
