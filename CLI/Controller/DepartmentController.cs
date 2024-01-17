@@ -86,6 +86,9 @@ namespace CLI.Controller
 
         public void addProfessor(int  dep_id, int prof_id)
         {
+           
+
+
             departmentDAO.addProfessor(prof_id, dep_id);
 
         }

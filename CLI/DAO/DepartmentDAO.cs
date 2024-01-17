@@ -97,16 +97,16 @@ namespace StudentskaSluzba.DAO
             return departments;
         }
 
-        public void addProfessor(ProfessorDAO professorDAO, int id, int departmentID)
+        public void addProfessor(int id, int departmentID)
         {
             
-            Professor pro = professorDAO.GetProfessorById(id); //provera fali
+           // Professor pro = professorDAO.GetProfessorById(id); //provera fali
 
            
             Department dep = GetDepartmentById(departmentID);
 
 
-            dep.Department_Professors.Add(pro.Id);
+            dep.Department_Professors.Add(id);
             DepartmentSubject.NotifyObservers();
 
 
