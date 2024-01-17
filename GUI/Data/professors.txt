@@ -1,4 +1,3 @@
-0|Mitar|Mitrovic|Ulica Kralja Petra Prvog,7,Beograd,Srbija|064/1234567899|mitrovic.m@uns.ac.rs|2005|01-01-0001|213456789|dr
 1|Jovana|Jankovic|Ulica Kneza Mihaila,15,Novi Sad,Srbija|065/987654321|jovana.jankovic@gmail.com|2018|01-01-0001|312345678|dipl ing
 2|Pavle|Kostic|Bulevar Oslobođenja,33,Podgorica,Crna Gora|067/111222333|pavle_kostic@yahoo.com|2022|01-01-0001|456789012|dr
 3|Bojana|Nikolic|Ulica Kralja Aleksandra,25,Beograd,Srbija|063/444555666|bojana.nikolic@hotmail.com|2019|01-01-0001|567890123|mr

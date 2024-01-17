@@ -1,4 +1,4 @@
-﻿0|56|Matematika|Ralevic Nebojsa
+0|56|Matematika|Ralevic Nebojsa
 1|512|Informatika|Jankovic Jovana
 2|178|Mehatronika|Petrovic Nikola
 3|693|Automatika|Rapajic Milan
