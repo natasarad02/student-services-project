@@ -48,5 +48,18 @@ namespace CLI.Controller
             professorsDAO.save();
         }
 
+        public List<Professor> GetProfessorsPage(int page, int itemsPerPage)
+        {
+
+            List<Professor> allProfessors = GetAllProfessors();
+
+
+            int startIndex = page * itemsPerPage;
+
+
+            var ProfessorsPage = allProfessors.Skip(startIndex).Take(itemsPerPage).ToList();
+
+            return ProfessorsPage;
+        }
     }
 }

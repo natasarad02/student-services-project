@@ -25,17 +25,17 @@ namespace GUI
         public ObservableCollection<DepartmentDTO> Departments { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
 
-        public SubjectDTO  SelectedSubject { get; set; }
+        public SubjectDTO SelectedSubject { get; set; }
 
         private SubjectsController subjectController { get; set; }
 
 
-        public  StudentDTO SelectedStudent { get; set; }
+        public StudentDTO SelectedStudent { get; set; }
         private StudentsController studentController { get; set; }
 
         private DepartmentsController departmentController { get; set; }
         public DepartmentDTO SelectedDepartment { get; set; }
-        
+
         public ProfessorDTO SelectedProfessor { get; set; }
 
         private ProfessorsController professorController { get; set; }
@@ -47,6 +47,11 @@ namespace GUI
 
         private DispatcherTimer timer;
 
+        private int itemsPerPage = 16;
+        private int currentPageStudent = 0;
+        private int currentPageSubject = 0;
+        private int currentPageDepartment = 0;
+        private int currentPageProfessor = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -104,6 +109,8 @@ namespace GUI
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += UpdateDateTime;
             timer.Start();
+
+            Tab.SelectionChanged += TabControl_SelectionChanged;
 
         }
 
@@ -253,21 +260,25 @@ namespace GUI
                    {
                        case 0:
                            AddStudent addStudent = new AddStudent(studentController, this);
+                           currentPageStudent = 0;
                            addStudent.Show();
                            break;
                        case 1:
                            AddSubject addSubject = new AddSubject(subjectController, professorController, this);
-                           addSubject.Show();
+                            currentPageSubject = 0;
+                            addSubject.Show();
                            break;
                        case 2:
                    
                             AddProfessor addProfessor = new AddProfessor(professorController, this);
+                            currentPageProfessor = 0;
                             addProfessor.Show();
 
                             break;
                        case 3:
                            AddDepartment addDepartment = new AddDepartment(departmentController, this);
-                           addDepartment.Show();
+                            currentPageDepartment = 0;
+                            addDepartment.Show();
                            
                            break;
                            
@@ -277,25 +288,32 @@ namespace GUI
 
         public void Update()
         {
+            
+            UpdateWithPaging(0, 16);
+            
+        }
+        public void UpdateWithPaging(int page, int itemsPerPage)
+        {
+           
             Students.Clear();
-            foreach (Student student in studentController.GetAllStudents())
+            foreach (Student student in studentController.GetStudentsPage(page, itemsPerPage))
             {
                 Students.Add(new StudentDTO(student));
             }
             Subjects.Clear();
-            foreach(Subject subject in subjectController.GetAllSubjects())
+            foreach(Subject subject in subjectController.GetSubjectsPage(page, itemsPerPage))
             {
                 Subjects.Add(new SubjectDTO(subject));
             }
         
             Professors.Clear();
-            foreach (Professor professor in professorController.GetAllProfessors())
+            foreach (Professor professor in professorController.GetProfessorsPage(page, itemsPerPage))
             {
                 Professors.Add(new ProfessorDTO(professor));
             }
 
             Departments.Clear();
-            foreach(Department department in departmentController.GetAllDepartments())
+            foreach(Department department in departmentController.GetDepartmentsPage(page, itemsPerPage))
             {
                 Departments.Add(new DepartmentDTO(department));
             }
@@ -327,22 +345,47 @@ namespace GUI
             return null;
 
         }
+        
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TabControl tabControl = sender as TabControl;
 
-            if (tabControl != null)
-            {
-                TabItem selectedTab = tabControl.SelectedItem as TabItem;
+             if (tabControl != null)
+             {
+                 TabItem selectedTab = tabControl.SelectedItem as TabItem;
 
-                if (selectedTab != null)
-                {
-                    string tabHeader = selectedTab.Header.ToString();
+                 if (selectedTab != null)
+                 {
+                     string tabHeader = selectedTab.Header.ToString();
 
-                     currentTabTextBlock.Text = "Current Tab: " + tabHeader;
+                      currentTabTextBlock.Text = "Current Tab: " + tabHeader;
+
+                    switch (tabHeader)
+                    {
+                        case "Students":
+                            currentPageStudent = 0;
+                            UpdateWithPaging(currentPageStudent, itemsPerPage);
+                            break;
+                        case "Subjects":
+                            currentPageSubject = 0;
+                            UpdateWithPaging(currentPageSubject, itemsPerPage);
+                            break;
+                        case "Professors":
+                            currentPageProfessor = 0;
+                            UpdateWithPaging(currentPageProfessor, itemsPerPage);
+                            break;
+                        case "Departments":
+                            currentPageDepartment = 0;
+                            UpdateWithPaging(currentPageDepartment, itemsPerPage);
+                            break;
+                    }
+                    
+
                 }
+
             }
+          
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -357,6 +400,7 @@ namespace GUI
                     {
                         DeleteStudent deleteStudent = new DeleteStudent(studentController, this);
                         deleteStudent.Student = SelectedStudent;
+                        currentPageStudent = 0;
                         deleteStudent.Show();
                     }
                     break;
@@ -367,6 +411,7 @@ namespace GUI
                     {
                         DeleteSubject deleteSubject = new DeleteSubject(subjectController, this);
                         deleteSubject.Subject = SelectedSubject;
+                        currentPageSubject = 0;
                         deleteSubject.Show();
                     }
                     break;
@@ -378,6 +423,7 @@ namespace GUI
                     {
                         DeleteProfessor deleteProfessor = new DeleteProfessor(professorController, this, subjectController, departmentController);
                         deleteProfessor.Professor = SelectedProfessor;
+                        currentPageProfessor = 0;
                         deleteProfessor.Show();
                     }
                     break;
@@ -388,6 +434,7 @@ namespace GUI
                     {
                         DeleteDepartment deleteDepartment = new DeleteDepartment(departmentController, this);
                         deleteDepartment.department = SelectedDepartment;
+                        currentPageDepartment = 0;
                         deleteDepartment.Show();
                     }
                     break;
@@ -405,10 +452,10 @@ namespace GUI
                     else {
                         UpdateStudent updateStudent = new UpdateStudent(studentController, studentsSubjectsController, subjectController, professorController, this);
                         updateStudent.Student = SelectedStudent;
-                       // updateStudent.previousList = studentsSubjectsController.GetAllSubjectsById(SelectedStudent.Id);
+                        // updateStudent.previousList = studentsSubjectsController.GetAllSubjectsById(SelectedStudent.Id);
                         // attendingSubjects = new ObservableCollection<SubjectDTO>();
-                       // updateStudent.attendingSubjects = attendingSubjects;
-                       
+                        // updateStudent.attendingSubjects = attendingSubjects;
+                        currentPageStudent = 0;
                         updateStudent.Show();
                        // updateStudent.Update();
 
@@ -421,6 +468,7 @@ namespace GUI
                     {
                         UpdateSubject updateSubject = new UpdateSubject(SelectedSubject, subjectController, professorController, this);
                         //updateSubject.Subject = SelectedSubject;
+                        currentPageSubject = 0;
                         updateSubject.Show();
                      }
 
@@ -432,6 +480,7 @@ namespace GUI
                     else
                     {
                         UpdateProfessor updateProfessor = new UpdateProfessor(professorController, SelectedProfessor, this);
+                        currentPageProfessor = 0;
                         updateProfessor.Show();
                     }
                     break;
@@ -441,6 +490,7 @@ namespace GUI
                     else {
                         UpdateDepartment updateDepartment = new UpdateDepartment(departmentController, professorController, subjectController, this);
                         updateDepartment.department = SelectedDepartment;
+                        currentPageDepartment = 0;
                         updateDepartment.Show();
                     }                    
                     break;
@@ -491,7 +541,183 @@ namespace GUI
             MessageBox.Show("Save successfull!");
         }
 
-        
+
+        private void PreviousPageStudent_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentPageStudent > 0)
+            {
+                currentPageStudent--;
+                UpdateWithPaging(currentPageStudent, itemsPerPage);
+            }
+
+        }
+        private void PreviousPageSubject_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentPageSubject > 0)
+            {
+                currentPageSubject--;
+                UpdateWithPaging(currentPageSubject, itemsPerPage);
+            }
+        }
+        private void PreviousPageProfessor_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentPageProfessor > 0)
+            {
+                currentPageProfessor--;
+                UpdateWithPaging(currentPageProfessor, itemsPerPage);
+            }
+        }
+        private void PreviousPageDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentPageDepartment > 0)
+            {
+                currentPageDepartment--;
+                UpdateWithPaging(currentPageDepartment, itemsPerPage);
+            }
+
+        }
+      
+       /* private void UpdateStudentsDataGrid()
+        {
+            var studentsToShow = Students.Skip(currentPageStudent * itemsPerPage).Take(itemsPerPage).ToList();
+            StudentDataGrid.ItemsSource = new ObservableCollection<StudentDTO>(studentsToShow);
+        }
+        private void UpdateSubjectsDataGrid()
+        {
+            var SubjectsToShow = Subjects.Skip(currentPageSubject * itemsPerPage).Take(itemsPerPage).ToList();
+            SubjectsDataGrid.ItemsSource = new ObservableCollection<SubjectDTO>(SubjectsToShow);
+        }
+        private void UpdateProfessorsDataGrid()
+        {
+            var ProfessorsToShow = Professors.Skip(currentPageProfessor * itemsPerPage).Take(itemsPerPage).ToList();
+            ProfessorsDataGrid.ItemsSource = new ObservableCollection<ProfessorDTO>(ProfessorsToShow);
+        }
+        private void UpdateDepartmentsDataGrid()
+        {
+            var DepartmentsToShow = Departments.Skip(currentPageDepartment * itemsPerPage).Take(itemsPerPage).ToList();
+            DepartmentDataGrid.ItemsSource = new ObservableCollection<DepartmentDTO>(DepartmentsToShow);
+        }
+*/
+        private void NextPageStudent_Click(object sender, RoutedEventArgs e)
+        {
+            int totalStudents = studentController.GetAllStudents().Count();
+            int totalStudentPages = (int)Math.Ceiling((double)totalStudents / itemsPerPage);
+
+            if (currentPageStudent < totalStudentPages - 1)
+            {
+                currentPageStudent++;
+                UpdateWithPaging(currentPageStudent, itemsPerPage);
+               // Update();
+                //UpdateStudentsDataGrid();
+
+            }
+        }
+        private void NextPageSubject_Click(object sender, RoutedEventArgs e)
+        {
+            int totalSubjects = subjectController.GetAllSubjects().Count();
+            int totalSubjectPages = (int)Math.Ceiling((double)totalSubjects / itemsPerPage);
+
+            if (currentPageSubject < totalSubjectPages - 1)
+            {
+                currentPageSubject++;
+                UpdateWithPaging(currentPageSubject, itemsPerPage);
+                //UpdateStudentsDataGrid();
+
+            }
+        }
+        private void NextPageProfessor_Click(object sender, RoutedEventArgs e)
+        {
+            int totalProfessors = professorController.GetAllProfessors().Count();
+            int totalProfessorPages = (int)Math.Ceiling((double)totalProfessors / itemsPerPage);
+
+            if (currentPageProfessor < totalProfessorPages - 1)
+            {
+                currentPageProfessor++;
+                UpdateWithPaging(currentPageProfessor, itemsPerPage);
+                //UpdateStudentsDataGrid();
+
+            }
+        }
+        private void NextPageDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            int totalDepartments = departmentController.GetAllDepartments().Count();
+            int totalDepartmentsPages = (int)Math.Ceiling((double)totalDepartments / itemsPerPage);
+
+            if (currentPageDepartment < totalDepartmentsPages - 1)
+            {
+                currentPageDepartment++;
+                UpdateWithPaging(currentPageDepartment, itemsPerPage);
+                //UpdateStudentsDataGrid();
+
+            }
+        }
+
+        private void PreviousPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /*  private void NextPage_Click(object sender, RoutedEventArgs e)
+          {
+              int tabIndex = Tab.SelectedIndex;
+              switch (tabIndex)
+              {
+                  case 0:
+                      int totalStudents = studentController.GetAllStudents().Count();
+                      int totalStudentPages = (int)Math.Ceiling((double)totalStudents / itemsPerPage);
+
+                      if (currentPageStudent < totalStudentPages - 1)
+                      {
+
+                          UpdateWithPaging(currentPageStudent, itemsPerPage);
+
+                          //UpdateStudentsDataGrid();
+
+                      }
+
+                      break;
+                  case 1:
+                      int totalSubjects = subjectController.GetAllSubjects().Count();
+                      int totalSubjectPages = (int)Math.Ceiling((double)totalSubjects / itemsPerPage);
+
+                      if (currentPageSubject < totalSubjectPages - 1)
+                      {
+                          currentPageSubject++;
+                          UpdateWithPaging(currentPageSubject, itemsPerPage);
+                          //UpdateStudentsDataGrid();
+
+                      }
+
+                      break;
+                  case 2:
+                      int totalProfessors = professorController.GetAllProfessors().Count();
+                      int totalProfessorPages = (int)Math.Ceiling((double)totalProfessors / itemsPerPage);
+
+                      if (currentPageProfessor < totalProfessorPages - 1)
+                      {
+                          currentPageProfessor++;
+                          UpdateWithPaging(currentPageProfessor, itemsPerPage);
+                          //UpdateStudentsDataGrid();
+
+                      }
+
+                      break;
+                  case 3:
+                      int totalDepartments = departmentController.GetAllDepartments().Count();
+                      int totalDepartmentsPages = (int)Math.Ceiling((double)totalDepartments / itemsPerPage);
+
+                      if (currentPageDepartment < totalDepartmentsPages - 1)
+                      {
+                          currentPageDepartment++;
+                          UpdateWithPaging(currentPageDepartment, itemsPerPage);
+                          //UpdateStudentsDataGrid();
+
+                      }
+
+                      break;
+              }
+          }*/
+
 
     }
 

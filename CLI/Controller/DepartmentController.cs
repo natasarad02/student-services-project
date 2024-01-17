@@ -112,5 +112,19 @@ namespace CLI.Controller
             return tmpProfessor;
 
         }
+
+        public List<Department> GetDepartmentsPage(int page, int itemsPerPage)
+        {
+
+            List<Department> allDepartments = GetAllDepartments();
+
+
+            int startIndex = page * itemsPerPage;
+
+
+            var departmentsPage = allDepartments.Skip(startIndex).Take(itemsPerPage).ToList();
+
+            return departmentsPage;
+        }
     }
 }

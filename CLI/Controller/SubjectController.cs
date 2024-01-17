@@ -78,5 +78,19 @@ namespace CLI.Controller
             return subjectsDAO.findAllWithoutProfessor();
         }
 
+        public List<Subject> GetSubjectsPage(int page, int itemsPerPage)
+        {
+
+            List<Subject> allSubjects = GetAllSubjects();
+
+
+            int startIndex = page * itemsPerPage;
+
+
+            var SubjectsPage = allSubjects.Skip(startIndex).Take(itemsPerPage).ToList();
+
+            return SubjectsPage;
+        }
+
     }
 }

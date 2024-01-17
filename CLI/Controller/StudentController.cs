@@ -48,10 +48,23 @@ namespace CLI.Controller
             studentDAO.save();
         }
 
-       /* public void AddStudentSubject(int id_student, int id_subject)
+        public List<Student> GetStudentsPage(int page, int itemsPerPage)
         {
-            studentDAO.addStudentSubject(studentsSubjectsDAO, id_student, id_subject);
-        }*/
+            
+            List<Student> allStudents = GetAllStudents();
+
+            
+            int startIndex = page * itemsPerPage;
+
+            
+            var studentsPage = allStudents.Skip(startIndex).Take(itemsPerPage).ToList();
+
+            return studentsPage;
+        }
+        /* public void AddStudentSubject(int id_student, int id_subject)
+         {
+             studentDAO.addStudentSubject(studentsSubjectsDAO, id_student, id_subject);
+         }*/
     }
 }
 

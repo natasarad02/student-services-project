@@ -109,7 +109,8 @@
 
             <TabControl Name="Tab" SelectionChanged="TabControl_SelectionChanged">
                 <TabItem Header="Students">
-                    <DataGrid 
+                    <StackPanel>
+                        <DataGrid 
                       Background="#FFE5E5E5"
                       AutoGenerateColumns="False"
                       x:Name="StudentDataGrid"
@@ -125,11 +126,15 @@
                             <DataGridTextColumn Header="Average grade" Binding="{Binding Average_Grade}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Content="Previous" Click="PreviousPageStudent_Click"/>
+                            <Button Content="Next" Click="NextPageStudent_Click"/>
+                        </StackPanel>
+                    </StackPanel>
                 </TabItem>
-
+                
                 <TabItem Header="Subjects">
-                    
+                    <StackPanel>
                     <DataGrid Background="#FFE5E5E5"
                                
                                 AutoGenerateColumns="False"
@@ -146,8 +151,15 @@
                             <DataGridTextColumn Header="Semester" Binding="{Binding semester}" Width="*"/>
                          </DataGrid.Columns>
                     </DataGrid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Content="Previous" Click="PreviousPageSubject_Click"/>
+                            <Button Content="Next" Click="NextPageSubject_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                
                 </TabItem>
                 <TabItem Header="Professors">
+                    <StackPanel>
                     <DataGrid Background="#FFE5E5E5"
                                
                                 AutoGenerateColumns="False"
@@ -163,23 +175,33 @@
                             <DataGridTextColumn Header="E-Mail" Binding="{Binding Email_Address}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Content="Previous" Click="PreviousPageProfessor_Click"/>
+                            <Button Content="Next" Click="NextPageProfessor_Click"/>
+                        </StackPanel>
+                    </StackPanel>
                 </TabItem>
                 <TabItem Header="Departments">
-                    <DataGrid 
+                    <StackPanel>
+                        <DataGrid 
                               Background="#FFE5E5E5"
                               AutoGenerateColumns="False"
                               x:Name="DepartmentDataGrid"
                               ItemsSource="{Binding Departments, UpdateSourceTrigger=PropertyChanged}"
                               SelectedItem="{Binding SelectedDepartment, UpdateSourceTrigger=PropertyChanged}"
                               SelectionMode="Single" IsReadOnly="True">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
-                            <DataGridTextColumn Header="Department Name" Binding="{Binding Name}" Width="*"/>
-                            <DataGridTextColumn Header="Department ID" Binding="{Binding Idd}" Width="*"/>
-                            <DataGridTextColumn Header="Head of Department" Binding="{Binding Hod}" Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                                <DataGridTextColumn Header="Department Name" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="Department ID" Binding="{Binding Idd}" Width="*"/>
+                                <DataGridTextColumn Header="Head of Department" Binding="{Binding Hod}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Content="Previous" Click="PreviousPageDepartment_Click"/>
+                            <Button Content="Next" Click="NextPageDepartment_Click"/>
+                        </StackPanel>
+                    </StackPanel>
                 </TabItem>
             </TabControl>
         </Border>
