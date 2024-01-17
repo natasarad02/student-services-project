@@ -3,6 +3,7 @@ using GUI.DTO;
 using StudentskaSluzba.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -13,24 +14,22 @@ using System.Windows.Controls;
 
 namespace GUI.View;
 
-public partial class DeleteProfessorFromSubject : Window, INotifyPropertyChanged
+public partial class DeleteProfessorFromDepartment : Window, INotifyPropertyChanged
 {
   //  public ProfessorDTO Professor { get; set; }
    // private ProfessorsController professorController;
-    public SubjectDTO Subject { get; set; }
+    public ProfessorDTO SelectedProfessor { get; set; }
+    public DepartmentDTO department { get; set; }
     public event PropertyChangedEventHandler? PropertyChanged;
-    public bool yesClick { get; set; }
-    public Button addProfessorButton { get; set; }
-    public Button deleteProfessorButton { get; set; }
-
-    public DeleteProfessorFromSubject(SubjectDTO Subject, Button addProfessorButton, Button deleteProfessorButton, UpdateSubject parentWindow)
+    public ObservableCollection<ProfessorDTO> Professors { get; set; }
+    public DeleteProfessorFromDepartment(ProfessorDTO SelectedProfessor, DepartmentDTO department, ObservableCollection<ProfessorDTO> Professors, UpdateDepartment parentWindow)
     {
         InitializeComponent();
         //DataContext = this;
-        this.Subject = Subject;
-        yesClick = false;
-        this.addProfessorButton = addProfessorButton;
-        this.deleteProfessorButton = deleteProfessorButton;
+        this.SelectedProfessor = SelectedProfessor;
+        this.department = department;
+        this.Professors = Professors;
+
         Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
         Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
     }
@@ -42,11 +41,8 @@ public partial class DeleteProfessorFromSubject : Window, INotifyPropertyChanged
 
     private void Yes_Click(object sender, RoutedEventArgs e)
     {
-        yesClick = true;
-        Subject.ProfessorId = -1;
-        Subject.ProfessorName = "";
-        addProfessorButton.IsEnabled = true;
-        deleteProfessorButton.IsEnabled = false;
+        department.Department_Professors.Remove(SelectedProfessor.Id);
+        Professors.Remove(SelectedProfessor);
         Close();
     }
     private void No_Click(object sender, RoutedEventArgs e)

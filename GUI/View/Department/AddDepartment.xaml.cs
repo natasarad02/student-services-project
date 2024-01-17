@@ -17,11 +17,13 @@ namespace GUI.View
         private DepartmentsController departmentController;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public AddDepartment(DepartmentsController departmentController) {
+        public AddDepartment(DepartmentsController departmentController, MainWindow mainWindow) {
             InitializeComponent();
             DataContext = this;
             department = new DepartmentDTO();
             this.departmentController = departmentController;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

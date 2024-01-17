@@ -13,7 +13,7 @@ using StudentskaSluzba.Model;
 
 namespace GUI.View
 {
-    public partial class UpdateSubject : Window, INotifyPropertyChanged
+    public partial class UpdateSubject : Window, INotifyPropertyChanged, SubjectWindowInterface
     {
         //private SubjectDTO oldSubject;
         public SubjectDTO Subject { get; set; }
@@ -22,7 +22,7 @@ namespace GUI.View
         private ProfessorsController professorsController { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
         
-        public UpdateSubject(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorsController)
+        public UpdateSubject(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorsController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
@@ -42,18 +42,10 @@ namespace GUI.View
 
 
             }
-            double screenWidth = SystemParameters.PrimaryScreenWidth;
-            double screenHeight = SystemParameters.PrimaryScreenHeight;
+          
 
-
-            double targetWidth = screenWidth * 0.75;
-            double targetHeight = screenHeight * 0.75;
-
-            Width = targetWidth;
-            Height = targetHeight;
-
-            Left = (screenWidth - targetWidth) / 2;
-            Top = (screenHeight - targetHeight) / 2;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -76,7 +68,7 @@ namespace GUI.View
 
         private void Add_Professor(object sender, RoutedEventArgs e)
         {
-            ProfessorList professorList = new ProfessorList(Subject, subjectController, professorsController);
+            ProfessorList professorList = new ProfessorList(Subject, subjectController, professorsController, this);
             professorList.Show();
             addProfessorButton.IsEnabled = false;
             deleteProfessorButton.IsEnabled = true;
@@ -87,7 +79,7 @@ namespace GUI.View
         {
             
             
-            DeleteProfessorFromSubject deleteProfessor = new DeleteProfessorFromSubject(Subject, addProfessorButton, deleteProfessorButton);
+            DeleteProfessorFromSubject deleteProfessor = new DeleteProfessorFromSubject(Subject, addProfessorButton, deleteProfessorButton, this);
             deleteProfessor.Show();
             /*Subject.ProfessorId = -1;
             Subject.ProfessorName = "";

@@ -29,7 +29,7 @@ namespace GUI.View
 
        
         public StudentProfessorList(StudentDTO Student,  StudentsSubjectsController studentsSubjectsController,
-                                    ProfessorsController professorsController, SubjectsController subjectController)
+                                    ProfessorsController professorsController, SubjectsController subjectController, UpdateStudent parentWindow)
         {
             InitializeComponent();
 
@@ -44,7 +44,8 @@ namespace GUI.View
 
 
             Update();
-
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
 
         }
         public void Update()

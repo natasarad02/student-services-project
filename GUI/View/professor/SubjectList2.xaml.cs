@@ -26,7 +26,7 @@ namespace GUI.View
 
 
         private SubjectsController subjectController { get; set; }
-        public SubjectList2(int prof_if, string prof_name, SubjectsController subjectController)
+        public SubjectList2(int prof_if, string prof_name, SubjectsController subjectController, UpdateProfessor parentWindow)
         {
             InitializeComponent();
             Subjects = new ObservableCollection<SubjectDTO>();
@@ -39,7 +39,8 @@ namespace GUI.View
 
 
             Update();
-
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
 
         }
         public void Update()

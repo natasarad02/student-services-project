@@ -26,7 +26,7 @@ namespace GUI.View
 
         public StudentDTO Student { get; set; }
         private SubjectsController subjectController { get; set; }
-        public SubjectList(StudentDTO Student, ExamGradesController examGradesController, StudentsController studentController, StudentsSubjectsController studentsSubjectsController, SubjectsController subjectController)
+        public SubjectList(StudentDTO Student, ExamGradesController examGradesController, StudentsController studentController, StudentsSubjectsController studentsSubjectsController, SubjectsController subjectController, UpdateStudent parentWindow)
         {
             InitializeComponent();
             Subjects = new ObservableCollection<SubjectDTO>();
@@ -45,7 +45,10 @@ namespace GUI.View
 
             Update();
 
-           
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+
+
         }
         public void Update()
         {

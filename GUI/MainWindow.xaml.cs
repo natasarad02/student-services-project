@@ -255,21 +255,21 @@ namespace GUI
             switch (tabIndex)
                    {
                        case 0:
-                           AddStudent addStudent = new AddStudent(studentController);
+                           AddStudent addStudent = new AddStudent(studentController, this);
                            addStudent.Show();
                            break;
                        case 1:
-                           AddSubject addSubject = new AddSubject(subjectController, professorController);
+                           AddSubject addSubject = new AddSubject(subjectController, professorController, this);
                            addSubject.Show();
                            break;
                        case 2:
                    
-                            AddProfessor addProfessor = new AddProfessor(professorController);
+                            AddProfessor addProfessor = new AddProfessor(professorController, this);
                             addProfessor.Show();
 
                             break;
                        case 3:
-                           AddDepartment addDepartment = new AddDepartment(departmentController);
+                           AddDepartment addDepartment = new AddDepartment(departmentController, this);
                            addDepartment.Show();
                            break;
                            
@@ -357,7 +357,7 @@ namespace GUI
                         MessageBox.Show("Please choose a student to delete");
                     else
                     {
-                        DeleteStudent deleteStudent = new DeleteStudent(studentController);
+                        DeleteStudent deleteStudent = new DeleteStudent(studentController, this);
                         deleteStudent.Student = SelectedStudent;
                         deleteStudent.Show();
                     }
@@ -367,7 +367,7 @@ namespace GUI
                         MessageBox.Show("Please choose a subject to delete");
                     else
                     {
-                        DeleteSubject deleteSubject = new DeleteSubject(subjectController);
+                        DeleteSubject deleteSubject = new DeleteSubject(subjectController, this);
                         deleteSubject.Subject = SelectedSubject;
                         deleteSubject.Show();
                     }
@@ -378,7 +378,7 @@ namespace GUI
                         MessageBox.Show("Please choose a professor to delete");
                     else
                     {
-                        DeleteProfessor deleteProfessor = new DeleteProfessor(professorController);
+                        DeleteProfessor deleteProfessor = new DeleteProfessor(professorController, this);
                         deleteProfessor.Professor = SelectedProfessor;
                         deleteProfessor.Show();
                     }
@@ -388,7 +388,7 @@ namespace GUI
                         MessageBox.Show("Please choose a department to delete");
                     else
                     {
-                        DeleteDepartment deleteDepartment = new DeleteDepartment(departmentController);
+                        DeleteDepartment deleteDepartment = new DeleteDepartment(departmentController, this);
                         deleteDepartment.department = SelectedDepartment;
                         deleteDepartment.Show();
                     }
@@ -405,7 +405,7 @@ namespace GUI
                     if (SelectedStudent == null)
                         MessageBox.Show("Please choose a student to update!");
                     else {
-                        UpdateStudent updateStudent = new UpdateStudent(studentController, studentsSubjectsController, subjectController, professorController);
+                        UpdateStudent updateStudent = new UpdateStudent(studentController, studentsSubjectsController, subjectController, professorController, this);
                         updateStudent.Student = SelectedStudent;
                        // updateStudent.previousList = studentsSubjectsController.GetAllSubjectsById(SelectedStudent.Id);
                         // attendingSubjects = new ObservableCollection<SubjectDTO>();
@@ -421,7 +421,7 @@ namespace GUI
                         MessageBox.Show("Please choose a subject to update");
                     else
                     {
-                        UpdateSubject updateSubject = new UpdateSubject(SelectedSubject, subjectController, professorController);
+                        UpdateSubject updateSubject = new UpdateSubject(SelectedSubject, subjectController, professorController, this);
                         //updateSubject.Subject = SelectedSubject;
                         updateSubject.Show();
                      }
@@ -433,7 +433,7 @@ namespace GUI
                         MessageBox.Show("Please choose a professor to update");
                     else
                     {
-                        UpdateProfessor updateProfessor = new UpdateProfessor(professorController, SelectedProfessor);
+                        UpdateProfessor updateProfessor = new UpdateProfessor(professorController, SelectedProfessor, this);
                         updateProfessor.Show();
                     }
                     break;
@@ -441,7 +441,7 @@ namespace GUI
                     if (SelectedDepartment == null)
                         MessageBox.Show("Please choose a department to update");
                     else {
-                        UpdateDepartment updateDepartment = new UpdateDepartment(departmentController, professorController);
+                        UpdateDepartment updateDepartment = new UpdateDepartment(departmentController, professorController, this);
                         updateDepartment.department = SelectedDepartment;
                         updateDepartment.Show();
                     }                    

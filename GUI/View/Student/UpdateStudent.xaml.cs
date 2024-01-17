@@ -39,7 +39,7 @@ namespace GUI.View
         public ObservableCollection<ExamGradeDTO> Grades { get; set; }
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
         public HashSet<Professor> ProfessorsHashSet;
-        public UpdateStudent(StudentsController studentController, StudentsSubjectsController studentSubjectsController, SubjectsController subjectsController, ProfessorsController professorsController)
+        public UpdateStudent(StudentsController studentController, StudentsSubjectsController studentSubjectsController, SubjectsController subjectsController, ProfessorsController professorsController, MainWindow mainWindow)
         {
             InitializeComponent();
             
@@ -70,7 +70,11 @@ namespace GUI.View
 
             //Update();
             TabUpdate.SelectionChanged += TabUpdate_SelectionChanged;
-            
+
+
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -92,7 +96,7 @@ namespace GUI.View
 
         private void Add_Subject(object sender, RoutedEventArgs e)
         {
-            SubjectList subjectList = new SubjectList(Student, examGradesController, studentController, studentSubjectsController, subjectsController);
+            SubjectList subjectList = new SubjectList(Student, examGradesController, studentController, studentSubjectsController, subjectsController, this);
             subjectList.attendingSubjects = Subjects;
                         
             subjectList.Show();
@@ -157,7 +161,7 @@ namespace GUI.View
             }
             else
             {
-                DeleteSubjectFromStudent deleteSubject = new DeleteSubjectFromStudent(studentSubjectsController, Subjects, Student, SelectedSubject);
+                DeleteSubjectFromStudent deleteSubject = new DeleteSubjectFromStudent(studentSubjectsController, Subjects, Student, SelectedSubject, this);
                 deleteSubject.Show();
                // studentSubjectsController.Delete(Student.Id, SelectedSubject.Id);
                 //Subjects.Remove(SelectedSubject);
@@ -173,7 +177,7 @@ namespace GUI.View
             }
             else
             {
-                DeleteGrade deleteGrade = new DeleteGrade(examGradesController);
+                DeleteGrade deleteGrade = new DeleteGrade(examGradesController, this);
                 deleteGrade.exam = SelectedGrade;
                 deleteGrade.Show();
             }
@@ -187,14 +191,14 @@ namespace GUI.View
             }
             else
             {
-                GradeStudent gradeStudent = new GradeStudent(examGradesController, SelectedSubject, Student, Subjects, studentSubjectsController); 
+                GradeStudent gradeStudent = new GradeStudent(examGradesController, SelectedSubject, Student, Subjects, studentSubjectsController, this); 
                 gradeStudent.Show();
             }
         }
 
         public void Show_Professors_Click(object sender, RoutedEventArgs e)
         {
-            StudentProfessorList professorList = new StudentProfessorList(Student, studentSubjectsController, professorsController, subjectsController);
+            StudentProfessorList professorList = new StudentProfessorList(Student, studentSubjectsController, professorsController, subjectsController, this);
             professorList.Show();
         }
 

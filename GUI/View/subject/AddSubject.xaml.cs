@@ -11,13 +11,13 @@ using System.Windows;
 using CLI.Controller;
 namespace GUI.View
 {
-    public partial class AddSubject : Window, INotifyPropertyChanged
+    public partial class AddSubject : Window, INotifyPropertyChanged, SubjectWindowInterface
     {
         public SubjectDTO Subject { get; set; }
         private SubjectsController subjectController;
         public event PropertyChangedEventHandler? PropertyChanged;
         private ProfessorsController professorsController;
-        public AddSubject(SubjectsController subjectController, ProfessorsController professorsController)
+        public AddSubject(SubjectsController subjectController, ProfessorsController professorsController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
@@ -28,14 +28,10 @@ namespace GUI.View
             double screenHeight = SystemParameters.PrimaryScreenHeight;
 
 
-            double targetWidth = screenWidth * 0.75;
-            double targetHeight = screenHeight * 0.75;
+           
 
-            Width = targetWidth;
-            Height = targetHeight;
-
-            Left = (screenWidth - targetWidth) / 2;
-            Top = (screenHeight - targetHeight) / 2;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -60,7 +56,7 @@ namespace GUI.View
 
         private void Add_Professor(object sender, RoutedEventArgs e)
         {
-            ProfessorList professorList = new ProfessorList(Subject, subjectController, professorsController);
+            ProfessorList professorList = new ProfessorList(Subject, subjectController, professorsController, this);
             professorList.Show();
         }
     }
