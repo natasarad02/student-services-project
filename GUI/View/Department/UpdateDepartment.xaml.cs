@@ -138,5 +138,15 @@ namespace GUI.View
         {
             mainWindow.IsEnabled = true;
         }
+
+        public void Add_HOD(object sender, RoutedEventArgs e) {
+            
+        }
+
+        public void Delete_HOD(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

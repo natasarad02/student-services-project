@@ -16,6 +16,8 @@ public class Department : ISerializable
     public string Name { get; set; }
     public string Hod { get; set; } // Head Of Department
 
+    public int Hod_id { get; set; }
+
     public  List<int> Department_Professors { get; set; }
 
     public Department()
@@ -30,35 +32,14 @@ public class Department : ISerializable
         Department_Professors = new List<int>();
     }
 
-    public Department(string name, string hod)
-    {
-        Name = name;
-        Hod = hod;
-    }
-
     public string[] ToCSV()
     {
-        /* List<String> Department_Professors_String = new List<String>();
-         foreach (int profId in Department_Professors)
-         {
-             Department_Professors_String.Add(profId.ToString());
-         }
-         string[] csvValues =
-           {
-               Id.ToString(), Idd.ToString(), Name, Hod, string.Join(",", Department_Professors_String)
-
-           };*/
-
-        /*string[] csvValues =
-        {
-            Id.ToString(), Idd.ToString(), Name, Hod
-        };*/
-
+        
         string professorIds = string.Join(",", Department_Professors.Select(id => id.ToString()));
 
         string[] csvValues =
         {
-                Id.ToString(), Idd.ToString(), Name, Hod, professorIds
+                Id.ToString(), Idd.ToString(), Name, Hod, Hod_id.ToString(), professorIds
             };
 
         return csvValues;
@@ -71,8 +52,9 @@ public class Department : ISerializable
         Idd = int.Parse(values[1]);
         Name = values[2];
         Hod = values[3];
+        Hod_id = int.Parse(values[4]);
 
-        if (values.Length > 4 && !string.IsNullOrEmpty(values[4]))
+        if (values.Length > 5 && !string.IsNullOrEmpty(values[5])) //proveriti
         {
             string professorIds = values[4];
             Department_Professors = professorIds.Split(',')

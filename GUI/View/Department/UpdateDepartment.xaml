@@ -46,6 +46,14 @@
 									 Text="{Binding Path = department.Hod, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
                         </StackPanel>
 
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label>Head of Department:</Label>
+                            <TextBox x:Name="txtProfessorName" Text="{Binding Path=department.Hod, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></TextBox>
+                            <Button x:Name="addProfessorButton"  Content="+" Height="33" Width="26" Click="Add_HOD"/>
+                            <Button x:Name="deleteProfessorButton" Content="-" Height="33" Width="26" Click="Delete_HOD"/>
+
+                        </StackPanel>
+
                     </StackPanel>
                 </Grid>
             </TabItem>
