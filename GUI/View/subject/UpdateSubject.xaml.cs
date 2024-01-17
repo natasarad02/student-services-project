@@ -31,18 +31,27 @@ namespace GUI.View
             this.professorsController = professorsController;
             this.mainWindow = mainWindow;
             // oldSubject = existingSubject.Clone();
-            if (Subject.ProfessorName.Equals(""))
-            { 
+            if (Subject.ProfessorName != null)
+            {
+                if (Subject.ProfessorName.Equals(""))
+                {
+                    deleteProfessorButton.IsEnabled = false;
+                    addProfessorButton.IsEnabled = true;
+                }
+                else
+                {
+                    deleteProfessorButton.IsEnabled = true;
+                    addProfessorButton.IsEnabled = false;
+
+
+                }
+            } 
+            else 
+            {
                 deleteProfessorButton.IsEnabled = false;
                 addProfessorButton.IsEnabled = true;
             }
-            else
-            {
-                deleteProfessorButton.IsEnabled = true;
-                addProfessorButton.IsEnabled = false;
-
-
-            }
+            
           
 
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;

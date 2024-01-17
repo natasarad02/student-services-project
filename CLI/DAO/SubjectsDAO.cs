@@ -77,6 +77,7 @@ namespace StudentskaSluzba.DAO
             if(subject.ProfessorName == null)
             {
                 oldSubject.ProfessorID = -1;
+                oldSubject.ProfessorName = "";
             }
             else
             {
