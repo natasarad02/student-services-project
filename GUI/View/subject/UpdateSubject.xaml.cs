@@ -48,7 +48,7 @@ namespace GUI.View
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
-            
+            Closing += Window_Closing;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -60,6 +60,7 @@ namespace GUI.View
         {
             subjectController.Update(Subject.ToSubject());
             subjectController.Save();
+            mainWindow.IsEnabled = true;
             Close();
         }
 
@@ -97,6 +98,10 @@ namespace GUI.View
              
             
             
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindow.IsEnabled = true;
         }
     }
 

@@ -45,6 +45,7 @@ namespace GUI.View
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
 
         public void Update() {
@@ -62,6 +63,7 @@ namespace GUI.View
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             professorController.Update(Professor.ToProfessor());
+            mainWindow.IsEnabled = true;
             Close();
         }
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -105,6 +107,10 @@ namespace GUI.View
         {
             StudentList studentList = new StudentList(Professor, subjectsController, this);
             studentList.Show();
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindow.IsEnabled = true;
         }
 
 

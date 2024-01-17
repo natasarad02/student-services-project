@@ -34,6 +34,7 @@ namespace GUI.View
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -44,7 +45,7 @@ namespace GUI.View
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             subjectController.Add(Subject.ToSubject());
-
+            mainWindow.IsEnabled = true;
             Close();
         }
 
@@ -62,6 +63,10 @@ namespace GUI.View
         {
             ProfessorList professorList = new ProfessorList(Subject, subjectController, professorsController, this);
             professorList.Show();
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindow.IsEnabled = true;
         }
     }
 

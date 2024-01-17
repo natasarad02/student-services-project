@@ -32,6 +32,7 @@ namespace GUI.View
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
             studentController.Delete(Student.toStudent().ID);
+            mainWindow.IsEnabled = true;
             Close();
         }
 
@@ -45,5 +46,10 @@ namespace GUI.View
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindow.IsEnabled = true;
+        }
+      
     }
 }

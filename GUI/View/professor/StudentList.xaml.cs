@@ -25,6 +25,7 @@ namespace GUI.View
         private SubjectsController subjectsController { get; set; }
 
         //List of students for a professor
+        public UpdateProfessor parentWindow { get; set; }
         public StudentList(ProfessorDTO pprofessor, SubjectsController subjectsController, UpdateProfessor parentWindow) 
         {
             InitializeComponent();
@@ -38,8 +39,11 @@ namespace GUI.View
 
             DataContext = this;
             Update();
+            this.parentWindow = parentWindow;
             Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
             Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+            parentWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
 
         //za svakog profesora naci sve predmete -> subjectController
@@ -74,6 +78,10 @@ namespace GUI.View
             }
 
             students = uniqueItems;
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
         }
 
 

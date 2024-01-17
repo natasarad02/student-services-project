@@ -19,7 +19,8 @@ namespace GUI.View
         public ObservableCollection<SubjectDTO> Subjects;
         public StudentsSubjectsController StudentsSubjectsController;
 
-        private SubjectDTO Subject;
+        private SubjectDTO Subject { get; set; }
+        private UpdateStudent parentWindow { get; set; }
 
         public GradeStudent(ExamGradesController examGradesController, SubjectDTO Selected_Subject, StudentDTO SelectedStudent,
                             ObservableCollection<SubjectDTO> Subjects, StudentsSubjectsController studentSubjectsController, UpdateStudent parentWindow) { 
@@ -34,13 +35,14 @@ namespace GUI.View
             this.Subject = Selected_Subject;
             this.StudentsSubjectsController = studentSubjectsController;
             this.Subjects = Subjects;
-
+            this.parentWindow = parentWindow;
             //ispis unutar windowa
             txtID.Text = Selected_Subject.Ids.ToString();
             txtName.Text = Selected_Subject.Name;
             Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
             Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
-
+            parentWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -50,6 +52,7 @@ namespace GUI.View
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            parentWindow.IsEnabled = true;
             Close();
         }
 
@@ -60,12 +63,17 @@ namespace GUI.View
             Subjects.Remove(Subject);
             //dodavanje ocene
             examGradesController.Add(exam.toExam());
+            parentWindow.IsEnabled = true;
             Close();
         }
 
         private void txtID_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             //ne znam sta je ovo
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
         }
     }
 }

@@ -23,9 +23,11 @@ namespace GUI.View
 
         public ObservableCollection<ProfessorDTO> professorsSubjects { get; set; }
         public ProfessorDTO SelectedProfessor { get; set; }
-
+        public SubjectWindowInterface parentWindow { get; set; }
         public SubjectDTO Subject { get; set; }
         private ProfessorsController professorController { get; set; }
+
+        
         public ProfessorList(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorController, SubjectWindowInterface parentWindow)
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace GUI.View
             this.professorController = professorController;
             professorController.Subscribe(this);
             this.subjectController = subjectController;
-           
+            this.parentWindow = parentWindow;
             professorsSubjects = new ObservableCollection<ProfessorDTO>();
             this.Subject = Subject;
             DataContext = this;
@@ -43,6 +45,9 @@ namespace GUI.View
 
             Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
             Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+          
+           parentWindow.IsEnabled = false;
+            Closing += Window_Closing;
 
         }
         public void Update()
@@ -74,8 +79,13 @@ namespace GUI.View
 
                 Close();
             }
-            
-           
+            parentWindow.IsEnabled = true;
+
+
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
         }
 
 

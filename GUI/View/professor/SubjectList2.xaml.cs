@@ -24,7 +24,7 @@ namespace GUI.View
 
         public string professorName { get; set; }
 
-
+        public UpdateProfessor parentWindow { get; set; }
         private SubjectsController subjectController { get; set; }
         public SubjectList2(int prof_if, string prof_name, SubjectsController subjectController, UpdateProfessor parentWindow)
         {
@@ -36,11 +36,13 @@ namespace GUI.View
             professorName = prof_name;
 
             DataContext = this;
-
+            this.parentWindow = parentWindow;
 
             Update();
             Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
             Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+            parentWindow.IsEnabled = false;
+            Closing += Window_Closing;
 
         }
         public void Update()
@@ -58,11 +60,17 @@ namespace GUI.View
             SelectedSubject.ProfessorId = professorID;
             SelectedSubject.ProfessorName = professorName;
             subjectController.Update(SelectedSubject.ToSubject());
+            parentWindow.IsEnabled = true;
             Close();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e) {
+            parentWindow.IsEnabled = true;
             Close();
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
         }
 
     }

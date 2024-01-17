@@ -22,7 +22,7 @@ public partial class DeleteProfessorFromSubject : Window, INotifyPropertyChanged
     public bool yesClick { get; set; }
     public Button addProfessorButton { get; set; }
     public Button deleteProfessorButton { get; set; }
-    
+    public UpdateSubject parentWindow { get; set; }
     public DeleteProfessorFromSubject(SubjectDTO Subject, Button addProfessorButton, Button deleteProfessorButton, UpdateSubject parentWindow)
     {
         InitializeComponent();
@@ -31,8 +31,11 @@ public partial class DeleteProfessorFromSubject : Window, INotifyPropertyChanged
         yesClick = false;
         this.addProfessorButton = addProfessorButton;
         this.deleteProfessorButton = deleteProfessorButton;
+        this.parentWindow = parentWindow;
         Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
         Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+        parentWindow.IsEnabled = false;
+        Closing += Window_Closing;
     }
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -47,10 +50,16 @@ public partial class DeleteProfessorFromSubject : Window, INotifyPropertyChanged
         Subject.ProfessorName = "";
         addProfessorButton.IsEnabled = true;
         deleteProfessorButton.IsEnabled = false;
+        parentWindow.IsEnabled = true;
         Close();
     }
     private void No_Click(object sender, RoutedEventArgs e)
     {
+        parentWindow.IsEnabled = true;
         Close();
+    }
+    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        parentWindow.IsEnabled = true;
     }
 }

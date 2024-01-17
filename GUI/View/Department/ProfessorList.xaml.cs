@@ -24,6 +24,7 @@ namespace GUI.View
         public ProfessorDTO SelectedProfessor { get; set; }
 
         public List<Professor> tmpProfessorList;
+        public UpdateDepartment parentWindow { get; set; }
         public DepartmentProfessorList(DepartmentDTO Department, ProfessorsController professorsController, DepartmentsController departmentsController, ObservableCollection<ProfessorDTO> departmentProfessors, UpdateDepartment parentWindow)
         {
             InitializeComponent();
@@ -39,8 +40,10 @@ namespace GUI.View
 
 
             Update();
+            this.parentWindow = parentWindow;
             Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
             Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+            parentWindow.IsEnabled = false;
 
 
         }
@@ -76,8 +79,13 @@ namespace GUI.View
         private void Add_Professor_Click(object sender, RoutedEventArgs e)
         {
             departmentsController.addProfessor(Department.Id, SelectedProfessor.Id);
+            parentWindow.IsEnabled = true;
             Close();
 
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
         }
     }
 }

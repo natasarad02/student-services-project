@@ -271,6 +271,7 @@ namespace GUI
                        case 3:
                            AddDepartment addDepartment = new AddDepartment(departmentController, this);
                            addDepartment.Show();
+                           
                            break;
                            
                    }

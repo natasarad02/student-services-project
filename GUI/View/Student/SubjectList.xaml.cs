@@ -25,6 +25,7 @@ namespace GUI.View
         public SubjectDTO SelectedSubject { get; set; }
 
         public StudentDTO Student { get; set; }
+        public UpdateStudent parentWindow { get; set; }
         private SubjectsController subjectController { get; set; }
         public SubjectList(StudentDTO Student, ExamGradesController examGradesController, StudentsController studentController, StudentsSubjectsController studentsSubjectsController, SubjectsController subjectController, UpdateStudent parentWindow)
         {
@@ -37,7 +38,7 @@ namespace GUI.View
             attendingSubjects = new ObservableCollection<SubjectDTO>();
             this.Student = Student;
             this.studentsSubjectsController = studentsSubjectsController;
-
+            this.parentWindow = parentWindow;
             studentsSubjectsController.Subscribe(this);
             this.examGradesController = examGradesController;
             DataContext = this;
@@ -47,7 +48,8 @@ namespace GUI.View
 
             Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
             Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
-
+            parentWindow.IsEnabled = false;
+            Closing += Window_Closing;
 
         }
         public void Update()
@@ -110,10 +112,15 @@ namespace GUI.View
                 Close();
 
             }
-           
+            parentWindow.IsEnabled = true;
+
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
         }
 
-        
-       
+
+
     }
 }

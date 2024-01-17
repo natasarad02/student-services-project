@@ -26,6 +26,7 @@ namespace GUI.View
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -36,6 +37,7 @@ namespace GUI.View
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             studentController.Add(Student.toStudent());
+            mainWindow.IsEnabled = true;
             Close();
         }
 
@@ -43,6 +45,10 @@ namespace GUI.View
         {
             mainWindow.IsEnabled = true;
             Close();
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindow.IsEnabled = true;
         }
 
     }

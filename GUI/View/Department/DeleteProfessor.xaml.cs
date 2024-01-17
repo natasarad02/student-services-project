@@ -22,6 +22,8 @@ public partial class DeleteProfessorFromDepartment : Window, INotifyPropertyChan
     public DepartmentDTO department { get; set; }
     public event PropertyChangedEventHandler? PropertyChanged;
     public ObservableCollection<ProfessorDTO> Professors { get; set; }
+
+    public UpdateDepartment parentWindow { get; set; }
     public DeleteProfessorFromDepartment(ProfessorDTO SelectedProfessor, DepartmentDTO department, ObservableCollection<ProfessorDTO> Professors, UpdateDepartment parentWindow)
     {
         InitializeComponent();
@@ -29,9 +31,10 @@ public partial class DeleteProfessorFromDepartment : Window, INotifyPropertyChan
         this.SelectedProfessor = SelectedProfessor;
         this.department = department;
         this.Professors = Professors;
-
+        this.parentWindow = parentWindow;
         Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
         Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+        parentWindow.IsEnabled = false;
     }
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -43,10 +46,16 @@ public partial class DeleteProfessorFromDepartment : Window, INotifyPropertyChan
     {
         department.Department_Professors.Remove(SelectedProfessor.Id);
         Professors.Remove(SelectedProfessor);
+        parentWindow.IsEnabled = true;
         Close();
     }
     private void No_Click(object sender, RoutedEventArgs e)
     {
+        parentWindow.IsEnabled = true;
         Close();
+    }
+    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        parentWindow.IsEnabled = true;
     }
 }

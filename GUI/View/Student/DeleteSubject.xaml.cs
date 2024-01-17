@@ -20,6 +20,8 @@ namespace GUI.View
         private StudentsSubjectsController studentsSubjectController;
         public event PropertyChangedEventHandler? PropertyChanged;
         public ObservableCollection<SubjectDTO> Subjects{ get; set; }
+
+        public UpdateStudent parentWindow { get; set; }
         public DeleteSubjectFromStudent(StudentsSubjectsController studentsSubjectController, ObservableCollection<SubjectDTO> Subjects, StudentDTO Student, SubjectDTO SelectedSubject, UpdateStudent parentWindow)
         {
             InitializeComponent();
@@ -28,8 +30,11 @@ namespace GUI.View
             this.studentsSubjectController = studentsSubjectController;
             this.Subjects = Subjects;
             this.Student = Student;
+            this.parentWindow = parentWindow;
             Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
             Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+            parentWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -41,12 +46,18 @@ namespace GUI.View
         {
             studentsSubjectController.Delete(Student.Id, SelectedSubject.Id);
             Subjects.Remove(SelectedSubject);
+            parentWindow.IsEnabled = true;
             Close();
         }
 
         private void No_Click(object sender, RoutedEventArgs e)
         {
+            parentWindow.IsEnabled = true;
             Close();
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
         }
     }
 

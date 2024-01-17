@@ -50,6 +50,7 @@ namespace GUI.View
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
 
         private void TabUpdateDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -97,6 +98,7 @@ namespace GUI.View
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             departmentController.Update(department.ToDepartment());
+            mainWindow.IsEnabled = true;
             Close();
         }
 
@@ -110,8 +112,8 @@ namespace GUI.View
         {
             DepartmentProfessorList professorList = new DepartmentProfessorList(department, professorsController, departmentController, Professors, this);
             //professorList.attendingSubjects = Subjects;
-      
-           
+            
+
             professorList.Show();
         }
 
@@ -131,6 +133,10 @@ namespace GUI.View
             }
 
 
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindow.IsEnabled = true;
         }
     }
 }
