@@ -587,27 +587,8 @@ namespace GUI
 
         }
       
-       /* private void UpdateStudentsDataGrid()
-        {
-            var studentsToShow = Students.Skip(currentPageStudent * itemsPerPage).Take(itemsPerPage).ToList();
-            StudentDataGrid.ItemsSource = new ObservableCollection<StudentDTO>(studentsToShow);
-        }
-        private void UpdateSubjectsDataGrid()
-        {
-            var SubjectsToShow = Subjects.Skip(currentPageSubject * itemsPerPage).Take(itemsPerPage).ToList();
-            SubjectsDataGrid.ItemsSource = new ObservableCollection<SubjectDTO>(SubjectsToShow);
-        }
-        private void UpdateProfessorsDataGrid()
-        {
-            var ProfessorsToShow = Professors.Skip(currentPageProfessor * itemsPerPage).Take(itemsPerPage).ToList();
-            ProfessorsDataGrid.ItemsSource = new ObservableCollection<ProfessorDTO>(ProfessorsToShow);
-        }
-        private void UpdateDepartmentsDataGrid()
-        {
-            var DepartmentsToShow = Departments.Skip(currentPageDepartment * itemsPerPage).Take(itemsPerPage).ToList();
-            DepartmentDataGrid.ItemsSource = new ObservableCollection<DepartmentDTO>(DepartmentsToShow);
-        }
-*/
+       
+
         private void NextPageStudent_Click(object sender, RoutedEventArgs e)
         {
             int totalStudents = studentController.GetAllStudents().Count();
@@ -667,66 +648,7 @@ namespace GUI
 
         }
 
-        /*  private void NextPage_Click(object sender, RoutedEventArgs e)
-          {
-              int tabIndex = Tab.SelectedIndex;
-              switch (tabIndex)
-              {
-                  case 0:
-                      int totalStudents = studentController.GetAllStudents().Count();
-                      int totalStudentPages = (int)Math.Ceiling((double)totalStudents / itemsPerPage);
-
-                      if (currentPageStudent < totalStudentPages - 1)
-                      {
-
-                          UpdateWithPaging(currentPageStudent, itemsPerPage);
-
-                          //UpdateStudentsDataGrid();
-
-                      }
-
-                      break;
-                  case 1:
-                      int totalSubjects = subjectController.GetAllSubjects().Count();
-                      int totalSubjectPages = (int)Math.Ceiling((double)totalSubjects / itemsPerPage);
-
-                      if (currentPageSubject < totalSubjectPages - 1)
-                      {
-                          currentPageSubject++;
-                          UpdateWithPaging(currentPageSubject, itemsPerPage);
-                          //UpdateStudentsDataGrid();
-
-                      }
-
-                      break;
-                  case 2:
-                      int totalProfessors = professorController.GetAllProfessors().Count();
-                      int totalProfessorPages = (int)Math.Ceiling((double)totalProfessors / itemsPerPage);
-
-                      if (currentPageProfessor < totalProfessorPages - 1)
-                      {
-                          currentPageProfessor++;
-                          UpdateWithPaging(currentPageProfessor, itemsPerPage);
-                          //UpdateStudentsDataGrid();
-
-                      }
-
-                      break;
-                  case 3:
-                      int totalDepartments = departmentController.GetAllDepartments().Count();
-                      int totalDepartmentsPages = (int)Math.Ceiling((double)totalDepartments / itemsPerPage);
-
-                      if (currentPageDepartment < totalDepartmentsPages - 1)
-                      {
-                          currentPageDepartment++;
-                          UpdateWithPaging(currentPageDepartment, itemsPerPage);
-                          //UpdateStudentsDataGrid();
-
-                      }
-
-                      break;
-              }
-          }*/
+       
 
 
     }
