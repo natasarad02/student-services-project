@@ -80,6 +80,26 @@ namespace GUI.DTO
             }
         }
 
+        public int hod_id;
+
+        public int Hod_id
+        {
+            get
+            {
+                return hod_id;
+            }
+            set
+            {
+                if (value != hod_id)
+                {
+                    hod_id = value;
+                    OnPropertyChanged("Hod_id");
+                }
+
+            }
+        }
+
+
         private List<int> department_Professors;
         public List<int> Department_Professors
         {
@@ -96,13 +116,14 @@ namespace GUI.DTO
                     OnPropertyChanged(nameof(Department_Professors));
                 }
             }
-        }//videti posle sta s ovim
+        }
 
         public Department ToDepartment()
         {
             Department d = new Department(idd, name, hod);
             d.Id = id;
             d.Department_Professors = department_Professors;
+            d.Hod_id = hod_id;
             return d;
         }
 
@@ -117,6 +138,7 @@ namespace GUI.DTO
             name = department.Name;
             hod = department.Hod;
             Department_Professors = department.Department_Professors;
+            hod_id = department.Hod_id;
         }
 
         protected virtual void OnPropertyChanged(string name)
