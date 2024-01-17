@@ -180,6 +180,7 @@ namespace GUI.View
                 DeleteGrade deleteGrade = new DeleteGrade(examGradesController, this);
                 deleteGrade.exam = SelectedGrade;
                 deleteGrade.Show();
+                Update();
             }
 
         }
