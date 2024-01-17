@@ -21,6 +21,7 @@ namespace GUI.View
         public DepartmentDTO department { get; set; }
         private DepartmentsController departmentController{ get; set; }
 
+        private SubjectsController subjectsController { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
         private bool isUpdate = false;
         private ProfessorsController professorsController { get; set; }
@@ -30,7 +31,7 @@ namespace GUI.View
         public List<Professor> tmpProfessorList;
         
         public MainWindow mainWindow { get; set; }
-        public UpdateDepartment(DepartmentsController departmentController, ProfessorsController professorsController, MainWindow mainWindow)
+        public UpdateDepartment(DepartmentsController departmentController, ProfessorsController professorsController, SubjectsController subjectsController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
@@ -40,6 +41,7 @@ namespace GUI.View
             tmpProfessorList = new List<Professor>();
             this.professorsController = professorsController;
             professorsController.Subscribe(this);
+            this.subjectsController = subjectsController;
             //Update();
 
             //possibleHOD = new List<ProfessorDTO>();
@@ -173,6 +175,15 @@ namespace GUI.View
             department.Hod_id = -1;
             Update();
         }
+
+        public void Show_Subjects_Click(object sender, RoutedEventArgs e)
+        {
+            DepartmentSubjectList subjectList = new DepartmentSubjectList(subjectsController, department, this);
+            subjectList.Show();
+        }
+
+
+
 
     }
 }

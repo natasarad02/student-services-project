@@ -34,8 +34,11 @@ public class Department : ISerializable
 
     public string[] ToCSV()
     {
-        
-        string professorIds = string.Join(",", Department_Professors.Select(id => id.ToString()));
+        string professorIds;
+        if (Department_Professors != null)
+            professorIds = string.Join(",", Department_Professors.Select(id => id.ToString()));
+        else
+            professorIds = "";
 
         string[] csvValues =
         {

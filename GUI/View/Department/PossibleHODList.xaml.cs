@@ -52,7 +52,7 @@ namespace GUI.View
             }
         }
 
-        public void Add_HOD_Click(object sender, SelectionChangedEventArgs e) 
+        public void Add_HOD_Click(object sender, RoutedEventArgs e) 
         {
             if (SelectedProfessor == null)
             {
@@ -66,7 +66,7 @@ namespace GUI.View
             }
         }
 
-        public void Cancel_Click(object sender, SelectionChangedEventArgs e) 
+        public void Cancel_Click(object sender, RoutedEventArgs e) 
         { 
             Close();
         }
