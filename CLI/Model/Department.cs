@@ -56,7 +56,7 @@ public class Department : ISerializable
 
         if (values.Length > 5 && !string.IsNullOrEmpty(values[5])) //proveriti
         {
-            string professorIds = values[4];
+            string professorIds = values[5];
             Department_Professors = professorIds.Split(',')
                                                   .Where(id => !string.IsNullOrEmpty(id))
                                                   .Select(int.Parse)
