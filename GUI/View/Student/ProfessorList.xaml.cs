@@ -41,7 +41,7 @@ namespace GUI.View
             this.Student = Student;
             this.studentsSubjectsController = studentsSubjectsController;
              DataContext = this;
-
+            this.parentWindow = parentWindow;
 
             Update();
             Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
