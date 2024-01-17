@@ -376,7 +376,7 @@ namespace GUI
                         MessageBox.Show("Please choose a professor to delete");
                     else
                     {
-                        DeleteProfessor deleteProfessor = new DeleteProfessor(professorController, this);
+                        DeleteProfessor deleteProfessor = new DeleteProfessor(professorController, this, subjectController, departmentController);
                         deleteProfessor.Professor = SelectedProfessor;
                         deleteProfessor.Show();
                     }
