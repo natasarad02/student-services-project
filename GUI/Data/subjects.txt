@@ -1,4 +1,4 @@
-0|0||0|-1||winter|0
+0|123|Analiza 1|9|5|Milica Pavlović|winter|1
 1|456|OET|9|0|Mitar Mitrovic|winter|1
 2|127|Softversko inzenjerstvo|8|6|Stefan Đorđev|winter|1
 3|503|Algoritmi i strukture podataka|6|6|Stefan Đorđev|winter|1
