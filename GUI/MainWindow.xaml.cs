@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using GUI.View;
@@ -11,16 +7,17 @@ using System.Collections.ObjectModel;
 using StudentskaSluzba.Model;
 using CLI.Observer;
 using GUI.DTO;
-using StudentskaSluzba.DAO;
-using System.Windows;
 using CLI.Controller;
 using System.Windows.Threading;
-using System.ComponentModel;
 using GUI.View.Help;
+using System.Windows.Data;
+
+
+
 
 namespace GUI
 {
-      public partial class MainWindow : Window, IObserver
+    public partial class MainWindow : Window, IObserver
     {
 
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
@@ -492,6 +489,8 @@ namespace GUI
             // examGradesController.Save();
             MessageBox.Show("Save successfull!");
         }
+
+        
 
     }
 

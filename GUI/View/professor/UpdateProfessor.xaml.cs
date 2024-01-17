@@ -35,7 +35,7 @@ namespace GUI.View
             DataContext = this;
             Professor = SelectedProfessor;
             this.professorController = professorController;
-            //SelectedSubject = new SubjectDTO(); //ovog nema u updateStudent ali bez toga je selected subejct stalno na null
+            
             MySubjects = new ObservableCollection<SubjectDTO>();    
             subjectsController = new SubjectsController();
             subjectsController.Subscribe(this);
