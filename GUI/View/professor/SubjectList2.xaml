@@ -1,0 +1,45 @@
+<Window x:Class="GUI.View.SubjectList2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Subject list" Height="450" Width="800">
+
+    <Grid>
+        <StackPanel>
+            <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <!-- <Label>This option is not implemented in current version.</Label> -->
+            </StackPanel>
+
+
+            <DataGrid Background="#FFE5E5E5"
+           
+            AutoGenerateColumns="False"
+            x:Name="SubjectsDataGrid"
+            ItemsSource="{Binding Subjects, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
+            SelectionMode="Single" IsReadOnly="True">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="Subject ID" Binding="{Binding Ids}" Width="*"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Width="100" Margin="5" Content="Add" Click="Add_Subject_Click"/>
+            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+        </StackPanel>
+    </Grid>
+
+
+
+
+
+</Window>

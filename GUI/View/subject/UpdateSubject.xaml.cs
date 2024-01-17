@@ -13,7 +13,7 @@ using StudentskaSluzba.Model;
 
 namespace GUI.View
 {
-    public partial class UpdateSubject : Window, INotifyPropertyChanged
+    public partial class UpdateSubject : Window, INotifyPropertyChanged, SubjectWindowInterface
     {
         //private SubjectDTO oldSubject;
         public SubjectDTO Subject { get; set; }
@@ -21,14 +21,15 @@ namespace GUI.View
         private SubjectsController subjectController;
         private ProfessorsController professorsController { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
-
-        public UpdateSubject(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorsController)
+        public MainWindow mainWindow { get; set; }  
+        public UpdateSubject(SubjectDTO Subject, SubjectsController subjectController, ProfessorsController professorsController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
             this.Subject = Subject;
             this.subjectController = subjectController;
             this.professorsController = professorsController;
+            this.mainWindow = mainWindow;
             // oldSubject = existingSubject.Clone();
             if (Subject.ProfessorName.Equals(""))
             { 
@@ -42,7 +43,12 @@ namespace GUI.View
 
 
             }
+          
 
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+            mainWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -54,18 +60,20 @@ namespace GUI.View
         {
             subjectController.Update(Subject.ToSubject());
             subjectController.Save();
+            mainWindow.IsEnabled = true;
             Close();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-           // Subject.CopyFrom(oldSubject);
+            // Subject.CopyFrom(oldSubject);
+            mainWindow.IsEnabled = true;
             Close();
         }
 
         private void Add_Professor(object sender, RoutedEventArgs e)
         {
-            ProfessorList professorList = new ProfessorList(Subject, subjectController, professorsController);
+            ProfessorList professorList = new ProfessorList(Subject, subjectController, professorsController, this);
             professorList.Show();
             addProfessorButton.IsEnabled = false;
             deleteProfessorButton.IsEnabled = true;
@@ -74,11 +82,26 @@ namespace GUI.View
 
         private void Delete_Professor(object sender, RoutedEventArgs e)
         {
-            Subject.ProfessorId = -1;
+            
+            
+            DeleteProfessorFromSubject deleteProfessor = new DeleteProfessorFromSubject(Subject, addProfessorButton, deleteProfessorButton, this);
+            deleteProfessor.Show();
+            /*Subject.ProfessorId = -1;
             Subject.ProfessorName = "";
-
-            addProfessorButton.IsEnabled = true;
+            */
+          
+          /*  addProfessorButton.IsEnabled = true;
             deleteProfessorButton.IsEnabled = false;
+            */
+
+            
+             
+            
+            
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindow.IsEnabled = true;
         }
     }
 

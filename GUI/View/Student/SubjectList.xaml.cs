@@ -25,8 +25,9 @@ namespace GUI.View
         public SubjectDTO SelectedSubject { get; set; }
 
         public StudentDTO Student { get; set; }
+        public UpdateStudent parentWindow { get; set; }
         private SubjectsController subjectController { get; set; }
-        public SubjectList(StudentDTO Student, ExamGradesController examGradesController, StudentsController studentController, StudentsSubjectsController studentsSubjectsController, SubjectsController subjectController)
+        public SubjectList(StudentDTO Student, ExamGradesController examGradesController, StudentsController studentController, StudentsSubjectsController studentsSubjectsController, SubjectsController subjectController, UpdateStudent parentWindow)
         {
             InitializeComponent();
             Subjects = new ObservableCollection<SubjectDTO>();
@@ -37,7 +38,7 @@ namespace GUI.View
             attendingSubjects = new ObservableCollection<SubjectDTO>();
             this.Student = Student;
             this.studentsSubjectsController = studentsSubjectsController;
-            //this.attendingSubjects = attendingSubjects;
+            this.parentWindow = parentWindow;
             studentsSubjectsController.Subscribe(this);
             this.examGradesController = examGradesController;
             DataContext = this;
@@ -45,15 +46,18 @@ namespace GUI.View
 
             Update();
 
-           
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+            parentWindow.IsEnabled = false;
+            Closing += Window_Closing;
+
         }
         public void Update()
         {
 
            Subjects.Clear();
-            // bool subjectIsFound = false;
 
-            List<Subject> tmpSubjectList = new List<Subject>();//subjectController.GetAllSubjects();
+            List<Subject> tmpSubjectList = new List<Subject>();
             foreach (Subject subject in subjectController.GetAllSubjects())
             {
                 if (subject.year <= Student.Current_Year)
@@ -76,44 +80,47 @@ namespace GUI.View
             foreach (Subject subject in subjectController.GetAllSubjects())
             {
 
-
-               // MessageBox.Show(subject.Id.ToString());
                 foreach (Subject attendingSubject in studentsSubjectsController.GetAllSubjectsByStudent(Student.toStudent(), subjectController))
                 {
 
-
-                   // MessageBox.Show(attendingSubject.Id.ToString());
                     if(subject.Id == attendingSubject.Id)
                     {
 
-                        //subjectIsFound = true;
-                       // MessageBox.Show("Predmet je pronadjen");
                         tmpSubjectList.Remove(subject);
                         break;
                         
                     }
 
-
-
-                }        
-               
+                }                      
                 
             }
             foreach(Subject subject in tmpSubjectList)
                 Subjects.Add(new SubjectDTO(subject));
-
-
 
         }
 
         private void Add_Subject_Click(object sender, RoutedEventArgs e)
         {
             
-            studentsSubjectsController.Add(Student.Id, SelectedSubject.Id);
-            Close();
+            if(SelectedSubject == null)
+            {
+                MessageBox.Show("Please choose a subject to add");
+            }
+            else
+            {
+                studentsSubjectsController.Add(Student.Id, SelectedSubject.Id);
+                Close();
+
+            }
+            parentWindow.IsEnabled = true;
+
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
         }
 
-        
-       
+
+
     }
 }

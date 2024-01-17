@@ -125,6 +125,7 @@
                             <DataGridTextColumn Header="Average grade" Binding="{Binding Average_Grade}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    
                 </TabItem>
 
                 <TabItem Header="Subjects">

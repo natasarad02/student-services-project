@@ -8,6 +8,7 @@ using StudentskaSluzba.Serialization;
 using StudentskaSluzba.Model;
 using System.Xml.Linq;
 using CLI.Observer;
+using CLI.Controller;
 
 namespace StudentskaSluzba.DAO
 {
@@ -104,25 +105,25 @@ namespace StudentskaSluzba.DAO
            
             Department dep = GetDepartmentById(departmentID);
 
-            dep.Department_Professors.Add(pro);
-            
+
+            dep.Department_Professors.Add(pro.Id);
+            DepartmentSubject.NotifyObservers();
+
 
         }
         public bool doesDepartmentExist(int id)
         {
-            /*  Department department = departments.Find(s => s.Id == id);
-              if (department == null)
-              {
-                  return false;
-              }
-              else
-              {
-                  return true;
-              }*/
 
             Department dep = GetDepartmentById(id);
             return dep != null;
         }
 
+        public List<int> GetProfessorList(int id)
+        {
+            Department dep = GetDepartmentById(id);
+            return dep.Department_Professors;
+
+        }
+       
     }
 }

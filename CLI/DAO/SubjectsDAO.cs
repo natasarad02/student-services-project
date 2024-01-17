@@ -189,5 +189,13 @@ namespace StudentskaSluzba.DAO
             return ssubjects.ToList();
         }
 
+        public List<Subject> findAllWithoutProfessor() {
+            //ones that dont have a professor
+
+            List<Subject> temp = subjects.FindAll(e => e.ProfessorID == -1);
+            return temp;
+
+        }
+
     }
 }

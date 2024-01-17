@@ -27,8 +27,9 @@ namespace GUI.View
         private SubjectsController subjectController { get; set; }
         private ProfessorsController professorsController { get; set; }
 
-       
-        public StudentProfessorList(StudentDTO Student,  StudentsSubjectsController studentsSubjectsController,ProfessorsController professorsController, SubjectsController subjectController)
+        public UpdateStudent parentWindow { get; set; }
+        public StudentProfessorList(StudentDTO Student,  StudentsSubjectsController studentsSubjectsController,
+                                    ProfessorsController professorsController, SubjectsController subjectController, UpdateStudent parentWindow)
         {
             InitializeComponent();
 
@@ -43,8 +44,10 @@ namespace GUI.View
 
 
             Update();
-
-
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+            parentWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
         public void Update()
         {
@@ -77,8 +80,12 @@ namespace GUI.View
 
 
         }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
+        }
 
-       
+
 
 
 

@@ -66,5 +66,9 @@ namespace CLI.Controller
             return subjects;
         }
 
+        public List<Student> GetStudents(int subj_id) {
+            return studentsSubjectsDAO.GetStudents(subj_id);
+        }
+
     }
 }

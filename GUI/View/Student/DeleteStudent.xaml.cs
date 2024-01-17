@@ -16,23 +16,29 @@ namespace GUI.View
         public StudentDTO Student { get; set; }
         private StudentsController studentController;
         public event PropertyChangedEventHandler? PropertyChanged;
-
-        public DeleteStudent(StudentsController studentController)
+        public MainWindow mainWindow { get; set; }
+        public DeleteStudent(StudentsController studentController, MainWindow mainWindow)
         {
             InitializeComponent();
             DataContext = this;
             Student = new StudentDTO();
             this.studentController = studentController;
+            this.mainWindow = mainWindow;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+            mainWindow.IsEnabled = false;
         }
 
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
             studentController.Delete(Student.toStudent().ID);
+            mainWindow.IsEnabled = true;
             Close();
         }
 
         private void No_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.IsEnabled = true;
             Close();
         }
 
@@ -40,5 +46,10 @@ namespace GUI.View
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindow.IsEnabled = true;
+        }
+      
     }
 }

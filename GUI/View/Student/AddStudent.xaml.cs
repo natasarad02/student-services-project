@@ -16,12 +16,17 @@ namespace GUI.View
         public StudentDTO Student { get; set;}
         private StudentsController studentController;
         public event PropertyChangedEventHandler ? PropertyChanged;
-
-        public AddStudent(StudentsController studentController) {
+        public MainWindow mainWindow { get; set; }
+        public AddStudent(StudentsController studentController, MainWindow mainWindow) {
             InitializeComponent();
             DataContext = this;
             Student = new StudentDTO();
             this.studentController = studentController;
+            this.mainWindow = mainWindow;
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+            mainWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -32,12 +37,18 @@ namespace GUI.View
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             studentController.Add(Student.toStudent());
+            mainWindow.IsEnabled = true;
             Close();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow.IsEnabled = true;
             Close();
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindow.IsEnabled = true;
         }
 
     }

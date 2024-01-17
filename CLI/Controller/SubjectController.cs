@@ -73,5 +73,10 @@ namespace CLI.Controller
             return subjectsDAO.getSubjectsByProfID(prof_if);
         }
 
+        public List<Subject> getSubjectsWithoutProfessor()
+        {
+            return subjectsDAO.findAllWithoutProfessor();
+        }
+
     }
 }

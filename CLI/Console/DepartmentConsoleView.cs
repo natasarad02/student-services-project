@@ -100,16 +100,23 @@ namespace StudentskaSluzba.Console
                 case "6":
                     System.Console.WriteLine("Enter department ID: ");
                     int id_d = int.Parse(System.Console.ReadLine());
+
                     while (!departmentDAO.doesDepartmentExist(id_d))
                     {
                         System.Console.WriteLine("Department doesn't exist, try again: ");
                         System.Console.WriteLine("Enter department's ID: ");
                         id_d = int.Parse(System.Console.ReadLine());
                     }
-                    List<Professor> profs= departmentDAO.GetDepartmentById(id_d).Department_Professors;
-                    foreach (Professor prof in profs)
+
+                    Department department = departmentDAO.GetDepartmentById(id_d);
+
+                    if (department.Department_Professors.Any())
                     {
-                        System.Console.WriteLine(prof.calling+" "+ prof.Name+" "+prof.Surname);
+                        System.Console.WriteLine(department.ToString());
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("No professors in the department.");
                     }
                     break;
             }

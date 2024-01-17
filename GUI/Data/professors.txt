@@ -3,7 +3,7 @@
 3|Bojana|Nikolic|Ulica Kralja Aleksandra,25,Beograd,Srbija|063/444555666|bojana.nikolic@hotmail.com|2019|01-01-0001|567890123|mr
 4|Luka|Stojanović|Trg Republike,12,Niš,Srbija|066/999888777|luka.stojanovic@gmail.com|2020|01-01-0001|678901234|dipl
 5|Milica|Pavlović|Ulica Brace Jerkovic,8,Beograd,Srbija|064/333222111|milica.pavlovic@yahoo.com|2017|01-01-0001|789012345|mr
-6|Stefan|Đorđev|Bulevar Revolucije,6,Novi Sad,Srbija|060/123456789|stefan.djordjev@hotmail.com|2021|01-01-0001|890123456|dr
+6|Stefan|Đorđev|Bulevar Revolucije,6,Novi Sad,Srbija|060/123456789|stefan.djordjev@hotmail.com|2021|01-01-2001|890123456|dr
 7|Ana|Ivanović|Ulica Cara Dušana,9,Beograd,Srbija|063/987654321|ana.ivanovic@gmail.com|2016|01-01-0001|901234567|dipl
 8|Nikola|Petrović|Bulevar Arsenija Čarnojevića,3,Novi Sad,Srbija|066/654321098|nikola.petrovic@yahoo.com|2023|01-01-0001|12345678|mr
 9|Jelena|Jovanov|Trg Slobode,21,Podgorica,Crna Gora|067/123456789|jelena.jovanov@hotmail.com|2015|01-01-0001|123456789|dr
