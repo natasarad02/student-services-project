@@ -52,6 +52,11 @@ namespace GUI
         private int currentPageSubject = 0;
         private int currentPageDepartment = 0;
         private int currentPageProfessor = 0;
+
+        private bool isUpdateStudent = false;
+        private bool isUpdateProfessor = false;
+        private bool isUpdateSubject = false;
+        private bool isUpdateDepartment = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -374,20 +379,41 @@ namespace GUI
                     switch (tabHeader)
                     {
                         case "Students":
-                            currentPageStudent = 0;
-                            UpdateWithPaging(currentPageStudent, itemsPerPage);
+                            if(isUpdateStudent == false)
+                            {
+                                currentPageStudent = 0;
+                                UpdateWithPaging(currentPageStudent, itemsPerPage);
+                                isUpdateStudent = true;
+                            }
+                           
                             break;
                         case "Subjects":
-                            currentPageSubject = 0;
-                            UpdateWithPaging(currentPageSubject, itemsPerPage);
+                            if(isUpdateSubject ==  false)
+                            {
+                                currentPageSubject = 0;
+                                UpdateWithPaging(currentPageSubject, itemsPerPage);
+                                isUpdateSubject = true;
+
+                            }
+                            
                             break;
                         case "Professors":
-                            currentPageProfessor = 0;
-                            UpdateWithPaging(currentPageProfessor, itemsPerPage);
+                            if(isUpdateProfessor == false)
+                            {
+                                currentPageProfessor = 0;
+                                UpdateWithPaging(currentPageProfessor, itemsPerPage);
+                                isUpdateProfessor = true;
+                            }
+                           
                             break;
                         case "Departments":
-                            currentPageDepartment = 0;
-                            UpdateWithPaging(currentPageDepartment, itemsPerPage);
+                            if(isUpdateDepartment == false)
+                            {
+                                currentPageDepartment = 0;
+                                UpdateWithPaging(currentPageDepartment, itemsPerPage);
+                                isUpdateDepartment = true;
+                            }
+                           
                             break;
                     }
                     
