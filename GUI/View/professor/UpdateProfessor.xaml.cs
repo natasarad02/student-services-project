@@ -80,18 +80,11 @@ namespace GUI.View
             {
                 MessageBox.Show("Please select a subject to delete!!!");
             }
-            else { 
-            
-                MySubjects.Remove(SelectedSubject);
-                MessageBox.Show(SelectedSubject.ToSubject().ToString());
+            else {
                 SelectedSubject.ProfessorId = -1;
                 SelectedSubject.ProfessorName = null;
-
-                //pozvati kontoler za predmete i ubaciti 
-                //subjectsController.Update(SelectedSubject.ToSubject()); //ovo radi, ali da ne menja stalno je zakomentarisano
-
-                MessageBox.Show(SelectedSubject.ToSubject().ToString());
-            
+                subjectsController.Update(SelectedSubject.ToSubject()); //ovo radi, ali da ne menja stalno je zakomentarisano
+                MySubjects.Remove(SelectedSubject);
             }
 
         }
