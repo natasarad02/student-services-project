@@ -6,3 +6,5 @@
 8|Nikola|Petrović|Bulevar Arsenija Čarnojevića,3,Novi Sad,Srbija|066/654321098|nikola.petrovic@yahoo.com|2023|01-01-0001|12345678|mr
 11|Sara|Stankovićaaa|Bulevar Oslobođenja,55,Beograd,Srbija|060/345678901|sara.stankovic@yahoo.com|2019|01-01-0001|345678901|mr
 12|ewiour|alsdkfj|sldkfj,1230,sdlkfj,sldkjf|23j32kr23r|sdlkfj2sdfjkl|6|01-01-0001|232323423|dfdfdssdfsdsdffds
+13|MOZE|Head|a,10,a,a|064/123456789|g@gmail.com|1990|01-01-0001|1234567891|professor
+14|ne moze yoe|HEAD|d,50,d,d|||2020|01-01-0001|987654|professor

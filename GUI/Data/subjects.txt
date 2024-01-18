@@ -1,5 +1,5 @@
-0|123|Analiza 2|9|-1||winter|1
-1|456|OET|9|-1||winter|1
+0|123|Analiza 2|9|13|MOZE Head|winter|1
+1|456|OET|9|13|MOZE Head|winter|1
 2|127|Softversko inzenjerstvo|8|6|Stefan Đorđev|winter|1
 3|503|Algoritmi i strukture podataka|6|6|Stefan Đorđev|winter|1
 4|645|Web razvoj|4|11|Sara Stankovićaaa|winter|2
@@ -19,5 +19,5 @@
 19|1121212||0|-1||winter|0
 20|1212121212||0|-1||winter|0
 21|898989898||0|-1||winter|0
-22|787875||0|-1||winter|0
+22|787875||0|14|ne moze yoe HEAD|winter|0
 23|212121||0|8|Nikola Petrović|winter|0

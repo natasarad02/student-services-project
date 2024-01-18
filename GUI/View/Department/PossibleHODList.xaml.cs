@@ -62,7 +62,9 @@ namespace GUI.View
             {
                 Department.Hod = SelectedProfessor.Name + " " + SelectedProfessor.Surname;
                 Department.Hod_id = SelectedProfessor.Id;
+                
                 departmentsController.Update(Department.ToDepartment()); //izmeniti DAO
+                Close();
             }
         }
 

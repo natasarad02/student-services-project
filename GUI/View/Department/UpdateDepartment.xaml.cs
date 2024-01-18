@@ -18,7 +18,7 @@ namespace GUI.View
 {
     public partial class UpdateDepartment : Window, INotifyPropertyChanged, IObserver
     {
-        public DepartmentDTO department { get; set; }
+        public DepartmentDTO department { get; set; } //selektovani departman
         private DepartmentsController departmentController{ get; set; }
 
         private SubjectsController subjectsController { get; set; }
@@ -42,11 +42,10 @@ namespace GUI.View
             this.professorsController = professorsController;
             professorsController.Subscribe(this);
             this.subjectsController = subjectsController;
-            //Update();
-
-            //possibleHOD = new List<ProfessorDTO>();
+            
             Professors = new ObservableCollection<ProfessorDTO>();
-         
+
+
             this.mainWindow = mainWindow;
             TabUpdateDepartment.SelectionChanged += TabUpdateDepartment_SelectionChanged;
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
@@ -54,43 +53,64 @@ namespace GUI.View
             mainWindow.IsEnabled = false;
             Closing += Window_Closing;
 
-            if (department.Hod != null)
+            /*
+            if (department.Hod != null && department.Hod.Equals(""))
             {
-                if (department.Hod.Equals(""))
-                {
-                    deleteProfessorButton.IsEnabled = false;
-                    addProfessorButton.IsEnabled = true;
-                }
-                else
-                {
-                    deleteProfessorButton.IsEnabled = true;
-                    addProfessorButton.IsEnabled = false;
-
-
-                }
-            }
-            else
-            {
+                MessageBox.Show("Usao ovde");
                 deleteProfessorButton.IsEnabled = false;
                 addProfessorButton.IsEnabled = true;
             }
+            else if (department.Hod != null && !department.Hod.Equals(""))
+            {
+                MessageBox.Show("Usao ovde");
+                deleteProfessorButton.IsEnabled = true;
+                addProfessorButton.IsEnabled = false;
+            }
+            else
+            {
+                //MessageBox.Show("Usao gde ne treba");
+                deleteProfessorButton.IsEnabled = false;
+                addProfessorButton.IsEnabled = true;
+            }*/
 
+        }
+
+        private void provera() {
+            if (department.Hod_id == 0)
+            {
+                MessageBox.Show("nema vrednosti aka 0");
+            }
+            else
+            {
+                MessageBox.Show("Ima vrednosti");
+            }
+        }
+
+        private void provera2()
+        {
+            if (department.Hod == null || department.Hod=="")
+            {
+                MessageBox.Show("nema vrednosti aka 0");
+            }
+            else
+            {
+                MessageBox.Show("Ima vrednosti");
+            }
         }
 
         private void TabUpdateDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (TabUpdateDepartment.SelectedItem is TabItem selectedTab)
             {
+
                 int tabIndex = TabUpdateDepartment.SelectedIndex;
-
-
-
+                
                 if (isUpdate == false)
                 {
                     if (tabIndex == 1)
                     {
                         Update();
-                       
+                        
                         isUpdate = true;
                     }
                 }
@@ -100,18 +120,13 @@ namespace GUI.View
         }
         public void Update() {
             Professors.Clear();
-
-           
-           
+            provera2();
             foreach (Professor prof in departmentController.getProfessorsByDepartmentProfessors(department.ToDepartment(), professorsController))
             {
                Professors.Add(new ProfessorDTO(prof));
-             //  MessageBox.Show("dodaje");
-               
+                            
             }
-           
-
-
+            
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -135,9 +150,7 @@ namespace GUI.View
         private void Add_Professor(object sender, RoutedEventArgs e)
         {
             DepartmentProfessorList professorList = new DepartmentProfessorList(department, professorsController, departmentController, Professors, this);
-            //professorList.attendingSubjects = Subjects;
-            
-
+      
             professorList.Show();
         }
 
@@ -167,6 +180,8 @@ namespace GUI.View
             PossibleHODList possible = new PossibleHODList(departmentController, department);
             possible.Show();
             Update();
+            //addProfessorButton.IsEnabled = false;
+            //deleteProfessorButton.IsEnabled = true;
         }
 
         public void Delete_HOD(object sender, RoutedEventArgs e)

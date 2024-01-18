@@ -66,6 +66,7 @@ namespace StudentskaSluzba.DAO
             oldDepartment.Idd = department.Idd;
             oldDepartment.Name = department.Name;
             oldDepartment.Hod = department.Hod;
+            oldDepartment.Hod_id = department.Hod_id;
             oldDepartment.Department_Professors = department.Department_Professors;
 
             storage.Save(departments);

@@ -54,28 +54,38 @@ namespace CLI.Controller
             List<Professor> pass_criteria = new List<Professor>(); // vandredni ili redovni + rade preko 5 godina
             List<Professor> tmpProfessorList = new List<Professor>();
             // ovde dodati proveru da li je lista profesora na katedri prazna (npr. ako jeste, dodati da budu disableovana oba dugmeta za postavljanje sefa katedre dok se ne populise lista
-            foreach(int profId in dep.Department_Professors)
-            {
-                foreach (Professor prof in professorsController.GetAllProfessors())
-                {
-                    if(profId == prof.Id)
-                    {
-                        tmpProfessorList.Add(prof);
-                        break;
-                    }
 
+            if (dep.Department_Professors == null)
+            {
+                return null;
+            }
+            else
+            {
+                foreach (int profId in dep.Department_Professors)
+                {
+                    foreach (Professor prof in professorsController.GetAllProfessors())
+                    {
+                        if (profId == prof.Id)
+                        {
+                            tmpProfessorList.Add(prof);
+                            break;
+                        }
+
+                    }
                 }
+
+                foreach (Professor prof in tmpProfessorList)
+                {
+                    // treba dodati profesora koji ima neki od ovih callinga da bismo mogle testirati
+                    if ((prof.calling == "associate professor" || prof.calling == "professor") && (2024 - prof.employment_year) > 5)
+                    {
+                        pass_criteria.Add(prof);
+                    }
+                }
+                return pass_criteria;
             }
             
-            foreach (Professor prof in tmpProfessorList)
-            {
-                // treba dodati profesora koji ima neki od ovih callinga da bismo mogle testirati
-                if ((prof.calling == "associate professor" || prof.calling == "professor") && (2024 - prof.employment_year) > 5)
-                {
-                    pass_criteria.Add(prof);
-                }
-            }
-            return pass_criteria;
+            
         }
 
         public List<int> getProfessorsByDepartmentId(int dep_id)
@@ -98,6 +108,11 @@ namespace CLI.Controller
         public List<Professor> getProfessorsByDepartmentProfessors(Department department, ProfessorsController professorsController)
         {
             List<Professor> tmpProfessor = new List<Professor>();
+
+            if (department.Department_Professors == null) {
+                return null;
+            }
+
             foreach(int profID in department.Department_Professors)
             {
                 foreach(Professor prof in professorsController.GetAllProfessors())

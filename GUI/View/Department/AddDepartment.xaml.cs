@@ -36,6 +36,7 @@ namespace GUI.View
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            department.Hod_id = -1;
             departmentController.Add(department.ToDepartment());
             mainWindow.IsEnabled = true;
             Close();
