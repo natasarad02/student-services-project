@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Update Department" Height="500" Width="430">
+        Title="Update Department" Height="350" Width="460">
     <Grid Margin="20">
         <TabControl x:Name="TabUpdateDepartment" SelectionChanged="TabUpdateDepartment_SelectionChanged">
             <!-- First Tab - Student Details -->
@@ -15,7 +15,7 @@
                         <StackPanel.Resources>
                             <Style TargetType="Label">
                                 <Setter Property="Margin" Value="0,5" />
-                                <Setter Property="Width" Value="100" />
+                                <Setter Property="Width" Value="125" />
                                 <Setter Property="HorizontalAlignment" Value="Right" />
                             </Style>
                             <Style TargetType="TextBox">
@@ -38,12 +38,6 @@
                             <Label>Name:</Label>
                             <TextBox x:Name="txtName"
 									 Text="{Binding Path = department.Name, UpdateSourceTrigger=PropertyChanged}" />
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Head of Department:</Label>
-                            <TextBox x:Name="txtHeadOfDepartment"
-									 Text="{Binding Path = department.Hod, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
@@ -74,11 +68,11 @@
 
                         <StackPanel>
                             <DataGrid Background="#FFE5E5E5"
-         AutoGenerateColumns="False"
-         x:Name="ProfessorsDataGrid"
-         ItemsSource="{Binding Professors, UpdateSourceTrigger=PropertyChanged}" 
-         SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
-         SelectionMode="Single" IsReadOnly="True">
+                             AutoGenerateColumns="False"
+                             x:Name="ProfessorsDataGrid"
+                             ItemsSource="{Binding Professors, UpdateSourceTrigger=PropertyChanged}" 
+                             SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
+                             SelectionMode="Single" IsReadOnly="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
