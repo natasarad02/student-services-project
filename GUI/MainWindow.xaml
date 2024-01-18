@@ -127,8 +127,8 @@
                         </DataGrid.Columns>
                     </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Previous" Click="PreviousPageStudent_Click"/>
-                            <Button Content="Next" Click="NextPageStudent_Click"/>
+                            <Button Content="Previous" Click="PreviousPageStudent_Click" Margin="5"/>
+                            <Button Content="Next" Click="NextPageStudent_Click" Margin="5"/>
                         </StackPanel>
                     </StackPanel>
                 </TabItem>

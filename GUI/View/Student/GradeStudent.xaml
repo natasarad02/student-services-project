@@ -27,12 +27,12 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Subject ID:</Label>
-                <TextBox x:Name="txtID"></TextBox>
+                <TextBox x:Name="txtID" IsReadOnly="True"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Subject name:</Label>
-                <TextBox x:Name="txtName"></TextBox>
+                <TextBox x:Name="txtName" IsReadOnly="True"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
