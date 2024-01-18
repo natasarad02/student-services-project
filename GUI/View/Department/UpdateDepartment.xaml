@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Update Department" Height="500" Width="400">
+        Title="Update Department" Height="500" Width="430">
     <Grid Margin="20">
         <TabControl x:Name="TabUpdateDepartment" SelectionChanged="TabUpdateDepartment_SelectionChanged">
             <!-- First Tab - Student Details -->
