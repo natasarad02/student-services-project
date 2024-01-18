@@ -4,24 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        
-        Title="Student Service Information" Height="300" Width="400">
+        Title="About Student Service Application" Height="443" Width="600">
 
-    <Grid Margin="20">
+    <Grid Margin="30">
         <StackPanel>
-            <TextBlock Text="Application: Student Service" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
-            <StackPanel Margin="0,0,0,10">
-                <TextBlock Text="Developers:" FontWeight="Bold"/>
+            <TextBlock Text="Welcome to the Student Service Application!" FontSize="25" FontWeight="Bold" Margin="0,0,0,20" Foreground="#004080" FontFamily="Segoe UI"/>
+            <StackPanel Margin="0,0,0,20">
+                <TextBlock Text="Developers:" FontWeight="Bold" Foreground="#004080" FontSize="16"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Natasa Radmilovic, Teodora Becejac"/>
+                    <TextBlock Text="Natasa Radmilovic, Teodora Becejac" Foreground="#004080" FontSize="14"/>
                 </StackPanel>
             </StackPanel>
-            <TextBlock Text="Features:" FontWeight="Bold"/>
+            <TextBlock Text="Features:" FontWeight="Bold" Foreground="#004080" FontSize="18"/>
             <StackPanel>
-                <TextBlock Text="- Displays professors, students, subjects, and grades"/>
-                <TextBlock Text="- Stores information about them"/>
+                <TextBlock Text="- Displays professors, students, subjects, and grades" Foreground="#004080" FontSize="14"/>
+                <TextBlock Text="- Stores information about them" Foreground="#004080" FontSize="14"/>
+                <TextBlock Text="- Allows adding, editing, and deleting of entities" Foreground="#004080" FontSize="14"/>
+                <TextBlock Text="- Manages departments" Foreground="#004080" FontSize="14"/>
+                <TextBlock Text="- View passed and failed exams" Foreground="#004080" FontSize="14"/>
+                <TextBlock Text="- Grade cancellation functionality" Foreground="#004080" FontSize="14"/>
             </StackPanel>
-            <TextBlock Text="Period of Development: October-December 2023" FontWeight="Bold" Margin="0,20,0,0"/>
+            <TextBlock Text="Version: 1.3" FontWeight="Bold" Margin="0,30,0,0" Foreground="#004080" FontSize="16"/>
+            <TextBlock Text="Period of Development: October 2023 - January 2024" FontWeight="Bold" Margin="0,10,0,0" Foreground="#004080" FontSize="16"/>
+            <TextBlock Text="Thank you for using our app!" FontWeight="Bold" Margin="0,10,0,0" Foreground="#004080" FontSize="16"/>
         </StackPanel>
     </Grid>
 </Window>
