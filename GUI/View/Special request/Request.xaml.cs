@@ -68,7 +68,9 @@ namespace GUI.View
                 Students_Attending_Both.Add(new StudentDTO(student));
             }
 
-            RemoveDuplicates(Students_Attending_Both); 
+            RemoveDuplicates(Students_Attending_Both);
+
+            MessageBox.Show(Students_Attending_Both[0].toStudent().ToString());
             
             //-----------------------------------------------------------------------------------------------------
 
@@ -95,6 +97,8 @@ namespace GUI.View
             {
                 Students_Passed_One_Other_Didnt.Add(new StudentDTO(student3));
             }
+
+            MessageBox.Show(Students_Passed_One_Other_Didnt[0].toStudent().ToString());
 
         }
 
