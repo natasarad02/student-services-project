@@ -31,7 +31,8 @@ namespace GUI.View
         public List<Professor> tmpProfessorList;
         
         public MainWindow mainWindow { get; set; }
-        public UpdateDepartment(DepartmentsController departmentController, ProfessorsController professorsController, SubjectsController subjectsController, MainWindow mainWindow)
+        public UpdateDepartment(DepartmentsController departmentController, ProfessorsController professorsController, SubjectsController subjectsController, 
+                                MainWindow mainWindow, DepartmentDTO SelectedDepartment)
         {
             InitializeComponent();
             DataContext = this;
@@ -53,50 +54,25 @@ namespace GUI.View
             mainWindow.IsEnabled = false;
             Closing += Window_Closing;
 
-            /*
-            if (department.Hod != null && department.Hod.Equals(""))
+            
+            if (SelectedDepartment.Hod != null && SelectedDepartment.Hod.Equals(""))
             {
-                MessageBox.Show("Usao ovde");
                 deleteProfessorButton.IsEnabled = false;
                 addProfessorButton.IsEnabled = true;
             }
-            else if (department.Hod != null && !department.Hod.Equals(""))
+            else if (SelectedDepartment.Hod != null && !SelectedDepartment.Hod.Equals(""))
             {
-                MessageBox.Show("Usao ovde");
                 deleteProfessorButton.IsEnabled = true;
                 addProfessorButton.IsEnabled = false;
             }
             else
             {
-                //MessageBox.Show("Usao gde ne treba");
                 deleteProfessorButton.IsEnabled = false;
                 addProfessorButton.IsEnabled = true;
-            }*/
+            }
 
         }
 
-        private void provera() {
-            if (department.Hod_id == 0)
-            {
-                MessageBox.Show("nema vrednosti aka 0");
-            }
-            else
-            {
-                MessageBox.Show("Ima vrednosti");
-            }
-        }
-
-        private void provera2()
-        {
-            if (department.Hod == null || department.Hod=="")
-            {
-                MessageBox.Show("nema vrednosti aka 0");
-            }
-            else
-            {
-                MessageBox.Show("Ima vrednosti");
-            }
-        }
 
         private void TabUpdateDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -120,7 +96,7 @@ namespace GUI.View
         }
         public void Update() {
             Professors.Clear();
-            provera2();
+            
             foreach (Professor prof in departmentController.getProfessorsByDepartmentProfessors(department.ToDepartment(), professorsController))
             {
                Professors.Add(new ProfessorDTO(prof));
@@ -180,8 +156,8 @@ namespace GUI.View
             PossibleHODList possible = new PossibleHODList(departmentController, department);
             possible.Show();
             Update();
-            //addProfessorButton.IsEnabled = false;
-            //deleteProfessorButton.IsEnabled = true;
+            addProfessorButton.IsEnabled = false;
+            deleteProfessorButton.IsEnabled = true;
         }
 
         public void Delete_HOD(object sender, RoutedEventArgs e)
@@ -189,6 +165,8 @@ namespace GUI.View
             department.Hod = null;
             department.Hod_id = -1;
             Update();
+            deleteProfessorButton.IsEnabled = false;
+            addProfessorButton.IsEnabled = true;
         }
 
         public void Show_Subjects_Click(object sender, RoutedEventArgs e)
