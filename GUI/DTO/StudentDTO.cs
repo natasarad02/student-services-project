@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using StudentskaSluzba.Model;
 using System.Windows.Data;
+using System.Xml.Linq;
 
 
 namespace GUI.DTO
@@ -205,6 +206,24 @@ namespace GUI.DTO
             Failed_Exams = new List<ExamGrade>();
             Is_Deleted = false; // not deleted when created
             id = student.ID;
+        }
+
+        public bool Equals(StudentDTO other)
+        {
+            if (other is null)
+                return false;
+
+            return Id == other.Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as StudentDTO);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
         }
 
         public string getIndeks() {

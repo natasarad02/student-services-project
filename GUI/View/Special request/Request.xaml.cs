@@ -48,6 +48,9 @@ namespace GUI.View
             txt3.Text = Subject1.Name;
             txt4.Text = Subject2.Name;
 
+            StudentsDataGrid1.ItemsSource = Students_Attending_Both;
+            StudentsDataGrid.ItemsSource = Students_Passed_One_Other_Didnt;
+
             DataContext = this;
 
             Update();        
@@ -58,20 +61,24 @@ namespace GUI.View
         {
             Students_Attending_Both.Clear();
             //students attending first
+            ObservableCollection<StudentDTO> temp = new ObservableCollection<StudentDTO>();
             foreach (Student student in studentsSubjectsController.GetStudents(Subject1.Id)) { 
-                Students_Attending_Both.Add(new StudentDTO(student));
+                temp.Add(new StudentDTO(student));
             }
 
             //students attending first
             foreach (Student student in studentsSubjectsController.GetStudents(Subject2.Id))
             {
-                Students_Attending_Both.Add(new StudentDTO(student));
+                temp.Add(new StudentDTO(student));
             }
 
-            RemoveDuplicates(Students_Attending_Both);
+            temp = RemoveDuplicates(temp);
 
-            MessageBox.Show(Students_Attending_Both[0].toStudent().ToString());
-            
+            foreach(StudentDTO studentDTO in temp)
+            {
+                Students_Attending_Both.Add(studentDTO);
+            }
+
             //-----------------------------------------------------------------------------------------------------
 
             Students_Passed_One_Other_Didnt.Clear();
@@ -98,7 +105,7 @@ namespace GUI.View
                 Students_Passed_One_Other_Didnt.Add(new StudentDTO(student3));
             }
 
-            MessageBox.Show(Students_Passed_One_Other_Didnt[0].toStudent().ToString());
+            //MessageBox.Show(Students_Passed_One_Other_Didnt[0].toStudent().ToString());
 
         }
 
@@ -122,10 +129,10 @@ namespace GUI.View
             return commonStudents;
         }
 
-        public void RemoveDuplicates(ObservableCollection<StudentDTO> name)
+        public ObservableCollection<StudentDTO> RemoveDuplicates(ObservableCollection<StudentDTO> name)
         {
-            var uniqueItems = new ObservableCollection<StudentDTO>();
-            foreach (var item in name)
+            ObservableCollection<StudentDTO> uniqueItems = new ObservableCollection<StudentDTO>();
+            foreach (StudentDTO item in name)
             {
                 if (!uniqueItems.Contains(item))
                 {
@@ -133,7 +140,7 @@ namespace GUI.View
                 }
             }
 
-            name = uniqueItems;
+            return uniqueItems;
         }
 
 
