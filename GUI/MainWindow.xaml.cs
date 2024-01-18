@@ -57,6 +57,11 @@ namespace GUI
         private bool isUpdateProfessor = false;
         private bool isUpdateSubject = false;
         private bool isUpdateDepartment = false;
+
+        private ObservableCollection<SubjectDTO> selectedSubjects = new ObservableCollection<SubjectDTO>();
+
+        public SubjectDTO SelectedSubject2 { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -72,8 +77,6 @@ namespace GUI
 
             studentsSubjectsController = new StudentsSubjectsController();
             studentsSubjectsController.Subscribe(this);
-            //attendingSubjects = new ObservableCollection<SubjectDTO>();
-           
 
             Professors = new ObservableCollection<ProfessorDTO>();
             professorController = new ProfessorsController();
@@ -117,7 +120,43 @@ namespace GUI
 
             Tab.SelectionChanged += TabControl_SelectionChanged;
 
+            
         }
+
+        private void SubjectsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Clear the existing collection and add the newly selected items in order
+            selectedSubjects.Clear();
+            foreach (SubjectDTO selectedItem in SubjectsDataGrid.SelectedItems)
+            {
+                selectedSubjects.Add(selectedItem);
+            }
+
+            // Ensure only two items are selected
+            while (selectedSubjects.Count > 2)
+            {
+                selectedSubjects.RemoveAt(2);
+            }
+
+            // Update SelectedSubject1 and SelectedSubject2 based on the selection
+            if (selectedSubjects.Count >= 1)
+            {
+                SelectedSubject = selectedSubjects[0];
+            }
+
+            if (selectedSubjects.Count >= 2)
+            {
+                SelectedSubject2 = selectedSubjects[1];
+            }
+
+            if (selectedSubjects.Count() == 2)
+            {
+                Request request = new Request(SelectedSubject, SelectedSubject2);
+                request.Show();
+            }
+
+        }
+        
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {

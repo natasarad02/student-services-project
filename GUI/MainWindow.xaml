@@ -141,7 +141,8 @@
                                 x:Name="SubjectsDataGrid"
                                 ItemsSource="{Binding Subjects, UpdateSourceTrigger=PropertyChanged}"
                                 SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
-                                SelectionMode="Single" IsReadOnly="True">
+                                SelectionMode="Extended" IsReadOnly="True"
+                                SelectionChanged="SubjectsDataGrid_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
                             <DataGridTextColumn Header="Subject ID" Binding="{Binding Ids}" Width="*"/>
@@ -152,8 +153,8 @@
                          </DataGrid.Columns>
                     </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Previous" Click="PreviousPageSubject_Click"/>
-                            <Button Content="Next" Click="NextPageSubject_Click"/>
+                            <Button Content="Previous" Click="PreviousPageSubject_Click" Margin="5"/>
+                            <Button Content="Next" Click="NextPageSubject_Click" Margin="5"/>
                         </StackPanel>
                     </StackPanel>
                 
@@ -176,8 +177,8 @@
                         </DataGrid.Columns>
                     </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Previous" Click="PreviousPageProfessor_Click"/>
-                            <Button Content="Next" Click="NextPageProfessor_Click"/>
+                            <Button Content="Previous" Click="PreviousPageProfessor_Click" Margin="5"/>
+                            <Button Content="Next" Click="NextPageProfessor_Click" Margin="5"/>
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
@@ -198,8 +199,8 @@
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Previous" Click="PreviousPageDepartment_Click"/>
-                            <Button Content="Next" Click="NextPageDepartment_Click"/>
+                            <Button Content="Previous" Click="PreviousPageDepartment_Click" Margin="5"/>
+                            <Button Content="Next" Click="NextPageDepartment_Click" Margin="5"/>
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
