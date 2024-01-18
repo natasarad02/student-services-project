@@ -1,4 +1,4 @@
-<Window x:Class="YourNamespace.MainWindow"
+<Window x:Class="GUI.View.Request"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Comparing 2 subjects" Height="500" Width="700">
@@ -17,9 +17,9 @@
 					<StackPanel Margin="15">
 						<StackPanel Orientation="Horizontal" Margin="0,0,0,15">
 							<TextBlock Text="Showing students that listen to " FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
-							<TextBox Text="Textbox1" IsReadOnly="True" Width="120" Margin="0,0,10,0" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
+							<TextBox x:Name="txt1" Text="Textbox1" IsReadOnly="True" Width="120" Margin="0,0,10,0" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
 							<TextBlock Text=" and " FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
-							<TextBox Text="Textbox2" IsReadOnly="True" Width="120" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
+							<TextBox x:Name="txt2" Text="Textbox2" IsReadOnly="True" Width="120" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
 						</StackPanel>
 					</StackPanel>
 
@@ -90,9 +90,9 @@
 					<StackPanel Margin="15">
 						<StackPanel Orientation="Horizontal" Margin="0,0,0,15">
 							<TextBlock Text="Showing students that passed subject " FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
-							<TextBox Text="Textbox3" IsReadOnly="True" Width="120" Margin="0,0,10,0" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
+							<TextBox x:Name="txt3" Text="Textbox3" IsReadOnly="True" Width="120" Margin="0,0,10,0" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
 							<TextBlock Text=" and still take " FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
-							<TextBox Text="Textbox4" IsReadOnly="True" Width="120" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
+							<TextBox x:Name="txt4" Text="Textbox4" IsReadOnly="True" Width="120" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
 						</StackPanel>
 					</StackPanel>
 

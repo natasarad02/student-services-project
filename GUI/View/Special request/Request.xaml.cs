@@ -43,6 +43,11 @@ namespace GUI.View
             examGradesController = new ExamGradesController();
             examGradesController.Subscribe(this);
 
+            txt1.Text = Subject1.Name;
+            txt2.Text = Subject2.Name;
+            txt3.Text = Subject1.Name;
+            txt4.Text = Subject2.Name;
+
             DataContext = this;
 
             Update();        
@@ -82,15 +87,35 @@ namespace GUI.View
             {
                 students_didnt_pass.Add(student2);
             }
-
+            
             //trazenje preseka
             List<Student> in_both = new List<Student>();
-            in_both = (List<Student>)students_passed.Intersect(students_didnt_pass);
+            in_both = GetCommonStudents(students_passed, students_didnt_pass);
             foreach (Student student3 in in_both)
             {
                 Students_Passed_One_Other_Didnt.Add(new StudentDTO(student3));
             }
 
+        }
+
+        public List<Student> GetCommonStudents(List<Student> students_passed, List<Student> students_didnt_pass)
+        {
+            var commonStudents = new List<Student>();
+
+            foreach (var studentPassed in students_passed)
+            {
+                foreach (var studentDidntPass in students_didnt_pass)
+                {
+                    // Check if the student is common to both lists based on Id
+                    if (studentPassed.ID == studentDidntPass.ID)
+                    {
+                        commonStudents.Add(studentPassed);
+                        break; // Break the inner loop once a match is found
+                    }
+                }
+            }
+
+            return commonStudents;
         }
 
         public void RemoveDuplicates(ObservableCollection<StudentDTO> name)
