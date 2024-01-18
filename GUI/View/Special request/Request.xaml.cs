@@ -143,6 +143,10 @@ namespace GUI.View
             return uniqueItems;
         }
 
+        public void Close_Click(object sender, RoutedEventArgs e) 
+        {
+            Close();
+        }
 
     }
 }

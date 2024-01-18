@@ -156,6 +156,6 @@
 		</TabControl>
 
 		<!-- Close Button -->
-		<Button Content="Close" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="15" Width="100" Height="30" Background="#C0392B" Foreground="#ECF0F1" BorderBrush="#922B21"/>
+		<Button Content="Close" HorizontalAlignment="Center" Click="Close_Click" VerticalAlignment="Bottom" Margin="15" Width="100" Height="30" Background="#C0392B" Foreground="#ECF0F1" BorderBrush="#922B21"/>
 	</Grid>
 </Window>
