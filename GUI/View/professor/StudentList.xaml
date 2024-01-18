@@ -23,7 +23,6 @@
 			   SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
 			   SelectionMode="Single" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
                     <DataGridTextColumn Header="Name" Binding="{Binding First_Name}" Width="*"/>
                     <DataGridTextColumn Header="Surname" Binding="{Binding Last_Name}" Width="*"/>
                     <DataGridTextColumn Header="Year of studies" Binding="{Binding Current_Year}" Width="*"/>
