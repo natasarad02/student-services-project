@@ -54,22 +54,35 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">*Street:</Label>
-                <TextBox x:Name="txtStreet" Text="{Binding Path=Professor.Address.Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
+                <StackPanel Orientation="Vertical">
+                    <TextBox x:Name="txtStreet" Text="{Binding Path=Professor.Address.Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+                                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}" 
+                                     PreviewTextInput="txtStreet_PreviewTextInput"
+                                     TextChanged="txtStreet_TextChanged"></TextBox>
+                    <TextBlock x:Name="txtStreetError" Text="Reqired field"  Foreground="Red" FontSize="10" Margin="0 0 0 10"/>
+                </StackPanel>
+                
+                
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">*Street Number:</Label>
-                <TextBox x:Name="txtStreetNumber" Text="{Binding Path=Professor.Address.Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
+                <TextBox x:Name="txtStreetNumber" Text="{Binding Path=Professor.Address.Number, UpdateSourceTrigger=PropertyChanged, 
+                                           ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">*City:</Label>
-                <TextBox x:Name="txtCity" Text="{Binding Path=Professor.Address.City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
+                <TextBox x:Name="txtCity" Text="{Binding Path=Professor.Address.City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+                         Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                         
+                         Margin="0 0 0 10"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">*Country:</Label>
-                <TextBox x:Name="txtCountry" Text="{Binding Path=Professor.Address.Country, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
+                <TextBox x:Name="txtCountry" Text="{Binding Path=Professor.Address.Country, UpdateSourceTrigger=PropertyChanged, 
+                                           ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
