@@ -61,6 +61,20 @@ namespace CLI.Controller
 
             return studentsPage;
         }
+
+        public List<Student> GetStudentsPageSearch(int page, int itemsPerPage, List<Student> searchResults)
+        {
+
+            List<Student> allStudents = searchResults;
+
+
+            int startIndex = page * itemsPerPage;
+
+
+            var studentsPage = allStudents.Skip(startIndex).Take(itemsPerPage).ToList();
+
+            return studentsPage;
+        }
         /* public void AddStudentSubject(int id_student, int id_subject)
          {
              studentDAO.addStudentSubject(studentsSubjectsDAO, id_student, id_subject);

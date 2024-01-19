@@ -123,6 +123,41 @@ namespace GUI.DTO
             }
         }
 
+        public string this[string columnName]
+        {
+            get
+            {
+                if (columnName == "Name")
+                {
+                    if (string.IsNullOrEmpty(Name))
+                        return "Name is required";
+
+                    /* Match match = _NameRegex.Match(Name);
+                     if (!match.Success)
+                         return "Format not good. Try again.";*/
+
+                }
+
+                return null;
+            }
+        }
+
+        private readonly string[] _validatedProperties = { "Name" };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
+            }
+        }
+
         public List<StudentDTO> Students_Passed { get; set; }
         public List<StudentDTO> Students_Attending { get; set; }
         

@@ -61,5 +61,17 @@ namespace CLI.Controller
 
             return ProfessorsPage;
         }
+
+        public List<Professor> GetProfessorsPageSearch(int page, int itemsPerPage, List<Professor> searchResults)
+        {
+            List<Professor> allProfessors = searchResults;
+
+            int startIndex = page * itemsPerPage;
+
+            var professorsPage = allProfessors.Skip(startIndex).Take(itemsPerPage).ToList();
+
+            return professorsPage;
+        }
+
     }
 }

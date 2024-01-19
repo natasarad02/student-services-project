@@ -5,6 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="AddDepartment" Height="270" Width="389">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <!-- Placeholder for the TextBox itself -->
+                <AdornedElementPlaceholder x:Name="textBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+
+        </ControlTemplate>
+    </Window.Resources>
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -27,7 +37,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Department ID:</Label>
-                <TextBox x:Name="txtDepartmentID" Text="{Binding Path=department.Idd, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="txtDepartmentID" Text="{Binding Path=department.Idd, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
@@ -41,7 +51,7 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="Add" Click="Add_Click" />
+            <Button x:Name="addButton" Width="100" Margin="5" Content="Add" Click="Add_Click" />
             <Button Width="100" Margin="5" Content="Cancel"  Click="Cancel_Click"/>
         </StackPanel>
     </Grid>

@@ -13,11 +13,13 @@ namespace GUI.View
 {
     public partial class AddStudent : Window, INotifyPropertyChanged
     {
+        public int studentCount { get; set; }
         public StudentDTO Student { get; set;}
         private StudentsController studentController;
         public event PropertyChangedEventHandler ? PropertyChanged;
         public MainWindow mainWindow { get; set; }
-        public AddStudent(StudentsController studentController, MainWindow mainWindow) {
+        //public int studentCount { get; set; }  
+        public AddStudent(StudentsController studentController, MainWindow mainWindow, int studentCount) {
             InitializeComponent();
             DataContext = this;
             Student = new StudentDTO();
@@ -26,6 +28,7 @@ namespace GUI.View
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
+            this.studentCount = studentCount;
             Closing += Window_Closing;
         }
 
@@ -38,6 +41,7 @@ namespace GUI.View
         {
             studentController.Add(Student.toStudent());
             mainWindow.IsEnabled = true;
+            studentCount = studentController.GetAllStudents().Count();
             Close();
         }
 
