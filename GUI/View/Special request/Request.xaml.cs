@@ -60,23 +60,27 @@ namespace GUI.View
         public void Update()
         {
             Students_Attending_Both.Clear();
-            //students attending first
-            ObservableCollection<StudentDTO> temp = new ObservableCollection<StudentDTO>();
-            foreach (Student student in studentsSubjectsController.GetStudents(Subject1.Id)) { 
-                temp.Add(new StudentDTO(student));
-            }
+            
+            List<Student> temp = new List<Student>();
+            List<Student> temp2 = new List<Student>();
+            List<Student> temp3 = new List<Student>();
 
             //students attending first
+            foreach (Student student in studentsSubjectsController.GetStudents(Subject1.Id)) { 
+                temp.Add(student);
+            }
+
+            //students attending second
             foreach (Student student in studentsSubjectsController.GetStudents(Subject2.Id))
             {
-                temp.Add(new StudentDTO(student));
+                temp2.Add(student);
             }
 
-            temp = RemoveDuplicates(temp);
+            temp3 = GetCommonStudents(temp, temp2);
 
-            foreach(StudentDTO studentDTO in temp)
+            foreach(Student studentDTO in temp)
             {
-                Students_Attending_Both.Add(studentDTO);
+                Students_Attending_Both.Add(new StudentDTO(studentDTO));
             }
 
             //-----------------------------------------------------------------------------------------------------
@@ -127,20 +131,6 @@ namespace GUI.View
             }
 
             return commonStudents;
-        }
-
-        public ObservableCollection<StudentDTO> RemoveDuplicates(ObservableCollection<StudentDTO> name)
-        {
-            ObservableCollection<StudentDTO> uniqueItems = new ObservableCollection<StudentDTO>();
-            foreach (StudentDTO item in name)
-            {
-                if (!uniqueItems.Contains(item))
-                {
-                    uniqueItems.Add(item);
-                }
-            }
-
-            return uniqueItems;
         }
 
         public void Close_Click(object sender, RoutedEventArgs e) 
