@@ -5,6 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="AddStudent" Height="640" Width="400">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <!-- Placeholder for the TextBox itself -->
+                <AdornedElementPlaceholder x:Name="textBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+
+        </ControlTemplate>
+    </Window.Resources>
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -26,36 +36,36 @@
             </StackPanel.Resources>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>First Name:</Label>
-                <TextBox x:Name="txtFirstName" Text="{Binding Path = Student.First_Name, UpdateSourceTrigger=PropertyChanged}">
+                <Label Margin="0 0 0 10">* First Name:</Label>
+                <TextBox x:Name="txtFirstName" Text="{Binding Path = Student.First_Name, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10">
                 </TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Last Name:</Label>
-                    <TextBox x:Name="txtLastName" Text="{Binding Path = Student.Last_Name, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Margin="0 0 0 10">* Last Name:</Label>
+                <TextBox x:Name="txtLastName" Text="{Binding Path = Student.Last_Name, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Address:</Label>
+                <Label Margin="0 0 0 10">* Address:</Label>
                 <TextBox x:Name="txtStreet" MinWidth="150"
-                        Text="{Binding Path = Student.Address.Street, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{Binding Path = Student.Address.Street, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
                 <TextBox x:Name="txtHouseNumber" MinWidth="50"
-                         Text="{Binding Path = Student.Address.Number, UpdateSourceTrigger=PropertyChanged}"/>
+                         Text="{Binding Path = Student.Address.Number, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>City:</Label>
-                <TextBox x:Name="txtCity" Text="{Binding Path = Student.Address.City, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Margin="0 0 0 10">* City:</Label>
+                <TextBox x:Name="txtCity" Text="{Binding Path = Student.Address.City, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Country:</Label>
-                <TextBox x:Name="txtCounty" Text="{Binding Path = Student.Address.Country, UpdateSourceTrigger=PropertyChanged}"  />
+                <Label Margin="0 0 0 10"> * Country:</Label>
+                <TextBox x:Name="txtCounty" Text="{Binding Path = Student.Address.Country, UpdateSourceTrigger=PropertyChanged}"  Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label Width="105">Birth Date:</Label>
+                <Label Margin="0 0 0 10" Width="105">* Birth Date:</Label>
                 <DatePicker x:Name="dpBirthDate" Width="104" 
                             Text="{Binding Path = Student.Date_Of_Birth, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                 </DatePicker>
@@ -63,32 +73,32 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Phone Number:</Label>
+                <Label Margin="0 0 0 10">* Phone Number:</Label>
                 <TextBox x:Name="txtPhone" 
-                         Text="{Binding Path = Student.Phone_Number, UpdateSourceTrigger=PropertyChanged}" />
+                         Text="{Binding Path = Student.Phone_Number, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Email:</Label>
+                <Label Margin="0 0 0 10" >* Email:</Label>
                 <TextBox x:Name="txtEmail" 
-                         Text="{Binding Path = Student.Email, UpdateSourceTrigger=PropertyChanged}" />
+                         Text="{Binding Path = Student.Email, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Index Number:</Label>
+                <Label Margin="0 0 0 10">*Index Number:</Label>
                 <TextBox x:Name="txtIndex" 
-                         Text="{Binding Path = Student.Index_Number.college_major , UpdateSourceTrigger=PropertyChanged}" MinWidth="60" />
+                         Text="{Binding Path = Student.Index_Number.college_major , UpdateSourceTrigger=PropertyChanged}" MinWidth="60" Margin="0 0 0 10"/>
                 <TextBox x:Name="txtNumIndex" MinWidth ="60" 
-                         Text="{Binding Path = Student.Index_Number.number_mark, UpdateSourceTrigger=PropertyChanged}"
+                         Text="{Binding Path = Student.Index_Number.number_mark, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"
                          ></TextBox>
                 <TextBox x:Name="txtYearOfEnrollment" MinWidth="60"
-                         Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged}"
+                         Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"
                          ></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Enrollment year:</Label>
-                <TextBox x:Name="txtYear" Width="146" Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <Label Margin="0 0 0 10">Enrollment year:</Label>
+                <TextBox x:Name="txtYear" Width="146" Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"></TextBox>
                 
             </StackPanel>
 

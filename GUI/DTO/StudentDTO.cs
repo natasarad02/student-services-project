@@ -8,11 +8,13 @@ using System.Runtime.CompilerServices;
 using StudentskaSluzba.Model;
 using System.Windows.Data;
 using System.Xml.Linq;
-
+using System.Dynamic;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace GUI.DTO
 {
-    public class StudentDTO : INotifyPropertyChanged
+    public class StudentDTO : INotifyPropertyChanged, IDataErrorInfo
     {
         private int id;
 
@@ -173,6 +175,99 @@ namespace GUI.DTO
                 }
             }
         }
+        private Regex PhoneRegex = new Regex(@"06[0-9]\/[0-9]{6,6}[0-9]?");
+        private Regex EmailRegex = new Regex(@"[a-zA-Z0-9._%+-]+@uns.ac.rs");
+        public string this[string columnName]
+        {
+            get
+            {
+              
+
+               
+                if (columnName == "First_Name")
+                {
+                    if (string.IsNullOrEmpty(First_Name))
+                        return "First name is required";
+
+                    /* Match match = _NameRegex.Match(Name);
+                     if (!match.Success)
+                         return "Format not good. Try again.";*/
+
+                }
+                else if (columnName == "Last_Name")
+                {
+
+                    if (string.IsNullOrEmpty(Last_Name))
+                        return "Last name is required";
+                }
+
+                /* Match match = _NameRegex.Match(Name);
+                 if (!match.Success)
+                     return "Format not good. Try again.";*/
+
+                else if (columnName == "Phone_Number")
+                {
+                    if (string.IsNullOrEmpty(Phone_Number))
+                        return "Phone number is required";
+                    Match match = PhoneRegex.Match(Phone_Number);
+                    if (!match.Success)
+                        return "Format should be 06x/xxxxxxx";
+
+                }
+                else if (columnName == "Email")
+                {
+                    if (string.IsNullOrEmpty(Email))
+                        return "E-Mail is required";
+                    Match match = EmailRegex.Match(Email);
+                    if (!match.Success)
+                        return "E-Mail should end with uns.ac.rs";
+
+                }
+                else if (columnName == "Current_Year")
+                {
+                    if (Current_Year == null)
+                        return "Student's year is required";
+
+
+
+                }
+                else if (columnName == "Status")
+                {
+                    if (Status == null)
+                        return "Status is required";
+
+
+
+                }
+                else if (columnName == "Address.Street")
+                {
+                    if (string.IsNullOrEmpty(Address.Street))
+                        return "Street is required";
+                }
+                else if (columnName == "Address.Country")
+                {
+                    if (string.IsNullOrEmpty(Address.Country))
+                        return "Country is required";
+                }
+                else if (columnName == "Address.City")
+                {
+                    if (string.IsNullOrEmpty(Address.City))
+                        return "City is required";
+                }
+                else if (columnName == "Address.Number")
+                {
+                    if (Address.Number == 0)
+                        return "Street number is required";
+                }
+
+
+
+                return null;
+            }
+        }
+        public string Error => null;
+        private readonly string[] _validatedProperties = { "First_Name", "Last_Name", "Address.Street", "Address.Country", "Address.City", "Address.Number", "Email", "Phone_Number", "Status", "Current_Year" };
+
 
         public List<ExamGrade> Passed_Exams { get; set; } //videti posle sta s ovim
         public List<ExamGrade> Failed_Exams { get; set; } //videti posle sta s ovim

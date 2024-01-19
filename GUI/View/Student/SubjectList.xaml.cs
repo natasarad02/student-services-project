@@ -69,7 +69,7 @@ namespace GUI.View
             {
                 foreach(ExamGrade grade in examGradesController.GetAllExamGrades())
                 {
-                    if(subject.Id == grade.subjectID)
+                    if(subject.Id == grade.subjectID && grade.studentID == Student.Id)
                     {
                         tmpSubjectList.Remove(subject);
                         break;
