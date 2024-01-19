@@ -25,3 +25,4 @@
 25|321321|Test2|5|2|Pavle Kostic|summer|4
 26|432344334||0|-1||winter|0
 27|2432334||0|-1||winter|0
+28|342342342|asdass|0|-1||winter|0

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using CLI.Controller;
+using StudentskaSluzba.Model;
+
 namespace GUI.View
 {
     public partial class AddSubject : Window, INotifyPropertyChanged, SubjectWindowInterface
@@ -35,6 +37,12 @@ namespace GUI.View
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
             Closing += Window_Closing;
+            addButton.IsEnabled = false;
+            Subject.PropertyChanged += Subject_PropertyChanged;
+        }
+        private void Subject_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (Subject.IsValid) { addButton.IsEnabled = true; }
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

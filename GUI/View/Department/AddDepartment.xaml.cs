@@ -9,6 +9,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using CLI.Controller;
+using StudentskaSluzba.Model;
+
 namespace GUI.View
 {
     public partial class AddDepartment : Window, INotifyPropertyChanged
@@ -27,19 +29,31 @@ namespace GUI.View
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
             Closing += Window_Closing;
+            addButton.IsEnabled = false;
+            department.PropertyChanged += Department_PropertyChanged;
+           
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        private void Department_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (department.IsValid) { addButton.IsEnabled = true; }  
+        }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            department.Hod_id = -1;
-            departmentController.Add(department.ToDepartment());
-            mainWindow.IsEnabled = true;
-            Close();
+            
+                department.Hod_id = -1;
+                departmentController.Add(department.ToDepartment());
+                mainWindow.IsEnabled = true;
+
+                Close();
+
+          
+           
         }
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {

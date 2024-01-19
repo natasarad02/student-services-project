@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using StudentskaSluzba.Model;
+using System.Text.RegularExpressions;
 
 namespace GUI.DTO
 {
@@ -99,7 +100,40 @@ namespace GUI.DTO
             }
         }
 
+        public string this[string columnName]
+        {
+            get
+            {
+                if (columnName == "Name")
+                {
+                    if (string.IsNullOrEmpty(Name))
+                        return "Name is required";
 
+                   /* Match match = _NameRegex.Match(Name);
+                    if (!match.Success)
+                        return "Format not good. Try again.";*/
+
+                }
+             
+                return null;
+            }
+        }
+
+        private readonly string[] _validatedProperties = { "Name" };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
+            }
+        }
         private List<int> department_Professors;
         public List<int> Department_Professors
         {

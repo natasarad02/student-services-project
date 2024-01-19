@@ -412,6 +412,7 @@ namespace GUI
             studentCount = studentController.GetAllStudents().Count;
             subjectCount = subjectController.GetAllSubjects().Count;
             professorCount = professorController.GetAllProfessors().Count;
+          //  departmentCount = departmentController.GetAllDepartments().Count;
 
         }
         public void UpdateWithPaging(int page, int itemsPerPage)
