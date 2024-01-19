@@ -240,26 +240,7 @@ namespace GUI.DTO
 
 
                 }
-                else if (columnName == "Address.Street")
-                {
-                    if (string.IsNullOrEmpty(Address.Street))
-                        return "Street is required";
-                }
-                else if (columnName == "Address.Country")
-                {
-                    if (string.IsNullOrEmpty(Address.Country))
-                        return "Country is required";
-                }
-                else if (columnName == "Address.City")
-                {
-                    if (string.IsNullOrEmpty(Address.City))
-                        return "City is required";
-                }
-                else if (columnName == "Address.Number")
-                {
-                    if (Address.Number == 0)
-                        return "Street number is required";
-                }
+               
 
 
 
@@ -267,7 +248,7 @@ namespace GUI.DTO
             }
         }
         public string Error => null;
-        private readonly string[] _validatedProperties = { "Name", "Surname", "Address.Street", "Address.Country", "Address.City", "Address.Number", "Email_Address", "Phone_Number", "Calling", "Employment_Year" };
+        private readonly string[] _validatedProperties = { "Name", "Surname", "Email_Address", "Phone_Number", "Calling", "Employment_Year" };
 
 
         public bool IsValid

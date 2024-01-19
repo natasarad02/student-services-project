@@ -9,6 +9,8 @@ using GUI.DTO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using CLI.Controller;
+using StudentskaSluzba.Model;
+
 namespace GUI.View
 {
     public partial class AddStudent : Window, INotifyPropertyChanged
@@ -30,8 +32,16 @@ namespace GUI.View
             mainWindow.IsEnabled = false;
             this.studentCount = studentCount;
             Closing += Window_Closing;
+            addButton.IsEnabled = false;
+            Student.PropertyChanged += Student_PropertyChanged;
         }
-
+        private void Student_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            //MessageBox.Show("menjam polje");
+            if (Student.IsValid) { addButton.IsEnabled = true; }
+            else
+                addButton.IsEnabled = false;
+        }
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

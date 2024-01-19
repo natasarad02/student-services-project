@@ -37,37 +37,37 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">* First Name:</Label>
-                <TextBox x:Name="txtFirstName" Text="{Binding Path = Student.First_Name, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10">
+                <TextBox x:Name="txtFirstName" Text="{Binding Path = Student.First_Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10">
                 </TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">* Last Name:</Label>
-                <TextBox x:Name="txtLastName" Text="{Binding Path = Student.Last_Name, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
+                <TextBox x:Name="txtLastName" Text="{Binding Path = Student.Last_Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">* Address:</Label>
                 <TextBox x:Name="txtStreet" MinWidth="150"
-                        Text="{Binding Path = Student.Address.Street, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
+                        Text="{Binding Path = Student.Address.Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
                 <TextBox x:Name="txtHouseNumber" MinWidth="50"
-                         Text="{Binding Path = Student.Address.Number, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
+                         Text="{Binding Path = Student.Address.Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">* City:</Label>
-                <TextBox x:Name="txtCity" Text="{Binding Path = Student.Address.City, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
+                <TextBox x:Name="txtCity" Text="{Binding Path = Student.Address.City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10"> * Country:</Label>
-                <TextBox x:Name="txtCounty" Text="{Binding Path = Student.Address.Country, UpdateSourceTrigger=PropertyChanged}"  Margin="0 0 0 10"/>
+                <TextBox x:Name="txtCounty" Text="{Binding Path = Student.Address.Country, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"  Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10" Width="105">* Birth Date:</Label>
                 <DatePicker x:Name="dpBirthDate" Width="104" 
-                            Text="{Binding Path = Student.Date_Of_Birth, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                            Text="{Binding Path = Student.Date_Of_Birth, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                 </DatePicker>
                 
             </StackPanel>
@@ -75,36 +75,36 @@
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">* Phone Number:</Label>
                 <TextBox x:Name="txtPhone" 
-                         Text="{Binding Path = Student.Phone_Number, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
+                         Text="{Binding Path = Student.Phone_Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10" >* Email:</Label>
                 <TextBox x:Name="txtEmail" 
-                         Text="{Binding Path = Student.Email, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
+                         Text="{Binding Path = Student.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">*Index Number:</Label>
                 <TextBox x:Name="txtIndex" 
-                         Text="{Binding Path = Student.Index_Number.college_major , UpdateSourceTrigger=PropertyChanged}" MinWidth="60" Margin="0 0 0 10"/>
+                         Text="{Binding Path = Student.Index_Number.college_major , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" MinWidth="60" Margin="0 0 0 10"/>
                 <TextBox x:Name="txtNumIndex" MinWidth ="60" 
-                         Text="{Binding Path = Student.Index_Number.number_mark, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"
+                         Text="{Binding Path = Student.Index_Number.number_mark, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"
                          ></TextBox>
                 <TextBox x:Name="txtYearOfEnrollment" MinWidth="60"
-                         Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"
+                         Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"
                          ></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Margin="0 0 0 10">Enrollment year:</Label>
-                <TextBox x:Name="txtYear" Width="146" Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"></TextBox>
+                <TextBox x:Name="txtYear" Width="146" Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
                 
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Current Year:</Label>
-                <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Student.Current_Year, Mode=TwoWay}">
+                <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Student.Current_Year,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                     <ComboBoxItem Content="First year" Tag="1"></ComboBoxItem>
                     <ComboBoxItem Content="Second year" Tag="2"></ComboBoxItem>
                     <ComboBoxItem Content="Third year" Tag="3"></ComboBoxItem>
@@ -115,7 +115,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label>Financial Aid:</Label>
-                <ComboBox x:Name="cmbFinancing" SelectedValuePath="Tag" SelectedValue="{Binding Student.Status, Mode=TwoWay}">
+                <ComboBox x:Name="cmbFinancing" SelectedValuePath="Tag" SelectedValue="{Binding Student.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                     <ComboBoxItem Content="Government Budget" Tag="B"></ComboBoxItem>
                     <ComboBoxItem Content="Self Financing" Tag="S"></ComboBoxItem>
                 </ComboBox>
@@ -123,7 +123,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="Add" Click="Add_Click"/>  
+            <Button x:Name ="addButton" Width="100" Margin="5" Content="Add" Click="Add_Click"/>  
             <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> 
         </StackPanel>
     </Grid>

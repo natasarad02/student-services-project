@@ -33,7 +33,7 @@ namespace GUI.View
         public ObservableCollection<SubjectDTO> Subjects { get; set; }
         public List<Subject> previousList { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
-       
+
         private ExamGradesController examGradesController { get; set; }
 
         public ObservableCollection<ExamGradeDTO> Grades { get; set; }
@@ -41,12 +41,12 @@ namespace GUI.View
         public HashSet<Professor> ProfessorsHashSet;
 
         public MainWindow mainWindow { get; set; }
-        public UpdateStudent(StudentsController studentController, StudentsSubjectsController studentSubjectsController, SubjectsController subjectsController, ProfessorsController professorsController, MainWindow mainWindow)
+        public UpdateStudent(StudentDTO SelectedStudent, StudentsController studentController, StudentsSubjectsController studentSubjectsController, SubjectsController subjectsController, ProfessorsController professorsController, MainWindow mainWindow)
         {
             InitializeComponent();
             
             DataContext = this;
-            Student = new StudentDTO();
+            Student = SelectedStudent;
 
            
             //subjectsController = new SubjectsController();
@@ -79,9 +79,20 @@ namespace GUI.View
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
             Closing += Window_Closing;
-
+            updateButton.IsEnabled = false;
+            Student.PropertyChanged += Student_PropertyChanged;
         }
+        private void Student_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+           // MessageBox.Show("menjam polje");
+            if (Student.IsValid) { updateButton.IsEnabled = true; }
+            else
+            {
+                updateButton.IsEnabled = false;
+                //MessageBox.Show("Uslo");
 
+            }
+        }
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

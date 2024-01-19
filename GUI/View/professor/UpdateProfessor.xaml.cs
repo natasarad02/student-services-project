@@ -51,6 +51,7 @@ namespace GUI.View
         }
         private void Professor_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+            //MessageBox.Show("menjam polje");
             if (Professor.IsValid) { updateButton.IsEnabled = true; }
             else
                 updateButton.IsEnabled = false;

@@ -223,7 +223,7 @@ namespace GUI.DTO
                         return "E-Mail should end with uns.ac.rs";
 
                 }
-                else if (columnName == "Current_Year")
+              /*  else if (columnName == "Current_Year")
                 {
                     if (Current_Year == null)
                         return "Student's year is required";
@@ -238,8 +238,8 @@ namespace GUI.DTO
 
 
 
-                }
-                else if (columnName == "Address.Street")
+                }*/
+               /* else if (columnName == "Address.Street")
                 {
                     if (string.IsNullOrEmpty(Address.Street))
                         return "Street is required";
@@ -258,7 +258,7 @@ namespace GUI.DTO
                 {
                     if (Address.Number == 0)
                         return "Street number is required";
-                }
+                }*/
 
 
 
@@ -266,8 +266,20 @@ namespace GUI.DTO
             }
         }
         public string Error => null;
-        private readonly string[] _validatedProperties = { "First_Name", "Last_Name", "Address.Street", "Address.Country", "Address.City", "Address.Number", "Email", "Phone_Number", "Status", "Current_Year" };
+        private readonly string[] _validatedProperties = { "First_Name", "Last_Name", "Email", "Phone_Number"};
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
 
+                return true;
+            }
+        }
 
         public List<ExamGrade> Passed_Exams { get; set; } //videti posle sta s ovim
         public List<ExamGrade> Failed_Exams { get; set; } //videti posle sta s ovim
