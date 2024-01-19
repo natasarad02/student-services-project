@@ -12,6 +12,7 @@ using System.Windows.Threading;
 using GUI.View.Help;
 using System.Windows.Data;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace GUI
 {
@@ -865,9 +866,23 @@ namespace GUI
             }
         }
 
-       
 
-       
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.N))
+                Add_Click(sender, e);
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D))
+                Delete_Click(sender, e);
+            /*  else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.X))
+                  MenuItem_Click_Close(sender, e);
+              else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.R))
+                  MenuItem_Click_Serbian(sender, e);
+              else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.E))
+                  MenuItem_Click_English(sender, e);*/
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.E))
+                Update_Click(sender, e);
+        }
 
 
     }
