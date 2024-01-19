@@ -92,5 +92,17 @@ namespace CLI.Controller
             return SubjectsPage;
         }
 
+        public List<Subject> GetSubjectsPageSearch(int page, int itemsPerPage, List<Subject> searchResults)
+        {
+            List<Subject> allSubjects = searchResults;
+
+            int startIndex = page * itemsPerPage;
+
+            var subjectsPage = allSubjects.Skip(startIndex).Take(itemsPerPage).ToList();
+
+            return subjectsPage;
+        }
+
+
     }
 }

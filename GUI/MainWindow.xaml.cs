@@ -11,9 +11,7 @@ using CLI.Controller;
 using System.Windows.Threading;
 using GUI.View.Help;
 using System.Windows.Data;
-
-
-
+using System.Collections.Generic;
 
 namespace GUI
 {
@@ -44,6 +42,11 @@ namespace GUI
         private ExamGradesController examGradesController { get; set; }
         private StudentsSubjectsController studentsSubjectsController { get; set; }
         //-----------------------
+        private List<Student> searchStudents { get; set; }  
+        private List<Subject> searchSubjects { get; set; }
+
+        private List<Professor> searchProfessors { get; set; }
+        private List<Department> searchDepartments { get; set; }
 
         private DispatcherTimer timer;
 
@@ -58,6 +61,10 @@ namespace GUI
         private bool isUpdateSubject = false;
         private bool isUpdateDepartment = false;
 
+        private int studentCount = 0;
+        private int subjectCount = 0;
+        private int professorCount = 0;
+        //private int departmentCount = 0;
         private ObservableCollection<SubjectDTO> selectedSubjects = new ObservableCollection<SubjectDTO>();
 
         public SubjectDTO SelectedSubject2 { get; set; }
@@ -92,8 +99,16 @@ namespace GUI
             ProfessorsDataGrid.ItemsSource = Professors;
             SubjectsDataGrid.ItemsSource = Subjects;
             DepartmentDataGrid.ItemsSource = Departments;
-            
+
+            searchStudents = new List<Student>();
+            searchSubjects = new List<Subject>();
+           // searchDepartments = new List<Department>();
+            searchProfessors = new List<Professor>();
+
+            //studentCount = studentController.GetAllStudents().Count;
             DataContext = this;
+
+         
 
 
             Update();
@@ -120,7 +135,10 @@ namespace GUI
 
             Tab.SelectionChanged += TabControl_SelectionChanged;
 
-            
+            studentCount = studentController.GetAllStudents().Count;
+            subjectCount = subjectController.GetAllSubjects().Count;
+            professorCount = professorController.GetAllProfessors().Count;
+
         }
 
         private void SubjectsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -166,13 +184,13 @@ namespace GUI
             switch (tabIndex)
             {
                 case 0: //student
-                    studentSearch(query);
+                    searchStudents = studentSearch(query);
                     break;
                 case 1: // subject
-                    subjectSearch(query);
+                    searchSubjects = subjectSearch(query);
                     break;
                 case 2: // profesor
-                    professorSearch(query);
+                    searchProfessors= professorSearch(query);
                     break;
                 case 3: //departman, za ovo ne treba search
                     
@@ -182,7 +200,7 @@ namespace GUI
 
         }
 
-        private void professorSearch(string query)
+        private List<Professor> professorSearch(string query)
         {
 
             string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -222,9 +240,21 @@ namespace GUI
                                 (string.IsNullOrEmpty(lastName) || professor.Surname.ToUpper().Contains(lastName.ToUpper()))
                             ).ToList();
 
-           ProfessorsDataGrid.ItemsSource = searchResults;
+            int totalItems = searchResults.Count;
+            int totalPages = (int)Math.Ceiling((double)totalItems / itemsPerPage);
+            currentPageStudent = 0;
+
+            List<Professor> results = new List<Professor>();
+            foreach (ProfessorDTO s in searchResults)
+                results.Add(s.ToProfessor());
+            currentPageProfessor = 0;
+            //UpdateWithPaging(currentPageStudent, itemsPerPage);
+            UpdateWithPagingProfessor(currentPageProfessor, itemsPerPage, results);
+            professorCount = results.Count;
+            //StudentDataGrid.ItemsSource = searchResults;
+            return results;
         }
-        private void studentSearch(string query) {
+        private List<Student> studentSearch(string query) {
             
             string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             
@@ -265,10 +295,24 @@ namespace GUI
                                 (string.IsNullOrEmpty(lastName) || student.Last_Name.ToUpper().Contains(lastName.ToUpper()))
                             ).ToList();
 
-            StudentDataGrid.ItemsSource = searchResults;
+            int totalItems = searchResults.Count;
+            int totalPages = (int)Math.Ceiling((double)totalItems / itemsPerPage);
+            currentPageStudent = 0;
+
+            List<Student> results = new List<Student>();
+            foreach (StudentDTO s in searchResults)
+                results.Add(s.toStudent());
+            currentPageStudent = 0;
+            //UpdateWithPaging(currentPageStudent, itemsPerPage);
+            UpdateWithPagingStudent(currentPageStudent, itemsPerPage, results);
+            studentCount = results.Count;
+            //StudentDataGrid.ItemsSource = searchResults;
+            return results;
+
+
         }
 
-        private void subjectSearch(string query)
+        private List<Subject> subjectSearch(string query)
         {
 
             string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -296,9 +340,26 @@ namespace GUI
 
             var searchResults = subjectsTotal.Where(subject =>
                                 (string.IsNullOrEmpty(ids) || subject.Ids.ToString().ToUpper().Contains(ids.ToUpper())) &&
+                    
                                 (string.IsNullOrEmpty(subjectName) || subject.Name.ToUpper().Contains(subjectName.ToUpper()))).ToList();
 
-            SubjectsDataGrid.ItemsSource = searchResults;
+
+
+            int totalItems = searchResults.Count;
+            int totalPages = (int)Math.Ceiling((double)totalItems / itemsPerPage);
+            currentPageStudent = 0;
+
+            List<Subject> results = new List<Subject>();
+            foreach (SubjectDTO s in searchResults)
+                results.Add(s.ToSubject());
+            currentPageStudent = 0;
+            //UpdateWithPaging(currentPageStudent, itemsPerPage);
+            UpdateWithPagingSubject(currentPageStudent, itemsPerPage, results);
+            studentCount = results.Count;
+            //StudentDataGrid.ItemsSource = searchResults;
+            return results;
+
+
         }
 
         private void UpdateDateTime(object sender, EventArgs e)
@@ -313,10 +374,14 @@ namespace GUI
             switch (tabIndex)
                    {
                        case 0:
-                           AddStudent addStudent = new AddStudent(studentController, this);
+                          
+                           AddStudent addStudent = new AddStudent(studentController, this, studentCount);
                            currentPageStudent = 0;
-                           addStudent.Show();
-                           break;
+                            
+;                           addStudent.Show();
+                            
+
+                            break;
                        case 1:
                            AddSubject addSubject = new AddSubject(subjectController, professorController, this);
                             currentPageSubject = 0;
@@ -344,12 +409,16 @@ namespace GUI
         {
             
             UpdateWithPaging(0, 16);
-            
+            studentCount = studentController.GetAllStudents().Count;
+            subjectCount = subjectController.GetAllSubjects().Count;
+            professorCount = professorController.GetAllProfessors().Count;
+
         }
         public void UpdateWithPaging(int page, int itemsPerPage)
         {
            
             Students.Clear();
+            
             foreach (Student student in studentController.GetStudentsPage(page, itemsPerPage))
             {
                 Students.Add(new StudentDTO(student));
@@ -377,6 +446,35 @@ namespace GUI
 
 
         }
+        public void UpdateWithPagingStudent(int page, int itemsPerPage, List<Student> students)
+        {
+
+            Students.Clear();
+            foreach (Student student in studentController.GetStudentsPageSearch(page, itemsPerPage, students))
+            {
+                Students.Add(new StudentDTO(student));
+            }
+            
+
+        }
+        public void UpdateWithPagingProfessor(int page, int itemsPerPage, List<Professor> professors)
+        {
+            Professors.Clear();
+            foreach (Professor professor in professorController.GetProfessorsPageSearch(page, itemsPerPage, professors))
+            {
+                Professors.Add(new ProfessorDTO(professor));
+            }
+        }
+
+        public void UpdateWithPagingSubject(int page, int itemsPerPage, List<Subject> subjects)
+        {
+            Subjects.Clear();
+            foreach (Subject subject in subjectController.GetSubjectsPageSearch(page, itemsPerPage, subjects))
+            {
+                Subjects.Add(new SubjectDTO(subject));
+            }
+        }
+
 
         private string SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -619,10 +717,20 @@ namespace GUI
 
         private void PreviousPageStudent_Click(object sender, RoutedEventArgs e)
         {
+            int totalStudents = studentCount;
             if (currentPageStudent > 0)
             {
-                currentPageStudent--;
-                UpdateWithPaging(currentPageStudent, itemsPerPage);
+                if(studentCount < studentController.GetAllStudents().Count())
+                {
+                    currentPageStudent--;
+                    UpdateWithPagingStudent(currentPageStudent, itemsPerPage, searchStudents);
+                }
+                else
+                {
+                    currentPageStudent--;
+                    UpdateWithPaging(currentPageStudent, itemsPerPage);
+                }
+                
             }
 
         }
@@ -636,63 +744,111 @@ namespace GUI
         }
         private void PreviousPageProfessor_Click(object sender, RoutedEventArgs e)
         {
+            int totalProfessors = professorCount;
             if (currentPageProfessor > 0)
             {
-                currentPageProfessor--;
-                UpdateWithPaging(currentPageProfessor, itemsPerPage);
+                if (professorCount < professorController.GetAllProfessors().Count())
+                {
+                    currentPageProfessor--;
+                    UpdateWithPagingProfessor(currentPageProfessor, itemsPerPage, searchProfessors);
+                }
+                else
+                {
+                    currentPageProfessor--;
+                    UpdateWithPaging(currentPageProfessor, itemsPerPage);
+                }
             }
+
         }
         private void PreviousPageDepartment_Click(object sender, RoutedEventArgs e)
         {
-            if (currentPageDepartment > 0)
+            int totalSubjects = subjectCount;
+            if (currentPageSubject > 0)
             {
-                currentPageDepartment--;
-                UpdateWithPaging(currentPageDepartment, itemsPerPage);
+                if (subjectCount < subjectController.GetAllSubjects().Count())
+                {
+                    currentPageSubject--;
+                    UpdateWithPagingSubject(currentPageSubject, itemsPerPage, searchSubjects);
+                }
+                else
+                {
+                    currentPageSubject--;
+                    UpdateWithPaging(currentPageSubject, itemsPerPage);
+                }
             }
 
+
         }
-      
-       
+
+
 
         private void NextPageStudent_Click(object sender, RoutedEventArgs e)
         {
-            int totalStudents = studentController.GetAllStudents().Count();
+            int totalStudents = studentCount;
+          
             int totalStudentPages = (int)Math.Ceiling((double)totalStudents / itemsPerPage);
 
             if (currentPageStudent < totalStudentPages - 1)
             {
-                currentPageStudent++;
-                UpdateWithPaging(currentPageStudent, itemsPerPage);
-               // Update();
-                //UpdateStudentsDataGrid();
+                if(totalStudents < studentController.GetAllStudents().Count())
+                {
+                    currentPageStudent++;
+                    UpdateWithPagingStudent(currentPageStudent, itemsPerPage, searchStudents);
+                    //MessageBox.Show("uslo");
+                }
+                else
+                {
+                    currentPageStudent++;
+                    // if(Students.Count <)
+                    UpdateWithPaging(currentPageStudent, itemsPerPage);
+                    // Update();
+                    //UpdateStudentsDataGrid();
+                }
+
 
             }
         }
         private void NextPageSubject_Click(object sender, RoutedEventArgs e)
         {
-            int totalSubjects = subjectController.GetAllSubjects().Count();
+            int totalSubjects = subjectCount;
             int totalSubjectPages = (int)Math.Ceiling((double)totalSubjects / itemsPerPage);
 
             if (currentPageSubject < totalSubjectPages - 1)
             {
-                currentPageSubject++;
-                UpdateWithPaging(currentPageSubject, itemsPerPage);
-                //UpdateStudentsDataGrid();
-
+                if (totalSubjects < subjectController.GetAllSubjects().Count())
+                {
+                    currentPageSubject++;
+                    UpdateWithPagingSubject(currentPageSubject, itemsPerPage, searchSubjects);
+                    //MessageBox.Show("Entered");
+                }
+                else
+                {
+                    currentPageSubject++;
+                    UpdateWithPaging(currentPageSubject, itemsPerPage);
+                }
             }
+
         }
         private void NextPageProfessor_Click(object sender, RoutedEventArgs e)
         {
-            int totalProfessors = professorController.GetAllProfessors().Count();
+            int totalProfessors = professorCount;
             int totalProfessorPages = (int)Math.Ceiling((double)totalProfessors / itemsPerPage);
 
             if (currentPageProfessor < totalProfessorPages - 1)
             {
-                currentPageProfessor++;
-                UpdateWithPaging(currentPageProfessor, itemsPerPage);
-                //UpdateStudentsDataGrid();
-
+                if (totalProfessors < professorController.GetAllProfessors().Count())
+                {
+                    currentPageProfessor++;
+                    UpdateWithPagingProfessor(currentPageProfessor, itemsPerPage, searchProfessors);
+                   // MessageBox.Show("Entered");
+                }
+                else
+                {
+                    currentPageProfessor++;
+                    UpdateWithPaging(currentPageProfessor, itemsPerPage);
+                }
             }
+
         }
         private void NextPageDepartment_Click(object sender, RoutedEventArgs e)
         {
@@ -708,10 +864,7 @@ namespace GUI
             }
         }
 
-        private void PreviousPage_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
        
 
