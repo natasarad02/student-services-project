@@ -46,6 +46,7 @@ namespace GUI.View
         public void Update()
         {
             Professors.Clear();
+            
             foreach (Professor professor in departmentsController.GetProfessorsThatCouldBeHOD(Department.Id, professorsController)) 
             {
                 Professors.Add(new ProfessorDTO(professor));

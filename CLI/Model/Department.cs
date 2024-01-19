@@ -11,7 +11,7 @@ namespace StudentskaSluzba.Model;
 
 public class Department : ISerializable
 {
-    public int Idd { get; set; } //department id
+    public string Idd { get; set; } //department id
     public int Id { get; set; } //id for search
     public string Name { get; set; }
     public string Hod { get; set; } // Head Of Department
@@ -24,7 +24,7 @@ public class Department : ISerializable
     {
        Department_Professors = new List<int>();
     }
-    public Department(int idd, string name, string hod)
+    public Department(string idd, string name, string hod)
     {
         Idd = idd;
         Name = name;
@@ -42,7 +42,7 @@ public class Department : ISerializable
 
         string[] csvValues =
         {
-                Id.ToString(), Idd.ToString(), Name, Hod, Hod_id.ToString(), professorIds
+                Id.ToString(), Idd, Name, Hod, Hod_id.ToString(), professorIds
             };
 
         return csvValues;
@@ -52,7 +52,7 @@ public class Department : ISerializable
     {
 
         Id = int.Parse(values[0]);
-        Idd = int.Parse(values[1]);
+        Idd = values[1];
         Name = values[2];
         Hod = values[3];
         Hod_id = int.Parse(values[4]);

@@ -7,10 +7,14 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using StudentskaSluzba.Model;
 using System.Windows.Data;
+using System.Text.RegularExpressions;
+using System.IO;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace GUI.DTO
 {
-    public class ProfessorDTO : INotifyPropertyChanged
+    public class ProfessorDTO : INotifyPropertyChanged, IDataErrorInfo
     {
         private int id;
 
@@ -69,8 +73,8 @@ namespace GUI.DTO
             }
         }
 
-        private Address address;
-        public Address Address
+        private AddressDTO address;
+        public AddressDTO Address
         {
             get { return address; }
             set
@@ -78,7 +82,7 @@ namespace GUI.DTO
                 if (value != address)
                 {
                     address = value;
-                    OnPropertyChanged(nameof(Address));
+                    OnPropertyChanged("Address");
                 }
             }
         }
@@ -155,14 +159,116 @@ namespace GUI.DTO
                 }
             }
         }
+        
+        private Regex PhoneRegex = new Regex(@"06[0-9]\/[0-9]{6,6}[0-9]?");
+        private Regex EmailRegex = new Regex(@"[a-zA-Z0-9._%+-]+@uns.ac.rs");
+        public string this[string columnName]
+        {
+            get
+            {
+                /*if (string.IsNullOrEmpty(Address.Street))
 
+                    return "Street is required";
+
+
+
+
+
+                if (string.IsNullOrEmpty(Address.Country))
+                    return "Street is required";
+
+                if (Address.Number == 0)
+                    return "Street number is required";*/
+
+                if (columnName == "Num")
+                {
+                    if (Num <= 999999)
+                        return "Enter a valid ID card number";
+                }
+                else if (columnName == "Name")
+                {
+                    if (string.IsNullOrEmpty(Name))
+                        return "First name is required";
+
+                    /* Match match = _NameRegex.Match(Name);
+                     if (!match.Success)
+                         return "Format not good. Try again.";*/
+
+                }
+                else if (columnName == "Surname")
+                {
+
+                    if (string.IsNullOrEmpty(Surname))
+                        return "Last name is required";
+                }
+
+                /* Match match = _NameRegex.Match(Name);
+                 if (!match.Success)
+                     return "Format not good. Try again.";*/
+
+                else if (columnName == "Phone_Number")
+                {
+                    if (string.IsNullOrEmpty(Phone_Number))
+                        return "Phone number is required";
+                    Match match = PhoneRegex.Match(Phone_Number);
+                    if (!match.Success)
+                        return "Format should be 06x/xxxxxxx";
+
+                }
+                else if (columnName == "Email_Address")
+                {
+                    if (string.IsNullOrEmpty(Email_Address))
+                        return "E-Mail is required";
+                    Match match = EmailRegex.Match(Email_Address);
+                    if (!match.Success)
+                        return "E-Mail should end with uns.ac.rs";
+
+                }
+                else if (columnName == "Employment_Year")
+                {
+                    if (Employment_Year > DateTime.Today.Year || Employment_Year < 1960)
+                        return "Enter a valid year";
+
+
+
+                }
+                else if (columnName == "Calling")
+                {
+                    if (string.IsNullOrEmpty(Calling))
+                        return "Calling is required";
+
+
+
+                }
+               
+
+
+                return null;
+            }
+        }
+        public string Error => null;
+        private readonly string[] _validatedProperties = { "Name", "Surname", "Address", "Email_Address", "Phone_Number", "Calling", "Employment_Year"};
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
+            }
+        }
         public List<Subject> Subjects { get; set; }
 
 
         public ProfessorDTO()
         {
 
-            address = new Address();
+            address = new AddressDTO();
         }
 
         public ProfessorDTO(Professor prof)
@@ -170,7 +276,7 @@ namespace GUI.DTO
             num = prof.num;
             name = prof.Name;
             surname = prof.Surname;
-            address = prof.Address;
+            address = new AddressDTO(prof.Address);
             birth_Date = prof.birth_date;
             phone_Number = prof.phone_number;
             email_Address = prof.email_address;
@@ -184,7 +290,7 @@ namespace GUI.DTO
         public Professor ToProfessor()
 
         {
-            Professor p= new Professor(num, name, surname, address, phone_Number, birth_Date, employment_Year, email_Address,  calling);
+            Professor p= new Professor(num, name, surname, address.ToAddress(), phone_Number, birth_Date, employment_Year, email_Address,  calling);
             p.Id = id;
             return p;
 

@@ -5,6 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Update Department" Height="350" Width="460">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <!-- Placeholder for the TextBox itself -->
+                <AdornedElementPlaceholder x:Name="textBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+
+        </ControlTemplate>
+    </Window.Resources>
     <Grid Margin="20">
         <TabControl x:Name="TabUpdateDepartment" SelectionChanged="TabUpdateDepartment_SelectionChanged">
             <!-- First Tab - Student Details -->
@@ -29,20 +39,18 @@
                         </StackPanel.Resources>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Department ID:</Label>
-                            <TextBox x:Name="txtDepartmentID"
-									 Text="{Binding Path = department.Idd, UpdateSourceTrigger=PropertyChanged}" />
+                            <Label  Margin="0 0 0 10">* Department ID:</Label>
+                            <TextBox x:Name="txtDepartmentID" Text="{Binding Path=department.Idd, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"  Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Name:</Label>
-                            <TextBox x:Name="txtName"
-									 Text="{Binding Path = department.Name, UpdateSourceTrigger=PropertyChanged}" />
+                            <Label  Margin="0 0 0 10">* Name:</Label>
+                            <TextBox x:Name="txtName" Text="{Binding Path=department.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Head of Department:</Label>
-                            <TextBox x:Name="txtProfessorName" Text="{Binding Path=department.Hod, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></TextBox>
+                            <Label Margin="0 0 0 10">Head of Department:</Label>
+                            <TextBox x:Name="txtProfessorName" Text="{Binding Path=department.Hod, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" IsReadOnly="True"></TextBox>
                             <Button x:Name="addProfessorButton"  Content="+" Height="33" Width="26" Click="Add_HOD"/>
                             <Button x:Name="deleteProfessorButton" Content="-" Height="33" Width="26" Click="Delete_HOD"/>
 
@@ -93,7 +101,7 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="Update" Click ="Update_Click"/>
+            <Button x:Name ="updateButton" Width="100" Margin="5" Content="Update" Click ="Update_Click"/>
             <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
         </StackPanel>
     </Grid>

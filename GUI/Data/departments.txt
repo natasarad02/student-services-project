@@ -1,6 +1,6 @@
 0|56|Matematika|MOZE Head|-1|13,14
 1|512|Informatika|Jankovic Jovana|-1|2,11
-2|178|Mehatronika|Petrovic Nikola|-1|
+2|||Petrovic Nikola|-1|
 3|693|Automatika|Rapajic Milan|-1|-1
 4|421|Dizajn|Pavlovic Milica|-1|
 5|385|Arhitektura|Đorđev Stefan|-1|
@@ -15,3 +15,4 @@
 17|31232|asas||-1|
 18|4344343|aaasssaddda||-1|
 19|12121212|sdfsdfdfs||-1|
+20|K1|Aaaa||-1|

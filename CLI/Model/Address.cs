@@ -87,4 +87,10 @@ public class Address : ISerializable
         sb.Append($"DRZAVA: {Country}");
         return sb.ToString();
     }
+
+   /* public void ToAddressDTO()
+    {
+        AddressDTO addressDTO = new AddressDTO(Street, Number, City, Country);
+        return addressDTO;
+    }*/
 }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using StudentskaSluzba.Model;
+using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 namespace GUI.DTO
 {
@@ -63,7 +65,11 @@ namespace GUI.DTO
             }
 
         }
+    
+       // public string Error => null;
+       // private readonly string[] _validatedProperties = { "Country", "Street", "Number" };
 
+      
         public Address ToAddress()
         {
             Address a = new Address(street, number, city, country);
@@ -86,5 +92,36 @@ namespace GUI.DTO
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        public string this[string columnName]
+        {
+             get
+            {
+                if (columnName == "Street")
+                {
+                    if (string.IsNullOrEmpty(Street))
+
+                        return "Street is required";
+
+                } else if (columnName == "Country")
+                {
+                    if (string.IsNullOrEmpty(Country))
+                        return "Country is required";
+                } else if(columnName == "Number")
+                {
+                    if (Number == 0)
+                        return "Street number is required";
+                }
+
+
+
+                return null;
+
+                    
+                }
+
+            }
+
+        }
     }
-}
+

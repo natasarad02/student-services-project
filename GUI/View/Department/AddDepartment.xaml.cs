@@ -41,6 +41,8 @@ namespace GUI.View
         private void Department_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (department.IsValid) { addButton.IsEnabled = true; }  
+            else
+                addButton.IsEnabled = false;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

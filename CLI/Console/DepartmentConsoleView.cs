@@ -30,7 +30,7 @@ namespace StudentskaSluzba.Console
             System.Console.WriteLine("Enter department details:");
 
             System.Console.WriteLine("Enter department id: ");
-            int departmentId = ConsoleViewUtils.SafeInputInt(); 
+            string departmentId = ConsoleViewUtils.SafeInputString(); 
 
             System.Console.WriteLine("Enter department name: ");
             string departmentName = ConsoleViewUtils.SafeInputName();

@@ -36,7 +36,7 @@ namespace GUI.View
         {
             InitializeComponent();
             DataContext = this;
-            department = new DepartmentDTO();
+            this.department = SelectedDepartment;
             this.departmentController = departmentController;
             departmentController.Subscribe(this);
             tmpProfessorList = new List<Professor>();
@@ -70,10 +70,17 @@ namespace GUI.View
                 deleteProfessorButton.IsEnabled = false;
                 addProfessorButton.IsEnabled = true;
             }
+            updateButton.IsEnabled = false;
+            department.PropertyChanged += Department_PropertyChanged;
 
         }
 
-
+        private void Department_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (department.IsValid) { updateButton.IsEnabled = true; }
+            else
+                updateButton.IsEnabled = false;
+        }
         private void TabUpdateDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (TabUpdateDepartment.SelectedItem is TabItem selectedTab)
@@ -153,11 +160,19 @@ namespace GUI.View
         }
 
         public void Add_HOD(object sender, RoutedEventArgs e) {
-            PossibleHODList possible = new PossibleHODList(departmentController, department);
-            possible.Show();
-            Update();
-            addProfessorButton.IsEnabled = false;
-            deleteProfessorButton.IsEnabled = true;
+            if(department.Department_Professors.Count == 0)
+            {
+                MessageBox.Show("You need to add professors first");
+            }
+            else
+            {
+                PossibleHODList possible = new PossibleHODList(departmentController, department);
+                possible.Show();
+                Update();
+                addProfessorButton.IsEnabled = false;
+                deleteProfessorButton.IsEnabled = true;
+            }
+           
         }
 
         public void Delete_HOD(object sender, RoutedEventArgs e)

@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace GUI.DTO
 {
-    public class DepartmentDTO: INotifyPropertyChanged
+    public class DepartmentDTO: INotifyPropertyChanged, IDataErrorInfo
     {
         private int id;
 
@@ -27,9 +27,9 @@ namespace GUI.DTO
             }
         }
 
-        private int idd;
+        private string idd;
 
-        public int Idd
+        public string Idd
         {
             get
             {
@@ -104,7 +104,12 @@ namespace GUI.DTO
         {
             get
             {
-                if (columnName == "Name")
+                if(columnName == "Idd")
+                {
+                    if (string.IsNullOrEmpty(Idd))
+                        return "Department Id is required";
+                }
+                else if (columnName == "Name")
                 {
                     if (string.IsNullOrEmpty(Name))
                         return "Name is required";
@@ -118,8 +123,8 @@ namespace GUI.DTO
                 return null;
             }
         }
-
-        private readonly string[] _validatedProperties = { "Name" };
+        public string Error => null;
+        private readonly string[] _validatedProperties = { "Name" , "Idd"};
 
         public bool IsValid
         {

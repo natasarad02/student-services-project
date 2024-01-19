@@ -46,8 +46,15 @@ namespace GUI.View
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
             Closing += Window_Closing;
+            updateButton.IsEnabled = false;
+            Professor.PropertyChanged += Professor_PropertyChanged;
         }
-
+        private void Professor_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (Professor.IsValid) { updateButton.IsEnabled = true; }
+            else
+                updateButton.IsEnabled = false;
+        }
         public void Update() {
             MySubjects.Clear();
             foreach (Subject subject in subjectsController.getSubjectsForProfessor(Professor.Id)) { 
