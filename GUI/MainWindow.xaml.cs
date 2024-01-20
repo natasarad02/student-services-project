@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using System.ComponentModel;
 using StudentskaSluzba.DAO;
+using LocalizationExample.Localization;
 
 namespace GUI
 {
@@ -144,6 +145,7 @@ namespace GUI
             subjectCount = subjectController.GetAllSubjects().Count;
             professorCount = professorController.GetAllProfessors().Count;
             //newDirection = ListSortDirection.Ascending;
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("en-US");
 
         }
 
@@ -682,13 +684,13 @@ namespace GUI
 
 
         public void English_Click(object sender, RoutedEventArgs e) 
-        { 
-        
+        {
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("en-US");
         }
 
         public void Serbian_Click(object sender, RoutedEventArgs e)
         {
-
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("sr-RS");
         }
 
         public void Help_Click(object sender, RoutedEventArgs e) {
