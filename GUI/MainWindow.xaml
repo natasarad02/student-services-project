@@ -133,7 +133,7 @@
                       x:Name="StudentDataGrid"
                       ItemsSource="{Binding Students, UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
-                      SelectionMode="Single" IsReadOnly="True" SelectionChanged="StudentDataGrid_SelectionChanged"> <!--Sorting="Student_Sorting">-->
+                      SelectionMode="Single" IsReadOnly="True" SelectionChanged="StudentDataGrid_SelectionChanged" Sorting="Student_Sorting"> <!--Sorting="Student_Sorting">-->
                         <DataGrid.Columns>
                                 <DataGridTextColumn Header="{ns:Loc Index}" Binding="{Binding Index_Number_String}" Width="*"/>
                                 <DataGridTextColumn Header="{ns:Loc FirstName}" Binding="{Binding First_Name}" Width="*"/>
