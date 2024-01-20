@@ -166,7 +166,7 @@ namespace GUI.View
             }
             else
             {
-                PossibleHODList possible = new PossibleHODList(departmentController, department);
+                PossibleHODList possible = new PossibleHODList(departmentController, department, this);
                 possible.Show();
                 Update();
                 addProfessorButton.IsEnabled = false;

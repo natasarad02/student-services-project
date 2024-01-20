@@ -23,8 +23,8 @@ namespace GUI.View
         private ProfessorsController professorsController;
 
         public ProfessorDTO SelectedProfessor { set; get; }
-
-        public PossibleHODList(DepartmentsController dep, DepartmentDTO CurrentDepartment) 
+        public UpdateDepartment parentWindow { get; set; }
+        public PossibleHODList(DepartmentsController dep, DepartmentDTO CurrentDepartment, UpdateDepartment parentWindow) 
         {
             InitializeComponent();
             
@@ -36,11 +36,14 @@ namespace GUI.View
 
             professorsController = new ProfessorsController();
             professorsController.Subscribe(this);
-
+            
             DataContext = this;
             Update();
             //centriranje + disable
-
+            this.parentWindow = parentWindow;
+            Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
+            Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
+            parentWindow.IsEnabled = false;
         }
 
         public void Update()
@@ -70,10 +73,14 @@ namespace GUI.View
         }
 
         public void Cancel_Click(object sender, RoutedEventArgs e) 
-        { 
+        {
+            parentWindow.IsEnabled = true;
             Close();
         }
-
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
+        }
 
     }
 }
