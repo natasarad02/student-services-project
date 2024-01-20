@@ -824,5 +824,21 @@ namespace GUI.Properties {
             }
         }
 
+        public static string ShowStudents
+        {
+            get
+            {
+                return ResourceManager.GetString("ShowStudents", resourceCulture);
+            }
+        }
+
+        public static string DeleteSubject
+        {
+            get
+            {
+                return ResourceManager.GetString("DeleteSubject", resourceCulture);
+            }
+        }
+
     }
 }

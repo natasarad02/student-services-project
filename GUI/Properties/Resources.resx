@@ -189,6 +189,9 @@
   <data name="DeleteGrade" xml:space="preserve">
     <value>Obrisi ocenu</value>
   </data>
+  <data name="DeleteSubject" xml:space="preserve">
+    <value>Obrisi predmet</value>
+  </data>
   <data name="delGrade" xml:space="preserve">
     <value>Da li ste sigurni da zelite da izbrisete ovu ocenu?</value>
   </data>
@@ -335,6 +338,9 @@
   </data>
   <data name="ShowProfessors" xml:space="preserve">
     <value>Prikazi profesore</value>
+  </data>
+  <data name="ShowStudents" xml:space="preserve">
+    <value>Prikazi studente koji slusaju kod ovog profesora</value>
   </data>
   <data name="Street" xml:space="preserve">
     <value>Ulica</value>

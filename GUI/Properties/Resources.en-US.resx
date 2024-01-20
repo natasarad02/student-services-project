@@ -189,6 +189,9 @@
   <data name="DeleteGrade" xml:space="preserve">
     <value>Delete grade</value>
   </data>
+  <data name="DeleteSubject" xml:space="preserve">
+    <value>Delete Subject</value>
+  </data>
   <data name="delGrade" xml:space="preserve">
     <value>Are you sure you want to delete this grade?</value>
   </data>
@@ -336,6 +339,9 @@
   <data name="ShowProfessors" xml:space="preserve">
     <value>Show professors</value>
   </data>
+  <data name="ShowStudents" xml:space="preserve">
+    <value>Show students for this professor</value>
+  </data>
   <data name="StatusBarString" xml:space="preserve">
     <value>Localization example</value>
   </data>
@@ -367,7 +373,8 @@
     <value>Subject list</value>
   </data>
   <data name="SubjectName" xml:space="preserve">
-    <value>Subject name</value> </data>
+    <value>Subject name</value>
+  </data>
   <data name="Subjects" xml:space="preserve">
     <value>Subjects</value>
   </data>
