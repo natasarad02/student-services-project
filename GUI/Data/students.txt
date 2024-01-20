@@ -6,7 +6,7 @@
 6|Đorđević|Marko|10-10-1998|Braće Jugovića,7,Beograd,Srbija|066/8888888|marko.djordjevic@gmail.com|ee-15-2019|5|B
 7|Antonović|Jelena|08-08-2001|Ulica Kralja Petra,15,Niš,Srbija|063/9999999|jelena_antonovic@gmail.com|psih-77-2022|3|B
 8|Ilić|Nikola|04-04-1997|Vuka Karadžića,3,Banja Luka,Bosna i Hercegovina|065/2222222|nikola.ilic@hotmail.com|et-12-2018|6|S
-9|Ilic|Milica|04-04-1990|Ulica Brace Jerkovic,8,Beograd,Srbija|064/333222111|milica.ilic@yahoo.com|me-15-2015|4|B
+9|Ilic|Milica|04-04-1990|Ulica Brace Jerkovic,8,Beograd,Srbija|064/333222111|milica.ilic@uns.ac.rs|me-15-2015|4|B
 10|Pavlovic|Stefan|12-12-1995|Bulevar Revolucije,6,Novi Sad,Srbija|060/123456789|stefan.pavlovic@uns.ac.rs|it-22-2021|2|B
 11|Nikolic|Jelena|07-07-2000|Ulica Cara Dusana,9,Beograd,Srbija|063/987654321|jelena.nikolic@hotmail.com|ps-78-2018|3|B
 13|Kovacevic|Ana|03-03-1997|Ulica Kralja Milutina,17,Nis,Srbija|064/876543210|ana.kovacevic@gmail.com|arh-11-2020|1|B
