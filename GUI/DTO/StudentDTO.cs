@@ -129,6 +129,8 @@ namespace GUI.DTO
             }
         }
 
+        public string Index_Number_String => $"{Index_Number.college_major}-{Index_Number.number_mark}-{Index_Number.YOE}";
+
         private int current_Year;
         public int Current_Year
         {

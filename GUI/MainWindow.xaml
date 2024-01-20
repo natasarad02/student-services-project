@@ -118,7 +118,7 @@
                       SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
                       SelectionMode="Single" IsReadOnly="True" SelectionChanged="StudentDataGrid_SelectionChanged" Sorting="Student_Sorting">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
+                            <DataGridTextColumn Header="Index number" Binding="{Binding Index_Number_String}" Width="*"/>
                             <DataGridTextColumn Header="First Name" Binding="{Binding First_Name}" Width="*"/>
                             <DataGridTextColumn Header="Last Name" Binding="{Binding Last_Name}" Width="*"/>
                             <DataGridTextColumn Header="Year of studies" Binding="{Binding Current_Year}" Width="*"/>
