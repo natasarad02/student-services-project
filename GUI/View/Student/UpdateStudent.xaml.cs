@@ -43,6 +43,9 @@ namespace GUI.View
         public ObservableCollection<ProfessorDTO> Professors { get; set; }
         public HashSet<Professor> ProfessorsHashSet;
 
+        public String Average_Grade { get; set; }
+        public String MyESPB { get; set; }
+
         public MainWindow mainWindow { get; set; }
         public UpdateStudent(StudentDTO SelectedStudent, StudentsController studentController, StudentsSubjectsController studentSubjectsController, SubjectsController subjectsController, ProfessorsController professorsController, ExamGradesController examGradesController, MainWindow mainWindow)
         {
@@ -78,7 +81,7 @@ namespace GUI.View
             TabUpdate.SelectionChanged += TabUpdate_SelectionChanged;
 
             this.mainWindow = mainWindow;
-
+            
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
@@ -153,14 +156,26 @@ namespace GUI.View
             }
 
             Grades.Clear();
+            float sum = 0;
+            int my_espb = 0;
+            float count = 0;
+            float temp = 0;
             foreach (ExamGrade examGrade in examGradesController.getGradesForStudent(Student.Id)) 
             {
                 Subject subject = subjectsController.findSubjectById(examGrade.subjectID);
                 Grades.Add(new ExamGradeDTO(examGrade, subject.Name, subject.Espb, subject.Ids));
+                sum += examGrade.grade;
+                my_espb += subject.Espb;
+                count++;
             }
+            temp  = sum/count;
 
-           
-           
+            Average_Grade = temp.ToString("F2");
+            MyESPB = my_espb.ToString();
+            srednja.Text = Average_Grade;
+            bodovi.Text = MyESPB;
+
+
         }
 
 

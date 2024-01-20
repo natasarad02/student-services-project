@@ -41,6 +41,7 @@ namespace GUI.View
             //ispis unutar windowa
             txtID.Text = Selected_Subject.Ids.ToString();
             txtName.Text = Selected_Subject.Name;
+
             Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
             Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
             parentWindow.IsEnabled = false;
