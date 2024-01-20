@@ -55,7 +55,6 @@ namespace GUI.View
             //da li postoje Studenti koji pohadjaju?
             if(studentsSubjectsController.GetStudents(Subject.ToSubject().Id).Count == 0)
             {
-                MessageBox.Show("uslo");
                 a = false;
             }
 
