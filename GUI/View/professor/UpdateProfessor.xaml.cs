@@ -108,10 +108,13 @@ namespace GUI.View
                 MessageBox.Show("Please select a subject to delete!!!");
             }
             else {
-                SelectedSubject.ProfessorId = -1;
+
+                DeleteSubjectFromProfessor deleteSubject = new DeleteSubjectFromProfessor(subjectsController, MySubjects, Professor, SelectedSubject, this);
+                deleteSubject.Show();
+               /* SelectedSubject.ProfessorId = -1;
                 SelectedSubject.ProfessorName = null;
                 subjectsController.Update(SelectedSubject.ToSubject()); //ovo radi, ali da ne menja stalno je zakomentarisano
-                MySubjects.Remove(SelectedSubject);
+                MySubjects.Remove(SelectedSubject);*/
             }
 
         }
