@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:ns="clr-namespace:GUI.Localization"
         mc:Ignorable="d"
-        Title="Update Professor" Height="615" Width="400">
+        Title="{ns:Loc UpdateProfessor}" Height="615" Width="400">
     <Window.Resources>
         <ControlTemplate x:Key="ValidationTemplate">
             <StackPanel>
@@ -18,8 +18,8 @@
     </Window.Resources>
     <Grid Margin="20">
         <TabControl>
-            
-            <TabItem Header="Professor Details">
+
+            <TabItem Header="{ns:Loc ProfessorDetails}">
                 <Grid>
                     
                     <StackPanel Grid.Row="0" Margin="0,0,0,10">
@@ -36,71 +36,83 @@
                         </StackPanel.Resources>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*ID Card Number:</Label>
+                            <Label Content="{ns:Loc IdCard}" Margin="0 0 0 10"></Label>
                             <TextBox x:Name="txtIDCardNumber" 
-             Text="{Binding Path =Professor.Num, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
+              Text="{Binding Path =Professor.Num, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*Last Name:</Label>
+                            <Label Content="{ns:Loc LastName}" Margin="0 0 0 10" ></Label>
                             <TextBox x:Name="txtLastName" Text="{Binding Path=Professor.Surname, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*First Name:</Label>
+                            <Label Content="{ns:Loc FirstName}" Margin="0 0 0 10" ></Label>
                             <TextBox x:Name="txtFirstName" Text="{Binding Path=Professor.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*Street:</Label>
-                            <TextBox x:Name="txtStreet" Text="{Binding Path=Professor.Address.Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
+                            <Label Content="{ns:Loc Street}" Margin="0 0 0 10"></Label>
+                            <StackPanel Orientation="Vertical">
+                                <TextBox x:Name="txtStreet" Text="{Binding Path=Professor.Address.Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+                          Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+                                <TextBlock x:Name="txtStreetError" Text="Reqired field"  Foreground="Red" FontSize="10" Margin="0 0 0 10"/>
+                            </StackPanel>
+
+
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*Street Number:</Label>
-                            <TextBox x:Name="txtStreetNumber" Text="{Binding Path=Professor.Address.Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
+                            <Label Content="{ns:Loc StreetNumber}" Margin="0 0 0 10"></Label>
+                            <TextBox x:Name="txtStreetNumber" Text="{Binding Path=Professor.Address.Number, UpdateSourceTrigger=PropertyChanged, 
+                                ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*City:</Label>
-                            <TextBox x:Name="txtCity" Text="{Binding Path=Professor.Address.City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
+                            <Label Content="{ns:Loc City}" Margin="0 0 0 10"></Label>
+                            <TextBox x:Name="txtCity" Text="{Binding Path=Professor.Address.City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+              Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+              
+              Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*Country:</Label>
-                            <TextBox x:Name="txtCountry" Text="{Binding Path=Professor.Address.Country, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
+                            <Label Content="{ns:Loc Country}" Margin="0 0 0 10"></Label>
+                            <TextBox x:Name="txtCountry" Text="{Binding Path=Professor.Address.Country, UpdateSourceTrigger=PropertyChanged, 
+                                ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">Date of Birth:</Label>
+                            <Label Content="{ns:Loc BirthDate}" Margin="0 0 0 10"></Label>
                             <DatePicker x:Name="dpBirthDate" Text="{Binding Path=Professor.Birth_Date, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10">
                             </DatePicker>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*Phone Number:</Label>
+                            <Label Content="{ns:Loc PhoneNumber}" Margin="0 0 0 10"></Label>
                             <TextBox x:Name="txtPhoneNumber" Text="{Binding Path=Professor.Phone_Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*Email:</Label>
+                            <Label Content="{ns:Loc Email}" Margin="0 0 0 10"></Label>
                             <TextBox x:Name="txtEmail" Text="{Binding Path=Professor.Email_Address, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*Year of Employment:</Label>
+                            <Label Content="{ns:Loc Yoe}" Margin="0 0 0 10"></Label>
                             <TextBox x:Name="txtYearOfEmployment" Text="{Binding Path=Professor.Employment_Year, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*Calling:</Label>
+                            <Label Content="{ns:Loc Calling}" Margin="0 0 0 10"></Label>
                             <TextBox x:Name="txtCalling" Text="{Binding Path=Professor.Calling, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"></TextBox>
                         </StackPanel>
+
                     </StackPanel>
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Subjects">
+            <TabItem Header="{ns:Loc Subjects}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*"/>
@@ -108,11 +120,11 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.ColumnSpan="2">
                         <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                            <Button Width="210" Margin="5" Content="Show students for this professor" Click="ShowStudents_Click" />
+                            <Button Width="210" Margin="5" Content="{ns:Loc ShowStudents}" Click="ShowStudents_Click" />
                         </StackPanel>
                         <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
-                            <Button Width="100" Margin="5" Content="Delete Subject" Click="Delete_Subject" />
-                            <Button Width="100" Margin="5" Content="Add Subject" Click="Add_Subject_Click"/>
+                            <Button Width="100" Margin="5" Content="{ns:Loc DeleteSubject}" Click="Delete_Subject" />
+                            <Button Width="100" Margin="5" Content="{ns:Loc AddSubject}" Click="Add_Subject_Click"/>
                         </StackPanel>
                         <StackPanel>
                             <DataGrid Background="#FFE5E5E5"
@@ -122,10 +134,10 @@
                               SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
                               SelectionMode="Single" IsReadOnly="True" >        
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Subject Id" Binding="{Binding Ids}" Width="*"/>
-                                    <DataGridTextColumn Header="Subject name" Binding="{Binding Name}" Width="*"/>
-                                    <DataGridTextColumn Header="Year of studies" Binding="{Binding Year}" Width="*" />
-                                    <DataGridTextColumn Header="Semester" Binding="{Binding semester}" Width="*"/>
+                                    <DataGridTextColumn Header="{ns:Loc SubjectId}" Binding="{Binding Ids}" Width="*"/>
+                                    <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding Name}" Width="*"/>
+                                    <DataGridTextColumn Header="{ns:Loc Year}" Binding="{Binding Year}" Width="*" />
+                                    <DataGridTextColumn Header="{ns:Loc Semester}" Binding="{Binding semester}" Width="*"/>
                                 </DataGrid.Columns>
                             </DataGrid>
 
@@ -140,8 +152,8 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button x:Name="updateButton" Width="100" Margin="5" Content="Update" Click="Update_Click"/>
-            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> 
+            <Button x:Name="updateButton" Width="100" Margin="5" Content="{ns:Loc Update}" Click="Update_Click"/>
+            <Button Width="100" Margin="5" Content="{ns:Loc Cancel}" Click="Cancel_Click"/> 
         </StackPanel>
     </Grid>
 </Window>

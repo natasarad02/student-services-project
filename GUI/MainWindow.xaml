@@ -161,12 +161,11 @@
                                 SelectionMode="Extended" IsReadOnly="True"
                                 SelectionChanged="SubjectsDataGrid_SelectionChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
-                            <DataGridTextColumn Header="Subject ID" Binding="{Binding Ids}" Width="*"/>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
-                            <DataGridTextColumn Header="Espb" Binding="{Binding Espb}" Width="*"/>
-                            <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="*"/>
-                            <DataGridTextColumn Header="Semester" Binding="{Binding semester}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc SubjectId}" Binding="{Binding Ids}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Ects}" Binding="{Binding Espb}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Year}" Binding="{Binding Year}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Semester}" Binding="{Binding semester}" Width="*"/>
                          </DataGrid.Columns>
                     </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -176,7 +175,7 @@
                     </StackPanel>
                 
                 </TabItem>
-                <TabItem Header="Professors">
+                <TabItem Header="{ns:Loc Professors}">
                     <StackPanel>
                     <DataGrid Background="#FFE5E5E5"
                                
@@ -186,11 +185,10 @@
                                 SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
                                 SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
-                            <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" Width="*"/>
-                            <DataGridTextColumn Header="Calling" Binding="{Binding Calling}" Width="*"/>
-                            <DataGridTextColumn Header="E-Mail" Binding="{Binding Email_Address}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc FirstName}" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Surname}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Calling}" Binding="{Binding Calling}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Email}" Binding="{Binding Email_Address}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
