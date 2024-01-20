@@ -12,6 +12,8 @@ using CLI.Observer;
 using System.Collections.Generic;
 using GUI.Localization;
 using System.Windows.Input;
+using System.Linq;
+using System;
 
 namespace GUI.View
 {
@@ -28,6 +30,7 @@ namespace GUI.View
 
         //List of students for a professor
         public UpdateProfessor parentWindow { get; set; }
+        //public StudentsController studentsController { get; set; }
         public StudentList(ProfessorDTO pprofessor, SubjectsController subjectsController, UpdateProfessor parentWindow) 
         {
             InitializeComponent();
@@ -37,6 +40,7 @@ namespace GUI.View
             this.studentsSubjectsController = new StudentsSubjectsController();
             this.subjectsController = subjectsController;
             studentsSubjectsController.Subscribe(this);
+          //  this.studentsController = studentsController;
             subjectsController.Subscribe(this);
 
             DataContext = this;
@@ -106,6 +110,71 @@ namespace GUI.View
         public void cancel_click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private List<Student> studentSearch(string query)
+        {
+
+            string[] words = query.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = words[i].Trim();
+            }
+
+            string index = string.Empty;
+            string firstName = string.Empty;
+            string lastName = string.Empty;
+
+            if (words.Length == 1)
+            {
+                lastName = words[0];
+            }
+            else if (words.Length == 2)
+            {
+                lastName = words[0];
+                firstName = words[1];
+            }
+            else if (words.Length >= 3)
+            {
+
+                index = words[0];
+                firstName = words[1];
+                lastName = string.Join(" ", words.Skip(2));
+            }
+
+            ObservableCollection<StudentDTO> studentsTotal = new ObservableCollection<StudentDTO>();
+            foreach (Student s in students)
+                studentsTotal.Add(new StudentDTO(s));
+
+
+            var searchResults = studentsTotal.Where(student =>
+                                (string.IsNullOrEmpty(index) || student.getIndeks().ToUpper().Contains(index.ToUpper())) &&
+                                (string.IsNullOrEmpty(firstName) || student.First_Name.ToUpper().Contains(firstName.ToUpper())) &&
+                                (string.IsNullOrEmpty(lastName) || student.Last_Name.ToUpper().Contains(lastName.ToUpper()))
+                            ).ToList();
+
+            int totalItems = searchResults.Count;
+           
+            List<Student> results = new List<Student>();
+            foreach (StudentDTO s in searchResults)
+                results.Add(s.toStudent());
+           
+            return results;
+
+
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string query = txtSearchBox.Text;
+
+            StudentsDataGrid.ItemsSource = studentSearch(query); 
+            
+                  
+
+            
+
         }
 
     }
