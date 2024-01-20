@@ -26,8 +26,8 @@ namespace GUI.View
         private StudentsSubjectsController studentsSubjectsController; 
         private StudentsController studentsController;
         private ExamGradesController examGradesController;
-
-        public Request(SubjectDTO SelSubj1, SubjectDTO SelSubj2)
+        public MainWindow mainWindow { get; set; }
+        public Request(SubjectDTO SelSubj1, SubjectDTO SelSubj2, MainWindow mainWindow)
         {
             InitializeComponent();
 
@@ -54,7 +54,15 @@ namespace GUI.View
 
             DataContext = this;
 
+
             Update();        
+
+            this.mainWindow = mainWindow;
+
+            Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
+            Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
+            mainWindow.IsEnabled = false;
+            Closing += Window_Closing;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -152,7 +160,13 @@ namespace GUI.View
 
         public void Close_Click(object sender, RoutedEventArgs e) 
         {
+            mainWindow.IsEnabled = true;
             Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mainWindow.IsEnabled = true;
         }
 
     }

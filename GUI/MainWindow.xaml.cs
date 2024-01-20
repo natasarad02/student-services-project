@@ -177,7 +177,7 @@ namespace GUI
 
             if (selectedSubjects.Count() == 2)
             {
-                Request request = new Request(SelectedSubject, SelectedSubject2);
+                Request request = new Request(SelectedSubject, SelectedSubject2, this);
                 request.Show();
             }
 
@@ -731,7 +731,7 @@ namespace GUI
         }
 
         public void Help_Click(object sender, RoutedEventArgs e) {
-            StudentServiceInfo studentServiceInfo = new StudentServiceInfo();
+            StudentServiceInfo studentServiceInfo = new StudentServiceInfo(this);
             studentServiceInfo.Show();
         }
 
@@ -793,12 +793,12 @@ namespace GUI
             }
 
         }
-        private void PreviousPageSubject_Click(object sender, RoutedEventArgs e)
+        private void PreviousPageDepartment_Click(object sender, RoutedEventArgs e)
         {
-            if (currentPageSubject > 0)
+            if (currentPageDepartment > 0)
             {
-                currentPageSubject--;
-                UpdateWithPaging(currentPageSubject, itemsPerPage);
+                currentPageDepartment--;
+                UpdateWithPaging(currentPageDepartment, itemsPerPage);
             }
         }
         private void PreviousPageProfessor_Click(object sender, RoutedEventArgs e)
@@ -819,7 +819,7 @@ namespace GUI
             }
 
         }
-        private void PreviousPageDepartment_Click(object sender, RoutedEventArgs e)
+        private void PreviousPageSubject_Click(object sender, RoutedEventArgs e)
         {
             int totalSubjects = subjectCount;
             if (currentPageSubject > 0)

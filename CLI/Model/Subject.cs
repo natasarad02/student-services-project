@@ -7,7 +7,7 @@ namespace StudentskaSluzba.Model;
 public enum semester {winter, summer}
 public class Subject : ISerializable
 {
-    public int Ids { get; set; }
+    public string Ids { get; set; }
 
     public int Id { get; set; }
     public string Name { get; set; }
@@ -34,7 +34,7 @@ public class Subject : ISerializable
         
     }
 
-    public Subject(int id, string name, int espb, semester SEM, int school_year)
+    public Subject(string id, string name, int espb, semester SEM, int school_year)
     {
         Ids = id;
         Name = name;
@@ -51,7 +51,7 @@ public class Subject : ISerializable
         string[] csvValues =
         {
             Id.ToString(),
-            Ids.ToString(),
+            Ids,
             Name,
             Espb.ToString(),
             //enum semestar
@@ -66,7 +66,7 @@ public class Subject : ISerializable
     public void FromCSV(string[] values)
     {
         Id = int.Parse(values[0]);
-        Ids = int.Parse(values[1]);
+        Ids = values[1];
         Name = values[2];
         Espb = int.Parse(values[3]);
         ProfessorID = int.Parse(values[4]);
@@ -94,7 +94,7 @@ public class Subject : ISerializable
     {
         StringBuilder sb = new StringBuilder();
         sb.Append($"ID: {Id.ToString()}, ");
-        sb.Append($"SUB_ID: {Ids.ToString()}, ");
+        sb.Append($"SUB_ID: {Ids}, ");
         sb.Append($"NAME: {Name}, ");
         sb.Append($"ESPB: {Espb}, ");
         sb.Append("Semester: " + semester + ", ");

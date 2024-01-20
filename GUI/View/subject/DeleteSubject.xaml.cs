@@ -88,7 +88,7 @@ namespace GUI.View
             }
             else
             {
-                SubjectWarning subjectWarning = new SubjectWarning();
+                SubjectWarning subjectWarning = new SubjectWarning(this);
                 subjectWarning.Show();
             }
             mainWindow.IsEnabled = true;

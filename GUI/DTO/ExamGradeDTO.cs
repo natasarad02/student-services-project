@@ -90,8 +90,8 @@ namespace GUI.DTO
             }
         }
 
-        private int subject_id;
-        public int Subject_ID //sifra
+        private string subject_id;
+        public string Subject_ID //sifra
         {
             get { return subject_id; }
             set
@@ -111,7 +111,7 @@ namespace GUI.DTO
             gradingDay = examGrade.grading_day;
         }
 
-        public ExamGradeDTO(ExamGrade examGrade, string name, int esbp, int ID)
+        public ExamGradeDTO(ExamGrade examGrade, string name, int esbp, string ID)
         {
             myId = examGrade.ID;
             studentID = examGrade.studentID;

@@ -74,9 +74,9 @@
                     <StackPanel>
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
-                            <Button Width="100" Margin="5" Content="{ns:Loc Add Professor}" Click="Add_Professor"/>
-                            <Button Width="100" Content="{ns:Loc Delete Professor}" Click="Delete_Professor_Click"/>
-                            <Button Width="100" Margin="5" Content="{ns:Loc Show Subjects}" Click="Show_Subjects_Click"/>
+                            <Button Width="100" Margin="5" Content="{ns:Loc AddProfessor}" Click="Add_Professor"/>
+                            <Button Width="100" Content="{ns:Loc Delete}" Click="Delete_Professor_Click"/>
+                            <Button Width="100" Margin="5" Content="{ns:Loc Subjects}" Click="Show_Subjects_Click"/>
 
 
                         </StackPanel>
@@ -110,7 +110,7 @@
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
             <Button x:Name="updateButton" Width="100" Margin="5" Content="{ns:Loc Update}" Click="Update_Click"/>
-            <Button Width="100" Margin="5" Content="{ns:Loc CancelB}" Click="Cancel_Click"/>
+            <Button Width="100" Margin="5" Content="{ns:Loc Cancel}" Click="Cancel_Click"/>
 
         </StackPanel>
     </Grid>

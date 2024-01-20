@@ -25,8 +25,8 @@ namespace GUI.DTO
             }
         }
 
-        private int ids;
-        public int Ids
+        private string ids;
+        public string Ids
         {
             get { return ids; }
             set

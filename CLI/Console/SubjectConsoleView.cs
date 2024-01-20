@@ -35,7 +35,7 @@ class SubjectConsoleView
         System.Console.WriteLine("Enter subject details:");
 
         System.Console.WriteLine("Enter subject id: ");
-        int id = ConsoleViewUtils.SafeInputInt(); 
+        string id = ConsoleViewUtils.SafeInputString(); 
 
         System.Console.WriteLine("Enter subject name: ");
         string name = ConsoleViewUtils.SafeInputName(); 

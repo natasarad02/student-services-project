@@ -107,6 +107,13 @@ namespace GUI.View
             parentWindow.IsEnabled = true;
         }
 
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            // Subject.CopyFrom(oldSubject);
+            parentWindow.IsEnabled = true;
+            Close();
+        }
+
 
 
     }
