@@ -140,7 +140,7 @@ namespace GUI
             timer.Start();
 
             Tab.SelectionChanged += TabControl_SelectionChanged;
-           //StudentDataGrid.Sorting += Student_Sorting;
+           StudentDataGrid.Sorting += Student_Sorting;
             studentCount = studentController.GetAllStudents().Count;
             subjectCount = subjectController.GetAllSubjects().Count;
             professorCount = professorController.GetAllProfessors().Count;
@@ -949,7 +949,7 @@ namespace GUI
             int startIndex = (currentPage - 1) * itemsPerPage;
             return sortedStudents.Skip(startIndex).Take(itemsPerPage).ToList();
         }
-      /*  private void Student_Sorting(object sender, DataGridSortingEventArgs e)
+        private void Student_Sorting(object sender, DataGridSortingEventArgs e)
         {
             e.Handled = true; 
             string columnName = e.Column.SortMemberPath;
@@ -984,18 +984,28 @@ namespace GUI
 
             if (e.Column.SortDirection == ListSortDirection.Ascending)
             {
-                StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending);
-                e.Column.SortDirection = ListSortDirection.Descending;
+              UpdateWithPagingStudentSort(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending);
             }
             else
             {
-                StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending);
-                e.Column.SortDirection = ListSortDirection.Ascending;
+                UpdateWithPagingStudentSort(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending);
             }
 
 
            
-        }*/
+        }
+
+        public void UpdateWithPagingStudentSort(int page, int itemsPerPage, string sortCriteria, SortDirection sortDirection)
+        {
+
+            Students.Clear();
+            foreach (Student student in studentController.GetSortedStudents(page, itemsPerPage, sortCriteria, sortDirection))
+            {
+                Students.Add(new StudentDTO(student));
+            }
+
+
+        }
 
         // Helper method to get property value by name
         private object GetPropertyValue(object obj, string propertyName)

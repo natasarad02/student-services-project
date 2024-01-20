@@ -2,7 +2,7 @@
 2|Milovanovic|Milovan|07-07-1999|Ulica Kralja Tvrtka,5,Sarajevo,Bosna i Hercegovina|063/987654|mjilovan@uns.ac.rs|si-45-2019|3|S
 3|Popovic|Ana|05-05-2001|Bulevar Despota Stefana,25,Beograd,Srbija|064/4444444|ana.popovic@yahoo.com|it-78-2022|2|B
 4|Kovacevic|Stefan|12-12-2002|Trg Republike,10,Novi Sad,Srbija|062/5555555|stefan_kovacevic@uns.ac.rs|cs-22-2023|1|B
-5|Ivanovska|Elena|03-03-2000|Bul. Partizanski Odredi,50,Skopje,Severna Makedonija|060/7777777|elena_ivanovska@hotmail.com|mat-99-2021|4|B
+5|Ivanovska|Elena|03-03-2000|Bul. Partizanski Odredi,50,Skopje,Severna Makedonija|060/7777777|elena_ivanovska@uns.ac.rs|mat-99-2021|4|B
 6|Đorđević|Marko|10-10-1998|Braće Jugovića,7,Beograd,Srbija|066/8888888|marko.djordjevic@gmail.com|ee-15-2019|5|B
 7|Antonović|Jelena|08-08-2001|Ulica Kralja Petra,15,Niš,Srbija|063/9999999|jelena_antonovic@gmail.com|psih-77-2022|3|B
 8|Ilić|Nikola|04-04-1997|Vuka Karadžića,3,Banja Luka,Bosna i Hercegovina|065/2222222|nikola.ilic@hotmail.com|et-12-2018|6|S
