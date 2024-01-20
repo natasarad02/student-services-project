@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:ns="clr-namespace:GUI.Localization"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"  KeyDown="Window_KeyDown">
     
@@ -58,12 +59,12 @@
             </MenuItem>
 
             <MenuItem Header="Language">
-                <MenuItem Header="English       Ctrl+E">
+                <MenuItem Header="English       Ctrl+E" Click="English_Click">
                     <MenuItem.Icon>
                         <Image Source="/Icons/english.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Serbian       Ctrl+R">
+                <MenuItem Header="Serbian       Ctrl+R" Click="Serbian_Click">
                     <MenuItem.Icon>
                         <Image Source="/Icons/serbian.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
@@ -148,8 +149,8 @@
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
-                
-                <TabItem Header="Subjects">
+
+                <TabItem Header="{ns:Loc Subjects}">
                     <StackPanel>
                     <DataGrid Background="#FFE5E5E5"
                                

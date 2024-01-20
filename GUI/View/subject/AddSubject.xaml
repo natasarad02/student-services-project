@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
          xmlns:ns="clr-namespace:GUI.Localization"
         mc:Ignorable="d"
-        Title="AddSubject" Height="394" Width="420">
+        Title="{ns:Loc AddSubject}" Height="394" Width="420">
     <Window.Resources>
         <ControlTemplate x:Key="ValidationTemplate">
             <StackPanel>
@@ -37,41 +37,41 @@
             </StackPanel.Resources>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Subject ID:</Label>
+                <Label Content="{ns:Loc SubjectId}"></Label>
                 <TextBox x:Name="txtSubjectID" Text="{Binding Path=Subject.Ids, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Name:</Label>
-                <TextBox x:Name="txtName" Text="{Binding Path=Subject.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
+                <Label Content="{ns:Loc Name}"></Label>
+                <TextBox x:Name="txtName" Text="{Binding Path=Subject.Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>ESPB:</Label>
+                <Label Content="{ns:Loc Ects}"></Label>
                 <TextBox x:Name="txtESPB" Text="{Binding Path=Subject.Espb, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
-                <Label>Semester:</Label>
-                <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.semester, Mode=OneWayToSource}">
+                <Label Content="{ns:Loc Semester}"></Label>
+                <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.semester, Mode=TwoWay}">
                     <ComboBoxItem Content="Winter" Tag="winter"></ComboBoxItem>
                     <ComboBoxItem Content="Summer" Tag="summer"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
-                <Label>School year:</Label>
+                <Label Content="{ns:Loc CurrentYear}"></Label>
                 <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.Year, Mode=TwoWay}">
-                    <ComboBoxItem Content="1" Tag="1"></ComboBoxItem>
-                    <ComboBoxItem Content="2" Tag="2"></ComboBoxItem>
-                    <ComboBoxItem Content="3" Tag="3"></ComboBoxItem>
-                    <ComboBoxItem Content="4" Tag="4"></ComboBoxItem>
+                    <ComboBoxItem Content="First year" Tag="1"></ComboBoxItem>
+                    <ComboBoxItem Content="Second year" Tag="2"></ComboBoxItem>
+                    <ComboBoxItem Content="Third year" Tag="3"></ComboBoxItem>
+                    <ComboBoxItem Content="Fourth year" Tag="4"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Professor name:</Label>
-                <TextBox x:Name="txtProfessorName" Text="{Binding Path=Subject.ProfessorName, UpdateSourceTrigger=PropertyChanged}" Width="178" Height="33"></TextBox>
+                <Label Content="{ns:Loc ProfessorName}"></Label>
+                <TextBox x:Name="txtProfessorName" Text="{Binding Path=Subject.ProfessorName, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></TextBox>
                 <Button Content="+" Height="33" Width="26" Click="Add_Professor"/>
             </StackPanel>
 

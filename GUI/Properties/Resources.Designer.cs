@@ -808,5 +808,21 @@ namespace GUI.Properties {
             }
         }
 
+        public static string Subjects
+        {
+            get
+            {
+                return ResourceManager.GetString("Subjects", resourceCulture);
+            }
+        }
+
+        public static string ExamGrades
+        {
+            get
+            {
+                return ResourceManager.GetString("ExamGrades", resourceCulture);
+            }
+        }
+
     }
 }

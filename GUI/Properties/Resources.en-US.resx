@@ -234,6 +234,9 @@
   <data name="EnrollmentYear" xml:space="preserve">
     <value>Enrollment year</value>
   </data>
+  <data name="ExamGrades" xml:space="preserve">
+    <value>ExamGrades</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>File</value>
   </data>
@@ -364,7 +367,9 @@
     <value>Subject list</value>
   </data>
   <data name="SubjectName" xml:space="preserve">
-    <value>Subject name</value>
+    <value>Subject name</value> </data>
+  <data name="Subjects" xml:space="preserve">
+    <value>Subjects</value>
   </data>
   <data name="TakingBoth" xml:space="preserve">
     <value>Taking both</value>
