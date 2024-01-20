@@ -54,5 +54,10 @@ namespace CLI.Controller
             return examGradeDAO.GetStudentBySubject(subject_id);
         }
 
+        public List<ExamGrade> getGradesForSubject(int id)
+        {
+            return examGradeDAO.getGradesForSubject(id);
+        }
+
     }
 }

@@ -115,6 +115,11 @@ namespace StudentskaSluzba.DAO
 
         }
 
+        public List<ExamGrade> getGradesForSubject(int subject_id)
+        {
+            return examGrades.FindAll(e => e.subjectID == subject_id); ;
+        }
+
         public bool grade_exists(int stud_id, int subj_id) 
         {
             ExamGrade test = examGrades.Find(e => e.studentID == stud_id && e.subjectID == subj_id);
