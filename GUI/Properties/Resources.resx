@@ -207,6 +207,9 @@
   <data name="delSub" xml:space="preserve">
     <value>Da li ste sigurni da zelite da izbrisete ovaj predmet?</value>
   </data>
+  <data name="DepartmentDetails" xml:space="preserve">
+    <value>Detalji o katedri</value>
+  </data>
   <data name="DepartmentId" xml:space="preserve">
     <value>Sifra katdere</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="Grade" xml:space="preserve">
     <value>Ocena</value>
+  </data>
+  <data name="GradeDetails" xml:space="preserve">
+    <value>Detalji o oceni</value>
   </data>
   <data name="HeadOfDepartment" xml:space="preserve">
     <value>Sef katedre</value>
@@ -290,6 +296,9 @@
   </data>
   <data name="Previous" xml:space="preserve">
     <value>Prethodno</value>
+  </data>
+  <data name="ProfessorDetails" xml:space="preserve">
+    <value>Detalji o profesoru</value>
   </data>
   <data name="ProfessorList" xml:space="preserve">
     <value>Lista profesora</value>
@@ -341,6 +350,9 @@
   </data>
   <data name="SubjectDeletionWarning" xml:space="preserve">
     <value>Upozorenje pri brisanju predmeta</value>
+  </data>
+  <data name="SubjectDetails" xml:space="preserve">
+    <value>Detalji o predmetu</value>
   </data>
   <data name="SubjectId" xml:space="preserve">
     <value>Sifra predmeta</value>

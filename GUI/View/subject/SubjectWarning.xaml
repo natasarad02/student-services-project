@@ -1,6 +1,7 @@
 <Window x:Class="GUI.View.SubjectWarning"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ns="clr-namespace:StudentskaSluzba.GUI.Localization"
         Title="Subject Deletion Warning" Height="215" Width="300">
     <Grid>
         <Border BorderBrush="DarkGray" BorderThickness="1" Background="LightGray" CornerRadius="5">

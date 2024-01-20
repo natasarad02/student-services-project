@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LocalizationExample.Properties {
+namespace StudentskaSluzba.GUI.Properties {
     using System;
     
     

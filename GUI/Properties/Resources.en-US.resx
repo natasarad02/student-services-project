@@ -207,6 +207,9 @@
   <data name="delSub" xml:space="preserve">
     <value>Are you sure you want to delete this subject?</value>
   </data>
+  <data name="DepartmentDetails" xml:space="preserve">
+    <value>Department details</value>
+  </data>
   <data name="DepartmentId" xml:space="preserve">
     <value>Department ID</value>
   </data>
@@ -243,6 +246,9 @@
   <data name="Grade" xml:space="preserve">
     <value>Grade</value>
   </data>
+  <data name="GradeDetails" xml:space="preserve">
+    <value>Grade details</value>
+  </data>
   <data name="HeadOfDepartment" xml:space="preserve">
     <value>Head of department</value>
   </data>
@@ -274,7 +280,7 @@
     <value>No</value>
   </data>
   <data name="Ok" xml:space="preserve">
-    <value />
+    <value>Ok</value>
   </data>
   <data name="Pass" xml:space="preserve">
     <value>Pass</value>
@@ -290,6 +296,9 @@
   </data>
   <data name="Previous" xml:space="preserve">
     <value>Previous</value>
+  </data>
+  <data name="ProfessorDetails" xml:space="preserve">
+    <value>Professor details</value>
   </data>
   <data name="ProfessorList" xml:space="preserve">
     <value>Professor list</value>
@@ -344,6 +353,9 @@
   </data>
   <data name="SubjectDeletionWarning" xml:space="preserve">
     <value>Subject Deletion Warning</value>
+  </data>
+  <data name="SubjectDetails" xml:space="preserve">
+    <value>Subject Details</value>
   </data>
   <data name="SubjectId" xml:space="preserve">
     <value>Subject ID</value>
