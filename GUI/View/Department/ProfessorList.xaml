@@ -24,7 +24,7 @@
             SelectionMode="Single" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding Name}" Width="*"/>
-                    <DataGridTextColumn Header="{ns:Loc Surname}" Binding="{Binding Surname}" Width="*"/>
+                    <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Surname}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 

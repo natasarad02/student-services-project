@@ -89,9 +89,8 @@
                              SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
                              SelectionMode="Single" IsReadOnly="True">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="{ns:Loc Id}" Binding="{Binding Id}" Width="*"/>
                                     <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding Name}" Width="*"/>
-                                    <DataGridTextColumn Header="{ns:Loc Surname}" Binding="{Binding Surname}" Width="*"/>
+                                    <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Surname}" Width="*"/>
                                     <DataGridTextColumn Header="{ns:Loc Calling}" Binding="{Binding Calling}" Width="*"/>
                                     <DataGridTextColumn Header="{ns:Loc Email}" Binding="{Binding Email_Address}" Width="*"/>
                                 </DataGrid.Columns>
