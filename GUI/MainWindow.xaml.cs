@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using System.ComponentModel;
 using StudentskaSluzba.DAO;
-using StudentskaSluzba.GUI.Localization;
+using GUI.Localization;
 
 namespace GUI
 {

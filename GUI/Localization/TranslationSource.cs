@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace StudentskaSluzba.GUI.Localization
+namespace GUI.Localization
 {
     class TranslationSource : INotifyPropertyChanged
     {

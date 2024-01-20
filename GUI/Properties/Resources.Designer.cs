@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StudentskaSluzba.GUI.Properties {
+namespace GUI.Properties {
     using System;
     
     
