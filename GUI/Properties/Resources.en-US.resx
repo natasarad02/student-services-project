@@ -126,6 +126,9 @@
   <data name="AddDepartment" xml:space="preserve">
     <value>Add department</value>
   </data>
+  <data name="AdditionalFifthYear" xml:space="preserve">
+    <value>Additional fifth year</value>
+  </data>
   <data name="AddProfessor" xml:space="preserve">
     <value>Add profesor</value>
   </data>
@@ -249,6 +252,15 @@
   <data name="FirstName" xml:space="preserve">
     <value>First name</value>
   </data>
+  <data name="FirstYear" xml:space="preserve">
+    <value>First year</value>
+  </data>
+  <data name="FourthYear" xml:space="preserve">
+    <value>Fourth year</value>
+  </data>
+  <data name="GovernmentBudget" xml:space="preserve">
+    <value>Government budget</value>
+  </data>
   <data name="Grade" xml:space="preserve">
     <value>Grade</value>
   </data>
@@ -327,8 +339,14 @@
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="SecondYear" xml:space="preserve">
+    <value>Second year</value>
+  </data>
   <data name="SelectHOD" xml:space="preserve">
     <value>Select as Head of Department</value>
+  </data>
+  <data name="SelfFinancing" xml:space="preserve">
+    <value>Self financing</value>
   </data>
   <data name="Semester" xml:space="preserve">
     <value>Semester</value>
@@ -378,8 +396,14 @@
   <data name="Subjects" xml:space="preserve">
     <value>Subjects</value>
   </data>
+  <data name="Summer" xml:space="preserve">
+    <value>Summer</value>
+  </data>
   <data name="TakingBoth" xml:space="preserve">
     <value>Taking both</value>
+  </data>
+  <data name="ThirdYear" xml:space="preserve">
+    <value>Third year</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>Update</value>
@@ -398,6 +422,9 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
+  </data>
+  <data name="Winter" xml:space="preserve">
+    <value>Winter</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Year</value>

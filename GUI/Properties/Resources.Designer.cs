@@ -840,5 +840,79 @@ namespace GUI.Properties {
             }
         }
 
+        public static string FirstYear
+        {
+            get
+            {
+                return ResourceManager.GetString("FirstYear", resourceCulture);
+            }
+        }
+
+        public static string SecondYear
+        {
+            get
+            {
+                return ResourceManager.GetString("SecondYear", resourceCulture);
+            }
+        }
+
+        public static string ThirdYear
+        {
+            get
+            {
+                return ResourceManager.GetString("ThirdYear", resourceCulture);
+            }
+        }
+
+        public static string FourthYear
+        {
+            get
+            {
+                return ResourceManager.GetString("FourthYear", resourceCulture);
+            }
+        }
+
+        public static string AdditionalFifthYear
+        {
+            get
+            {
+                return ResourceManager.GetString("AdditionalFifthYear", resourceCulture);
+            }
+        }
+
+        public static string Summer
+        {
+            get
+            {
+                return ResourceManager.GetString("Summer", resourceCulture);
+            }
+        }
+
+        public static string Winter
+        {
+            get
+            {
+                return ResourceManager.GetString("Winter", resourceCulture);
+            }
+        }
+
+        public static string GovernmentBudget
+        {
+            get
+            {
+                return ResourceManager.GetString("GovernmentBudget", resourceCulture);
+            }
+        }
+
+        public static string SelfFinancing
+        {
+            get
+            {
+                return ResourceManager.GetString("SelfFinancing", resourceCulture);
+            }
+        }
+
+
+
     }
 }

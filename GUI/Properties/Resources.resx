@@ -126,6 +126,9 @@
   <data name="AddDepartment" xml:space="preserve">
     <value>Dodaj katedru</value>
   </data>
+  <data name="AdditionalFifthYear" xml:space="preserve">
+    <value>Peta godina</value>
+  </data>
   <data name="AddProfessor" xml:space="preserve">
     <value>Dodaj profesora</value>
   </data>
@@ -249,6 +252,15 @@
   <data name="FirstName" xml:space="preserve">
     <value>Ime</value>
   </data>
+  <data name="FirstYear" xml:space="preserve">
+    <value>Prva godina</value>
+  </data>
+  <data name="FourthYear" xml:space="preserve">
+    <value>Cetvrta godina</value>
+  </data>
+  <data name="GovernmentBudget" xml:space="preserve">
+    <value>Budzet</value>
+  </data>
   <data name="Grade" xml:space="preserve">
     <value>Ocena</value>
   </data>
@@ -327,8 +339,14 @@
   <data name="Search" xml:space="preserve">
     <value>Pretraga</value>
   </data>
+  <data name="SecondYear" xml:space="preserve">
+    <value>Druga godina</value>
+  </data>
   <data name="SelectHOD" xml:space="preserve">
     <value>Postavi za sefa katedre</value>
+  </data>
+  <data name="SelfFinancing" xml:space="preserve">
+    <value>Samofinansiranje</value>
   </data>
   <data name="Semester" xml:space="preserve">
     <value>Semestar</value>
@@ -372,8 +390,14 @@
   <data name="Subjects" xml:space="preserve">
     <value>Predmeti</value>
   </data>
+  <data name="Summer" xml:space="preserve">
+    <value>Letnji</value>
+  </data>
   <data name="TakingBoth" xml:space="preserve">
     <value>Slusaju oba</value>
+  </data>
+  <data name="ThirdYear" xml:space="preserve">
+    <value>Treca godina</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>Izmeni</value>
@@ -392,6 +416,9 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Upozorenje</value>
+  </data>
+  <data name="Winter" xml:space="preserve">
+    <value>Zimski</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Godina</value>

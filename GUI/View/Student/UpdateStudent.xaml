@@ -24,7 +24,7 @@
     <Grid Margin="20">
         <TabControl x:Name="TabUpdate" SelectionChanged="TabUpdate_SelectionChanged">
             <!-- First Tab - Student Details -->
-            <TabItem Header="{ns:Loc Student Details}">
+            <TabItem Header="{ns:Loc StudentDetails}">
                 <Grid>
 
                     <StackPanel>
@@ -96,7 +96,7 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10" Content="{ns:Loc IndexNumber}"/>
+                            <Label Margin="0 0 0 10" Content="{ns:Loc Index}"/>
                             <!-- * Index Number: -->
                             <TextBox x:Name="txtIndex" Text="{Binding Path=Student.Index_Number.college_major, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" MinWidth="60" Margin="0 0 0 10"/>
                             <TextBox x:Name="txtNumIndex" MinWidth="60" Text="{Binding Path=Student.Index_Number.number_mark, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
@@ -110,7 +110,7 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Content="{ns:Loc CurrentYear}"/>
+                            <Label Content="{ns:Loc YearOfStudies}"/>
                             <!-- Current Year: -->
                             <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Student.Current_Year, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
                                 <ComboBoxItem Content="{ns:Loc FirstYear}" Tag="1"/>
@@ -143,7 +143,7 @@
                         <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                             <!-- <Label>This option is not implemented in current version.</Label> -->
                         </StackPanel>
-                        <Button Content="{ns:Loc Show Professors}" Click="Show_Professors_Click"/>
+                        <Button Content="{ns:Loc ShowProfessors}" Click="Show_Professors_Click"/>
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                             <Button Width="100" Margin="5" Content="{ns:Loc Add}" Click="Add_Subject" />
@@ -161,13 +161,13 @@
             SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
             SelectionMode="Single" IsReadOnly="True" SelectionChanged="SubjectsDataGrid_SelectionChanged">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="{ns:Loc Id}" Binding="{Binding Id}" Width="*"/>
+                               
                                 <!-- Id -->
                                 <DataGridTextColumn Header="{ns:Loc SubjectId}" Binding="{Binding Ids}" Width="*"/>
                                 <!-- Subject ID -->
                                 <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding Name}" Width="*"/>
                                 <!-- Name -->
-                                <DataGridTextColumn Header="{ns:Loc Espb}" Binding="{Binding Espb}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Ects}" Binding="{Binding Espb}" Width="*"/>
                                 <!-- Espb -->
                                 <DataGridTextColumn Header="{ns:Loc Year}" Binding="{Binding Year}" Width="*"/>
                                 <!-- Year -->
@@ -203,7 +203,7 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="{ns:Loc SubjectId}" Binding="{Binding Subject_ID}" Width="*"/>
                                     <DataGridTextColumn Header="{ns:Loc SubjectName}" Binding="{Binding Name}" Width="*"/>
-                                    <DataGridTextColumn Header="{ns:Loc Espb}" Binding="{Binding Esbp}" Width="*" />
+                                    <DataGridTextColumn Header="{ns:Loc Ects}" Binding="{Binding Esbp}" Width="*" />
                                     <DataGridTextColumn Header="{ns:Loc DateOfGrading}" Binding="{Binding GradingDay}" Width="*"/>
                                     <DataGridTextColumn Header="{ns:Loc Grade}" Binding="{Binding Grade}" Width="*"/>
                                 </DataGrid.Columns>
@@ -225,9 +225,9 @@
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
 
-            <Button x:Name="updateButton" Width="100" Margin="5" Content="Update" Click="Update_Click" />
+            <Button x:Name="updateButton" Width="100" Margin="5" Content="{ns:Loc Update}" Click="Update_Click" />
             <!-- Click="Update_Click" /> -->
-            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/>
+            <Button Width="100" Margin="5" Content="{ns:Loc Cancel}" Click="Cancel_Click"/>
             <!-- Click="Cancel_Click" />-->
 
 
