@@ -1,18 +1,2 @@
-0|56|Matematika|MOZE Head|-1|13,14
-1|512|Informatika|Jankovic Jovana|-1|2,11
-2|||Petrovic Nikola|-1|
-3|693|Automatika|Rapajic Milan|-1|-1
-4|421|Dizajn|Pavlovic Milica|-1|
-5|385|Arhitektura|Đorđev Stefan|-1|
-6|725|Sociologija|Ivanović Ana|-1|0,11
-7|914|ACS|Petrović Nikola|-1|
-8|633|PRNI|Jovanov Jelena|-1|
-9|247|Masinstvo|Kovačev Marko|-1|
-10|2123123|wqwq||0|
-14|951357|novi|MOZE Head|13|13,14
-15|0|njnj||-1|
-16|12121|weefef||-1|
-17|31232|asas||-1|
-18|4344343|aaasssaddda||-1|
-19|12121212|sdfsdfdfs||-1|
-20|K1|Aaaa||-1|
+1|k1|Katedra za informatiku||-1|
+2|k2|Katedra za matematiku||-1|

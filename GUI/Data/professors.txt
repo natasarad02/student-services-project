@@ -1,13 +1,20 @@
-1|Jovana|Jankovic|Ulica Kneza Mihaila,15,Novi Sad,Srbija|065/987654321|jovana.jankovic@gmail.com|2018|01-01-0001|312345678|dipl ing
-2|Pavle|Kostic|Bulevar Oslobođenja,33,Podgorica,Crna Gora|067/111222333|pavle_kostic@yahoo.com|2022|01-01-0001|456789012|dr
-3|Bojana|Nikolic|Ulica Kralja Aleksandra,25,Beograd,Srbija|063/444555666|bojana.nikolic@hotmail.com|2019|01-01-0001|567890123|mr
-4|Luka|Stojanović|Trg Republike,12,Niš,Srbija|066/999888777|luka.stojanovic@gmail.com|2020|01-01-0001|678901234|dipl
-7|Ana|Ivanović|Ulica Cara Dušana,9,Beograd,Srbija|063/987654321|ana.ivanovic@gmail.com|2016|01-01-0001|901234567|dipl
-8|Nikola|Petrović|Bulevar Arsenija Čarnojevića,3,Novi Sad,Srbija|066/654321098|nikola.petrovic@yahoo.com|2023|01-01-0001|12345678|dipl
-11|Sara|Stankovićaaa|Bulevar Oslobođenja,55,Beograd,Srbija|060/345678901|sara.stankovic@yahoo.com|2019|01-01-0001|345678901|mr
-12|ewiour|alsdkfj|sldkfj,1230,sdlkfj,sldkjf|23j32kr23r|sdlkfj2sdfjkl|6|01-01-0001|232323423|dfdfdssdfsdsdffds
-13|MOZE|Head|a,10,a,a|064/123456789|g@gmail.com|1990|01-01-0001|1234567891|professor
-14|ne moze yoe|HEAD|d,50,d,d|||2020|01-01-0001|987654|professor
-15|sdsdsd|ffsf|,0,,|||0|01-01-0001|0|
-16|sss|sss|ssaaa,2,aaa,sa|061/2232222|aa@uns.ac.rs|2002|01-01-0001|243243234|dr
-17|ssssss|aaaa|aaaa,22,aaaa,ssss|061/222222|a@uns.ac.rs|2002|03-18-0004|12121212|dr
+0|Dragoslava|Raspopović|NIKOLE TESLE,100,KARAĐORĐEVO,Crna Gora|+38168734572|dragoslava.raspopovic@uns.ac.rs|2016|04-01-1984|276681361|docent
+1|Stojko|Prvanović|VOĆARSKA,40,TULEŠ,Bosna i Hercegovina|+38164533567|stojko.prvanovic@uns.ac.rs|1995|02-14-1984|403390402|redovni profesor
+2|Budimir|Talović|BORISLAVA PEKIĆA,12,VETERNIK,Bosna i Hercegovina|+38163433336|budimir.talovic@uns.ac.rs|1999|11-13-1993|176283015|redovni profesor
+3|Dobrica|Batrović|IVE ANDRIĆA,15,DOBRA,Crna Gora|+38163651140|dobrica.batrovic@uns.ac.rs|1998|05-31-1977|39606943|docent
+4|Arsenije|Balabanović|RADOMIRA PUTNIKA,66,PRNjAVOR,Bosna i Hercegovina|+38166421759|arsenije.balabanovic@uns.ac.rs|2008|11-04-1985|3296960|docent
+5|Rastko|Bučevac|ĐURE JAKŠIĆA,10,GROCKA,Bosna i Hercegovina|+38166705409|rastko.bucevac@uns.ac.rs|2018|08-31-1968|520064301|vanredni profesor
+6|Bogdanka|Ložnjaković|TALIJINA,62,DOBANOVCI,Bosna i Hercegovina|+38163904215|bogdanka.loznjakovic@uns.ac.rs|2010|11-26-1971|306180424|vanredni profesor
+7|Veljko|Miočinović|JABLANIČKA,85,STOJNIK,Crna Gora|+38169997020|veljko.miocinovic@uns.ac.rs|2016|06-24-1970|125955509|vanredni profesor
+8|Igor|Krečković|KRUŽNI PUT KROZ POLjE,95,PRIJEVOR,Srbija|+3816101030|igor.kreckovic@uns.ac.rs|2019|05-17-1986|973133377|redovni profesor
+9|Steva|Iljanović|LIPA,44,BRZA PALANKA,Srbija|+38164163699|steva.iljanovic@uns.ac.rs|2015|07-15-1973|914012289|vanredni profesor
+10|Jevrosima|Toskić|SVETOLIKA RANKOVIĆA,39,NOVI SAD,Srbija|+38165326720|jevrosima.toskic@uns.ac.rs|2013|10-17-1971|800155523|redovni profesor
+11|Aćim|Čaluković|MILOŠA OBILIĆA,65,SRPSKI MILETIĆ,Crna Gora|+38165602843|acim.calukovic@uns.ac.rs|2019|02-25-1991|884798807|docent
+12|Gaga|Dabarčić|JASENOVAČKI PUT,91,BLIZNAK,Crna Gora|+38163466502|gaga.dabarcic@uns.ac.rs|2013|12-14-1965|263457325|vanredni profesor
+13|Stevanija|Graonić|KOVAČEVSKA,73,STREŠAK,Crna Gora|+38166834413|stevanija.graonic@uns.ac.rs|2019|06-06-1962|392506493|docent
+14|Spomenko|Oblaković|DRINSKA,39,LEŠTANE,Bosna i Hercegovina|+3816757415|spomenko.oblakovic@uns.ac.rs|2009|10-31-1980|963528130|redovni profesor
+15|Jakov|Čvorkov|STEFANA DEČANSKOG,28,NOVI SAD,Crna Gora|+38169416210|jakov.cvorkov@uns.ac.rs|2014|08-08-1982|955425450|docent
+16|Leonora|Đurikin|SVETOG SAVE,63,DONjI MILANOVAC,Crna Gora|+38167769265|leonora.durikin@uns.ac.rs|2008|11-17-1980|982033521|docent
+17|Stojmen|Banjalić|4. JULA,96,SRNjE,Srbija|+3816103067|stojmen.banjalic@uns.ac.rs|2012|07-29-1973|284423009|redovni profesor
+18|Pauna|Jojčić|BORE VUKMIROVIĆA,97,BEOGRAD (PALILULA),Srbija|+38167157490|pauna.jojcic@uns.ac.rs|2005|11-19-1960|999930819|docent
+19|Miloje|Serdarević|VOJVODE STEPE,60,DREŽNIK,Crna Gora|+38169893744|miloje.serdarevic@uns.ac.rs|2001|07-16-1993|904283709|redovni profesor
