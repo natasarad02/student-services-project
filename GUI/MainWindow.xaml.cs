@@ -681,6 +681,16 @@ namespace GUI
         }
 
 
+        public void English_Click(object sender, RoutedEventArgs e) 
+        { 
+        
+        }
+
+        public void Serbian_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         public void Help_Click(object sender, RoutedEventArgs e) {
             StudentServiceInfo studentServiceInfo = new StudentServiceInfo();
             studentServiceInfo.Show();
@@ -886,12 +896,12 @@ namespace GUI
                 Click_Save(sender, e);
             else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.C))
                 CloseButton_Click(sender, e);
-            /*  else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.X))
-                  MenuItem_Click_Close(sender, e);
-              else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.R))
-                  MenuItem_Click_Serbian(sender, e);
-              else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.E))
-                  MenuItem_Click_English(sender, e);*/
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.X))
+                CloseButton_Click(sender, e);
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.R))
+                  Serbian_Click(sender, e);
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.E))
+                  English_Click(sender, e);
             else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.E))
                 Update_Click(sender, e);
         }

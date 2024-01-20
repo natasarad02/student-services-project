@@ -15,9 +15,11 @@
     <None Remove="Icons\Delete.png" />
     <None Remove="Icons\Edit.png" />
     <None Remove="Icons\Edit2.png" />
+    <None Remove="Icons\english.png" />
     <None Remove="Icons\Open.png" />
     <None Remove="Icons\Save.png" />
     <None Remove="Icons\Sbstnblnd-Plateau-Apps-menu-editor.512.png" />
+    <None Remove="Icons\serbian.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +56,9 @@
     <Resource Include="Icons\Edit2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\english.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Open.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -61,6 +66,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\Sbstnblnd-Plateau-Apps-menu-editor.512.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\serbian.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

@@ -55,6 +55,20 @@
                 </MenuItem>
                 
             </MenuItem>
+
+            <MenuItem Header="Language">
+                <MenuItem Header="English       Ctrl+E">
+                    <MenuItem.Icon>
+                        <Image Source="/Icons/english.png" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Serbian       Ctrl+R">
+                    <MenuItem.Icon>
+                        <Image Source="/Icons/serbian.png" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
             <MenuItem Header="Help">
                 <MenuItem Header="About" Click="Help_Click">
                     <MenuItem.Icon>
@@ -62,6 +76,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
+            
         </Menu>
 
         <!-- Tool bar -->
