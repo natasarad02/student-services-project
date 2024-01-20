@@ -201,17 +201,18 @@
                                       SelectionMode="Single" IsReadOnly="True" >
                                 <!-- SelectionChanged="StudentDataGrid_SelectionChanged" -->
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Subject Id" Binding="{Binding Subject_ID}" Width="*"/>
-                                    <DataGridTextColumn Header="Subject name" Binding="{Binding Name}" Width="*"/>
-                                    <DataGridTextColumn Header="ESPB" Binding="{Binding Esbp}" Width="*" />
-                                    <DataGridTextColumn Header="Date of Grading" Binding="{Binding GradingDay}" Width="*"/>
-                                    <DataGridTextColumn Header="Grade" Binding="{Binding Grade}" Width="*"/>
+                                    <DataGridTextColumn Header="{ns:Loc SubjectId}" Binding="{Binding Subject_ID}" Width="*"/>
+                                    <DataGridTextColumn Header="{ns:Loc SubjectName}" Binding="{Binding Name}" Width="*"/>
+                                    <DataGridTextColumn Header="{ns:Loc Espb}" Binding="{Binding Esbp}" Width="*" />
+                                    <DataGridTextColumn Header="{ns:Loc DateOfGrading}" Binding="{Binding GradingDay}" Width="*"/>
+                                    <DataGridTextColumn Header="{ns:Loc Grade}" Binding="{Binding Grade}" Width="*"/>
                                 </DataGrid.Columns>
+
                             </DataGrid>
 
                         </StackPanel>
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Button Width="100" Margin="5" Content="Delete Grade" Click="Delete_Grade_Click"/>
+                            <Button Width="100" Margin="5" Content="{ns:Loc DeleteGrade}" Click="Delete_Grade_Click"/>
                         </StackPanel>
                     </StackPanel>
 

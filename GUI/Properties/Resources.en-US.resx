@@ -363,6 +363,9 @@
   <data name="SubjectList" xml:space="preserve">
     <value>Subject list</value>
   </data>
+  <data name="SubjectName" xml:space="preserve">
+    <value>Subject name</value>
+  </data>
   <data name="TakingBoth" xml:space="preserve">
     <value>Taking both</value>
   </data>

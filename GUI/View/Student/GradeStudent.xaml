@@ -3,8 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ns="clr-namespace:GUI.Localization"
         mc:Ignorable="d"
-        Title="Grade Student" Height="310" Width="389">
+        Title="{ns:Loc GradeStudent}" Height="310" Width="389">
+    
     <Grid Margin="20,20,20,32">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="173.84" />
@@ -26,17 +28,19 @@
             </StackPanel.Resources>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Subject ID:</Label>
+                <Label Content="{ns:Loc SubjectID}" />
                 <TextBox x:Name="txtID" IsReadOnly="True"></TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label>Subject name:</Label>
+                <Label Content="{ns:Loc SubjectName}" />
                 <TextBox x:Name="txtName" IsReadOnly="True"></TextBox>
             </StackPanel>
 
+
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label Width="125">Grade:</Label>
+                <Label Width="125" Content="{ns:Loc Grade}" />
+
                 <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding exam.Grade, Mode=TwoWay}" Width="46">
                     <ComboBoxItem Content="6" Tag="6"></ComboBoxItem>
                     <ComboBoxItem Content="7" Tag="7"></ComboBoxItem>
@@ -47,7 +51,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label Width="125">Date of grading:</Label>
+                <Label Width="125" Content="{ns:Loc DateOfGrading}" />
                 <DatePicker x:Name="dpBirthDate" Width="104" 
                         Text="{Binding Path = exam.GradingDay, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                 </DatePicker>
