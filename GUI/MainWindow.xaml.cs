@@ -984,18 +984,22 @@ namespace GUI
 
             if (e.Column.SortDirection == ListSortDirection.Ascending)
             {
-              UpdateWithPagingStudentSort(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending);
+                StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending);
+                e.Column.SortDirection = ListSortDirection.Descending;
+                UpdateWithPagingStudent(currentPageStudent, itemsPerPage, studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending));
             }
             else
             {
-                UpdateWithPagingStudentSort(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending);
+                StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending);
+                e.Column.SortDirection = ListSortDirection.Ascending;
+                UpdateWithPagingStudent(currentPageStudent, itemsPerPage, studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending));
             }
 
 
            
         }
-
-        public void UpdateWithPagingStudentSort(int page, int itemsPerPage, string sortCriteria, SortDirection sortDirection)
+/*
+        public void UpdateWithPagingStudentSort(int page, int itemsPerPage, string sortCriteria, SortDirection sortDirection, List<Student> students)
         {
 
             Students.Clear();
@@ -1005,7 +1009,7 @@ namespace GUI
             }
 
 
-        }
+        }*/
 
         // Helper method to get property value by name
         private object GetPropertyValue(object obj, string propertyName)
