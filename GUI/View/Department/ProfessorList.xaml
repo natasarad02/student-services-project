@@ -31,22 +31,9 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Content="{ns:Loc Update}" Click="Update_Click">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#E67E22"/>
-                        <Setter Property="Foreground" Value="White"/>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Width="100" Content="{ns:Loc Cancel}" Click="Cancel_Click" Margin="10,0,0,0">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#E67E22"/>
-                        <Setter Property="Foreground" Value="White"/>
-                    </Style>
-                </Button.Style>
-            </Button>
+            <Button Width="100" Margin="5" Content="{ns:Loc Add}" Click="Add_Professor_Click"/>
+            <Button Width="100" Margin="5" Content="{ns:Loc Cancel}" Click="Cancel_Click"/>
+
         </StackPanel>
     </Grid>
 

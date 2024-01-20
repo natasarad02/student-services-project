@@ -16,43 +16,31 @@
             </StackPanel>
 
 
-            <Grid Margin="10">
-                <DataGrid Background="#FFE5E5E5"
-              AutoGenerateColumns="False"
-              x:Name="ProfessorsDataGrid"
-              ItemsSource="{Binding Professors, UpdateSourceTrigger=PropertyChanged}"
-              SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
-              SelectionMode="Single" IsReadOnly="True"
-              HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="{ns:Loc FirstName}" Binding="{Binding Name}" Width="*"/>
-                        <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Surname}" Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
+            <DataGrid Background="#FFE5E5E5"
+           
+            AutoGenerateColumns="False"
+            x:Name="ProfessorsDataGrid"
+            ItemsSource="{Binding Professors, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
+            SelectionMode="Single" IsReadOnly="True">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="{ns:Loc FirstName}" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Surname}" Width="*"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
 
         </StackPanel>
 
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Content="{ns:Loc Update}" Click="Update_Click">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#E67E22"/>
-                        <Setter Property="Foreground" Value="White"/>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Width="100" Content="{ns:Loc Cancel}" Click="Cancel_Click" Margin="10,0,0,0">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#E67E22"/>
-                        <Setter Property="Foreground" Value="White"/>
-                    </Style>
-                </Button.Style>
-            </Button>
+            <Button Width="100" Margin="5" Content="{ns:Loc Add}" Click="Add_Professor_Click"/>
+            <!-- Click="Add_Subject_Click" />-->
+            <Button Width="100" Margin="5" Content="{ns:Loc Cancel}" Click="Cancel_Click"/>
+            <!-- Click="Cancel_Click" /> -->
+            <!-- <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> -->
+
         </StackPanel>
-
-
     </Grid>
 
 

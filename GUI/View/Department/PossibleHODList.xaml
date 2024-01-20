@@ -30,22 +30,8 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Content="{ns:Loc SelectHOD}" Click="Update_Click">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#E67E22"/>
-                        <Setter Property="Foreground" Value="White"/>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Width="100" Content="{ns:Loc Cancel}" Click="Cancel_Click" Margin="10,0,0,0">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Background" Value="#E67E22"/>
-                        <Setter Property="Foreground" Value="White"/>
-                    </Style>
-                </Button.Style>
-            </Button>
+            <Button Width="165" Margin="5" Content="{ns:Loc SelectHOD}" Click="Add_HOD_Click"/>
+            <Button Width="165" Margin="5" Content="{ns:Loc Cancel}" Click="Cancel_Click"/>
         </StackPanel>
     </Grid>
 
