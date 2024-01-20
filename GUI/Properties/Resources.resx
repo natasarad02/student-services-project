@@ -141,6 +141,9 @@
   <data name="AddSubject" xml:space="preserve">
     <value>Dodaj predmet</value>
   </data>
+  <data name="Allows" xml:space="preserve">
+    <value>- Omoguccava dodavanje, uredjivanje i brisanje entiteta</value>
+  </data>
   <data name="And" xml:space="preserve">
     <value>i</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Odustani</value>
+  </data>
+  <data name="Cancellation" xml:space="preserve">
+    <value>- Funkcionalnost otkazivanja ocena</value>
   </data>
   <data name="cannotBe" xml:space="preserve">
     <value>Ovaj predmet ne moze biti obrisan.</value>
@@ -228,6 +234,12 @@
   <data name="Departments" xml:space="preserve">
     <value>Katedre</value>
   </data>
+  <data name="Developers" xml:space="preserve">
+    <value>Developeri:</value>
+  </data>
+  <data name="Displays" xml:space="preserve">
+    <value>- Prikazuje profesore, ucenike, predmete i ocene</value>
+  </data>
   <data name="Ects" xml:space="preserve">
     <value>Espb</value>
   </data>
@@ -248,6 +260,9 @@
   </data>
   <data name="ExamGrades" xml:space="preserve">
     <value>Ocene</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Funkcionalnosti:</value>
   </data>
   <data name="File" xml:space="preserve">
     <value>Fajl</value>
@@ -291,6 +306,9 @@
   <data name="Localization" xml:space="preserve">
     <value>Lokalizacija</value>
   </data>
+  <data name="Manages" xml:space="preserve">
+    <value>- Upravlja katedrama</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Ime</value>
   </data>
@@ -317,6 +335,9 @@
   </data>
   <data name="PassedOne" xml:space="preserve">
     <value>Polozili jedan</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period razvoja: oktobar 2023 - januar 2024</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
     <value>Broj telefona</value>
@@ -369,6 +390,9 @@
   <data name="ShowStudents" xml:space="preserve">
     <value>Prikazi studente koji slusaju kod ovog profesora</value>
   </data>
+  <data name="Stores" xml:space="preserve">
+    <value>- Cuva informacije o njima</value>
+  </data>
   <data name="Street" xml:space="preserve">
     <value>Ulica</value>
   </data>
@@ -405,6 +429,9 @@
   <data name="TakingBoth" xml:space="preserve">
     <value>Slusaju oba</value>
   </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>Hvala vam što koristite nasu aplikaciju!</value>
+  </data>
   <data name="ThirdYear" xml:space="preserve">
     <value>Treca godina</value>
   </data>
@@ -426,8 +453,17 @@
   <data name="UpdateSubject" xml:space="preserve">
     <value>Izmeni predmet</value>
   </data>
+  <data name="Version" xml:space="preserve">
+    <value>Verzija: 1.3</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>- Pregled polozenih i nepolozenih ispite</value>
+  </data>
   <data name="Warning" xml:space="preserve">
     <value>Upozorenje</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Dobrodosli na Studentsku sluzbu!</value>
   </data>
   <data name="Winter" xml:space="preserve">
     <value>Zimski</value>

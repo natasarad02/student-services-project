@@ -944,6 +944,102 @@ namespace GUI.Properties {
             }
         }
 
+        public static string Welcome
+        {
+            get
+            {
+                return ResourceManager.GetString("Welcome", resourceCulture);
+            }
+        }
+
+        public static string Developers
+        {
+            get
+            {
+                return ResourceManager.GetString("Developers", resourceCulture);
+            }
+        }
+
+        public static string Features
+        {
+            get
+            {
+                return ResourceManager.GetString("Features", resourceCulture);
+            }
+        }
+
+        public static string Displays
+        {
+            get
+            {
+                return ResourceManager.GetString("Displays", resourceCulture);
+            }
+        }
+
+        public static string Stores
+        {
+            get
+            {
+                return ResourceManager.GetString("Stores", resourceCulture);
+            }
+        }
+
+        public static string Allows
+        {
+            get
+            {
+                return ResourceManager.GetString("Allows", resourceCulture);
+            }
+        }
+
+        public static string Manages
+        {
+            get
+            {
+                return ResourceManager.GetString("Manages", resourceCulture);
+            }
+        }
+
+        public static string View
+        {
+            get
+            {
+                return ResourceManager.GetString("View", resourceCulture);
+            }
+        }
+
+        public static string Cancellation
+        {
+            get
+            {
+                return ResourceManager.GetString("Cancellation", resourceCulture);
+            }
+        }
+
+        public static string Version
+        {
+            get
+            {
+                return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+
+        public static string Period
+        {
+            get
+            {
+                return ResourceManager.GetString("Period", resourceCulture);
+            }
+        }
+
+        public static string ThankYou
+        {
+            get
+            {
+                return ResourceManager.GetString("ThankYou", resourceCulture);
+            }
+        }
+
 
 
 
