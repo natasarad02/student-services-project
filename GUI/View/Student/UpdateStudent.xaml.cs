@@ -174,7 +174,7 @@ namespace GUI.View
             MyESPB = my_espb.ToString();
             srednja.Text = Average_Grade;
             bodovi.Text = MyESPB;
-
+            Student.Average_Grade = temp;
 
         }
 
