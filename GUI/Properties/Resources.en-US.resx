@@ -387,6 +387,9 @@
   <data name="Serbian" xml:space="preserve">
     <value>Serbian      Ctrl + R</value>
   </data>
+  <data name="ShowPassed" xml:space="preserve">
+    <value>Showing students that passed subject</value>
+  </data>
   <data name="ShowProfessors" xml:space="preserve">
     <value>Show professors</value>
   </data>
@@ -395,6 +398,9 @@
   </data>
   <data name="StatusBarString" xml:space="preserve">
     <value>Localization example</value>
+  </data>
+  <data name="StillTake" xml:space="preserve">
+    <value>and still take</value>
   </data>
   <data name="Stores" xml:space="preserve">
     <value>- Stores information about them</value>

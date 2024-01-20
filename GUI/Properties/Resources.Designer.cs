@@ -1048,6 +1048,20 @@ namespace GUI.Properties {
             }
         }
 
+        public static string ShowPassed
+        {
+            get
+            {
+                return ResourceManager.GetString("ShowPassed", resourceCulture);
+            }
+        }
+        public static string StillTake
+        {
+            get
+            {
+                return ResourceManager.GetString("StillTake", resourceCulture);
+            }
+        }
 
 
 

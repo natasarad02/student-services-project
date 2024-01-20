@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +45,7 @@ public class ExamGrade : ISerializable
         string[] csvValues =
         {
             ID.ToString(),
-            grading_day.ToString(),
+            grading_day.ToString("MM-dd-yyyy"),
             grade.ToString(),
             studentID.ToString(),
             subjectID.ToString()
@@ -55,6 +56,11 @@ public class ExamGrade : ISerializable
     public void FromCSV(string[] values)
     {
         ID = int.Parse(values[0]);
+        string dateFormat = "MM-dd-yyyy";
+        if (DateTime.TryParseExact(values[1], dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+        {
+            grading_day = parsedDate.Date;
+        }
         grading_day = DateTime.Parse(values[1]);
         grade = int.Parse(values[2]);
         studentID = int.Parse(values[3]);

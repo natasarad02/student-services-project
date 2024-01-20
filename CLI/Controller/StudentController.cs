@@ -79,7 +79,12 @@ namespace CLI.Controller
         public float average_grade(int students_ID, ExamGradesController examGradesController) {
             
             List<ExamGrade> Passed_Exams = GetExamGradesByStudent(students_ID, examGradesController);
+          
+            if(Passed_Exams.Count == 0)
+            {
+                return 0;
 
+            }
             float i = 0;
             float sum = 0;
             foreach (ExamGrade e in Passed_Exams)

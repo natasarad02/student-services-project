@@ -65,6 +65,8 @@ namespace GUI.DTO
             }
         }
 
+        public string GradingDayString => gradingDay.ToString("MM-dd-yyyy");
+
         private string name;
 
         public string Name

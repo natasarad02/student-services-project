@@ -10,3 +10,4 @@
 14|ne moze yoe|HEAD|d,50,d,d|||2020|01-01-0001|987654|professor
 15|sdsdsd|ffsf|,0,,|||0|01-01-0001|0|
 16|sss|sss|ssaaa,2,aaa,sa|061/2232222|aa@uns.ac.rs|2002|01-01-0001|243243234|dr
+17|ssssss|aaaa|aaaa,22,aaaa,ssss|061/222222|a@uns.ac.rs|2002|03-18-0004|12121212|dr

@@ -36,7 +36,7 @@
 						  AlternatingRowBackground="#2980B9" RowBackground="#2980B9" Foreground="#ECF0F1" Margin="15,0,15,49">
 
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="{ns:Loc Id}" Binding="{Binding Id}" Width="*"/>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
                             <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding First_Name}" Width="*"/>
                             <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Last_Name}" Width="*"/>
                             <DataGridTextColumn Header="{ns:Loc YearOfStudies}" Binding="{Binding Current_Year}" Width="*"/>
@@ -90,9 +90,9 @@
 
 					<StackPanel Margin="15">
 						<StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-							<TextBlock Text="Showing students that passed subject " FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
+                            <TextBlock Text="{ns:Loc ShowingPassed}" FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
 							<TextBox x:Name="txt3" Text="Textbox3" IsReadOnly="True" Width="120" Margin="0,0,10,0" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
-							<TextBlock Text=" and still take " FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
+                            <TextBlock Text="{ns:Loc StillTake}" FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
 							<TextBox x:Name="txt4" Text="Textbox4" IsReadOnly="True" Width="120" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
 						</StackPanel>
 					</StackPanel>
@@ -110,10 +110,10 @@
 
 						<DataGrid.Columns>
 							<DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
-							<DataGridTextColumn Header="Name" Binding="{Binding First_Name}" Width="*"/>
-							<DataGridTextColumn Header="Surname" Binding="{Binding Last_Name}" Width="*"/>
-							<DataGridTextColumn Header="Year of Studies" Binding="{Binding Current_Year}" Width="*"/>
-							<DataGridTextColumn Header="E-Mail" Binding="{Binding Email}" Width="*"/>
+                            <DataGridTextColumn Header="{ns:Loc FirstName}" Binding="{Binding First_Name}" Width="*"/>
+                            <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Last_Name}" Width="*"/>
+                            <DataGridTextColumn Header="{ns:Loc YearOfStudies}" Binding="{Binding Current_Year}" Width="*"/>
+                            <DataGridTextColumn Header="{ns:Loc Email}" Binding="{Binding Email}" Width="*"/>
 						</DataGrid.Columns>
 
 						<DataGrid.CellStyle>
@@ -157,6 +157,6 @@
 		</TabControl>
 
 		<!-- Close Button -->
-		<Button Content="Close" HorizontalAlignment="Center" Click="Close_Click" VerticalAlignment="Bottom" Margin="15" Width="100" Height="30" Background="#C0392B" Foreground="#ECF0F1" BorderBrush="#922B21"/>
+        <Button Content="{ns:Loc Close}" HorizontalAlignment="Center" Click="Close_Click" VerticalAlignment="Bottom" Margin="15" Width="100" Height="30" Background="#C0392B" Foreground="#ECF0F1" BorderBrush="#922B21"/>
 	</Grid>
 </Window>
