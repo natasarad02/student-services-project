@@ -178,7 +178,7 @@ namespace GUI.DTO
             }
         }
 
-        private Regex PhoneRegex = new Regex(@"06[0-9]\/[0-9]{6,6}[0-9]?");
+      //  private Regex PhoneRegex = new Regex(@"+381[0-9]{6,6}[0-9]?");
         private Regex EmailRegex = new Regex(@"[a-zA-Z0-9._%+-]+@uns.ac.rs");
         public string Average_Grade_String => Average_Grade.ToString("F2");
         public string this[string columnName]
@@ -213,9 +213,9 @@ namespace GUI.DTO
                 {
                     if (string.IsNullOrEmpty(Phone_Number))
                         return "Phone number is required";
-                    Match match = PhoneRegex.Match(Phone_Number);
+                  /*  Match match = PhoneRegex.Match(Phone_Number);
                     if (!match.Success)
-                        return "Format should be 06x/xxxxxxx";
+                        return "Format should be +381xxxxxxxxx";*/
 
                 }
                 else if (columnName == "Email")

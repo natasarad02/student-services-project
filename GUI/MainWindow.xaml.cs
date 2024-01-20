@@ -986,13 +986,13 @@ namespace GUI
             {
                 StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending);
                 e.Column.SortDirection = ListSortDirection.Descending;
-                UpdateWithPagingStudent(currentPageStudent, itemsPerPage, studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending));
+                //UpdateWithPagingStudent(currentPageStudent, itemsPerPage, studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending));
             }
             else
             {
                 StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending);
                 e.Column.SortDirection = ListSortDirection.Ascending;
-                UpdateWithPagingStudent(currentPageStudent, itemsPerPage, studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending));
+               // UpdateWithPagingStudent(currentPageStudent, itemsPerPage, studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending));
             }
 
 
