@@ -75,10 +75,11 @@ namespace CLI.Controller
 
             return studentsPage;
         }
-        /* public void AddStudentSubject(int id_student, int id_subject)
-         {
-             studentDAO.addStudentSubject(studentsSubjectsDAO, id_student, id_subject);
-         }*/
+
+        public float average_grade(int students_ID) {
+            return studentDAO.average_grade(students_ID);
+        }
+
     }
 }
 

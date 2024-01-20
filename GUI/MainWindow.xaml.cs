@@ -423,8 +423,10 @@ namespace GUI
             
             foreach (Student student in studentController.GetStudentsPage(page, itemsPerPage))
             {
+                student.Average_Grade = studentController.average_grade(student.ID);
                 Students.Add(new StudentDTO(student));
             }
+            //MessageBox.Show(Students[0].average_Grade.ToString()+" id "+ Students[0].Id.ToString());
             Subjects.Clear();
             foreach(Subject subject in subjectController.GetSubjectsPage(page, itemsPerPage))
             {

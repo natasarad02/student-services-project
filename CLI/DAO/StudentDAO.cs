@@ -137,9 +137,11 @@ public class StudentDAO
         List<ExamGrade> Passed_Exams = GetExamGrades(id);
         // BITNO ako ne nadje nista napisati grasku!!!
         int i = 0;
-        for (; i != Passed_Exams.Count; i++)
+
+        foreach( ExamGrade e in Passed_Exams )
         {
-            sum += Passed_Exams.ElementAt(i).grade;
+            sum += e.grade;
+            i++;
         }
         //treba li popuniti polje average grade?
         return sum / i;

@@ -308,7 +308,8 @@ namespace GUI.DTO
             index_Number = student.index_number;
             current_Year = student.Current_Year;
             status = student.Status;
-            average_Grade = 0; // no grades yet
+            average_Grade = student.Average_Grade;
+            
             Passed_Exams = new List<ExamGrade>();
             Failed_Exams = new List<ExamGrade>();
             Is_Deleted = false; // not deleted when created

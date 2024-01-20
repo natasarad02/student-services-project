@@ -43,3 +43,4 @@
 49|asasas||01-01-0001|,0,,|||-0-0|0|B
 50|dsdsddaaaaaaaaaaaaaa||01-01-0001|,0,,|||-0-0|0|B
 51|asadsdsdasd||01-01-0001|,0,,|||-0-0|0|B
+52|Romcev|Anica|01-01-0001|Svetog Save,69,Curug,Srbija|064/1245687|g@uns.ac.rs|ra-10-2010|4|B

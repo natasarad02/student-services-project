@@ -80,6 +80,12 @@ namespace GUI.View
 
 
         }
+
+        public void cancel_click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             parentWindow.IsEnabled = true;

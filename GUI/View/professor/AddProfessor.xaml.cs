@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using StudentskaSluzba.DAO;
 using GUI.DTO;
 using CLI.Controller;
 using StudentskaSluzba.Model;

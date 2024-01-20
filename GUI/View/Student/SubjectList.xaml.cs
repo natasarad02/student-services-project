@@ -120,7 +120,10 @@ namespace GUI.View
             parentWindow.IsEnabled = true;
         }
 
-
+        public void cancel_click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
 
     }
 }
