@@ -431,7 +431,7 @@ namespace GUI
                 student.Average_Grade = studentController.average_grade(student.ID, examGradesController);
                 Students.Add(new StudentDTO(student));
             }
-            //MessageBox.Show(Students[0].average_Grade.ToString()+" id "+ Students[0].Id.ToString());
+
             Subjects.Clear();
             foreach(Subject subject in subjectController.GetSubjectsPage(page, itemsPerPage))
             {
