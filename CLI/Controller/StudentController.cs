@@ -76,8 +76,20 @@ namespace CLI.Controller
             return studentsPage;
         }
 
-        public float average_grade(int students_ID) {
-            return studentDAO.average_grade(students_ID);
+        public float average_grade(int students_ID, ExamGradesController examGradesController) {
+            
+            List<ExamGrade> Passed_Exams = GetExamGradesByStudent(students_ID, examGradesController);
+
+            float i = 0;
+            float sum = 0;
+            foreach (ExamGrade e in Passed_Exams)
+            {
+                sum += e.grade;
+                i++;
+            }
+            //treba li popuniti polje average grade?
+            return sum / i; 
+
         }
 
 

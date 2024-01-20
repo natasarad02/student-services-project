@@ -311,7 +311,6 @@ namespace GUI.DTO
             current_Year = student.Current_Year;
             status = student.Status;
             average_Grade = student.Average_Grade;
-            
             Passed_Exams = new List<ExamGrade>();
             Failed_Exams = new List<ExamGrade>();
             Is_Deleted = false; // not deleted when created
