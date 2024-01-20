@@ -234,6 +234,9 @@
   <data name="EnrollmentYear" xml:space="preserve">
     <value>Godina upisa</value>
   </data>
+  <data name="ExamGrades" xml:space="preserve">
+    <value>Ocene</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>Fajl</value>
   </data>
@@ -359,6 +362,9 @@
   </data>
   <data name="SubjectList" xml:space="preserve">
     <value>Lista predmeta</value>
+  </data>
+  <data name="Subjects" xml:space="preserve">
+    <value>Predmeti</value>
   </data>
   <data name="TakingBoth" xml:space="preserve">
     <value>Slusaju oba</value>
