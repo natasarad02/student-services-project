@@ -70,7 +70,7 @@ namespace GUI.View
                 deleteProfessorButton.IsEnabled = false;
                 addProfessorButton.IsEnabled = true;
             }
-            updateButton.IsEnabled = false;
+            updateButton.IsEnabled = true;
             department.PropertyChanged += Department_PropertyChanged;
 
         }

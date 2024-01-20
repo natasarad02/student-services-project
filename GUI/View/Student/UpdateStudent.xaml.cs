@@ -83,7 +83,7 @@ namespace GUI.View
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
             Closing += Window_Closing;
-            updateButton.IsEnabled = false;
+            updateButton.IsEnabled = true;
             Student.PropertyChanged += Student_PropertyChanged;
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
