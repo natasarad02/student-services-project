@@ -111,10 +111,7 @@ namespace GUI.View
 
                 DeleteSubjectFromProfessor deleteSubject = new DeleteSubjectFromProfessor(subjectsController, MySubjects, Professor, SelectedSubject, this);
                 deleteSubject.Show();
-               /* SelectedSubject.ProfessorId = -1;
-                SelectedSubject.ProfessorName = null;
-                subjectsController.Update(SelectedSubject.ToSubject()); //ovo radi, ali da ne menja stalno je zakomentarisano
-                MySubjects.Remove(SelectedSubject);*/
+              
             }
 
         }

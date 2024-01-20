@@ -88,7 +88,7 @@ namespace GUI.View
 
         private void txtID_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            //ne znam sta je ovo
+            
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

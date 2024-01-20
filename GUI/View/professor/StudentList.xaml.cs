@@ -28,7 +28,7 @@ namespace GUI.View
 
         private SubjectsController subjectsController { get; set; }
 
-        //List of students for a professor
+       
         public UpdateProfessor parentWindow { get; set; }
         //public StudentsController studentsController { get; set; }
         public StudentList(ProfessorDTO pprofessor, SubjectsController subjectsController, UpdateProfessor parentWindow) 
