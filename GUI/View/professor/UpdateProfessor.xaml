@@ -56,7 +56,7 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBox x:Name="txtStreet" Text="{Binding Path=Professor.Address.Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
                           Validation.ErrorTemplate="{StaticResource ValidationTemplate}"></TextBox>
-                                <TextBlock x:Name="txtStreetError" Text="Reqired field"  Foreground="Red" FontSize="10" Margin="0 0 0 10"/>
+                                <TextBlock x:Name="txtStreetError"  Foreground="Red" FontSize="10" Margin="0 0 0 10"/>
                             </StackPanel>
 
 
