@@ -63,7 +63,7 @@ namespace GUI.View
             {
                 b = false;
             }
-
+            
             if(a&& b)
             {
                 subjectController.Delete(Subject.ToSubject().Id);
