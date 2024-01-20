@@ -3,11 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        
+        xmlns:ns="clr-namespace:GUI.Localization"
         xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
 
-        Title="Update Student" Height="650" Width="400">
+        Title="{ns:Loc Update Student}" Height="650" Width="400">
+
     <Window.Resources>
         <ControlTemplate x:Key="ValidationTemplate">
             <StackPanel>
@@ -23,7 +24,7 @@
     <Grid Margin="20">
         <TabControl x:Name="TabUpdate" SelectionChanged="TabUpdate_SelectionChanged">
             <!-- First Tab - Student Details -->
-            <TabItem Header="Student Details">
+            <TabItem Header="{ns:Loc Student Details}">
                 <Grid>
 
                     <StackPanel>
@@ -44,90 +45,91 @@
                         </StackPanel.Resources>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">* First Name:</Label>
-                            <TextBox x:Name="txtFirstName" Text="{Binding Path = Student.First_Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10">
-                            </TextBox>
+                            <Label Margin="0 0 0 10" Content="{ns:Loc FirstName}"/>
+                            <!-- * First Name: -->
+                            <TextBox x:Name="txtFirstName" Text="{Binding Path=Student.First_Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">* Last Name:</Label>
-                            <TextBox x:Name="txtLastName" Text="{Binding Path = Student.Last_Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
+                            <Label Margin="0 0 0 10" Content="{ns:Loc LastName}"/>
+                            <!-- * Last Name: -->
+                            <TextBox x:Name="txtLastName" Text="{Binding Path=Student.Last_Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">* Address:</Label>
-                            <TextBox x:Name="txtStreet" MinWidth="150"
-                Text="{Binding Path = Student.Address.Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
-                            <TextBox x:Name="txtHouseNumber" MinWidth="50"
-                 Text="{Binding Path = Student.Address.Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
+                            <Label Margin="0 0 0 10" Content="{ns:Loc Address}"/>
+                            <!-- * Address: -->
+                            <TextBox x:Name="txtStreet" MinWidth="150" Text="{Binding Path=Student.Address.Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
+                            <TextBox x:Name="txtHouseNumber" MinWidth="50" Text="{Binding Path=Student.Address.Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">* City:</Label>
-                            <TextBox x:Name="txtCity" Text="{Binding Path = Student.Address.City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
+                            <Label Margin="0 0 0 10" Content="{ns:Loc City}"/>
+                            <!-- * City: -->
+                            <TextBox x:Name="txtCity" Text="{Binding Path=Student.Address.City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">* Country:</Label>
-                            <TextBox x:Name="txtCounty" Text="{Binding Path = Student.Address.Country, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"  Margin="0 0 0 10"/>
+                            <Label Margin="0 0 0 10" Content="{ns:Loc Country}"/>
+                            <!-- * Country: -->
+                            <TextBox x:Name="txtCounty" Text="{Binding Path=Student.Address.Country, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10" Width="105">* Birth Date:</Label>
-                            <DatePicker x:Name="dpBirthDate" Width="104" 
-                    Text="{Binding Path = Student.Date_Of_Birth, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
-                            </DatePicker>
+                            <Label Margin="0 0 0 10" Width="105" Content="{ns:Loc BirthDate}"/>
+                            <!-- * Birth Date: -->
+                            <DatePicker x:Name="dpBirthDate" Width="104" Text="{Binding Path=Student.Date_Of_Birth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"/>
+                        </StackPanel>
 
+                        <!-- ... (previous code) -->
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label Margin="0 0 0 10" Content="{ns:Loc PhoneNumber}"/>
+                            <!-- * Phone Number: -->
+                            <TextBox x:Name="txtPhone" Text="{Binding Path=Student.Phone_Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">* Phone Number:</Label>
-                            <TextBox x:Name="txtPhone" 
-                 Text="{Binding Path = Student.Phone_Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
+                            <Label Margin="0 0 0 10" Content="{ns:Loc Email}"/>
+                            <!-- * Email: -->
+                            <TextBox x:Name="txtEmail" Text="{Binding Path=Student.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10" >* Email:</Label>
-                            <TextBox x:Name="txtEmail" 
-                 Text="{Binding Path = Student.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
+                            <Label Margin="0 0 0 10" Content="{ns:Loc IndexNumber}"/>
+                            <!-- * Index Number: -->
+                            <TextBox x:Name="txtIndex" Text="{Binding Path=Student.Index_Number.college_major, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" MinWidth="60" Margin="0 0 0 10"/>
+                            <TextBox x:Name="txtNumIndex" MinWidth="60" Text="{Binding Path=Student.Index_Number.number_mark, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
+                            <TextBox x:Name="txtYearOfEnrollment" MinWidth="60" Text="{Binding Path=Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">*Index Number:</Label>
-                            <TextBox x:Name="txtIndex" 
-                 Text="{Binding Path = Student.Index_Number.college_major , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" MinWidth="60" Margin="0 0 0 10"/>
-                            <TextBox x:Name="txtNumIndex" MinWidth ="60" 
-                 Text="{Binding Path = Student.Index_Number.number_mark, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"
-                 ></TextBox>
-                            <TextBox x:Name="txtYearOfEnrollment" MinWidth="60"
-                 Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"
-                 ></TextBox>
+                            <Label Margin="0 0 0 10" Content="{ns:Loc EnrollmentYear}"/>
+                            <!-- Enrollment year: -->
+                            <TextBox x:Name="txtYear" Width="146" Text="{Binding Path=Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Margin="0 0 0 10">Enrollment year:</Label>
-                            <TextBox x:Name="txtYear" Width="146" Text="{Binding Path = Student.Index_Number.YOE, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
-
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Current Year:</Label>
-                            <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Student.Current_Year,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
-                                <ComboBoxItem Content="First year" Tag="1"></ComboBoxItem>
-                                <ComboBoxItem Content="Second year" Tag="2"></ComboBoxItem>
-                                <ComboBoxItem Content="Third year" Tag="3"></ComboBoxItem>
-                                <ComboBoxItem Content="Fourth year" Tag="4"></ComboBoxItem>
-                                <ComboBoxItem Content="Additional 5th year" Tag="5"></ComboBoxItem>
+                            <Label Content="{ns:Loc CurrentYear}"/>
+                            <!-- Current Year: -->
+                            <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Student.Current_Year, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                                <ComboBoxItem Content="{ns:Loc FirstYear}" Tag="1"/>
+                                <ComboBoxItem Content="{ns:Loc SecondYear}" Tag="2"/>
+                                <ComboBoxItem Content="{ns:Loc ThirdYear}" Tag="3"/>
+                                <ComboBoxItem Content="{ns:Loc FourthYear}" Tag="4"/>
+                                <ComboBoxItem Content="{ns:Loc AdditionalFifthYear}" Tag="5"/>
                             </ComboBox>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label>Financial Aid:</Label>
+                            <Label Content="{ns:Loc FinancialAid}"/>
+                            <!-- Financial Aid: -->
                             <ComboBox x:Name="cmbFinancing" SelectedValuePath="Tag" SelectedValue="{Binding Student.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
-                                <ComboBoxItem Content="Government Budget" Tag="B"></ComboBoxItem>
-                                <ComboBoxItem Content="Self Financing" Tag="S"></ComboBoxItem>
+                                <ComboBoxItem Content="{ns:Loc GovernmentBudget}" Tag="B"/>
+                                <ComboBoxItem Content="{ns:Loc SelfFinancing}" Tag="S"/>
                             </ComboBox>
                         </StackPanel>
+
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -135,21 +137,21 @@
 
             <!-- Second Tab - List of Subjects -->
             <!-- Trebaju li sva 4 dugmeta? -->
-            <TabItem Header="Subjects">
+            <TabItem Header="{ns:Loc Subjects}">
                 <Grid>
                     <StackPanel>
                         <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                             <!-- <Label>This option is not implemented in current version.</Label> -->
                         </StackPanel>
-                        <Button Content="Show professors" Click="Show_Professors_Click"/>
+                        <Button Content="{ns:Loc Show Professors}" Click="Show_Professors_Click"/>
 
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Button Width="100" Margin="5" Content="Add" Click="Add_Subject" />
-                            <Button Width="100" Margin="5" Content="Delete" Click="Delete_Subject_Click" />
-                            <Button Width="100" Margin="5" Content="Pass" Click="Pass_Subject_Click" />
-                            <!-- Click="Pass_Subject_Click" /> -->
-                            <!-- <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click"/> -->
-
+                            <Button Width="100" Margin="5" Content="{ns:Loc Add}" Click="Add_Subject" />
+                            <!-- Add -->
+                            <Button Width="100" Margin="5" Content="{ns:Loc Delete}" Click="Delete_Subject_Click" />
+                            <!-- Delete -->
+                            <Button Width="100" Margin="5" Content="{ns:Loc Pass}" Click="Pass_Subject_Click" />
+                            <!-- Pass -->
                         </StackPanel>
                         <DataGrid Background="#FFE5E5E5"
            
@@ -159,13 +161,20 @@
             SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
             SelectionMode="Single" IsReadOnly="True" SelectionChanged="SubjectsDataGrid_SelectionChanged">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
-                                <DataGridTextColumn Header="Subject ID" Binding="{Binding Ids}" Width="*"/>
-                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
-                                <DataGridTextColumn Header="Espb" Binding="{Binding Espb}" Width="*"/>
-                                <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="*"/>
-                                <DataGridTextColumn Header="Semester" Binding="{Binding semester}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Id}" Binding="{Binding Id}" Width="*"/>
+                                <!-- Id -->
+                                <DataGridTextColumn Header="{ns:Loc SubjectId}" Binding="{Binding Ids}" Width="*"/>
+                                <!-- Subject ID -->
+                                <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding Name}" Width="*"/>
+                                <!-- Name -->
+                                <DataGridTextColumn Header="{ns:Loc Espb}" Binding="{Binding Espb}" Width="*"/>
+                                <!-- Espb -->
+                                <DataGridTextColumn Header="{ns:Loc Year}" Binding="{Binding Year}" Width="*"/>
+                                <!-- Year -->
+                                <DataGridTextColumn Header="{ns:Loc Semester}" Binding="{Binding semester}" Width="*"/>
+                                <!-- Semester -->
                             </DataGrid.Columns>
+
                         </DataGrid>
 
                     </StackPanel>
@@ -175,7 +184,7 @@
 
 
 
-            <TabItem Header="Passed exams">
+            <TabItem Header="{ns:Loc PassedExams}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*"/>
