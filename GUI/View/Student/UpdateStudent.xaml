@@ -202,7 +202,7 @@
                                 <!-- SelectionChanged="StudentDataGrid_SelectionChanged" -->
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="{ns:Loc SubjectId}" Binding="{Binding Subject_ID}" Width="*"/>
-                                    <DataGridTextColumn Header="{ns:Loc SubjectName}" Binding="{Binding Name}" Width="*"/>
+                                    <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding Name}" Width="*"/>
                                     <DataGridTextColumn Header="{ns:Loc Ects}" Binding="{Binding Esbp}" Width="*" />
                                     <DataGridTextColumn Header="{ns:Loc DateOfGrading}" Binding="{Binding GradingDayString}" Width="*"/>
                                     <DataGridTextColumn Header="{ns:Loc Grade}" Binding="{Binding Grade}" Width="*"/>

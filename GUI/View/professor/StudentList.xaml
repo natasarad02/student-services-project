@@ -14,20 +14,26 @@
             <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <!-- <Label>This option is not implemented in current version.</Label> -->
             </StackPanel>
-
+            <DockPanel DockPanel.Dock="Top">
+                <ToolBar Height="40">
+                    
+                    <TextBox x:Name="txtSearchBox" HorizontalAlignment="Right" Width="140"/>
+                    <Button HorizontalAlignment="Right" Content="{ns:Loc Search}" Click="SearchButton_Click"/>
+                </ToolBar>
+            </DockPanel>
 
             <DataGrid Background="#FFE5E5E5"
             
 			   AutoGenerateColumns="False"
-			   x:Name="ProfessorsDataGrid"
+			   x:Name="StudentsDataGrid"
 			   ItemsSource="{Binding students, UpdateSourceTrigger=PropertyChanged}"
 			   SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
 			   SelectionMode="Single" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding First_Name}" Width="*"/>
-                    <DataGridTextColumn Header="Surname" Binding="{Binding Last_Name}" Width="*"/>
-                    <DataGridTextColumn Header="Year of studies" Binding="{Binding Current_Year}" Width="*"/>
-                    <DataGridTextColumn Header="E-Mail" Binding="{Binding Email}" Width="*"/>
+                    <DataGridTextColumn Header="{ns:Loc FirstName}" Binding="{Binding First_Name}" Width="*"/>
+                    <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Last_Name}" Width="*"/>
+                    <DataGridTextColumn Header="{ns:Loc YearOfStudies}" Binding="{Binding Current_Year}" Width="*"/>
+                    <DataGridTextColumn Header="{ns:Loc Email}" Binding="{Binding Email}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 

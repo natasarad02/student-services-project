@@ -29,7 +29,7 @@ namespace GUI.View
         
         public SubjectDTO SelectedSubject { get; set; }
         public MainWindow mainWindow { get; set; }
-
+        
         public UpdateProfessor(ProfessorsController professorController, ProfessorDTO SelectedProfessor, MainWindow mainWindow)
         {
 

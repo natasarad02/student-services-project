@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ns="clr-namespace:GUI.Localization"
         mc:Ignorable="d"
-        Title="About Student Service Application" Height="443" Width="600">
+        Title="{ns:Loc About}" Height="443" Width="600">
 
     <Grid Margin="30">
         <StackPanel>
