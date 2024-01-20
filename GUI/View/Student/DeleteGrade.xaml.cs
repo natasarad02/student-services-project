@@ -9,6 +9,8 @@ using System.Windows;
 using GUI.DTO;
 using CLI.Controller;
 using System.Runtime.CompilerServices;
+using GUI.Localization;
+using System.Windows.Input;
 
 namespace GUI.View
 {
@@ -31,7 +33,23 @@ namespace GUI.View
             parentWindow.IsEnabled = false;
             Closing += Window_Closing;
         }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.R))
+                Serbian_Click(sender, e);
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.E))
+                English_Click(sender, e);
 
+        }
+        public void English_Click(object sender, RoutedEventArgs e)
+        {
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+        }
+
+        public void Serbian_Click(object sender, RoutedEventArgs e)
+        {
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("sr-RS");
+        }
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
             studentsSubjectsController.Add(exam.StudentID, exam.SubjectID);

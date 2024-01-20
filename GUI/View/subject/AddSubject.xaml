@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
          xmlns:ns="clr-namespace:GUI.Localization"
         mc:Ignorable="d"
-        Title="{ns:Loc AddSubject}" Height="394" Width="420">
+        Title="{ns:Loc AddSubject}" Height="394" Width="420"  KeyDown="Window_KeyDown">
     <Window.Resources>
         <ControlTemplate x:Key="ValidationTemplate">
             <StackPanel>

@@ -564,6 +564,43 @@ namespace GUI
                             }
                            
                             break;
+                        case "Studenti":
+                            if (isUpdateStudent == false)
+                            {
+                                currentPageStudent = 0;
+                                UpdateWithPaging(currentPageStudent, itemsPerPage);
+                                isUpdateStudent = true;
+                            }
+
+                            break;
+                        case "Predmeti":
+                            if (isUpdateSubject == false)
+                            {
+                                currentPageSubject = 0;
+                                UpdateWithPaging(currentPageSubject, itemsPerPage);
+                                isUpdateSubject = true;
+
+                            }
+
+                            break;
+                        case "Profesori":
+                            if (isUpdateProfessor == false)
+                            {
+                                currentPageProfessor = 0;
+                                UpdateWithPaging(currentPageProfessor, itemsPerPage);
+                                isUpdateProfessor = true;
+                            }
+
+                            break;
+                        case "Katedre":
+                            if (isUpdateDepartment == false)
+                            {
+                                currentPageDepartment = 0;
+                                UpdateWithPaging(currentPageDepartment, itemsPerPage);
+                                isUpdateDepartment = true;
+                            }
+
+                            break;
                     }
                     
 

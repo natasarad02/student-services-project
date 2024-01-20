@@ -1040,6 +1040,14 @@ namespace GUI.Properties {
             }
         }
 
+        public static string Language
+        {
+            get
+            {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+
 
 
 

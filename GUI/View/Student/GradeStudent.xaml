@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ns="clr-namespace:GUI.Localization"
         mc:Ignorable="d"
-        Title="{ns:Loc GradeStudent}" Height="310" Width="389">
+        Title="{ns:Loc GradeStudent}" Height="310" Width="389"  KeyDown="Window_KeyDown">
     
     <Grid Margin="20,20,20,32">
         <Grid.RowDefinitions>

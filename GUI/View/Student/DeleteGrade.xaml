@@ -1,7 +1,7 @@
 <Window x:Class="GUI.View.DeleteGrade"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Delete Confirmation" Height="200" Width="350">
+        Title="Delete Confirmation" Height="200" Width="350"  KeyDown="Window_KeyDown">
     <Grid>
         <Border BorderBrush="DarkGray" BorderThickness="1" Background="LightGray" CornerRadius="5">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15">

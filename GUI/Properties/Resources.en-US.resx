@@ -300,6 +300,9 @@
   <data name="Index" xml:space="preserve">
     <value>Index number</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="LastName" xml:space="preserve">
     <value>Last name</value>
   </data>

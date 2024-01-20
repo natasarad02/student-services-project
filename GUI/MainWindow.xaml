@@ -58,7 +58,7 @@
                 
             </MenuItem>
 
-            <MenuItem Header="Language">
+            <MenuItem Header="{ns:Loc Language}">
                 <MenuItem Header="{ns:Loc English}" Click="English_Click">
                     <MenuItem.Icon>
                         <Image Source="/Icons/english.png" Width="16" Height="16"/>
