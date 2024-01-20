@@ -7,6 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"  KeyDown="Window_KeyDown">
+    
 
     <DockPanel Margin="0">
 
@@ -138,7 +139,7 @@
                             <DataGridTextColumn Header="Last Name" Binding="{Binding Last_Name}" Width="*"/>
                             <DataGridTextColumn Header="Year of studies" Binding="{Binding Current_Year}" Width="*"/>
                             <DataGridTextColumn Header="Financial aid" Binding="{Binding Status}" Width="*"/>
-                            <DataGridTextColumn Header="Average grade" Binding="{Binding Average_Grade_String}" Width="*"/>
+                                <DataGridTextColumn Header="Average grade" Binding="{Binding Average_Grade, StringFormat=N2, ConverterCulture='en-US'}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

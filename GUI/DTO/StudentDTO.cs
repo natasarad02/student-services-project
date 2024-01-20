@@ -159,9 +159,9 @@ namespace GUI.DTO
             }
         }
 
-        public double average_Grade;
+        public float average_Grade;
 
-        private double Average_Grade
+        private float Average_Grade
         {
             get
             {
@@ -173,10 +173,11 @@ namespace GUI.DTO
                 if(value != average_Grade)
                 {
                     average_Grade = value;
-                    OnPropertyChanged("Average_Grade");
+                    OnPropertyChanged(nameof(Average_Grade));
                 }
             }
         }
+
         private Regex PhoneRegex = new Regex(@"06[0-9]\/[0-9]{6,6}[0-9]?");
         private Regex EmailRegex = new Regex(@"[a-zA-Z0-9._%+-]+@uns.ac.rs");
         public string Average_Grade_String => Average_Grade.ToString("F2");
