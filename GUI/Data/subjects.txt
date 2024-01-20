@@ -1,20 +1,20 @@
-0|E43|Tehnologije i alati u mašinskom učenju|8|-1||winter|4
-1|E79|Napredni algoritmi i strukture podataka|6|-1||summer|4
-2|E76|Testiranje softvera|9|-1||winter|1
-3|E94|Specifikacija i modeliranje softvera|4|-1||winter|3
-4|E12|Uvod u informacione tehnologije u geomatici|8|-1||winter|3
-5|E23|Tehnologije i sistemi eUprave|4|-1||summer|1
-6|E60|Klijentske web tehnologije|5|-1||summer|3
-7|E75|Internet mreže|7|-1||winter|1
-8|E67|XML i veb servisi|10|-1||winter|2
-9|E51|Metodologije razvoja softvera|4|-1||summer|3
-10|E74|Uvod u informacione tehnologije u geomatici|8|-1||summer|3
-11|E17|Poslovna informatika|10|-1||winter|3
-12|E8|Mašinsko učenje|10|-1||summer|3
-13|E19|Soft kompjuting|10|-1||winter|1
-14|E24|Specifikacija i modeliranje softvera|6|-1||summer|2
-15|E38|Informaciona bezbednost|7|-1||summer|3
-16|E9|Serverske web tehnologije|4|-1||summer|4
-17|E37|Objektno orijentisano programiranje 1|7|-1||summer|2
-18|E5|Servisno orijentisane arhitekture|7|-1||winter|2
-19|E62|Sistemi bazirani na znanju|4|-1||winter|3
+0|E43|Tehnologije i alati u mašinskom učenju|8|8|Igor Krečković|winter|4
+1|E79|Napredni algoritmi i strukture podataka|6|0|Dragoslava Raspopović|summer|4
+2|E76|Testiranje softvera|9|0|Dragoslava Raspopović|winter|1
+3|E94|Specifikacija i modeliranje softvera|4|3|Dobrica Batrović|winter|3
+4|E12|Uvod u informacione tehnologije u geomatici|8|0|Dragoslava Raspopović|winter|3
+5|E23|Tehnologije i sistemi eUprave|4|1|Stojko Prvanović|summer|1
+6|E60|Klijentske web tehnologije|5|5|Rastko Bučevac|summer|3
+7|E75|Internet mreže|7|6|Bogdanka Ložnjaković|winter|1
+8|E67|XML i veb servisi|10|1|Stojko Prvanović|winter|2
+9|E51|Metodologije razvoja softvera|4|9|Steva Iljanović|summer|3
+10|E74|Uvod u informacione tehnologije u geomatici|8|3|Dobrica Batrović|summer|3
+11|E17|Poslovna informatika|10|4|Arsenije Balabanović|winter|3
+12|E8|Mašinsko učenje|10|8|Igor Krečković|summer|3
+13|E19|Soft kompjuting|10|2|Budimir Talović|winter|1
+14|E24|Specifikacija i modeliranje softvera|6|9|Steva Iljanović|summer|2
+15|E38|Informaciona bezbednost|7|4|Arsenije Balabanović|summer|3
+16|E9|Serverske web tehnologije|4|3|Dobrica Batrović|summer|4
+17|E37|Objektno orijentisano programiranje 1|7|8|Igor Krečković|summer|2
+18|E5|Servisno orijentisane arhitekture|7|6|Bogdanka Ložnjaković|winter|2
+19|E62|Sistemi bazirani na znanju|4|6|Bogdanka Ložnjaković|winter|3
