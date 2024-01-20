@@ -11,7 +11,7 @@
         
         <TabControl>
             <!-- First Tab - Student Details -->
-            <TabItem Header= "{ns:Loc New}">
+            <TabItem Header= "{ns:Loc SubjectDetails}">
                 <Grid>
                     
 					<StackPanel Grid.Row="0" Margin="0,0,0,10">
