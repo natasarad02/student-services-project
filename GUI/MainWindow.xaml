@@ -89,7 +89,7 @@
                         <Image Source="/Icons/Add.png" Width="32" Height="32"/>
                     </StackPanel>
                     <Button.ToolTip>
-                        <ToolTip Content="Add Item"/>
+                        <ToolTip Content="{ns:Loc Add}"/>
                     </Button.ToolTip>
                 </Button>
                 <Button Click="Update_Click">
@@ -97,7 +97,7 @@
                         <Image Source="/Icons/Edit.png" Width="32" Height="32"/>
                     </StackPanel>
                     <Button.ToolTip>
-                        <ToolTip Content="Edit Item"/>
+                        <ToolTip Content="{ns:Loc Edit}"/>
                     </Button.ToolTip>
                 </Button>
                 <Button Click="Delete_Click">

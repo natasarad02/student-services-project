@@ -54,18 +54,18 @@
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
                 <Label Content="{ns:Loc Semester}"></Label>
                 <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.semester, Mode=TwoWay}">
-                    <ComboBoxItem Content="Winter" Tag="winter"></ComboBoxItem>
-                    <ComboBoxItem Content="Summer" Tag="summer"></ComboBoxItem>
+                    <ComboBoxItem Content="{ns:Loc Winter}" Tag="winter"></ComboBoxItem>
+                    <ComboBoxItem Content="{ns:Loc Summer}" Tag="summer"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
-                <Label Content="{ns:Loc CurrentYear}"></Label>
+                <Label Content="{ns:Loc Year}"></Label>
                 <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.Year, Mode=TwoWay}">
-                    <ComboBoxItem Content="First year" Tag="1"></ComboBoxItem>
-                    <ComboBoxItem Content="Second year" Tag="2"></ComboBoxItem>
-                    <ComboBoxItem Content="Third year" Tag="3"></ComboBoxItem>
-                    <ComboBoxItem Content="Fourth year" Tag="4"></ComboBoxItem>
+                    <ComboBoxItem Content="{ns:Loc FirstYear}" Tag="1"></ComboBoxItem>
+                    <ComboBoxItem Content="{ns:Loc SecondYear}" Tag="2"></ComboBoxItem>
+                    <ComboBoxItem Content="{ns:Loc ThirdYear}" Tag="3"></ComboBoxItem>
+                    <ComboBoxItem Content="{ns:Loc FourthYear}" Tag="4"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
 

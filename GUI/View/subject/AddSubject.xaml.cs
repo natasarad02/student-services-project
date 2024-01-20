@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using CLI.Controller;
 using StudentskaSluzba.Model;
+using GUI.Localization;
 
 namespace GUI.View
 {
@@ -39,6 +40,7 @@ namespace GUI.View
             Closing += Window_Closing;
             addButton.IsEnabled = false;
             Subject.PropertyChanged += Subject_PropertyChanged;
+            
         }
         private void Subject_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
