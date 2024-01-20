@@ -161,7 +161,7 @@ namespace GUI.DTO
 
         public float average_Grade;
 
-        private float Average_Grade
+        public float Average_Grade
         {
             get
             {
