@@ -87,7 +87,6 @@ namespace CLI.Controller
                 sum += e.grade;
                 i++;
             }
-            //treba li popuniti polje average grade?
             return sum / i; 
 
         }
