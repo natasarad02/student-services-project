@@ -771,8 +771,8 @@ namespace GUI
             subjectController.Save();
             professorController.Save();
             departmentController.Save();
-            //studentsSubjectsController.Save(); jos nema pa puca
-            // examGradesController.Save();
+            studentsSubjectsController.Save();
+            examGradesController.Save();
             MessageBox.Show("Save successfull!");
         }
 
