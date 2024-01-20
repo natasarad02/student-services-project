@@ -88,6 +88,7 @@ namespace CLI.Controller
                 sum += e.grade;
                 i++;
             }
+            
             float res = sum / i;
             return res; 
 
