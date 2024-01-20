@@ -13,7 +13,7 @@
 14|Petrovic|Nikola|08-08-1898|Bulevar Arsenija Carnojevica,3,Novi Sad,Srbija|066/654321098|nikola.petrovic@yahoo.com|etf-99-202111|4|B
 15|Jovanovic|Jovana|10-10-1992|Ulica Kneza Mihaila,15,Novi Sad,Srbija|065/987654321|jovana.jovanovic@gmail.com|ftn-77-2016|3|B
 18|Mujic|Ana|01-01-0001|Kv,10,Kraljevo,Srbija|256416846|vciavcia|-0-0|2|B
-19|Becejac|Teodora|04-20-1969|Veselina Maslese,76,Novi Sad,Srbija|064/123456|zeljko@gmail.com|RA-370-2021|3|B
+19|Becejac|Teodora|04-20-1969|Veselina Maslese,76,Novi Sad,Srbija|064/123456|zeljko@uns.ac.rs|RA-370-2021|3|B
 20|Grkovic|Dusan|06-19-2002|Kneza Mihaila,7,Sremska Kamenicaa,Srbija|064/123456|grkila@gmail.com|RA-56-2021|3|B
 25|ic|aaaa|01-01-0001|,0,,|||-0-0|0|B
 26|ic|aaa|01-01-0001|,0,,|||-0-0|0|B
