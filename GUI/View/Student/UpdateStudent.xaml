@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
 
-        Title="{ns:Loc UpdateStudent}" Height="650" Width="400"  KeyDown="Window_KeyDown">
+        Title="{ns:Loc UpdateStudent}" Height="670" Width="400"  KeyDown="Window_KeyDown">
 
     <Window.Resources>
         <ControlTemplate x:Key="ValidationTemplate">
@@ -184,7 +184,7 @@
 
 
 
-            <TabItem Header="{ns:Loc PassedExams}">
+            <TabItem Header="{ns:Loc PassedExams}" Height="20" VerticalAlignment="Top">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20*"/>
@@ -212,13 +212,13 @@
 
                         </StackPanel>
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Width="50" >Espb</Label>
-                                <TextBox Width="50"></TextBox>
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <Label Width="100" Content="{ns:Loc Ects}"></Label>
+                                <TextBox x:Name="bodovi" Width="50" IsReadOnly="True"></TextBox>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Width="50" >Espb</Label>
-                                <TextBox Width="50"></TextBox>
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <Label Width="100" Content="{ns:Loc AverageGrade}"></Label>
+                                <TextBox x:Name="srednja" Width="50" IsReadOnly="True"></TextBox>
                             </StackPanel>
                             <Button Width="100" Margin="5" Content="{ns:Loc DeleteGrade}" Click="Delete_Grade_Click"/>
                         </StackPanel>
@@ -237,8 +237,6 @@
             <!-- Click="Update_Click" /> -->
             <Button Width="100" Margin="5" Content="{ns:Loc Cancel}" Click="Cancel_Click"/>
             <!-- Click="Cancel_Click" />-->
-
-
 
         </StackPanel>
 
