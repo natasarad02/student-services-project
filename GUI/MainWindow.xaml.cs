@@ -68,11 +68,15 @@ namespace GUI
         private int studentCount = 0;
         private int subjectCount = 0;
         private int professorCount = 0;
+        private string currentSortCriteria { get; set; }
+        SortDirection currentSortDirection { get; set; }
         //private int departmentCount = 0;
         private ObservableCollection<SubjectDTO> selectedSubjects = new ObservableCollection<SubjectDTO>();
 
         public SubjectDTO SelectedSubject2 { get; set; }
         public ListSortDirection newDirection;
+
+        private bool sort { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -112,9 +116,11 @@ namespace GUI
             //studentCount = studentController.GetAllStudents().Count;
             DataContext = this;
 
-           
+            //currentSortCriteria = "Id";
+           // currentSortDirection = SortDirection.Descending;
+            sort = false;
 
-         
+
 
 
             Update();
@@ -140,7 +146,7 @@ namespace GUI
             timer.Start();
 
             Tab.SelectionChanged += TabControl_SelectionChanged;
-           StudentDataGrid.Sorting += Student_Sorting;
+          // StudentDataGrid.Sorting += Student_Sorting;
             studentCount = studentController.GetAllStudents().Count;
             subjectCount = subjectController.GetAllSubjects().Count;
             professorCount = professorController.GetAllProfessors().Count;
@@ -857,9 +863,20 @@ namespace GUI
                 }
                 else
                 {
-                    currentPageStudent++;
+                    if(sort == false)
+                    {
+                        currentPageStudent++;
+                        UpdateWithPaging(currentPageStudent, itemsPerPage);
+                    }
+                    else
+                    {
+                        currentPageStudent++;
+                       
+                        UpdateWithPagingStudent(currentPageStudent, itemsPerPage, searchStudents);
+                    }
+                    
                     // if(Students.Count <)
-                    UpdateWithPaging(currentPageStudent, itemsPerPage);
+                    //UpdateWithPaging(currentPageStudent, itemsPerPage);
                     // Update();
                     //UpdateStudentsDataGrid();
                 }
@@ -949,74 +966,7 @@ namespace GUI
             int startIndex = (currentPage - 1) * itemsPerPage;
             return sortedStudents.Skip(startIndex).Take(itemsPerPage).ToList();
         }
-        private void Student_Sorting(object sender, DataGridSortingEventArgs e)
-        {
-            e.Handled = true; 
-            string columnName = e.Column.SortMemberPath;
-
-            string sortCriteria = "Id";
-
-            
-            
-                switch (columnName)
-                {
-                    case "Id":
-                        sortCriteria = "Id";
-                       // StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending);
-                        break;
-                    case "First_Name":
-                        sortCriteria = "Name";
-                        break;
-                    case "Last_Name":
-                        sortCriteria = "Last Name";
-                        break;
-                    case "Current_Year":
-                        sortCriteria = "Current year";
-                        break;
-                    case "Status":
-                        sortCriteria = "Status";
-                        break;
-                    case "Average_Grade":
-                        sortCriteria = "Average grade";
-                        break;
-                }
-          
-
-            if (e.Column.SortDirection == ListSortDirection.Ascending)
-            {
-                StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending);
-                e.Column.SortDirection = ListSortDirection.Descending;
-                //UpdateWithPagingStudent(currentPageStudent, itemsPerPage, studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending));
-            }
-            else
-            {
-                StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending);
-                e.Column.SortDirection = ListSortDirection.Ascending;
-               // UpdateWithPagingStudent(currentPageStudent, itemsPerPage, studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending));
-            }
-
-
-           
-        }
-/*
-        public void UpdateWithPagingStudentSort(int page, int itemsPerPage, string sortCriteria, SortDirection sortDirection, List<Student> students)
-        {
-
-            Students.Clear();
-            foreach (Student student in studentController.GetSortedStudents(page, itemsPerPage, sortCriteria, sortDirection))
-            {
-                Students.Add(new StudentDTO(student));
-            }
-
-
-        }*/
-
-        // Helper method to get property value by name
-        private object GetPropertyValue(object obj, string propertyName)
-        {
-            return obj.GetType().GetProperty(propertyName)?.GetValue(obj, null);
-        }
-
+     
 
 
     }
