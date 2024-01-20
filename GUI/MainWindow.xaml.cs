@@ -429,6 +429,7 @@ namespace GUI
             foreach (Student student in studentController.GetStudentsPage(page, itemsPerPage))
             {
                 student.Average_Grade = studentController.average_grade(student.ID, examGradesController);
+                
                 Students.Add(new StudentDTO(student));
             }
 

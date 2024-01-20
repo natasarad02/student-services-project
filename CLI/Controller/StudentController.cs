@@ -84,6 +84,7 @@ namespace CLI.Controller
             float sum = 0;
             foreach (ExamGrade e in Passed_Exams)
             {
+                
                 sum += e.grade;
                 i++;
             }
