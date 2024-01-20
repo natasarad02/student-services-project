@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ns="clr-namespace:GUI.Localization"
         mc:Ignorable="d"
-        Title="{ns:Loc AddDepartment}" Height="270" Width="389">
+        Title="{ns:Loc AddDepartment}" Height="270" Width="389" KeyDown="Window_KeyDown">
     <Window.Resources>
         <ControlTemplate x:Key="ValidationTemplate">
             <StackPanel>
@@ -37,7 +37,7 @@
             </StackPanel.Resources>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                <Label Margin="0 0 0 10" Content="{ns:Loc DepartmentId}" />
+                <Label Margin="0 0 0 10" Content="{ns:Loc DepartmentID}" />
                 <TextBox x:Name="txtDepartmentID" Text="{Binding Path=department.Idd, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Margin="0 0 0 10"></TextBox>
             </StackPanel>
 

@@ -32,6 +32,7 @@ namespace GUI.View
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
             this.examGradesController = examGradesController;
+            Closing += Window_Closing;
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {

@@ -13,6 +13,8 @@ using CLI.Observer;
 using StudentskaSluzba.Model;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
+using GUI.Localization;
+using System.Windows.Input;
 
 namespace GUI.View
 {
@@ -74,7 +76,23 @@ namespace GUI.View
             department.PropertyChanged += Department_PropertyChanged;
 
         }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.R))
+                Serbian_Click(sender, e);
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.E))
+                English_Click(sender, e);
 
+        }
+        public void English_Click(object sender, RoutedEventArgs e)
+        {
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+        }
+
+        public void Serbian_Click(object sender, RoutedEventArgs e)
+        {
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("sr-RS");
+        }
         private void Department_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (department.IsValid) { updateButton.IsEnabled = true; }

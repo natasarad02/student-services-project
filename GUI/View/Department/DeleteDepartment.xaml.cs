@@ -1,5 +1,6 @@
 ﻿using CLI.Controller;
 using GUI.DTO;
+using GUI.Localization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace GUI.View
 {
@@ -29,7 +31,23 @@ namespace GUI.View
             mainWindow.IsEnabled = false;
             Closing += Window_Closing;
         }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.R))
+                Serbian_Click(sender, e);
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.E))
+                English_Click(sender, e);
 
+        }
+        public void English_Click(object sender, RoutedEventArgs e)
+        {
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+        }
+
+        public void Serbian_Click(object sender, RoutedEventArgs e)
+        {
+            TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("sr-RS");
+        }
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

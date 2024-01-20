@@ -228,7 +228,7 @@
   <data name="DepartmentDetails" xml:space="preserve">
     <value>Detalji o katedri</value>
   </data>
-  <data name="DepartmentId" xml:space="preserve">
+  <data name="DepartmentID" xml:space="preserve">
     <value>Sifra katdere</value>
   </data>
   <data name="Departments" xml:space="preserve">
