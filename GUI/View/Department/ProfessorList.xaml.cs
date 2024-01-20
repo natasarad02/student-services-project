@@ -44,6 +44,7 @@ namespace GUI.View
             Left = parentWindow.Left + (parentWindow.Width - Width) / 2;
             Top = parentWindow.Top + (parentWindow.Height - Height) / 2;
             parentWindow.IsEnabled = false;
+            Closing += Window_Closing;
 
 
         }
@@ -87,5 +88,12 @@ namespace GUI.View
         {
             parentWindow.IsEnabled = true;
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            parentWindow.IsEnabled = true;
+            Close();
+        }
+
     }
 }
