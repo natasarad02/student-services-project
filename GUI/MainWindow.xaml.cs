@@ -139,7 +139,7 @@ namespace GUI
             timer.Start();
 
             Tab.SelectionChanged += TabControl_SelectionChanged;
-           StudentDataGrid.Sorting += Student_Sorting;
+           //StudentDataGrid.Sorting += Student_Sorting;
             studentCount = studentController.GetAllStudents().Count;
             subjectCount = subjectController.GetAllSubjects().Count;
             professorCount = professorController.GetAllProfessors().Count;
@@ -899,7 +899,7 @@ namespace GUI
             int startIndex = (currentPage - 1) * itemsPerPage;
             return sortedStudents.Skip(startIndex).Take(itemsPerPage).ToList();
         }
-        private void Student_Sorting(object sender, DataGridSortingEventArgs e)
+      /*  private void Student_Sorting(object sender, DataGridSortingEventArgs e)
         {
             e.Handled = true; 
             string columnName = e.Column.SortMemberPath;
@@ -945,7 +945,7 @@ namespace GUI
 
 
            
-        }
+        }*/
 
         // Helper method to get property value by name
         private object GetPropertyValue(object obj, string propertyName)

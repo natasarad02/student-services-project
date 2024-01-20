@@ -179,6 +179,7 @@ namespace GUI.DTO
         }
         private Regex PhoneRegex = new Regex(@"06[0-9]\/[0-9]{6,6}[0-9]?");
         private Regex EmailRegex = new Regex(@"[a-zA-Z0-9._%+-]+@uns.ac.rs");
+        public string Average_Grade_String => Average_Grade.ToString();
         public string this[string columnName]
         {
             get
