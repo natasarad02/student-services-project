@@ -25,8 +25,8 @@ public class Student : ISerializable
     public int Current_Year { get; set; }
     public Status Status { get; set; }
    public float Average_Grade {
-        get { return 9; }// return Average_Grade; }
-        set { }//Average_Grade = calculate_average_grade(); } //implementirati posle racunanje ovde!!!, napravljena je metoda calculate_average_grade
+        get; // return Average_Grade; }
+        set;//Average_Grade = calculate_average_grade(); } //implementirati posle racunanje ovde!!!, napravljena je metoda calculate_average_grade
     }
     public List<ExamGrade> Passed_Exams { get; set; }
     public List<ExamGrade> Failed_Exams { get; set; }
