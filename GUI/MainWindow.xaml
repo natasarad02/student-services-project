@@ -199,8 +199,8 @@
                                   SelectionMode="Single" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding Name}" Width="*"/>
-                                <DataGridTextColumn Header="{ns:Loc DepartmentId}" Binding="{Binding Idd}" Width="*"/>
-                                <DataGridTextColumn Header="{ns:Loc Hod}" Binding="{Binding Hod}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc DepartmentID}" Binding="{Binding Idd}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc HeadOfDepartment}" Binding="{Binding Hod}" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
