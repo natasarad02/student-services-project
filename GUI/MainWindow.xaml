@@ -5,52 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        
+        xmlns:ns="clr-namespace:GUI.Localization"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"  KeyDown="Window_KeyDown">
+        Title="{ns:Loc AppName}" Height="450" Width="800"  KeyDown="Window_KeyDown">
     
 
     <DockPanel Margin="0">
 
         <!-- Menu bar -->
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="New       Ctrl + N" Click="Add_Click">
+            <MenuItem Header="{ns:Loc File}">
+                <MenuItem Header="{ns:Loc New}" Click="Add_Click">
                     <MenuItem.Icon>
                         <Image Source="/Icons/Add.png" Width="18" Height="18"/>
                     </MenuItem.Icon>
                     
                 </MenuItem>
-            <MenuItem Header="Save" Click="Click_Save" >
+                <MenuItem Header="{ns:Loc Save}" Click="Click_Save" >
                     <MenuItem.Icon>
                         <Image Source="/Icons/Save.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
 
                 </MenuItem>
-                <MenuItem Header="Open" >
+                <MenuItem Header="{ns:Loc Open}" >
                     <MenuItem.Icon>
                         <Image Source="/Icons/Open.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
 
-                    <MenuItem Header="Students" Click="Open_Student_Click"></MenuItem>
-                    <MenuItem Header="Subjects" Click="Open_Subject_Click"></MenuItem>
-                    <MenuItem Header="Professors" Click="Open_Professor_Click"></MenuItem>
-                    <MenuItem Header="Departments" Click="Open_Department_Click"></MenuItem>
+                    <MenuItem Header="{ns:Loc Students}" Click="Open_Student_Click"></MenuItem>
+                    <MenuItem Header="{ns:Loc Subjects}" Click="Open_Subject_Click"></MenuItem>
+                    <MenuItem Header="{ns:Loc Professors}" Click="Open_Professor_Click"></MenuItem>
+                    <MenuItem Header="{ns:Loc Departments}" Click="Open_Department_Click"></MenuItem>
                 </MenuItem>
-                <MenuItem Header="Close" Click="CloseButton_Click" >
+                <MenuItem Header="{ns:Loc Close}" Click="CloseButton_Click" >
                     <MenuItem.Icon>
                         <Image Source="/Icons/Close.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
 
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Edit">
-                <MenuItem Header="Update        Ctrl + E" Click="Update_Click">
+            <MenuItem Header="{ns:Loc Edit}">
+                <MenuItem Header="{ns:Loc UpdateMenu}" Click="Update_Click">
                     <MenuItem.Icon>
                         <Image Source="/Icons/Edit.png" Width="18" Height="18"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Delete        Ctrl + D" Click="Delete_Click">
+                <MenuItem Header="{ns:Loc DeleteMenu}" Click="Delete_Click">
                     <MenuItem.Icon>
                         <Image Source="/Icons/Delete.png" Width="18" Height="18"/>
                     </MenuItem.Icon>
@@ -59,20 +59,20 @@
             </MenuItem>
 
             <MenuItem Header="Language">
-                <MenuItem Header="English       Ctrl+E" Click="English_Click">
+                <MenuItem Header="{ns:Loc English}" Click="English_Click">
                     <MenuItem.Icon>
                         <Image Source="/Icons/english.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Serbian       Ctrl+R" Click="Serbian_Click">
+                <MenuItem Header="{ns:Loc Serbian}" Click="Serbian_Click">
                     <MenuItem.Icon>
                         <Image Source="/Icons/serbian.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
 
-            <MenuItem Header="Help">
-                <MenuItem Header="About" Click="Help_Click">
+            <MenuItem Header="{ns:Loc Help}">
+                <MenuItem Header="{ns:Loc About}" Click="Help_Click">
                     <MenuItem.Icon>
                         <Image Source="/Icons/About.png" Width="16" Height="16"/>
                     </MenuItem.Icon>
@@ -89,7 +89,7 @@
                         <Image Source="/Icons/Add.png" Width="32" Height="32"/>
                     </StackPanel>
                     <Button.ToolTip>
-                        <ToolTip Content="Add"/>
+                        <ToolTip Content="{ns:Loc Add}"/>
                     </Button.ToolTip>
                 </Button>
                 <Button Click="Update_Click">
@@ -97,7 +97,7 @@
                         <Image Source="/Icons/Edit.png" Width="32" Height="32"/>
                     </StackPanel>
                     <Button.ToolTip>
-                        <ToolTip Content="Edit"/>
+                        <ToolTip Content="{ns:Loc Edit}"/>
                     </Button.ToolTip>
                 </Button>
                 <Button Click="Delete_Click">
@@ -105,18 +105,18 @@
                         <Image Source="/Icons/Delete.png" Width="32" Height="32"/>
                     </StackPanel>
                     <Button.ToolTip>
-                        <ToolTip Content="Delete Item"/>
+                        <ToolTip Content="{ns:Loc Delete}"/>
                     </Button.ToolTip>
                 </Button>
                 <FrameworkElement Width="450"/>
                 <TextBox x:Name="txtSearchBox" HorizontalAlignment="Right" Width="140"/>
-                <Button HorizontalAlignment="Right" Content="Search" Click="SearchButton_Click"/>
+                <Button HorizontalAlignment="Right" Content="{ns:Loc Search}" Click="SearchButton_Click"/>
             </ToolBar>
         </DockPanel>
 
         <!-- Status bar -->
         <DockPanel DockPanel.Dock="Bottom">
-            <MenuItem Header="Student services"></MenuItem>
+            <MenuItem Header="{ns:Loc AppName}"></MenuItem>
             <TextBlock x:Name="currentTabTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
             <TextBlock x:Name="dateTimeTextBlock" VerticalAlignment="Center" HorizontalAlignment="Right" Width="250"/>
         </DockPanel>
@@ -125,7 +125,7 @@
             
 
             <TabControl Name="Tab" SelectionChanged="TabControl_SelectionChanged">
-                <TabItem Header="Students">
+                <TabItem Header="{ns:Loc Students}">
                     <StackPanel>
                         <DataGrid 
                       Background="#FFE5E5E5"
@@ -135,22 +135,22 @@
                       SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
                       SelectionMode="Single" IsReadOnly="True" SelectionChanged="StudentDataGrid_SelectionChanged"> <!--Sorting="Student_Sorting">-->
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Index number" Binding="{Binding Index_Number_String}" Width="*"/>
-                            <DataGridTextColumn Header="First Name" Binding="{Binding First_Name}" Width="*"/>
-                            <DataGridTextColumn Header="Last Name" Binding="{Binding Last_Name}" Width="*"/>
-                            <DataGridTextColumn Header="Year of studies" Binding="{Binding Current_Year}" Width="*"/>
-                            <DataGridTextColumn Header="Financial aid" Binding="{Binding Status}" Width="*"/>
-                                <DataGridTextColumn Header="Average grade" Binding="{Binding Average_Grade, StringFormat=N2, ConverterCulture='en-US'}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Index}" Binding="{Binding Index_Number_String}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc FirstName}" Binding="{Binding First_Name}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Last_Name}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc YearOfStudies}" Binding="{Binding Current_Year}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc FinancialAid}" Binding="{Binding Status}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc AverageGrade}" Binding="{Binding Average_Grade, StringFormat=N2, ConverterCulture='en-US'}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Previous" Click="PreviousPageStudent_Click" Margin="5"/>
-                            <Button Content="Next" Click="NextPageStudent_Click" Margin="5"/>
+                            <Button Content="{ns:Loc Previous}" Click="PreviousPageStudent_Click" Margin="5"/>
+                            <Button Content="{ns:Loc Next}" Click="NextPageStudent_Click" Margin="5"/>
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
 
-                <TabItem Header="Subjects">
+                <TabItem Header="{ns:Loc Subjects}">
                     <StackPanel>
                     <DataGrid Background="#FFE5E5E5"
                                
@@ -161,21 +161,21 @@
                                 SelectionMode="Extended" IsReadOnly="True"
                                 SelectionChanged="SubjectsDataGrid_SelectionChanged">
                         <DataGrid.Columns>
-                                <DataGridTextColumn Header="Subject id" Binding="{Binding Ids}" Width="*"/>
-                                <DataGridTextColumn Header="Name " Binding="{Binding Name}" Width="*"/>
-                                <DataGridTextColumn Header="Ects " Binding="{Binding Espb}" Width="*"/>
-                                <DataGridTextColumn Header="Year " Binding="{Binding Year}" Width="*"/>
-                                <DataGridTextColumn Header="Semester" Binding="{Binding semester}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc SubjectId}" Binding="{Binding Ids}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Ects}" Binding="{Binding Espb}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Year}" Binding="{Binding Year}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Semester}" Binding="{Binding semester}" Width="*"/>
                          </DataGrid.Columns>
                     </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Previous" Click="PreviousPageSubject_Click" Margin="5"/>
-                            <Button Content="Next" Click="NextPageSubject_Click" Margin="5"/>
+                            <Button Content="{ns:Loc Previous}" Click="PreviousPageSubject_Click" Margin="5"/>
+                            <Button Content="{ns:Loc Next}" Click="NextPageSubject_Click" Margin="5"/>
                         </StackPanel>
                     </StackPanel>
                 
                 </TabItem>
-                <TabItem Header="Professors">
+                <TabItem Header="{ns:Loc Professors}">
                     <StackPanel>
                     <DataGrid Background="#FFE5E5E5"
                                
@@ -185,19 +185,19 @@
                                 SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
                                 SelectionMode="Single" IsReadOnly="True">
                         <DataGrid.Columns>
-                                <DataGridTextColumn Header="FIrst name" Binding="{Binding Name}" Width="*"/>
-                                <DataGridTextColumn Header="Last name" Binding="{Binding Surname}" Width="*"/>
-                                <DataGridTextColumn Header="Calling " Binding="{Binding Calling}" Width="*"/>
-                                <DataGridTextColumn Header="Email" Binding="{Binding Email_Address}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc FirstName}" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Surname}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Calling}" Binding="{Binding Calling}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Email}" Binding="{Binding Email_Address}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Previous" Click="PreviousPageProfessor_Click" Margin="5"/>
-                            <Button Content="Next" Click="NextPageProfessor_Click" Margin="5"/>
+                            <Button Content="{ns:Loc Previous}" Click="PreviousPageProfessor_Click" Margin="5"/>
+                            <Button Content="{ns:Loc Next}" Click="NextPageProfessor_Click" Margin="5"/>
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Departments">
+                <TabItem Header="{ns:Loc Departments}">
                     <StackPanel>
                         <DataGrid 
                               Background="#FFE5E5E5"
@@ -207,15 +207,15 @@
                               SelectedItem="{Binding SelectedDepartment, UpdateSourceTrigger=PropertyChanged}"
                               SelectionMode="Single" IsReadOnly="True">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
-                                <DataGridTextColumn Header="Department Name" Binding="{Binding Name}" Width="*"/>
-                                <DataGridTextColumn Header="Department ID" Binding="{Binding Idd}" Width="*"/>
-                                <DataGridTextColumn Header="Head of Department" Binding="{Binding Hod}" Width="*"/>
+
+                                <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc DepartmentId}" Binding="{Binding Idd}" Width="*"/>
+                                <DataGridTextColumn Header="{ns:Loc Hod}" Binding="{Binding Hod}" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Previous" Click="PreviousPageDepartment_Click" Margin="5"/>
-                            <Button Content="Next" Click="NextPageDepartment_Click" Margin="5"/>
+                            <Button Content="{ns:Loc Previous}" Click="PreviousPageDepartment_Click" Margin="5"/>
+                            <Button Content="{ns:Loc Next}" Click="NextPageDepartment_Click" Margin="5"/>
                         </StackPanel>
                     </StackPanel>
                 </TabItem>

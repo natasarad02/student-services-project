@@ -912,7 +912,38 @@ namespace GUI.Properties {
             }
         }
 
-       
+        public static string AppName
+        {
+            get
+            {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+
+        public static string UpdateMenu
+        {
+            get
+            {
+                return ResourceManager.GetString("UpdateMenu", resourceCulture);
+            }
+        }
+
+        public static string DeleteMenu
+        {
+            get
+            {
+                return ResourceManager.GetString("DeleteMenu", resourceCulture);
+            }
+        }
+
+        public static string Open
+        {
+            get
+            {
+                return ResourceManager.GetString("Open", resourceCulture);
+            }
+        }
+
 
 
 

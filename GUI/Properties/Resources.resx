@@ -144,6 +144,9 @@
   <data name="And" xml:space="preserve">
     <value>i</value>
   </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Studentska sluzba</value>
+  </data>
   <data name="AverageGrade" xml:space="preserve">
     <value>Prosecna ocena</value>
   </data>
@@ -192,6 +195,9 @@
   <data name="DeleteGrade" xml:space="preserve">
     <value>Obrisi ocenu</value>
   </data>
+  <data name="DeleteMenu" xml:space="preserve">
+    <value>Obrisi        Ctrl + D</value>
+  </data>
   <data name="DeleteSubject" xml:space="preserve">
     <value>Obrisi predmet</value>
   </data>
@@ -232,7 +238,7 @@
     <value>E-Mail</value>
   </data>
   <data name="English" xml:space="preserve">
-    <value>Engleski</value>
+    <value>Engleski      Ctrl + E</value>
   </data>
   <data name="enrolled" xml:space="preserve">
     <value>Postoje studenti koji slusaju ovaj predmet, kao i ocene na predmetu.</value>
@@ -289,7 +295,7 @@
     <value>Ime</value>
   </data>
   <data name="New" xml:space="preserve">
-    <value>Novi</value>
+    <value>Novi       Ctrl + N</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Sledece</value>
@@ -299,6 +305,9 @@
   </data>
   <data name="Ok" xml:space="preserve">
     <value>Okej</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Otvori</value>
   </data>
   <data name="Pass" xml:space="preserve">
     <value>Polaganje</value>
@@ -334,7 +343,7 @@
     <value>Prikaz studenta koji slusaju</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Sacuvaj</value>
+    <value>Sacuvaj     Ctrl + S</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Pretraga</value>
@@ -352,7 +361,7 @@
     <value>Semestar</value>
   </data>
   <data name="Serbian" xml:space="preserve">
-    <value>Srpski</value>
+    <value>Srpski      Ctrl + R</value>
   </data>
   <data name="ShowProfessors" xml:space="preserve">
     <value>Prikazi profesore</value>
@@ -404,6 +413,9 @@
   </data>
   <data name="UpdateDepartment" xml:space="preserve">
     <value>Izmeni katedru</value>
+  </data>
+  <data name="UpdateMenu" xml:space="preserve">
+    <value>Izmeni        Ctrl + E</value>
   </data>
   <data name="UpdateProfessor" xml:space="preserve">
     <value>Izmeni profesora</value>
