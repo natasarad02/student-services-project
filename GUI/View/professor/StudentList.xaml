@@ -24,10 +24,10 @@
 			   SelectedItem="{Binding SelectedProfessor, UpdateSourceTrigger=PropertyChanged}"
 			   SelectionMode="Single" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding First_Name}" Width="*"/>
-                    <DataGridTextColumn Header="Surname" Binding="{Binding Last_Name}" Width="*"/>
-                    <DataGridTextColumn Header="Year of studies" Binding="{Binding Current_Year}" Width="*"/>
-                    <DataGridTextColumn Header="E-Mail" Binding="{Binding Email}" Width="*"/>
+                    <DataGridTextColumn Header="{ns:Loc FirstName}" Binding="{Binding First_Name}" Width="*"/>
+                    <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Last_Name}" Width="*"/>
+                    <DataGridTextColumn Header="{ns:Loc YearOfStudies}" Binding="{Binding Current_Year}" Width="*"/>
+                    <DataGridTextColumn Header="{ns:Loc Email}" Binding="{Binding Email}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 

@@ -7,12 +7,12 @@
         <Border BorderBrush="DarkGray" BorderThickness="1" Background="LightGray" CornerRadius="5">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15">
                 <TextBlock Text="{ns:Loc Confirmation}" FontWeight="Bold" FontSize="16" Margin="0 0 0 10" HorizontalAlignment="Center"/>
-                <TextBlock Text="Are you sure you want to delete this student?" Margin="0 0 0 10" TextWrapping="Wrap" HorizontalAlignment="Center"/> <!-- fali za ovo -->
+                <TextBlock Text="{ns:Loc delStudent}" Margin="0 0 0 10" TextWrapping="Wrap" HorizontalAlignment="Center"/> <!-- fali za ovo -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Content="{ns:Loc Yes}" Width="80" Margin="5" Padding="8 4" Background="#4CAF50" Foreground="White" BorderBrush="#4CAF50" BorderThickness="1" Click="Yes_Click"/>
                     <Button Content="{ns:Loc No}" Width="80" Margin="5" Padding="8 4" Background="#F44336" Foreground="White" BorderBrush="#F44336" BorderThickness="1" Click="No_Click"/>
                 </StackPanel>
-                <TextBlock Text="By deleting this student, you will also delete their grades and subjects." Margin="0 10 0 0" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="Red" FontSize="10"/>
+                <TextBlock Text="{ns:Loc delStudWarning}" Margin="0 10 0 0" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="Red" FontSize="10"/>
             </StackPanel>
         </Border>
     </Grid>
