@@ -8,42 +8,47 @@
         Title="{ns:Loc UpdateSubject}" Height="380" Width="430" KeyDown="Window_KeyDown">
 
     <Grid Margin="20">
-        
+
         <TabControl>
             <!-- First Tab - Student Details -->
             <TabItem Header= "{ns:Loc SubjectDetails}">
                 <Grid>
-                    
-					<StackPanel Grid.Row="0" Margin="0,0,0,10">
-						<StackPanel.Resources>
-							<Style TargetType="Label">
-								<Setter Property="Margin" Value="0,5" />
-								<Setter Property="Width" Value="100" />
-								<Setter Property="HorizontalAlignment" Value="Right" />
-							</Style>
-							<Style TargetType="TextBox">
-								<Setter Property="Margin" Value="5,0" />
-								<Setter Property="MinWidth" Value="200" />
-							</Style>
-						</StackPanel.Resources>
+
+                    <StackPanel Grid.Row="0" Margin="0,0,0,10">
+                        <StackPanel.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="Margin" Value="0,5" />
+                                <Setter Property="Width" Value="100" />
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Margin" Value="5,0" />
+                                <Setter Property="MinWidth" Value="200" />
+                            </Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#E67E22" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="Margin" Value="5" />
+                            </Style>
+                        </StackPanel.Resources>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Content="{ns:Loc SubjectId}"></Label>
-                            <TextBox x:Name="txtSubjectID" Text="{Binding Path=Subject.Ids, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <Label Content="{ns:Loc SubjectId}" />
+                            <TextBox x:Name="txtSubjectID" Text="{Binding Path=Subject.Ids, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Content="{ns:Loc Name}"></Label>
-                            <TextBox x:Name="txtName" Text="{Binding Path=Subject.Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <Label Content="{ns:Loc Name}" />
+                            <TextBox x:Name="txtName" Text="{Binding Path=Subject.Name, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Content="{ns:Loc Ects}"></Label>
-                            <TextBox x:Name="txtESPB" Text="{Binding Path=Subject.Espb, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <Label Content="{ns:Loc Ects}" />
+                            <TextBox x:Name="txtESPB" Text="{Binding Path=Subject.Espb, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
-                            <Label Content="{ns:Loc Semester}"></Label>
+                            <Label Content="{ns:Loc Semester}" />
                             <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.semester, Mode=TwoWay}">
                                 <ComboBoxItem Content="{ns:Loc Winter}" Tag="winter"></ComboBoxItem>
                                 <ComboBoxItem Content="{ns:Loc Summer}" Tag="summer"></ComboBoxItem>
@@ -51,7 +56,7 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
-                            <Label Content="{ns:Loc Year}"></Label>
+                            <Label Content="{ns:Loc Year}" />
                             <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding Subject.Year, Mode=TwoWay}">
                                 <ComboBoxItem Content="{ns:Loc FirstYear}" Tag="1"></ComboBoxItem>
                                 <ComboBoxItem Content="{ns:Loc SecondYear}" Tag="2"></ComboBoxItem>
@@ -61,32 +66,39 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Content="{ns:Loc ProfessorName}"></Label>
-                            <TextBox x:Name="txtProfessorName" Text="{Binding Path=Subject.ProfessorName, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></TextBox>
+                            <Label Content="{ns:Loc ProfessorName}" />
+                            <TextBox x:Name="txtProfessorName" Text="{Binding Path=Subject.ProfessorName, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
                             <Button x:Name="addProfessorButton"  Content="+" Height="33" Width="26" Click="Add_Professor"/>
                             <Button x:Name="deleteProfessorButton" Content="-" Height="33" Width="26" Click="Delete_Professor"/>
-
                         </StackPanel>
-
-                        
-					</StackPanel>
-
-			
+                    </StackPanel>
                 </Grid>
             </TabItem>
 
-
             <!-- Second Tab - List of Subjects -->
-
 
         </TabControl>
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="100" Margin="5" Content="{ns:Loc Update}" Click="Update_Click"/>
-            <!-- Click="Update_Click" /> -->
-            <Button Width="100" Margin="5" Content="{ns:Loc Cancel}" Click="Cancel_Click"/>
-            <!-- Click="Cancel_Click" />-->
+            <Button Width="100" Content="{ns:Loc Update}" Click="Update_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#E67E22"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="100" Content="{ns:Loc Cancel}" Click="Cancel_Click" Margin="10,0,0,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#E67E22"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Style>
+                </Button.Style>
+            </Button>
         </StackPanel>
+
+
     </Grid>
 </Window>

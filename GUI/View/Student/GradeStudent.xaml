@@ -60,9 +60,23 @@
         </StackPanel>
 
         <!-- Buttons -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0" Width="219">
-            <Button Width="100" Margin="5" Content="Add" Click="Add_Click" />
-            <Button Width="100" Margin="5" Content="Cancel" Click="Cancel_Click" />
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Width="100" Content="{ns:Loc Add}" Click="Update_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#E67E22"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="100" Content="{ns:Loc Cancel}" Click="Cancel_Click" Margin="10,0,0,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#E67E22"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Style>
+                </Button.Style>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

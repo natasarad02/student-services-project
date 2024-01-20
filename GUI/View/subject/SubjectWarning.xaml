@@ -4,13 +4,13 @@
          xmlns:ns="clr-namespace:GUI.Localization"
         Title="{ns:Loc SubjectDeletionWarning}" Height="215" Width="300"  KeyDown="Window_KeyDown">
     <Grid>
-        <Border BorderBrush="DarkGray" BorderThickness="1" Background="LightGray" CornerRadius="5">
+        <Border BorderBrush="DarkGray" BorderThickness="1" Background="white" CornerRadius="5">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15">
                 <TextBlock Text="{ns:Loc Warning}" FontWeight="Bold" FontSize="16" Margin="0 0 0 10" HorizontalAlignment="Center"/>
                 <TextBlock Text="{ns:Loc cannotBe}" Margin="0 0 10 10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                 <TextBlock Text="{ns:Loc enrolled}" Margin="0 0 10 10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                 <TextBlock Text="{ns:Loc reasign}" Margin="0 0 0 10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-                <Button Content="{ns:Loc Ok}" Width="80" Margin="5" Padding="8 4" Background="#2196F3" Foreground="White" BorderBrush="#2196F3" BorderThickness="1" Click="OK_Click"/> <!-- /> -->
+                <Button Content="{ns:Loc Ok}" Width="80" Margin="5" Padding="8 4" Background="#E67E22" Foreground="White" BorderBrush="#E67E22" BorderThickness="1" Click="OK_Click"/> <!-- /> -->
             </StackPanel>
         </Border>
     </Grid>
