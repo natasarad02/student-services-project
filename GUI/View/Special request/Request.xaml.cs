@@ -103,7 +103,7 @@ namespace GUI.View
 
             temp3 = GetCommonStudents(temp, temp2);
 
-            foreach(Student studentDTO in temp)
+            foreach(Student studentDTO in temp3)
             {
                 Students_Attending_Both.Add(new StudentDTO(studentDTO));
             }
