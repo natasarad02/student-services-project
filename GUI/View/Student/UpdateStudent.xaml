@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ns="clr-namespace:LocalizationExample.Localization"
+        
         xmlns:local="clr-namespace:GUI.View"
         mc:Ignorable="d"
 
-        Title="{ns:Loc Update Student}" Height="650" Width="400">
+        Title="Update Student" Height="650" Width="400">
     <Window.Resources>
         <ControlTemplate x:Key="ValidationTemplate">
             <StackPanel>
