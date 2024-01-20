@@ -161,7 +161,7 @@
             SelectedItem="{Binding SelectedSubject, UpdateSourceTrigger=PropertyChanged}"
             SelectionMode="Single" IsReadOnly="True" SelectionChanged="SubjectsDataGrid_SelectionChanged">
                             <DataGrid.Columns>
-                               
+
                                 <!-- Id -->
                                 <DataGridTextColumn Header="{ns:Loc SubjectId}" Binding="{Binding Ids}" Width="*"/>
                                 <!-- Subject ID -->
@@ -211,7 +211,15 @@
                             </DataGrid>
 
                         </StackPanel>
-                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Width="50" >Espb</Label>
+                                <TextBox Width="50"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Width="50" >Espb</Label>
+                                <TextBox Width="50"></TextBox>
+                            </StackPanel>
                             <Button Width="100" Margin="5" Content="{ns:Loc DeleteGrade}" Click="Delete_Grade_Click"/>
                         </StackPanel>
                     </StackPanel>
@@ -223,7 +231,7 @@
         </TabControl>
 
         <!-- Buttons -->
-        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,564,0,0">
 
             <Button x:Name="updateButton" Width="100" Margin="5" Content="{ns:Loc Update}" Click="Update_Click" />
             <!-- Click="Update_Click" /> -->
