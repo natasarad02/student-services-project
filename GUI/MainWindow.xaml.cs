@@ -679,10 +679,7 @@ namespace GUI
                         MessageBox.Show("Please choose a student to update!");
                     else {
                         UpdateStudent updateStudent = new UpdateStudent(SelectedStudent, studentController, studentsSubjectsController, subjectController, professorController, examGradesController, this);
-                        //updateStudent.Student = SelectedStudent;
-                        // updateStudent.previousList = studentsSubjectsController.GetAllSubjectsById(SelectedStudent.Id);
-                        // attendingSubjects = new ObservableCollection<SubjectDTO>();
-                        // updateStudent.attendingSubjects = attendingSubjects;
+                       
                         currentPageStudent = 0;
                         updateStudent.Show();
                        // updateStudent.Update();
@@ -695,7 +692,7 @@ namespace GUI
                     else
                     {
                         UpdateSubject updateSubject = new UpdateSubject(SelectedSubject, subjectController, professorController, this);
-                        //updateSubject.Subject = SelectedSubject;
+                       
                         currentPageSubject = 0;
                         updateSubject.Show();
                      }
@@ -874,11 +871,7 @@ namespace GUI
                        
                         UpdateWithPagingStudent(currentPageStudent, itemsPerPage, searchStudents);
                     }
-                    
-                    // if(Students.Count <)
-                    //UpdateWithPaging(currentPageStudent, itemsPerPage);
-                    // Update();
-                    //UpdateStudentsDataGrid();
+                   
                 }
 
 
@@ -916,7 +909,7 @@ namespace GUI
                 {
                     currentPageProfessor++;
                     UpdateWithPagingProfessor(currentPageProfessor, itemsPerPage, searchProfessors);
-                   // MessageBox.Show("Entered");
+                   
                 }
                 else
                 {
@@ -961,11 +954,7 @@ namespace GUI
             else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.E))
                 Update_Click(sender, e);
         }
-        private List<Student> PagingSort(List<Student> sortedStudents, int currentPage, int itemsPerPage)
-        {
-            int startIndex = (currentPage - 1) * itemsPerPage;
-            return sortedStudents.Skip(startIndex).Take(itemsPerPage).ToList();
-        }
+       
      
 
 

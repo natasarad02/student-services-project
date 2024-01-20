@@ -60,7 +60,7 @@
                                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}" 
                                      PreviewTextInput="txtStreet_PreviewTextInput"
                                      TextChanged="txtStreet_TextChanged"></TextBox>
-                    <TextBlock x:Name="txtStreetError" Text="Reqired field"  Foreground="Red" FontSize="10" Margin="0 0 0 10"/>
+                  <!--  <TextBlock x:Name="txtStreetError" Text="Reqired field"  Foreground="Red" FontSize="10" Margin="0 0 0 10"/>-->
                 </StackPanel>
                 
                 
