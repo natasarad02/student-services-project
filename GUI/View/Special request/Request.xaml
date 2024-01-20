@@ -1,13 +1,14 @@
 <Window x:Class="GUI.View.Request"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Comparing 2 subjects" Height="500" Width="700">
+        xmlns:ns="clr-namespace:GUI.Localization"
+        Title="{ns:Loc ComparingTwo}" Height="500" Width="700">
 
 	<Grid Background="#85C1E9">
 		<TabControl>
 			<!-- Tab 1: Taking both -->
-			<TabItem Header="Taking both">
-				<Grid Background="#d6ecf3">
+            <TabItem Header="{ns:Loc TakingBoth}">
+                <Grid Background="#d6ecf3">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="Auto"/>
 						<RowDefinition Height="*"/>
@@ -16,9 +17,9 @@
 
 					<StackPanel Margin="15">
 						<StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-							<TextBlock Text="Showing students that listen to " FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
-							<TextBox x:Name="txt1" Text="Textbox1" IsReadOnly="True" Width="120" Margin="0,0,10,0" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
-							<TextBlock Text=" and " FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
+                            <TextBlock Text="{ns:Loc requestLabel}" FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
+                            <TextBox x:Name="txt1" Text="Textbox1" IsReadOnly="True" Width="120" Margin="0,0,10,0" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
+                            <TextBlock Text="{ns:Loc And}" FontWeight="Bold" Margin="0,0,0,5" Foreground="#000435"/>
 							<TextBox x:Name="txt2" Text="Textbox2" IsReadOnly="True" Width="120" BorderBrush="#1F2C35" BorderThickness="2" Background="#2980B9" Foreground="#ECF0F1"/>
 						</StackPanel>
 					</StackPanel>
@@ -34,15 +35,15 @@
 						  HorizontalGridLinesBrush="#3498DB" VerticalGridLinesBrush="#3498DB"
 						  AlternatingRowBackground="#2980B9" RowBackground="#2980B9" Foreground="#ECF0F1" Margin="15,0,15,49">
 
-						<DataGrid.Columns>
-							<DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
-							<DataGridTextColumn Header="Name" Binding="{Binding First_Name}" Width="*"/>
-							<DataGridTextColumn Header="Surname" Binding="{Binding Last_Name}" Width="*"/>
-							<DataGridTextColumn Header="Year of Studies" Binding="{Binding Current_Year}" Width="*"/>
-							<DataGridTextColumn Header="E-Mail" Binding="{Binding Email}" Width="*"/>
-						</DataGrid.Columns>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{ns:Loc Id}" Binding="{Binding Id}" Width="*"/>
+                            <DataGridTextColumn Header="{ns:Loc Name}" Binding="{Binding First_Name}" Width="*"/>
+                            <DataGridTextColumn Header="{ns:Loc LastName}" Binding="{Binding Last_Name}" Width="*"/>
+                            <DataGridTextColumn Header="{ns:Loc YearOfStudies}" Binding="{Binding Current_Year}" Width="*"/>
+                            <DataGridTextColumn Header="{ns:Loc Email}" Binding="{Binding Email}" Width="*"/>
+                        </DataGrid.Columns>
 
-						<DataGrid.CellStyle>
+                        <DataGrid.CellStyle>
 							<Style TargetType="DataGridCell">
 								<Setter Property="BorderThickness" Value="1"/>
 								<Setter Property="BorderBrush" Value="#1F2C35"/>
@@ -79,8 +80,8 @@
 			</TabItem>
 
 			<!-- Tab 2: Passed one -->
-			<TabItem Header="Passed one">
-				<Grid Background="#d6ecf3">
+            <TabItem Header="{ns:Loc PassedOne}">
+                <Grid Background="#d6ecf3">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="Auto"/>
 						<RowDefinition Height="*"/>
