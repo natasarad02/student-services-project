@@ -1,5 +1,6 @@
 ﻿using CLI.Controller;
 using GUI.DTO;
+using StudentskaSluzba.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,8 @@ namespace GUI.View
         private StudentsController studentController;
         public event PropertyChangedEventHandler? PropertyChanged;
         public MainWindow mainWindow { get; set; }
-        public DeleteStudent(StudentsController studentController, MainWindow mainWindow)
+        private ExamGradesController examGradesController;
+        public DeleteStudent(StudentsController studentController, MainWindow mainWindow, ExamGradesController examGradesController)
         {
             InitializeComponent();
             DataContext = this;
@@ -27,10 +29,16 @@ namespace GUI.View
             Left = mainWindow.Left + (mainWindow.Width - Width) / 2;
             Top = mainWindow.Top + (mainWindow.Height - Height) / 2;
             mainWindow.IsEnabled = false;
+            this.examGradesController = examGradesController;
         }
 
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
+            foreach(ExamGrade grade in studentController.GetExamGradesByStudent(Student.Id, examGradesController))
+            {
+                examGradesController.Delete(grade.ID);
+                
+            }
             studentController.Delete(Student.toStudent().ID);
             mainWindow.IsEnabled = true;
             Close();

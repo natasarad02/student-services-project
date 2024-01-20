@@ -13,6 +13,8 @@ using GUI.View.Help;
 using System.Windows.Data;
 using System.Collections.Generic;
 using System.Windows.Input;
+using System.ComponentModel;
+using StudentskaSluzba.DAO;
 
 namespace GUI
 {
@@ -69,7 +71,7 @@ namespace GUI
         private ObservableCollection<SubjectDTO> selectedSubjects = new ObservableCollection<SubjectDTO>();
 
         public SubjectDTO SelectedSubject2 { get; set; }
-
+        public ListSortDirection newDirection;
         public MainWindow()
         {
             InitializeComponent();
@@ -105,9 +107,11 @@ namespace GUI
             searchSubjects = new List<Subject>();
            // searchDepartments = new List<Department>();
             searchProfessors = new List<Professor>();
-
+            examGradesController = new ExamGradesController();
             //studentCount = studentController.GetAllStudents().Count;
             DataContext = this;
+
+           
 
          
 
@@ -135,10 +139,11 @@ namespace GUI
             timer.Start();
 
             Tab.SelectionChanged += TabControl_SelectionChanged;
-
+           StudentDataGrid.Sorting += Student_Sorting;
             studentCount = studentController.GetAllStudents().Count;
             subjectCount = subjectController.GetAllSubjects().Count;
             professorCount = professorController.GetAllProfessors().Count;
+            //newDirection = ListSortDirection.Ascending;
 
         }
 
@@ -575,7 +580,7 @@ namespace GUI
                         MessageBox.Show("Please choose a student to delete");
                     else
                     {
-                        DeleteStudent deleteStudent = new DeleteStudent(studentController, this);
+                        DeleteStudent deleteStudent = new DeleteStudent(studentController, this, examGradesController);
                         deleteStudent.Student = SelectedStudent;
                         currentPageStudent = 0;
                         deleteStudent.Show();
@@ -627,7 +632,7 @@ namespace GUI
                     if (SelectedStudent == null)
                         MessageBox.Show("Please choose a student to update!");
                     else {
-                        UpdateStudent updateStudent = new UpdateStudent(SelectedStudent, studentController, studentsSubjectsController, subjectController, professorController, this);
+                        UpdateStudent updateStudent = new UpdateStudent(SelectedStudent, studentController, studentsSubjectsController, subjectController, professorController, examGradesController, this);
                         //updateStudent.Student = SelectedStudent;
                         // updateStudent.previousList = studentsSubjectsController.GetAllSubjectsById(SelectedStudent.Id);
                         // attendingSubjects = new ObservableCollection<SubjectDTO>();
@@ -876,6 +881,10 @@ namespace GUI
                 Add_Click(sender, e);
             else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.D))
                 Delete_Click(sender, e);
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.S))
+                Click_Save(sender, e);
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.C))
+                CloseButton_Click(sender, e);
             /*  else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.X))
                   MenuItem_Click_Close(sender, e);
               else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.R))
@@ -885,6 +894,65 @@ namespace GUI
             else if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.E))
                 Update_Click(sender, e);
         }
+        private List<Student> PagingSort(List<Student> sortedStudents, int currentPage, int itemsPerPage)
+        {
+            int startIndex = (currentPage - 1) * itemsPerPage;
+            return sortedStudents.Skip(startIndex).Take(itemsPerPage).ToList();
+        }
+        private void Student_Sorting(object sender, DataGridSortingEventArgs e)
+        {
+            e.Handled = true; 
+            string columnName = e.Column.SortMemberPath;
+
+            string sortCriteria = "Id";
+
+            
+            
+                switch (columnName)
+                {
+                    case "Id":
+                        sortCriteria = "Id";
+                       // StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending);
+                        break;
+                    case "First_Name":
+                        sortCriteria = "Name";
+                        break;
+                    case "Last_Name":
+                        sortCriteria = "Last Name";
+                        break;
+                    case "Current_Year":
+                        sortCriteria = "Current year";
+                        break;
+                    case "Status":
+                        sortCriteria = "Status";
+                        break;
+                    case "Average_Grade":
+                        sortCriteria = "Average grade";
+                        break;
+                }
+          
+
+            if (e.Column.SortDirection == ListSortDirection.Ascending)
+            {
+                StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Descending);
+                e.Column.SortDirection = ListSortDirection.Descending;
+            }
+            else
+            {
+                StudentDataGrid.ItemsSource = studentController.GetSortedStudents(currentPageStudent, itemsPerPage, sortCriteria, SortDirection.Ascending);
+                e.Column.SortDirection = ListSortDirection.Ascending;
+            }
+
+
+           
+        }
+
+        // Helper method to get property value by name
+        private object GetPropertyValue(object obj, string propertyName)
+        {
+            return obj.GetType().GetProperty(propertyName)?.GetValue(obj, null);
+        }
+
 
 
     }

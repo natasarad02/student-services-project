@@ -41,7 +41,7 @@ namespace GUI.View
         public HashSet<Professor> ProfessorsHashSet;
 
         public MainWindow mainWindow { get; set; }
-        public UpdateStudent(StudentDTO SelectedStudent, StudentsController studentController, StudentsSubjectsController studentSubjectsController, SubjectsController subjectsController, ProfessorsController professorsController, MainWindow mainWindow)
+        public UpdateStudent(StudentDTO SelectedStudent, StudentsController studentController, StudentsSubjectsController studentSubjectsController, SubjectsController subjectsController, ProfessorsController professorsController, ExamGradesController examGradesController, MainWindow mainWindow)
         {
             InitializeComponent();
             
@@ -52,7 +52,8 @@ namespace GUI.View
             //subjectsController = new SubjectsController();
            
             Grades = new ObservableCollection<ExamGradeDTO>();
-            this.examGradesController = new ExamGradesController();
+           // this.examGradesController = new ExamGradesController();
+           this.examGradesController = examGradesController;
             examGradesController.Subscribe(this);
 
             Professors = new ObservableCollection<ProfessorDTO>();

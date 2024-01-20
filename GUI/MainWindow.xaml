@@ -116,7 +116,7 @@
                       x:Name="StudentDataGrid"
                       ItemsSource="{Binding Students, UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}"
-                      SelectionMode="Single" IsReadOnly="True" SelectionChanged="StudentDataGrid_SelectionChanged">
+                      SelectionMode="Single" IsReadOnly="True" SelectionChanged="StudentDataGrid_SelectionChanged" Sorting="Student_Sorting">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
                             <DataGridTextColumn Header="First Name" Binding="{Binding First_Name}" Width="*"/>

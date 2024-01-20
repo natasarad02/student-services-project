@@ -80,6 +80,25 @@ namespace CLI.Controller
             return studentDAO.average_grade(students_ID);
         }
 
+
+        public List<Student> GetSortedStudents(int page, int pageSize, string sortCriteria, SortDirection sortDirection)
+        {
+            return studentDAO.sortedStudent(page, pageSize, sortCriteria, sortDirection);
+        }
+
+        public List<ExamGrade> GetExamGradesByStudent(int studentID, ExamGradesController examGradesController)
+        {
+            List<ExamGrade> rez = new List<ExamGrade>();
+            foreach(ExamGrade grade in examGradesController.GetAllExamGrades())
+            {
+                if(grade.studentID == studentID)
+                {
+                    rez.Add(grade);
+                }
+            }
+            return rez;
+
+        }
     }
 }
 
