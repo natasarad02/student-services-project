@@ -2,5 +2,5 @@
 
 Članovi tima:
 
-* ...
-* ...
+* Teodora Bečejac
+* Nataša Radmilović 
