@@ -72,4 +72,19 @@ Evo kratkog pregleda funkcionalnosti koje aplikacija **Student Services** pruža
 
 ## Galerija Screenshotova Aplikacije
 
-Ovde možete videti izgled glavnih delova aplikacije.
+Ovde možete videti izgled glavnih delova aplikacije:
+
+### Glavni prozor (Engleski)
+<img src="Screenshots/main_eng.png" alt="Glavni prozor (Engleski)" height="380">
+
+### Glavni prozor (Srpski)
+<img src="Screenshots/main_srb.png" alt="Glavni prozor (Srpski)" height="380">
+
+### Poređenje studenata 2 predmeta
+<img src="Screenshots/comparing.png" alt="Poređenje studenata 2 predmeta" height="380">
+
+### Izmena podataka profesora
+Prateći principe konzistentnosti, slično su urađeni i ostali prozori za izmenu podataka.
+
+<img src="Screenshots/edit.png" alt="Izmena podataka profesora" height="450">
+
